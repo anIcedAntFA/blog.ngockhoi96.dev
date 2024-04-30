@@ -1,5 +1,3 @@
-export const locales = ['en', 'vi'] as const;
-
 export const pathnames = {
   '/': '/',
   '/about': {
@@ -15,6 +13,3 @@ export const pathnames = {
     vi: '/tai-nguyen',
   },
 };
-
-// Use the default: `always`
-export const localePrefix = undefined;
