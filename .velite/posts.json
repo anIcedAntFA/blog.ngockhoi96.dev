@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Hello world",
+    "description": "This is a test post",
+    "slug": "hello-world",
+    "date": "1992-02-25T06:22:00.000Z",
+    "cover": "/images/posts/cover.jpg",
+    "video": "/videos/posts/video.mp4",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 15
+    },
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse\n\nlink to file",
+    "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse</p>\n<p><img src=\"/images/posts/register-cover.jpg\" alt=\"some image\"></p>\n<p><a href=\"/static/plain-cae786.txt\">link to file</a></p>",
+    "permalink": "/blog/hello-world"
+  }
+]

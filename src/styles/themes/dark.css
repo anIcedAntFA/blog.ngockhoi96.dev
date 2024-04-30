@@ -1,0 +1,38 @@
+html[data-theme="dark"] {
+  --clr-snow: #fffafa;
+  --clr-ghost-white: #f8f8ff;
+  --clr-alice-blue: #f0f8ff;
+  --clr-off-white: #fbfbfb;
+  --clr-ivory: #fffff0;
+  --clr-obsidian: #0b1215;
+  --clr-lava-black: #352f36;
+  --clr-oil-black: #0c0c0c;
+  --clr-midnight-blue: #101720;
+  --clr-oil-slick: #031602;
+  --clr-emerald-50: #ecfdf5;
+  --clr-emerald-100: #d1fae5;
+  --clr-emerald-200: #a7f3d0;
+  --clr-emerald-300: #85efac;
+  --clr-emerald-400: #36d399;
+  --clr-emerald-500: #10b77f;
+  --clr-emerald-600: #059669;
+  --clr-emerald-700: #047857;
+  --clr-emerald-800: #065f46;
+  --clr-emerald-900: #064e3b;
+  --clr-emerald-950: #022c22;
+  --clr-primary: var(--clr-emerald-300);
+  --clr-text-0: var(--clr-snow);
+  --clr-text-1: var(--clr-snow);
+  --clr-text-2: var(--clr-obsidian);
+  --clr-text-3: #2d3748;
+  --clr-bg-1: #282a36;
+  --clr-bg-2: #1a202c;
+  --clr-bg-3: #0e0d11;
+  --clr-divider: #0000001a;
+  --clr-bg-btn-contained-hover: var(--clr-emerald-400);
+  --clr-bg-btn-contained-active: var(--clr-emerald-500);
+  --clr-bg-btn-outlined-active: var(--clr-emerald-500);
+  --clr-bg-btn-text-hover: alpha(var(--clr-primary), 10%);
+  --clr-bg-btn-text-active: alpha(var(--clr-primary), 20%);
+  --clr-btn-link-active: var(--clr-emerald-500);
+}

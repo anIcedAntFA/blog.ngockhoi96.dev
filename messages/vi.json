@@ -1,0 +1,49 @@
+{
+  "Layout": {
+    "Header": {
+      "Navigation": {
+        "Home": "Trang chủ",
+        "About": "Về chúng tôi",
+        "Articles": "Bài viết",
+        "Resources": "Tài nguyên"
+      },
+      "Actions": {
+        "Languages": {
+          "English": "Tiếng Anh",
+          "EN": "EN",
+          "Vietnam": "Tiếng Việt",
+          "VI": "VI"
+        },
+        "Light Mode": "Chế độ sáng",
+        "Dark Mode": "Chế độ tối",
+        "Search": "Tìm kiếm",
+        "Subscribe": "Đăng ký",
+        "Login": "Đăng nhập",
+        "Write": "Viết bài",
+        "Write Posts": "Viết bài",
+        "Notifications": "Thông báo",
+        "Account Menu": {
+          "Member": "Thành viên",
+          "List": {
+            "Profile": "Hồ sơ",
+            "Library": "Thư viện",
+            "Stats": "Thống kê",
+            "Settings": "Cài đặt",
+            "Helps": "Trợ giúp",
+            "Sign Out": "Đăng xuất"
+          }
+        }
+      }
+    }
+  },
+  "Home": {
+    "Title": "Trang chủ",
+    "Subtitle": "Welcome to the home page",
+    "Description": "This is the home page of the website. You can find all the information you need here."
+  },
+  "About": {
+    "Title": "Về chúng tôi",
+    "Subtitle": "Welcome to the about page",
+    "Description": "This is the about page of the website. You can find all the information you need here."
+  }
+}

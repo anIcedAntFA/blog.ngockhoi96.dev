@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "aaron-bond.better-comments",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "stylelint.vscode-stylelint",
+    "vunguyentuan.vscode-postcss"
+  ]
+}

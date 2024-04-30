@@ -1,0 +1,24 @@
+@define-mixin line-clamp $lines {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+
+@define-mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@define-mixin disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@define-mixin hover-able {
+  @media (hover: hover) and (pointer: fine) {
+    @mixin-content;
+  }
+}

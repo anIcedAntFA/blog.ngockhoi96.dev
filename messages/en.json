@@ -1,0 +1,49 @@
+{
+  "Layout": {
+    "Header": {
+      "Navigation": {
+        "Home": "Home",
+        "About": "About",
+        "Articles": "Articles",
+        "Resources": "Resources"
+      },
+      "Actions": {
+        "Languages": {
+          "English": "English",
+          "EN": "EN",
+          "Vietnam": "Vietnam",
+          "VI": "VI"
+        },
+        "Light Mode": "Light Mode",
+        "Dark Mode": "Dark Mode",
+        "Search": "Search",
+        "Subscribe": "Subscribe",
+        "Login": "Login",
+        "Write": "Write",
+        "Write Posts": "Write Posts",
+        "Notifications": "Notifications",
+        "Account Menu": {
+          "Member": "Member",
+          "List": {
+            "Profile": "Profile",
+            "Library": "Library",
+            "Stats": "Stats",
+            "Settings": "Settings",
+            "Helps": "Helps",
+            "Sign Out": "Sign Out"
+          }
+        }
+      }
+    }
+  },
+  "Home": {
+    "Title": "Home",
+    "Subtitle": "Welcome to the home page",
+    "Description": "This is the home page of the website. You can find all the information you need here."
+  },
+  "About": {
+    "Title": "About",
+    "Subtitle": "Welcome to the about page",
+    "Description": "This is the about page of the website. You can find all the information you need here."
+  }
+}

@@ -1,0 +1,49 @@
+@define-mixin shake-x $distance {
+  @keyframes shake-x {
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translate($distance, 0);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translate(calc($distance * -1), 0);
+    }
+  }
+}
+
+@define-mixin shake-y $distance {
+  @keyframes shake-y {
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translate(0, $distance);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translate(0, calc($distance * -1));
+    }
+  }
+}
+
+@define-mixin spinner {
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
