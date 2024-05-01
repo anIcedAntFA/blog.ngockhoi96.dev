@@ -1,0 +1,11 @@
+.wrapper,
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  &:not(:first-child) {
+    margin-left: 12px;
+  }
+}

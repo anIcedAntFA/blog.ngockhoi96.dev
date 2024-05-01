@@ -37,13 +37,7 @@
 html,
 body {
   background-color: var(--clr-bg-2);
-
-  /* background-image: linear-gradient(
-    to right top,
-    alpha(var(--clr-bg-2), 0%),
-    alpha(var(--clr-bg-3), 50%)
-  ); */
-  color: hsl(var(--clr-text-1));
+  color: var(--clr-text-1);
 
   font-family: var(--font-open-sans-serif);
   font-size: var(--fs-normal);
