@@ -2,12 +2,12 @@ import { describe, expect, it } from 'vitest';
 
 import { Todo } from '@/types/common';
 
-import { removeObjectProperties } from '../remove-object-properties';
+import { removeObjectProperties as omit } from '../remove-object-properties';
 
 describe('removeObjectProperties', () => {
   it('should return an original object if object is empty', () => {
     const object = {} as Record<string, Todo>;
-    const result = removeObjectProperties(object, ['a', 'b', 'c']);
+    const result = omit(object, ['a', 'b', 'c']);
 
     expect(result).toEqual(object);
   });
@@ -18,13 +18,13 @@ describe('removeObjectProperties', () => {
       b: 1969,
       c: true,
     };
-    const result = removeObjectProperties(object, []);
+    const result = omit(object, []);
 
     expect(result).toEqual(object);
   });
 
   it('should return an original object if object and keys are both empty', () => {
-    const result = removeObjectProperties({}, []);
+    const result = omit({}, []);
 
     expect(result).toEqual({});
   });
@@ -36,7 +36,7 @@ describe('removeObjectProperties', () => {
       c: false,
     };
     const keys: (keyof typeof object)[] = ['b'];
-    const result = removeObjectProperties(object, keys);
+    const result = omit(object, keys);
 
     expect(result).toEqual({
       a: 1969,
@@ -65,7 +65,7 @@ describe('removeObjectProperties', () => {
       e: '48ce1e39-35a5-47f2-b5d6-6e05523b5256',
     };
     const keys: (keyof typeof object)[] = ['b', 'd', 'e'];
-    const result = removeObjectProperties(object, keys);
+    const result = omit(object, keys);
 
     expect(result).toEqual({
       a: {
@@ -93,7 +93,7 @@ describe('removeObjectProperties', () => {
       d: null,
     };
     const keys: (keyof typeof object)[] = ['a', 'd', 'a'];
-    const result = removeObjectProperties(object, keys);
+    const result = omit(object, keys);
 
     expect(result).toEqual({
       b: 1969,
@@ -108,7 +108,7 @@ describe('removeObjectProperties', () => {
       c: true,
     };
     const keys = ['d', 'a', 'e'] as (keyof typeof object)[];
-    const result = removeObjectProperties(object, keys);
+    const result = omit(object, keys);
 
     expect(result).toEqual({
       b: 1969,

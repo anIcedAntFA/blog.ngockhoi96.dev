@@ -3,6 +3,7 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 // import dynamic from "next/dynamic";
 import { ReactNode } from 'react';
 
+import NavigationBar from '@/components/containers/navigation-bar';
 import { jetBrainMono, lora, openSans } from '@/configs/fonts';
 import {
   availableLocaleCodes,
@@ -15,7 +16,8 @@ import { Locale } from '@/types/locales';
 
 export const metadata: Metadata = {
   title: 'ngockhoi96 blog | Home',
-  description: 'ngockhoi96 blog',
+  description:
+    'A personal blog that share my ideas, experiences about techs and lifestyles.',
 };
 
 type LocaleLayoutProps = {
@@ -50,7 +52,10 @@ function LocaleLayout({
       <body
         className={`${openSans.variable} ${lora.variable} ${jetBrainMono.variable}`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <NavigationBar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
