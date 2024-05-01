@@ -1,0 +1,132 @@
+.wrapper {
+  position: relative;
+  overflow: hidden;
+
+  @mixin flex-center;
+  gap: 8px;
+
+  border: 2px solid transparent;
+  border-radius: var(--br-medium);
+  padding: 8px 12px;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    border-color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+  }
+
+  &::before {
+    left: 0;
+
+    width: 100%;
+    height: 0;
+    border-radius: var(--br-medium);
+
+    opacity: 0;
+    background-color: alpha(var(--clr-primary), 10%);
+
+    transition:
+      height 0.3s ease-in-out,
+      opacity 0.3s ease-in-out;
+  }
+
+  &::after {
+    width: 0;
+    height: 2px;
+    border-radius: var(--br-small);
+
+    background-color: var(--text-color);
+
+    transition:
+      width 0.3s ease-in-out,
+      background-color 0.3s ease-in-out,
+      opacity 0.3s ease-in-out;
+  }
+
+  &.active {
+    &::before {
+      height: 100%;
+      opacity: 1;
+    }
+
+    &::after {
+      transition-delay: 0.2s;
+      background-color: transparent;
+      opacity: 0;
+    }
+  }
+
+  &.opened {
+    border-color: var(--clr-primary);
+    transition: border-color 0.3s ease-in-out 0.2s;
+
+    &::before {
+      background-color: transparent;
+    }
+  }
+
+  &:is(.active, :hover:not(.active)) {
+    .title,
+    .icon {
+      color: var(--clr-primary);
+    }
+  }
+
+  &:hover:not(.active) {
+    &::after {
+      width: calc(100% - 12px);
+      background-color: var(--clr-primary);
+    }
+
+    & .dropdown-icon {
+      color: var(--clr-primary);
+
+      &::before,
+      &::after {
+        background-color: var(--clr-primary);
+      }
+    }
+  }
+}
+
+.title {
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.6px;
+
+  transition: color 0.3s ease-in-out;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+
+  transition: color 0.3s ease-in-out;
+}
+
+.shiny-glass {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+
+  width: 80%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    alpha(var(--clr-snow), 60%) transparent
+  );
+  transform: skew(45deg);
+
+  @mixin shiny-glass;
+  animation: shiny-glass 4s ease-in-out infinite 4s;
+}

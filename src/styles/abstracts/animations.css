@@ -47,3 +47,19 @@
     }
   }
 }
+
+@define-mixin shiny-glass {
+  @keyframes shiny-glass {
+    0% {
+      left: -100%;
+    }
+
+    25% {
+      left: 120%;
+    }
+
+    100% {
+      left: 120%;
+    }
+  }
+}

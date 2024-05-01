@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: 'ngockhoi96 blog',
 };
 
-type TLocaleLayoutProps = {
+type LocaleLayoutProps = {
   children: ReactNode;
   params: {
     locale: Locale;
@@ -33,7 +33,7 @@ type TLocaleLayoutProps = {
 function LocaleLayout({
   children,
   params: { locale },
-}: Readonly<TLocaleLayoutProps>) {
+}: Readonly<LocaleLayoutProps>) {
   // Enable static rendering
   unstable_setRequestLocale(locale);
 
