@@ -1,4 +1,11 @@
 {
+  "components": {
+    "common": {
+      "theme switcher": {
+        "label": "Toggle Dark Mode"
+      }
+    }
+  },
   "Layout": {
     "Header": {
       "Navigation": {

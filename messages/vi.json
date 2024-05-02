@@ -1,4 +1,11 @@
 {
+  "components": {
+    "common": {
+      "theme switcher": {
+        "label": "Chế độ sáng/tối"
+      }
+    }
+  },
   "Layout": {
     "Header": {
       "Navigation": {
