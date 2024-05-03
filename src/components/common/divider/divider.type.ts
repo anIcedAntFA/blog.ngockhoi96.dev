@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react';
 
-import { Orientation } from '@/types/constants';
+import { Color, Orientation } from '@/types/constants';
 
 import { dividerThicknesses, dividerVariants } from './divider.config';
 
@@ -18,6 +18,7 @@ export type BaseDivider = {
   thickness: DividerThickness;
   width: string;
   height: string;
+  color: Color;
 };
 
 export type DividerProps = ComponentProps<'hr'> & Partial<BaseDivider>;

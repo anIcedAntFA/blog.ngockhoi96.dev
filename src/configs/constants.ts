@@ -30,3 +30,8 @@ export const placements = {
   BOTTOM_END: 'bottom-end',
   LEFT_END: 'left-end',
 } as const;
+
+export const colors = {
+  BASE: 'base',
+  PRIMARY: 'primary',
+} as const;

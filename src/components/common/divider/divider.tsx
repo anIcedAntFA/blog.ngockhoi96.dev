@@ -1,6 +1,6 @@
 import cx from 'clsx';
 
-import { orientations } from '@/configs/constants';
+import { colors, orientations } from '@/configs/constants';
 
 import {
   dividerSizeStyleMap,
@@ -12,8 +12,9 @@ import { DividerProps } from './divider.type';
 
 function Divider({
   orientation = orientations.HORIZONTAL,
-  // variant = dividerVariants.SOLID,
-  // thickness = dividerThicknesses.THIN,
+  variant = dividerVariants.SOLID,
+  thickness = dividerThicknesses.THIN,
+  color = colors.BASE,
   width = '100%',
   height = '100%',
   className,
@@ -21,14 +22,12 @@ function Divider({
 }: DividerProps) {
   return (
     <hr
-      className={cx(
-        styles.divider,
-        // dividerOrientationStyleMap(styles)[orientation],
-        // dividerVariantStyleMap(styles)[variant],
-        // dividerThicknessStyleMap(styles)[thickness],
-        className,
-      )}
-      // style={dividerSizeStyleMap(width, height)[orientation]}
+      data-orientation={orientation}
+      data-variant={variant}
+      data-thickness={thickness}
+      data-color={color}
+      className={cx(styles.root, className)}
+      style={dividerSizeStyleMap(width, height)[orientation]}
       {...passProps}
     />
   );

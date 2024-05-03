@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 
+import Divider from '@/components/common/divider';
 import ThemeSwitcher from '@/components/common/theme-switcher';
 
 import { navigationList } from './navigation-bar.config';
@@ -19,6 +20,15 @@ function NavigationBar() {
           </li>
         ))}
       </ul>
+
+      <Divider
+        orientation="vertical"
+        variant="solid"
+        thickness="thick"
+        color="primary"
+        height="40px"
+        // width="60px"
+      />
 
       <ThemeSwitcher label={tThemeSwitcher('label')} />
     </nav>

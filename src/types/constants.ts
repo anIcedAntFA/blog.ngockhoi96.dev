@@ -1,4 +1,5 @@
 import {
+  colors,
   directions,
   orientations,
   placements,
@@ -16,3 +17,6 @@ export type Direction = (typeof directions)[DirectionKey];
 
 export type PlacementKey = keyof typeof placements;
 export type Placement = (typeof placements)[PlacementKey];
+
+export type ColorKey = keyof typeof colors;
+export type Color = (typeof colors)[ColorKey];
