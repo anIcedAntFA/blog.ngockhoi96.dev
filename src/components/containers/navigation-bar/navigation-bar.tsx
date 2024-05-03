@@ -23,11 +23,9 @@ function NavigationBar() {
 
       <Divider
         orientation="vertical"
-        variant="solid"
-        thickness="thick"
+        thickness="medium"
         color="primary"
         height="40px"
-        // width="60px"
       />
 
       <ThemeSwitcher label={tThemeSwitcher('label')} />
