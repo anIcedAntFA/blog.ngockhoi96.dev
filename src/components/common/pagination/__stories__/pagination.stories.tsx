@@ -13,6 +13,13 @@ const meta = {
     layout: 'centered',
   },
   argTypes: {
+    color: {
+      name: 'Color',
+      description: 'Pagination color',
+      defaultValue: 'base',
+      control: 'inline-radio',
+      options: ['primary', 'base'],
+    },
     totalCount: {
       name: 'Total Count',
       description: 'Total count of items',

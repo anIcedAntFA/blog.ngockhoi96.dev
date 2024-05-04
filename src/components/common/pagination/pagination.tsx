@@ -1,5 +1,6 @@
 import ArrowLeftIcon from '@/components/icons/arrow-left-icon';
 import ArrowRightIcon from '@/components/icons/arrow-right-icon';
+import { colors } from '@/configs/constants';
 import { equal } from '@/utils/equal';
 
 import Button from '../button';
@@ -16,6 +17,7 @@ function Pagination({
   pageSize,
   currentPage = FIRST_PAGE_INDEX,
   siblingCount = DEFAULT_SIBLING_COUNT,
+  color = colors.BASE,
   onPageChange,
 }: PaginationProps) {
   const totalPages = Math.ceil(totalCount / pageSize);
@@ -34,6 +36,7 @@ function Pagination({
     <nav aria-label="pagination" className={styles.root}>
       <Button
         aria-label="previous page"
+        color={color}
         variant="text"
         icon={{
           position: 'left',
@@ -49,10 +52,11 @@ function Pagination({
       <ol className={styles.list}>
         {pageRange.map((pageNumber) =>
           pageNumber < 0 ? (
-            <Ellipsis key={pageNumber} />
+            <Ellipsis key={pageNumber} color={color} />
           ) : (
             <PaginationItem
               key={pageNumber}
+              color={color}
               totalPages={totalPages}
               pageNumber={pageNumber}
               isSelected={equal(pageNumber, currentPage)}
@@ -64,6 +68,7 @@ function Pagination({
 
       <Button
         aria-label="next page"
+        color={color}
         variant="text"
         icon={{
           position: 'right',

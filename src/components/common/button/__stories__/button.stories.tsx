@@ -33,6 +33,13 @@ const meta = {
       control: 'select',
       options: ['small', 'medium', 'large'],
     },
+    color: {
+      name: 'Color',
+      description: 'Button color',
+      defaultValue: 'primary',
+      control: 'inline-radio',
+      options: ['primary', 'base'],
+    },
     children: {
       name: 'Label',
       description: 'Button contents',
@@ -80,6 +87,7 @@ export const Default: Story = {
     type: 'button',
     variant: 'contained',
     size: 'medium',
+    color: 'primary',
     children: 'Click me',
   },
 };
@@ -120,6 +128,21 @@ export const Size: Story = {
       </Button>
       <Button size="large" {...args}>
         Large
+      </Button>
+    </div>
+  ),
+};
+
+export const Color: Story = {
+  name: 'Button Color',
+  args: removeObjectProperties(defaultArgs, ['color']),
+  render: (args) => (
+    <div style={{ display: 'flex', gap: 24 }}>
+      <Button color="primary" {...args}>
+        Primary
+      </Button>
+      <Button color="base" {...args}>
+        Base
       </Button>
     </div>
   ),

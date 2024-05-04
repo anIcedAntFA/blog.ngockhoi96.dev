@@ -1,6 +1,6 @@
 .root {
   &[data-color='base'] {
-    border-color: #adadad;
+    border-color: var(--clr-base);
   }
 
   &[data-color='primary'] {

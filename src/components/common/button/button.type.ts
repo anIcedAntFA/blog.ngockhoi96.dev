@@ -1,6 +1,6 @@
 import { ComponentProps, ReactElement } from 'react';
 
-import { Size } from '@/types/constants';
+import { Color, Size } from '@/types/constants';
 
 import { buttonVariants } from './button.config';
 
@@ -25,6 +25,7 @@ export type ButtonLoadingStyleProps = {
 export type ButtonStyleProps = {
   variant: ButtonVariant;
   size: Size;
+  color: Color;
   rounded: boolean;
   uppercase: boolean;
   icon: Partial<ButtonIconStyleProps>;

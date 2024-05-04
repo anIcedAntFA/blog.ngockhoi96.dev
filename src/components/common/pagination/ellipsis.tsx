@@ -1,9 +1,10 @@
 import { ELLIPSIS } from './pagination.config';
 import styles from './pagination.module.css';
+import { EllipsisProps } from './pagination.type';
 
-function Ellipsis() {
+function Ellipsis({ color = 'base' }: EllipsisProps) {
   return (
-    <span aria-hidden="true" className={styles.ellipsis}>
+    <span aria-hidden="true" data-color={color} className={styles.ellipsis}>
       {ELLIPSIS}
     </span>
   );
