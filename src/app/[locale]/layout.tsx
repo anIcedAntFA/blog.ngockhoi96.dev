@@ -12,7 +12,7 @@ import {
 } from '@/i18n/locales';
 import ThemeProvider from '@/providers/theme-provider';
 import '@/styles/main.css';
-import { Locale } from '@/types/locales';
+// import { Locale } from '@/types/locales';
 
 export const metadata: Metadata = {
   title: 'ngockhoi96 blog | Home',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 type LocaleLayoutProps = {
   children: ReactNode;
   params: {
-    locale: Locale;
+    locale: string;
   };
 };
 
