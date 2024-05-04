@@ -4,6 +4,7 @@ import styles from './pagination.module.css';
 import { PaginationItemProps } from './pagination.type';
 
 function PaginationItem({
+  color = 'base',
   totalPages,
   pageNumber,
   isSelected,
@@ -13,6 +14,7 @@ function PaginationItem({
     <li key={pageNumber} aria-setsize={totalPages} aria-posinset={pageNumber}>
       <Button
         variant="text"
+        color={color}
         aria-label={
           isSelected ? `page ${pageNumber}` : `go to page ${pageNumber}`
         }

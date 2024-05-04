@@ -10,6 +10,13 @@ const meta = {
     layout: 'centered',
   },
   argTypes: {
+    color: {
+      name: 'Color',
+      description: 'Pagination item color',
+      defaultValue: 'base',
+      control: 'inline-radio',
+      options: ['primary', 'base'],
+    },
     pageNumber: {
       name: 'Page Number',
       description: 'Page number',
@@ -37,14 +44,23 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    color: 'base',
     pageNumber: 1,
     totalPages: 10,
     isSelected: false,
   },
 };
 
+export const Primary: Story = {
+  args: {
+    ...Default.args,
+    color: 'primary',
+  },
+};
+
 export const Selected: Story = {
   args: {
+    color: 'base',
     pageNumber: 2,
     totalPages: 10,
     isSelected: true,

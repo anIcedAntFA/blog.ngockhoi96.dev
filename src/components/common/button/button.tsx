@@ -2,7 +2,7 @@
 import cx from 'clsx';
 import { ElementRef, ForwardedRef, forwardRef, useId } from 'react';
 
-import { sizes } from '@/configs/constants';
+import { colors, sizes } from '@/configs/constants';
 
 import { buttonVariants } from './button.config';
 import styles from './button.module.css';
@@ -14,6 +14,7 @@ function Button(
     type = 'button',
     variant = buttonVariants.CONTAINED,
     size = sizes.MEDIUM,
+    color = colors.PRIMARY,
     icon,
     loading,
     rounded = false,
@@ -33,6 +34,7 @@ function Button(
     <span
       data-variant={variant}
       data-size={size}
+      data-color={color}
       data-uppercase={uppercase || undefined}
       data-testid="button-label"
       className={styles.title}
@@ -52,6 +54,7 @@ function Button(
           <div
             data-variant={variant}
             data-size={size}
+            data-color={color}
             data-position={position}
             data-testid={`button-loading-icon-${position}`}
             className={styles.icon}
@@ -67,6 +70,7 @@ function Button(
         <span
           data-variant={variant}
           data-size={size}
+          data-color={color}
           data-position={position}
           data-hidden={icon?.hidden}
           data-testid={`button-icon-${position}`}
@@ -87,6 +91,7 @@ function Button(
       type={type}
       data-variant={variant}
       data-size={size}
+      data-color={color}
       data-rounded={rounded || undefined}
       aria-disabled={isDisabled}
       disabled={isDisabled}

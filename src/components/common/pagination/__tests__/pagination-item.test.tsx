@@ -26,10 +26,12 @@ describe('PaginationItem', () => {
     expect(button).toHaveAttribute('aria-label', 'go to page 1');
     expect(button).not.toHaveAttribute('aria-current');
     expect(button).not.toHaveAttribute('data-active');
+    expect(button).toHaveAttribute('data-color', 'base');
   });
 
   it('should render the selected page item correctly, including the corresponding ARIA attributes', () => {
     renderPaginationItem({
+      color: 'primary',
       totalPages: 10,
       pageNumber: 2,
       isSelected: true,
@@ -40,6 +42,7 @@ describe('PaginationItem', () => {
 
     expect(button).toHaveAttribute('aria-label', 'page 2');
     expect(button).toHaveAttribute('aria-current', 'true');
+    expect(button).toHaveAttribute('data-color', 'primary');
     expect(button).toHaveAttribute('data-active', 'true');
   });
 });

@@ -8,6 +8,15 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  argTypes: {
+    color: {
+      name: 'Color',
+      description: 'Ellipsis color',
+      defaultValue: 'base',
+      control: 'inline-radio',
+      options: ['primary', 'base'],
+    },
+  },
 } satisfies Meta<typeof Ellipsis>;
 
 export default meta;
@@ -15,5 +24,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    color: 'base',
+  },
+};
+
+export const Primary: Story = {
+  args: {
+    color: 'primary',
+  },
 };
