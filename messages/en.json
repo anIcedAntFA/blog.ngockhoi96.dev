@@ -4,6 +4,11 @@
       "theme switcher": {
         "label": "Toggle Dark Mode"
       }
+    },
+    "search": {
+      "search box": {
+        "placeholder": "Start typing..."
+      }
     }
   },
   "Layout": {
