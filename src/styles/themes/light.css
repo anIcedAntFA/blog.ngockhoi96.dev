@@ -43,6 +43,7 @@ html[data-theme='light'] {
   --clr-bg-2: var(--clr-alice-blue);
   --clr-bg-3: var(--clr-off-white);
   --clr-bg-4: var(--clr-ivory);
+  --clr-bg-kbd: var(--clr-gray-100);
 }
 
 /* success: limegreen */
