@@ -11,7 +11,7 @@ import NavigationItem from './navigation-item';
 
 function NavigationBar() {
   const tNavigationList = useTranslations('Layout.Header.Navigation');
-  const tSearchButton = useTranslations('components.search.search box');
+  const tSearchButton = useTranslations('components.search.searchBox');
   const tThemeSwitcher = useTranslations('components.common.theme switcher');
 
   return (

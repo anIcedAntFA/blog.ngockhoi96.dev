@@ -8,6 +8,7 @@ import useOutsideClick from '@/hooks/use-outside-click';
 
 import Flex from '../flex';
 import Kbd from '../kbd';
+import VisuallyHidden from '../visually-hidden';
 
 import SearchBox from './search-box';
 import styles from './search-button.module.css';
@@ -39,10 +40,13 @@ function SearchButton({ placeholder }: SearchButtonProps) {
         <Flex className={styles['text-and-kbd']}>
           <p className={styles.text}>{placeholder}</p>
           <Flex align="center" spacing={4}>
+            <VisuallyHidden>Press</VisuallyHidden>
             <Kbd>
-              <abbr title="control">Ctrl</abbr>
+              <abbr title="Control">Ctrl</abbr>
             </Kbd>
+            <VisuallyHidden>and</VisuallyHidden>
             <Kbd>K</Kbd>
+            <VisuallyHidden>to-search</VisuallyHidden>
           </Flex>
         </Flex>
       </button>
