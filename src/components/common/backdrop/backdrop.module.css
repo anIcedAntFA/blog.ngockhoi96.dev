@@ -1,0 +1,12 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-index-8);
+
+  @mixin flex-center;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgb(0 0 0 / 10%);
+}

@@ -3,7 +3,9 @@
 import { ElementRef, useRef } from 'react';
 
 import SearchIcon from '@/components/icons/search-icon';
+import { keyboardCommands } from '@/configs/constants';
 import useBoolean from '@/hooks/use-boolean';
+import useKeyboardCommands from '@/hooks/use-keyboard-commands';
 import useOutsideClick from '@/hooks/use-outside-click';
 
 import Flex from '../flex';
@@ -22,6 +24,16 @@ function SearchButton({ placeholder }: SearchButtonProps) {
   useOutsideClick({
     ref: searchBtnRef,
     handler: openSearchBox.off,
+  });
+
+  useKeyboardCommands({
+    callback: (key) => {
+      if (key === keyboardCommands.CMD_K) {
+        openSearchBox.on();
+      } else if (key === keyboardCommands.ESCAPE) {
+        openSearchBox.off();
+      }
+    },
   });
 
   return (
