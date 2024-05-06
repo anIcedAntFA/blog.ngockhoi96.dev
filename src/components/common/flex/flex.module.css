@@ -9,11 +9,11 @@
     flex-direction: column;
   }
 
-  &.flex-start {
+  &.align-flex-start {
     align-items: flex-start;
   }
 
-  &.center {
+  &.align-center {
     align-items: center;
   }
 

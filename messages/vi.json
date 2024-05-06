@@ -4,6 +4,11 @@
       "theme switcher": {
         "label": "Chế độ sáng/tối"
       }
+    },
+    "search": {
+      "searchBox": {
+        "placeholder": "Tìm kiếm..."
+      }
     }
   },
   "Layout": {

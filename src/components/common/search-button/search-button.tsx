@@ -8,11 +8,13 @@ import useOutsideClick from '@/hooks/use-outside-click';
 
 import Flex from '../flex';
 import Kbd from '../kbd';
+import VisuallyHidden from '../visually-hidden';
 
 import SearchBox from './search-box';
 import styles from './search-button.module.css';
+import { SearchButtonProps } from './search-button.type';
 
-function SearchButton() {
+function SearchButton({ placeholder }: SearchButtonProps) {
   const searchBtnRef = useRef<ElementRef<'button'>>(null);
 
   const openSearchBox = useBoolean(false);
@@ -27,7 +29,7 @@ function SearchButton() {
       <button
         ref={searchBtnRef}
         type="button"
-        aria-label="Start typing..."
+        aria-label={placeholder}
         data-active={openSearchBox.value}
         className={styles.root}
         onClick={openSearchBox.on}
@@ -36,12 +38,15 @@ function SearchButton() {
           <SearchIcon />
         </span>
         <Flex className={styles['text-and-kbd']}>
-          <p className={styles.text}>Start typing...</p>
+          <p className={styles.text}>{placeholder}</p>
           <Flex align="center" spacing={4}>
+            <VisuallyHidden>Press</VisuallyHidden>
             <Kbd>
-              <abbr title="control">Ctrl</abbr>
+              <abbr title="Control">Ctrl</abbr>
             </Kbd>
+            <VisuallyHidden>and</VisuallyHidden>
             <Kbd>K</Kbd>
+            <VisuallyHidden>to-search</VisuallyHidden>
           </Flex>
         </Flex>
       </button>

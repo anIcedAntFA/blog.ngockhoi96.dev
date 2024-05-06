@@ -11,13 +11,14 @@ function Flex({
   wrap = 'no-wrap',
   spacing,
   className,
+  style,
   children,
   ...restProps
 }: FlexProps) {
   const styleMap = {
     direction: styles[direction],
-    align: styles[align],
-    justify: styles[justify],
+    align: styles[`align-${align}`],
+    justify: styles[`justify-${justify}`],
     wrap: styles[wrap],
   };
 
@@ -28,7 +29,7 @@ function Flex({
         ...styleProps.map((prop) => styleMap[prop]),
         className,
       )}
-      style={{ gap: spacing }}
+      style={{ gap: spacing, ...style }}
       {...restProps}
     >
       {children}
