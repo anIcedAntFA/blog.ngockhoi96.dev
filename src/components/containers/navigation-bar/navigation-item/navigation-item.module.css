@@ -88,11 +88,6 @@
 
     & .dropdown-icon {
       color: var(--clr-primary);
-
-      &::before,
-      &::after {
-        background-color: var(--clr-primary);
-      }
     }
   }
 }
