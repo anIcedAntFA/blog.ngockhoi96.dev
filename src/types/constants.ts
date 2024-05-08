@@ -1,6 +1,8 @@
 import {
   colors,
   directions,
+  keyboardCommands,
+  keys,
   orientations,
   placements,
   sizes,
@@ -20,3 +22,9 @@ export type Placement = (typeof placements)[PlacementKey];
 
 export type ColorKey = keyof typeof colors;
 export type Color = (typeof colors)[ColorKey];
+
+export type KeyboardCommandKey = keyof typeof keyboardCommands;
+export type KeyboardCommand = (typeof keyboardCommands)[KeyboardCommandKey];
+
+export type KeyboardKey = keyof typeof keys;
+export type Keyboard = (typeof keys)[KeyboardKey];

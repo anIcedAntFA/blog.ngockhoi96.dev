@@ -35,3 +35,23 @@ export const colors = {
   BASE: 'base',
   PRIMARY: 'primary',
 } as const;
+
+export const keyboardCommands = {
+  CMD_K: 'cmd-k',
+  ESCAPE: 'escape',
+  DOWN: 'down',
+  UP: 'up',
+  ENTER: 'enter',
+} as const;
+
+/**
+ * Keyboard event keys
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values
+ */
+export const keys = {
+  ESCAPE: 'Escape',
+  ARROW_DOWN: 'ArrowDown',
+  ARROW_UP: 'ArrowUp',
+  ENTER: 'Enter',
+  K: 'k',
+} as const;
