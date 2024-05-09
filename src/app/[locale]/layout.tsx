@@ -12,6 +12,7 @@ import {
 } from '@/i18n/locales';
 import ThemeProvider from '@/providers/theme-provider';
 import '@/styles/main.css';
+import Dummy from '@/components/dummy';
 // import { Locale } from '@/types/locales';
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ function LocaleLayout({
         <ThemeProvider>
           <NavigationBar />
           {children}
+          <Dummy />
         </ThemeProvider>
       </body>
     </html>

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { themes } from '@/configs/themes';
 
 import Button from './common/button';
+import IconButton from './common/icon-button';
 import Link from './common/link';
 import Pagination from './common/pagination';
 import ArrowUpIcon from './icons/arrow-up-icon';
@@ -232,6 +233,34 @@ function Dummy() {
         >
           click me
         </Button>
+      </div>
+
+      <div style={{ display: 'flex', gap: 24, margin: '48px' }}>
+        <IconButton variant="contained" size="small" color="base">
+          <ArrowUpIcon />
+        </IconButton>
+        <IconButton variant="contained" size="medium" color="primary">
+          <ArrowUpIcon />
+        </IconButton>
+        <IconButton variant="contained" size="large" color="base">
+          <ArrowUpIcon />
+        </IconButton>
+        <IconButton variant="contained" size="large" color="base" rounded>
+          <ArrowUpIcon />
+        </IconButton>
+
+        <IconButton variant="outlined" size="small" color="base">
+          <ArrowUpIcon />
+        </IconButton>
+        <IconButton variant="outlined" size="medium" color="primary">
+          <ArrowUpIcon />
+        </IconButton>
+        <IconButton variant="outlined" size="large" color="base">
+          <ArrowUpIcon />
+        </IconButton>
+        <IconButton variant="outlined" size="large" color="base" rounded>
+          <ArrowUpIcon />
+        </IconButton>
       </div>
 
       <div style={{ display: 'flex', margin: '48px' }}>
