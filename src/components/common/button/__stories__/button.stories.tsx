@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import Button from '../button';
 import ArrowUpIcon from '@/components/icons/arrow-up-icon';
 import { removeObjectProperties } from '@/utils/remove-object-properties';
+import Flex from '../../flex';
 
 const meta = {
   title: 'Common/Button',
@@ -98,7 +99,7 @@ export const Variant: Story = {
   name: 'Button Variant',
   args: removeObjectProperties(defaultArgs, ['variant']),
   render: (args) => (
-    <div style={{ display: 'flex', gap: 24 }}>
+    <Flex spacing={24}>
       <Button variant="contained" {...args}>
         Contained
       </Button>
@@ -111,7 +112,7 @@ export const Variant: Story = {
       <Button variant="link" {...args}>
         Link
       </Button>
-    </div>
+    </Flex>
   ),
 };
 
@@ -119,7 +120,7 @@ export const Size: Story = {
   name: 'Button Size',
   args: removeObjectProperties(defaultArgs, ['size']),
   render: (args) => (
-    <div style={{ display: 'flex', gap: 24 }}>
+    <Flex spacing={24}>
       <Button size="small" {...args}>
         Small
       </Button>
@@ -129,7 +130,7 @@ export const Size: Story = {
       <Button size="large" {...args}>
         Large
       </Button>
-    </div>
+    </Flex>
   ),
 };
 
@@ -137,14 +138,14 @@ export const Color: Story = {
   name: 'Button Color',
   args: removeObjectProperties(defaultArgs, ['color']),
   render: (args) => (
-    <div style={{ display: 'flex', gap: 24 }}>
+    <Flex spacing={24}>
       <Button color="primary" {...args}>
         Primary
       </Button>
       <Button color="base" {...args}>
         Base
       </Button>
-    </div>
+    </Flex>
   ),
 };
 
@@ -176,11 +177,21 @@ export const Disabled: Story = {
   name: 'Button Disabled',
   args: {
     ...Default.args,
+    disabled: true,
   },
   render: (args) => (
-    <Button disabled {...args}>
-      Disabled
-    </Button>
+    <Flex spacing={24}>
+      <Button {...args}>Disabled</Button>
+      <Button {...args} variant="outlined">
+        Disabled
+      </Button>
+      <Button {...args} variant="text">
+        Disabled
+      </Button>
+      <Button {...args} variant="link">
+        Disabled
+      </Button>
+    </Flex>
   ),
 };
 
@@ -188,7 +199,7 @@ export const Icon: Story = {
   name: 'Button With Icon',
   args: removeObjectProperties(defaultArgs, ['icon']),
   render: (args = {}) => (
-    <div style={{ display: 'flex', gap: 24 }}>
+    <Flex spacing={24}>
       <Button
         icon={{
           position: 'left',
@@ -240,7 +251,7 @@ export const Icon: Story = {
       >
         Right Icon
       </Button>
-    </div>
+    </Flex>
   ),
 };
 
@@ -248,7 +259,7 @@ export const Loading: Story = {
   name: 'Button Loading',
   args: removeObjectProperties(defaultArgs, ['loading', 'icon']),
   render: (args = {}) => (
-    <div style={{ display: 'flex', gap: 24 }}>
+    <Flex spacing={24}>
       <Button
         loading={{
           enabled: true,
@@ -304,6 +315,6 @@ export const Loading: Story = {
       >
         Click me
       </Button>
-    </div>
+    </Flex>
   ),
 };
