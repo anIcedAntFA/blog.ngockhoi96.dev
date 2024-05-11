@@ -236,29 +236,51 @@ function Dummy() {
       </div>
 
       <div style={{ display: 'flex', gap: 24, margin: '48px' }}>
-        <IconButton variant="contained" size="small" color="base">
+        <IconButton variant="contained" size="small" color="base" label="hehe">
           <ArrowUpIcon />
         </IconButton>
-        <IconButton variant="contained" size="medium" color="primary">
+        <IconButton
+          variant="contained"
+          size="medium"
+          color="primary"
+          label="hehe"
+        >
           <ArrowUpIcon />
         </IconButton>
-        <IconButton variant="contained" size="large" color="base">
+        <IconButton variant="contained" size="large" color="base" label="hehe">
           <ArrowUpIcon />
         </IconButton>
-        <IconButton variant="contained" size="large" color="base" rounded>
+        <IconButton
+          variant="contained"
+          size="large"
+          color="base"
+          label="hehe"
+          rounded
+        >
           <ArrowUpIcon />
         </IconButton>
 
-        <IconButton variant="outlined" size="small" color="base">
+        <IconButton variant="outlined" size="small" color="base" label="hehe">
           <ArrowUpIcon />
         </IconButton>
-        <IconButton variant="outlined" size="medium" color="primary">
+        <IconButton
+          variant="outlined"
+          size="medium"
+          color="primary"
+          label="hehe"
+        >
           <ArrowUpIcon />
         </IconButton>
-        <IconButton variant="outlined" size="large" color="base">
+        <IconButton variant="outlined" size="large" color="base" label="hehe">
           <ArrowUpIcon />
         </IconButton>
-        <IconButton variant="outlined" size="large" color="base" rounded>
+        <IconButton
+          variant="outlined"
+          size="large"
+          color="primary"
+          label="hehe"
+          rounded
+        >
           <ArrowUpIcon />
         </IconButton>
       </div>

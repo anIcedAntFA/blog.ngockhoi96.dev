@@ -17,6 +17,7 @@ function IconButton(
     variant = buttonVariants.CONTAINED,
     size = sizes.MEDIUM,
     color = colors.PRIMARY,
+    label,
     rounded = false,
     disabled = false,
     className,
@@ -35,6 +36,7 @@ function IconButton(
       data-variant={variant}
       data-size={size}
       data-color={color}
+      aria-label={label}
       data-rounded={rounded || undefined}
       aria-disabled={disabled}
       disabled={disabled}

@@ -1,5 +1,5 @@
 html[data-theme='light'] {
-  .root {
+  .root[data-color='base'] {
     --clr-bg-btn-contained-hover: var(--clr-gray-600);
     --clr-bg-btn-contained-active: var(--clr-gray-700);
     --clr-bg-btn-outlined-active: var(--clr-gray-700);
