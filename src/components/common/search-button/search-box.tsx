@@ -1,4 +1,4 @@
-import { motionVariants } from '@/configs/motion-variants';
+import { motionPresets } from '@/configs/motion-variants';
 
 import Backdrop from '../backdrop';
 import { Dialog, DialogBody, DialogContent } from '../dialog';
@@ -8,7 +8,7 @@ import { SearchBoxProps } from './search-button.type';
 function SearchBox({ openedSearchBox, onCloseSearchBox }: SearchBoxProps) {
   return (
     <Dialog
-      motionPreset={motionVariants.FLIP}
+      motionPreset={motionPresets.FLIP}
       isCentered
       // hasCloseOnEsc={false}
       opened={openedSearchBox}

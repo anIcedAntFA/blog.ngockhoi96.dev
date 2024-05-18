@@ -3,19 +3,9 @@
 import { useTheme } from 'next-themes';
 import { useState } from 'react';
 
-import { motionVariants } from '@/configs/motion-variants';
 import { themes } from '@/configs/themes';
 
-import Backdrop from './common/backdrop';
 import Button from './common/button';
-import {
-  Dialog,
-  DialogBody,
-  DialogCloseTrigger,
-  DialogContent,
-  DialogHeader,
-  useDialogActions,
-} from './common/dialog';
 import IconButton from './common/icon-button';
 import Link from './common/link';
 import Pagination from './common/pagination';
@@ -26,68 +16,10 @@ function Dummy() {
 
   const { setTheme, resolvedTheme } = useTheme();
 
-  const { showDialog, hideDialog } = useDialogActions();
-
   const handleToggleTheme = () => {
     const isDarkMode = resolvedTheme === themes.DARK;
 
     setTheme(isDarkMode ? themes.LIGHT : themes.DARK);
-  };
-
-  const showAuthModal = () => {
-    showDialog(
-      <Dialog
-        motionPreset={motionVariants.FLIP}
-        isCentered
-        onClose={hideDialog}
-      >
-        <Backdrop />
-        <DialogContent>
-          <DialogHeader>
-            <h4>MK Blog Login</h4>
-          </DialogHeader>
-          <DialogCloseTrigger
-            label="close"
-            // onClick={() => console.log('close')}
-          />
-          <DialogBody>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam
-            quibusdam quaerat quasi dolorum laboriosam facilis debitis quidem
-            perferendis ad accusantium qui, expedita repellendus in dolore
-            numquam, exercitationem, culpa sint. Nam.
-          </DialogBody>
-          <button onClick={showAuthModal1}>hello modal</button>
-        </DialogContent>
-      </Dialog>,
-    );
-  };
-
-  const showAuthModal1 = () => {
-    showDialog(
-      <Dialog
-        motionPreset={motionVariants.FLIP}
-        isCentered
-        onClose={hideDialog}
-      >
-        <Backdrop />
-        <DialogContent>
-          <DialogHeader>
-            <h4>MK Blog Login</h4>
-          </DialogHeader>
-          <DialogBody>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam
-            quibusdam quaerat quasi dolorum laboriosam facilis debitis quidem
-            perferendis ad accusantium qui, expedita repellendus in dolore
-            numquam, exercitationem, culpa sint. Nam.
-          </DialogBody>
-          <button
-            onClick={() => showDialog(<div onClick={hideDialog}>hello</div>)}
-          >
-            hello modal
-          </button>
-        </DialogContent>
-      </Dialog>,
-    );
   };
 
   return (
@@ -147,7 +79,6 @@ function Dummy() {
             position: 'right',
           }}
           style={{ width: '170px' }}
-          onClick={showAuthModal}
         >
           show me
         </Button>

@@ -1,7 +1,7 @@
 import { MotionProps } from 'framer-motion';
 import { ComponentProps, ComponentPropsWithRef } from 'react';
 
-import { MotionVariant } from '@/types/motion-variants';
+import { MotionPreset } from '@/types/motion-variants';
 
 import { IconButtonProps } from '../icon-button';
 
@@ -9,12 +9,12 @@ import { ScrollBehavior } from './dialog.config';
 
 export type Dialog = {
   scrollBehavior: ScrollBehavior;
-  motionPreset: MotionVariant;
+  motionPreset: MotionPreset;
   blockScroll: boolean;
   isCentered: boolean;
   opened: boolean;
   hasClosedOutsideClick: boolean;
-  hasCloseOnEsc: boolean;
+  hasCloseOnEscKey: boolean;
   onClose: VoidFunction;
 };
 

@@ -74,8 +74,14 @@ export const flipVariant: Variants = {
   },
 };
 
+export const motionPresets = {
+  BLUR: 'blur',
+  DROP_IN: 'drop-in',
+  FLIP: 'flip',
+} as const;
+
 export const motionVariants = {
-  BLUR: blurVariant,
-  DROP_IN: dropInVariant,
-  FLIP: flipVariant,
+  [motionPresets.BLUR]: blurVariant,
+  [motionPresets.DROP_IN]: dropInVariant,
+  [motionPresets.FLIP]: flipVariant,
 } as const;

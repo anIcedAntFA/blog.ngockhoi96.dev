@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import { RemoveScroll } from 'react-remove-scroll';
 
 import Portal from '@/components/common/portal';
-import { motionVariants } from '@/configs/motion-variants';
+import { motionPresets } from '@/configs/motion-variants';
 import useIds from '@/hooks/use-ids';
 
 import { scrollBehaviors } from '../dialog.config';
@@ -17,12 +17,12 @@ function Dialog({
   id,
   children,
   scrollBehavior = scrollBehaviors.INSIDE,
-  motionPreset = motionVariants.DROP_IN,
+  motionPreset = motionPresets.DROP_IN,
   blockScroll = true,
   isCentered = false,
   opened = false,
   hasClosedOutsideClick = true,
-  hasCloseOnEsc = true,
+  hasCloseOnEscKey = true,
   onClose = () => {},
   ...passProps
 }: DialogProps) {
@@ -45,7 +45,7 @@ function Dialog({
     bodyId,
     opened,
     hasClosedOutsideClick,
-    hasCloseOnEsc,
+    hasCloseOnEscKey,
     onClose,
   };
 

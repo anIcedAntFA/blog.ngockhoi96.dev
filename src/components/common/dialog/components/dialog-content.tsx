@@ -4,6 +4,7 @@ import cx from 'clsx';
 import { motion } from 'framer-motion';
 import { ElementRef, useEffect, useRef } from 'react';
 
+import { motionVariants } from '@/configs/motion-variants';
 import useOutsideClick from '@/hooks/use-outside-click';
 
 import { useInternalDialog } from '../dialog.hook';
@@ -24,7 +25,7 @@ function DialogContent({
     headerId,
     bodyId,
     hasClosedOutsideClick,
-    hasCloseOnEsc,
+    hasCloseOnEscKey,
     onClose,
   } = useInternalDialog();
 
@@ -36,7 +37,7 @@ function DialogContent({
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && hasCloseOnEsc) {
+      if (event.key === 'Escape' && hasCloseOnEscKey) {
         event.stopPropagation();
         onClose();
       }
@@ -53,7 +54,7 @@ function DialogContent({
     <motion.section
       ref={contentRef}
       id={dialogId}
-      variants={motionPreset}
+      variants={motionVariants[motionPreset]}
       initial="initial"
       animate="animate"
       exit="exit"
