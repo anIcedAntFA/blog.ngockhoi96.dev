@@ -4,13 +4,14 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 import { ReactNode } from 'react';
 
 import NavigationBar from '@/components/containers/navigation-bar';
+import Dummy from '@/components/dummy';
 import { jetBrainMono, lora, openSans } from '@/configs/fonts';
 import {
   availableLocaleCodes,
   availableLocalesMap,
   defaultLocale,
 } from '@/i18n/locales';
-import ThemeProvider from '@/providers/theme-provider';
+import AppProvider from '@/providers/app-provider';
 import '@/styles/main.css';
 // import { Locale } from '@/types/locales';
 
@@ -52,10 +53,11 @@ function LocaleLayout({
       <body
         className={`${openSans.variable} ${lora.variable} ${jetBrainMono.variable}`}
       >
-        <ThemeProvider>
+        <AppProvider>
           <NavigationBar />
           {children}
-        </ThemeProvider>
+          <Dummy />
+        </AppProvider>
       </body>
     </html>
   );

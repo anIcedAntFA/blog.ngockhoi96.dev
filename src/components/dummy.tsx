@@ -79,9 +79,8 @@ function Dummy() {
             position: 'right',
           }}
           style={{ width: '170px' }}
-          // onClick={handleToggleTheme}
         >
-          click me
+          show me
         </Button>
 
         <Button

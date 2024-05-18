@@ -6,7 +6,6 @@ import SearchIcon from '@/components/icons/search-icon';
 import { keyboardCommands } from '@/configs/constants';
 import useBoolean from '@/hooks/use-boolean';
 import useKeyboardCommands from '@/hooks/use-keyboard-commands';
-import useOutsideClick from '@/hooks/use-outside-click';
 
 import Flex from '../flex';
 import Kbd from '../kbd';
@@ -20,11 +19,6 @@ function SearchButton({ placeholder }: SearchButtonProps) {
   const searchBtnRef = useRef<ElementRef<'button'>>(null);
 
   const openSearchBox = useBoolean(false);
-
-  useOutsideClick({
-    ref: searchBtnRef,
-    handler: openSearchBox.off,
-  });
 
   useKeyboardCommands({
     callback: (key) => {
@@ -63,7 +57,10 @@ function SearchButton({ placeholder }: SearchButtonProps) {
         </Flex>
       </button>
 
-      {openSearchBox.value ? <SearchBox /> : null}
+      <SearchBox
+        openedSearchBox={openSearchBox.value}
+        onCloseSearchBox={openSearchBox.off}
+      />
     </>
   );
 }

@@ -38,6 +38,10 @@ html[data-theme='dark'] .root {
       0 2px 5px 0 rgb(0 0 0 / 10%),
       0 2px 4px 0 rgb(0 0 0 / 6%);
     background-color: var(--clr-bg-search-hover);
+
+    :is(.icon, .text, kbd) {
+      color: var(--clr-primary);
+    }
   }
 
   &[data-active='true'] {
@@ -52,11 +56,17 @@ html[data-theme='dark'] .root {
   height: 24px;
 
   color: var(--clr-text);
+
+  transition: color 0.2s ease-in-out;
 }
 
 .text-and-kbd {
   margin-left: 8px;
   width: 100%;
+
+  kbd {
+    transition: color 0.2s ease-in-out;
+  }
 }
 
 .text {
@@ -66,4 +76,6 @@ html[data-theme='dark'] .root {
   font-weight: var(--fw-medium);
 
   color: var(--clr-text);
+
+  transition: color 0.2s ease-in-out;
 }
