@@ -4,16 +4,14 @@ import { ElementRef, useRef } from 'react';
 
 import SearchIcon from '@/components/icons/search-icon';
 import { keyboardCommands } from '@/configs/constants';
-import { motionVariants } from '@/configs/motion-variants';
 import useBoolean from '@/hooks/use-boolean';
 import useKeyboardCommands from '@/hooks/use-keyboard-commands';
 
-import Backdrop from '../backdrop';
-import { Dialog, DialogBody, DialogContent } from '../dialog';
 import Flex from '../flex';
 import Kbd from '../kbd';
 import VisuallyHidden from '../visually-hidden';
 
+import SearchBox from './search-box';
 import styles from './search-button.module.css';
 import { SearchButtonProps } from './search-button.type';
 
@@ -25,9 +23,9 @@ function SearchButton({ placeholder }: SearchButtonProps) {
   useKeyboardCommands({
     callback: (key) => {
       if (key === keyboardCommands.CMD_K) {
-        openSearchBox.on;
+        openSearchBox.on();
       } else if (key === keyboardCommands.ESCAPE) {
-        openSearchBox.off;
+        openSearchBox.off();
       }
     },
   });
@@ -59,23 +57,10 @@ function SearchButton({ placeholder }: SearchButtonProps) {
         </Flex>
       </button>
 
-      <Dialog
-        motionPreset={motionVariants.FLIP}
-        isCentered
-        opened={openSearchBox.value}
-        onClose={openSearchBox.off}
-      >
-        <Backdrop />
-        <DialogContent>
-          <DialogBody>
-            <input type="text" />
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam
-            quibusdam quaerat quasi dolorum laboriosam facilis debitis quidem
-            perferendis ad accusantium qui, expedita repellendus in dolore
-            numquam, exercitationem, culpa sint. Nam.
-          </DialogBody>
-        </DialogContent>
-      </Dialog>
+      <SearchBox
+        openedSearchBox={openSearchBox.value}
+        onCloseSearchBox={openSearchBox.off}
+      />
     </>
   );
 }

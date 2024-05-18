@@ -2,7 +2,7 @@
 
 import cx from 'clsx';
 import { motion } from 'framer-motion';
-import { ElementRef, useRef } from 'react';
+import { ElementRef, useEffect, useRef } from 'react';
 
 import useOutsideClick from '@/hooks/use-outside-click';
 
@@ -17,12 +17,36 @@ function DialogContent({
 }: DialogContentProps) {
   const contentRef = useRef<ElementRef<'section'>>(null);
 
-  const { scrollBehavior, motionPreset, dialogId, headerId, bodyId, onClose } =
-    useInternalDialog();
+  const {
+    scrollBehavior,
+    motionPreset,
+    dialogId,
+    headerId,
+    bodyId,
+    hasClosedOutsideClick,
+    hasCloseOnEsc,
+    onClose,
+  } = useInternalDialog();
 
   useOutsideClick({
     ref: contentRef,
     handler: onClose,
+    isEnabled: hasClosedOutsideClick,
+  });
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && hasCloseOnEsc) {
+        event.stopPropagation();
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   });
 
   return (

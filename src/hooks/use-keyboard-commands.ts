@@ -7,7 +7,7 @@ export type KeyboardCommandCallback = (key: KeyboardCommand) => void;
 
 export type UseKeyboardCommandsProps = {
   callback: KeyboardCommandCallback;
-  enabled?: boolean;
+  enabled?: boolean | (() => boolean);
 };
 
 export type CallbackRef = {
@@ -28,7 +28,7 @@ function useKeyboardCommands({
   }, [callback]);
 
   useEffect(() => {
-    if (!enabled) return;
+    if (!enabled || (typeof enabled === 'function' && !enabled())) return;
 
     const keysMapCommands: Record<string, KeyboardCommand> = {
       [keys.ESCAPE]: keyboardCommands.ESCAPE,

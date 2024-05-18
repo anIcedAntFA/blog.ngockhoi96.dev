@@ -13,6 +13,8 @@ export type Dialog = {
   blockScroll: boolean;
   isCentered: boolean;
   opened: boolean;
+  hasClosedOutsideClick: boolean;
+  hasCloseOnEsc: boolean;
   onClose: VoidFunction;
 };
 
