@@ -17,6 +17,7 @@ html[data-theme='dark'] .root {
   font-family: var(--font-jet-brain-mono);
   font-weight: var(--fw-bold);
   font-size: var(--fs-small);
+  line-height: normal;
   white-space: nowrap;
 
   background-color: var(--clr-bg-kbd);

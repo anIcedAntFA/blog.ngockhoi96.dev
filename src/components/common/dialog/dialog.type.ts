@@ -7,17 +7,17 @@ import { IconButtonProps } from '../icon-button';
 
 import { ScrollBehavior } from './dialog.config';
 
-type FocusableElement = {
+export type FocusableElement = {
   focus(options?: FocusOptions): void;
 };
 
-export type Dialog = {
+export type DialogStyleProps = {
   scrollBehavior: ScrollBehavior;
   motionPreset: MotionPreset;
   initialFocusRef: RefObject<FocusableElement>;
   finalFocusRef: RefObject<FocusableElement>;
   hasFocusLock: boolean;
-  blockScroll: boolean;
+  hasBlockScroll: boolean;
   isCentered: boolean;
   opened: boolean;
   hasClosedOutsideClick: boolean;
@@ -25,7 +25,10 @@ export type Dialog = {
   onClose: VoidFunction;
 };
 
-export type DialogProps = ComponentPropsWithRef<'div'> & Partial<Dialog>;
+export type DialogProps = ComponentPropsWithRef<'div'> &
+  Partial<DialogStyleProps>;
+
+export type DialogWrapperProps = ComponentPropsWithRef<'div'>;
 
 export type DialogContentProps = ComponentProps<'section'> & MotionProps;
 
@@ -37,7 +40,7 @@ export type DialogBodyProps = ComponentProps<'div'> & MotionProps;
 
 export type DialogFooterProps = ComponentProps<'footer'>;
 
-export type DialogContextState = Partial<Dialog> & {
+export type DialogContextState = Partial<DialogStyleProps> & {
   dialogId: string;
   headerId: string;
   bodyId: string;

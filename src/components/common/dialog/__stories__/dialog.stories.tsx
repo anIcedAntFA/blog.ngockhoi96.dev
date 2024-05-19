@@ -25,7 +25,7 @@ const meta = {
       defaultValue: false,
       control: 'boolean',
     },
-    blockScroll: {
+    hasBlockScroll: {
       name: 'Block Scroll',
       description: 'Block scroll',
       defaultValue: true,

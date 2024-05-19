@@ -58,6 +58,7 @@ function SearchButton({ placeholder }: SearchButtonProps) {
       </button>
 
       <SearchBox
+        searchBtnRef={searchBtnRef}
         openedSearchBox={openSearchBox.value}
         onCloseSearchBox={openSearchBox.off}
       />
