@@ -33,6 +33,10 @@ html[data-theme='dark'] .root {
     box-shadow 0.2s ease-in-out,
     background-color 0.2s ease-in-out;
 
+  &[data-active='true'] {
+    border-color: var(--clr-primary);
+  }
+
   &:hover {
     box-shadow:
       0 2px 5px 0 rgb(0 0 0 / 10%),
@@ -44,8 +48,9 @@ html[data-theme='dark'] .root {
     }
   }
 
-  &[data-active='true'] {
-    border-color: var(--clr-primary);
+  &:focus {
+    outline: 2px solid alpha(var(--clr-primary), 60%);
+    outline-offset: 2px;
   }
 }
 

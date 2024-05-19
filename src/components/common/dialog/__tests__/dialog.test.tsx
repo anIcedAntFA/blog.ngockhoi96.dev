@@ -1,8 +1,10 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent, { UserEvent } from '@testing-library/user-event';
+import { ElementRef, useRef } from 'react';
 import { afterEach, beforeEach, describe, expect, it, Mock, vi } from 'vitest';
 
 import Backdrop from '@/components/common/backdrop';
+import useBoolean from '@/hooks/use-boolean';
 
 import Dialog from '../components/dialog';
 import DialogBody from '../components/dialog-body';
@@ -98,5 +100,85 @@ describe('Dialog', () => {
     await user.keyboard('[Escape]');
 
     expect(onClose).toHaveBeenCalledOnce();
+  });
+
+  it('should focus initial element when dialog is opened', async () => {
+    const DialogHasInput = () => {
+      const openedDialog = useBoolean(false);
+      const inputRef = useRef<ElementRef<'input'>>(null);
+
+      return (
+        <>
+          <button type="button" onClick={openedDialog.on}>
+            open dialog
+          </button>
+          <Dialog
+            opened={openedDialog.value}
+            initialFocusRef={inputRef}
+            onClose={onClose}
+          >
+            <Backdrop />
+            <DialogContent>
+              <DialogBody>
+                <input />
+                <input />
+                <input ref={inputRef} type="text" data-testid="input" />
+              </DialogBody>
+            </DialogContent>
+          </Dialog>
+        </>
+      );
+    };
+
+    render(<DialogHasInput />);
+
+    await user.click(screen.getByRole('button'));
+    expect(screen.getByTestId('input')).toHaveFocus();
+  });
+
+  it('should return focus to button when dialog is closed', async () => {
+    const DialogHasInput = () => {
+      const openedDialog = useBoolean(false);
+      const btnRef = useRef<ElementRef<'button'>>(null);
+
+      return (
+        <>
+          <button
+            ref={btnRef}
+            type="button"
+            aria-label="open dialog"
+            onClick={openedDialog.on}
+          >
+            open dialog
+          </button>
+          <Dialog
+            opened={openedDialog.value}
+            finalFocusRef={btnRef}
+            onClose={onClose}
+          >
+            <Backdrop />
+            <DialogContent>
+              <DialogBody>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Possimus tenetur labore inventore, veritatis consequatur, qui
+                tempore aspernatur magni reprehenderit quibusdam porro sapiente
+                explicabo maxime ipsum deleniti tempora nihil cum ad!
+              </DialogBody>
+            </DialogContent>
+          </Dialog>
+        </>
+      );
+    };
+
+    render(<DialogHasInput />);
+
+    const button = screen.getByRole('button', { name: 'open dialog' });
+
+    expect(button).not.toHaveFocus();
+
+    await user.click(button);
+    await user.keyboard('[Escape]');
+
+    await waitFor(() => expect(button).toHaveFocus());
   });
 });

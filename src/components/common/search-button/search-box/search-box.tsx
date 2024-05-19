@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, ElementRef, useRef, useState } from 'react';
 
 import Backdrop from '@/components/common/backdrop';
 import {
@@ -22,8 +22,14 @@ import { SearchBoxProps } from '../search-button.type';
 
 import styles from './search-box.module.css';
 
-function SearchBox({ openedSearchBox, onCloseSearchBox }: SearchBoxProps) {
+function SearchBox({
+  searchBtnRef,
+  openedSearchBox,
+  onCloseSearchBox,
+}: SearchBoxProps) {
   const [searchText, setSearchText] = useState<string>('');
+
+  const inputRef = useRef<ElementRef<'input'>>(null);
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value);
@@ -41,6 +47,8 @@ function SearchBox({ openedSearchBox, onCloseSearchBox }: SearchBoxProps) {
   return (
     <Dialog
       motionPreset={motionPresets.DROP_IN}
+      initialFocusRef={inputRef}
+      finalFocusRef={searchBtnRef}
       isCentered
       opened={openedSearchBox}
       onClose={handleCloseSearchBox}
@@ -57,6 +65,7 @@ function SearchBox({ openedSearchBox, onCloseSearchBox }: SearchBoxProps) {
               <VisuallyHidden>Search</VisuallyHidden>
             </label>
             <input
+              ref={inputRef}
               id="search"
               type="search"
               placeholder="What are you looking for?"
@@ -68,7 +77,6 @@ function SearchBox({ openedSearchBox, onCloseSearchBox }: SearchBoxProps) {
               <IconButton
                 size="small"
                 label="Clear text"
-                className={styles['clear-icon']}
                 onClick={handleSearchClear}
               >
                 <CancelIcon />
@@ -76,7 +84,7 @@ function SearchBox({ openedSearchBox, onCloseSearchBox }: SearchBoxProps) {
             )}
           </form>
         </DialogHeader>
-        <DialogCloseTrigger label="Close dialog" />
+        <DialogCloseTrigger label="Close dialog" color="primary" />
         <Divider className={styles.divider} />
         <DialogBody>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam
@@ -92,28 +100,28 @@ function SearchBox({ openedSearchBox, onCloseSearchBox }: SearchBoxProps) {
         <Divider className={styles.divider} />
         <DialogFooter className={styles.footer}>
           <Flex spacing={16}>
-            <Flex spacing={8}>
+            <Flex align="center" spacing={8}>
               <VisuallyHidden>Press</VisuallyHidden>
-              <Kbd>
+              <Kbd color="primary">
                 <abbr title="Enter">↵</abbr>
               </Kbd>
               <p>to select</p>
             </Flex>
 
-            <Flex spacing={8}>
+            <Flex align="center" spacing={8}>
               <VisuallyHidden>Press</VisuallyHidden>
-              <Kbd>
+              <Kbd color="primary">
                 <abbr title="Down">↓</abbr>
               </Kbd>
-              <Kbd>
+              <Kbd color="primary">
                 <abbr title="Up">↑</abbr>
               </Kbd>
               <p>to navigate</p>
             </Flex>
 
-            <Flex spacing={8}>
+            <Flex align="center" spacing={8}>
               <VisuallyHidden>Press</VisuallyHidden>
-              <Kbd>
+              <Kbd color="primary">
                 <abbr title="Escape">Esc</abbr>
               </Kbd>
               <p>to close</p>

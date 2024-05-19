@@ -22,7 +22,7 @@ describe('IconButton', () => {
     expect(button).toHaveAttribute('aria-disabled', 'false');
     expect(button).toHaveAttribute('data-variant', 'contained');
     expect(button).toHaveAttribute('data-size', 'medium');
-    expect(button).toHaveAttribute('data-color', 'primary');
+    expect(button).toHaveAttribute('data-color', 'base');
     expect(button).toContainElement(screen.getByText('🔍'));
   });
 

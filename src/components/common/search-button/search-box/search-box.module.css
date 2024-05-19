@@ -8,10 +8,6 @@
 
   width: calc(100% - 48px);
   height: 28px;
-
-  &:focus-within .search-icon {
-    color: var(--clr-primary);
-  }
 }
 
 .search-icon {
@@ -20,14 +16,10 @@
   width: 24px;
   height: 24px;
 
-  color: var(--clr-base);
-
-  transition: color 0.2s ease-in-out;
+  color: var(--clr-primary);
 }
 
 .input {
-  @mixin flex-center;
-
   outline: none;
   border: none;
   width: 100%;
@@ -37,17 +29,6 @@
   background-color: transparent;
 
   caret-color: var(--clr-primary);
-}
-
-.clear-icon {
-  @mixin flex-center;
-
-  width: 20px;
-  height: 20px;
-
-  color: var(--clr-text);
-
-  transition: color 0.2s ease-in-out;
 }
 
 .footer {

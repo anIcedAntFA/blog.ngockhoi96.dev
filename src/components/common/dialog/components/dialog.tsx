@@ -1,10 +1,6 @@
 'use client';
 
-import cx from 'clsx';
 import { AnimatePresence } from 'framer-motion';
-import { useCallback } from 'react';
-import FocusLock from 'react-focus-lock';
-import { RemoveScroll } from 'react-remove-scroll';
 
 import Portal from '@/components/common/portal';
 import { motionPresets } from '@/configs/motion-variants';
@@ -12,8 +8,9 @@ import useIds from '@/hooks/use-ids';
 
 import { scrollBehaviors } from '../dialog.config';
 import { InternalDialogProvider } from '../dialog.context';
-import styles from '../dialog.module.css';
 import { DialogProps } from '../dialog.type';
+
+import DialogWrapper from './dialog-wrapper';
 
 function Dialog({
   id,
@@ -24,12 +21,12 @@ function Dialog({
   scrollBehavior = scrollBehaviors.INSIDE,
   motionPreset = motionPresets.DROP_IN,
   hasFocusLock = true,
-  blockScroll = true,
+  hasBlockScroll = true,
   isCentered = false,
   opened = false,
   hasClosedOutsideClick = true,
   hasCloseOnEscKey = true,
-  ...passProps
+  ...restProps
 }: DialogProps) {
   const [dialogId, headerId, bodyId] = useIds(
     id,
@@ -38,12 +35,13 @@ function Dialog({
     `dialog-body`,
   );
 
-  const Element = blockScroll ? RemoveScroll : 'div';
-
   const value = {
     scrollBehavior,
     motionPreset,
-    blockScroll,
+    hasBlockScroll,
+    hasFocusLock,
+    initialFocusRef,
+    finalFocusRef,
     isCentered,
     dialogId,
     headerId,
@@ -54,36 +52,12 @@ function Dialog({
     onClose,
   };
 
-  const onActivation = useCallback(() => {
-    if (initialFocusRef?.current) {
-      initialFocusRef.current.focus();
-    }
-  }, [initialFocusRef]);
-
-  const onDeactivation = useCallback(() => {
-    finalFocusRef?.current?.focus();
-  }, [finalFocusRef]);
-
   return (
     <InternalDialogProvider value={value}>
       <AnimatePresence onExitComplete={onClose}>
         {opened && (
           <Portal>
-            <FocusLock
-              disabled={!hasFocusLock}
-              onActivation={onActivation}
-              onDeactivation={onDeactivation}
-            >
-              <Element
-                data-scroll-behavior={scrollBehavior}
-                className={cx(styles.root, {
-                  [styles.centered]: isCentered,
-                })}
-                {...passProps}
-              >
-                {children}
-              </Element>
-            </FocusLock>
+            <DialogWrapper {...restProps}>{children}</DialogWrapper>
           </Portal>
         )}
       </AnimatePresence>
