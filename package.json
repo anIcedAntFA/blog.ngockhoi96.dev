@@ -34,6 +34,7 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-focus-lock": "^2.12.1",
     "react-remove-scroll": "^2.5.10",
     "storybook": "^8.0.8",
     "zustand": "^4.5.2"

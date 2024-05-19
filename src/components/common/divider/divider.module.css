@@ -1,4 +1,9 @@
 .root {
+  &.centered {
+    display: flex;
+    margin: auto;
+  }
+
   &[data-color='base'] {
     border-color: var(--clr-base);
   }

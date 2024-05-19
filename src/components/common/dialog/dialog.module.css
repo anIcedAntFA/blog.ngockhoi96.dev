@@ -54,16 +54,13 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 24px 24px 16px;
-
-  font-weight: 700;
-  font-size: 24px;
+  padding: 20px 20px 16px;
 }
 
 .close-btn {
   position: absolute !important;
   top: 16px;
-  right: 24px;
+  right: 20px;
 }
 
 .body {
@@ -84,5 +81,5 @@
   justify-content: flex-end;
   align-items: center;
 
-  padding: 16px 24px 24px;
+  padding: 16px 20px 20px;
 }

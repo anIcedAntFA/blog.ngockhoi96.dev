@@ -19,7 +19,6 @@ function DialogCloseTrigger({
 
   return (
     <IconButton
-      color="primary"
       className={cx(styles['close-btn'], className)}
       {...passProps}
       label="close dialog"

@@ -16,7 +16,7 @@ function IconButton(
     type = 'button',
     variant = buttonVariants.CONTAINED,
     size = sizes.MEDIUM,
-    color = colors.PRIMARY,
+    color = colors.BASE,
     label,
     rounded = false,
     disabled = false,

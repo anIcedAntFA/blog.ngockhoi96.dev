@@ -12,13 +12,14 @@ export type DividerThicknessKey = keyof typeof dividerThicknesses;
 
 export type DividerThickness = (typeof dividerThicknesses)[DividerThicknessKey];
 
-export type BaseDivider = {
+export type DividerStyleProps = {
   orientation: Orientation;
   variant: DividerVariant;
   thickness: DividerThickness;
   width: string;
   height: string;
   color: Color;
+  isCentered: boolean;
 };
 
-export type DividerProps = ComponentProps<'hr'> & Partial<BaseDivider>;
+export type DividerProps = ComponentProps<'hr'> & Partial<DividerStyleProps>;
