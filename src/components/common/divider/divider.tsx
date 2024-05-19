@@ -17,6 +17,7 @@ function Divider({
   color = colors.BASE,
   width = '100%',
   height = '100%',
+  isCentered = false,
   className,
   ...passProps
 }: DividerProps) {
@@ -26,7 +27,13 @@ function Divider({
       data-variant={variant}
       data-thickness={thickness}
       data-color={color}
-      className={cx(styles.root, className)}
+      className={cx(
+        styles.root,
+        {
+          [styles.centered]: isCentered,
+        },
+        className,
+      )}
       style={dividerSizeStyleMap(width, height)[orientation]}
       {...passProps}
     />

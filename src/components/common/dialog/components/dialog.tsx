@@ -2,6 +2,8 @@
 
 import cx from 'clsx';
 import { AnimatePresence } from 'framer-motion';
+import { useCallback } from 'react';
+import FocusLock from 'react-focus-lock';
 import { RemoveScroll } from 'react-remove-scroll';
 
 import Portal from '@/components/common/portal';
@@ -16,14 +18,17 @@ import { DialogProps } from '../dialog.type';
 function Dialog({
   id,
   children,
+  initialFocusRef,
+  finalFocusRef,
+  onClose,
   scrollBehavior = scrollBehaviors.INSIDE,
   motionPreset = motionPresets.DROP_IN,
+  hasFocusLock = true,
   blockScroll = true,
   isCentered = false,
   opened = false,
   hasClosedOutsideClick = true,
   hasCloseOnEscKey = true,
-  onClose = () => {},
   ...passProps
 }: DialogProps) {
   const [dialogId, headerId, bodyId] = useIds(
@@ -49,20 +54,36 @@ function Dialog({
     onClose,
   };
 
+  const onActivation = useCallback(() => {
+    if (initialFocusRef?.current) {
+      initialFocusRef.current.focus();
+    }
+  }, [initialFocusRef]);
+
+  const onDeactivation = useCallback(() => {
+    finalFocusRef?.current?.focus();
+  }, [finalFocusRef]);
+
   return (
     <InternalDialogProvider value={value}>
       <AnimatePresence onExitComplete={onClose}>
         {opened && (
           <Portal>
-            <Element
-              data-scroll-behavior={scrollBehavior}
-              className={cx(styles.root, {
-                [styles.centered]: isCentered,
-              })}
-              {...passProps}
+            <FocusLock
+              disabled={!hasFocusLock}
+              onActivation={onActivation}
+              onDeactivation={onDeactivation}
             >
-              {children}
-            </Element>
+              <Element
+                data-scroll-behavior={scrollBehavior}
+                className={cx(styles.root, {
+                  [styles.centered]: isCentered,
+                })}
+                {...passProps}
+              >
+                {children}
+              </Element>
+            </FocusLock>
           </Portal>
         )}
       </AnimatePresence>

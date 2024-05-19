@@ -11,7 +11,7 @@ import Flex from '../flex';
 import Kbd from '../kbd';
 import VisuallyHidden from '../visually-hidden';
 
-import SearchBox from './search-box';
+import SearchBox from './search-box/search-box';
 import styles from './search-button.module.css';
 import { SearchButtonProps } from './search-button.type';
 

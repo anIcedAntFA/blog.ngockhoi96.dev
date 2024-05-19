@@ -39,7 +39,7 @@ function DialogContent({
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && hasCloseOnEscKey) {
         event.stopPropagation();
-        onClose();
+        onClose?.();
       }
     };
 
@@ -54,7 +54,7 @@ function DialogContent({
     <motion.section
       ref={contentRef}
       id={dialogId}
-      variants={motionVariants[motionPreset]}
+      variants={motionVariants[motionPreset || 'drop-in']}
       initial="initial"
       animate="animate"
       exit="exit"
