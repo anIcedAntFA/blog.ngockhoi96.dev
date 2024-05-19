@@ -1,7 +1,10 @@
+import { MessageKeys } from 'next-intl';
 import { ElementRef, RefObject } from 'react';
 
+import { Todo } from '@/types/common';
+
 export type SearchButtonProps = {
-  placeholder: string;
+  placeholder: Todo;
 };
 
 export type SearchBoxProps = {

@@ -1,6 +1,8 @@
 'use client';
 
+import { useMessages } from 'next-intl';
 import { ElementRef, useRef } from 'react';
+import { useTranslations } from 'use-intl';
 
 import SearchIcon from '@/components/icons/search-icon';
 import { keyboardCommands } from '@/configs/constants';
@@ -15,8 +17,10 @@ import SearchBox from './search-box/search-box';
 import styles from './search-button.module.css';
 import { SearchButtonProps } from './search-button.type';
 
-function SearchButton({ placeholder }: SearchButtonProps) {
+function SearchButton() {
   const searchBtnRef = useRef<ElementRef<'button'>>(null);
+
+  const messages = useMessages();
 
   const openSearchBox = useBoolean(false);
 
@@ -30,12 +34,18 @@ function SearchButton({ placeholder }: SearchButtonProps) {
     },
   });
 
+  const msg = messages;
+
+  // console.log({
+  //   msg,
+  // });
+
   return (
     <>
       <button
         ref={searchBtnRef}
         type="button"
-        aria-label={placeholder}
+        aria-label={messages.c}
         data-active={openSearchBox.value}
         className={styles.root}
         onClick={openSearchBox.on}
@@ -44,7 +54,7 @@ function SearchButton({ placeholder }: SearchButtonProps) {
           <SearchIcon />
         </span>
         <Flex className={styles['text-and-kbd']}>
-          <p className={styles.text}>{placeholder}</p>
+          {/* <p className={styles.text}>{placeholder}</p> */}
           <Flex align="center" spacing={4}>
             <VisuallyHidden>Press</VisuallyHidden>
             <Kbd>

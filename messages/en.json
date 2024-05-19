@@ -6,8 +6,11 @@
       }
     },
     "search": {
-      "searchBox": {
+      "searchButton": {
         "placeholder": "Start typing..."
+      },
+      "searchBox": {
+        "placeholder": "Search..."
       }
     }
   },

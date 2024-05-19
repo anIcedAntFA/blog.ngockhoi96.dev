@@ -4,7 +4,7 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 import { ReactNode } from 'react';
 
 import NavigationBar from '@/components/containers/navigation-bar';
-import Dummy from '@/components/dummy';
+// import Dummy from '@/components/dummy';
 import { jetBrainMono, lora, openSans } from '@/configs/fonts';
 import {
   availableLocaleCodes,
@@ -56,7 +56,7 @@ function LocaleLayout({
         <AppProvider>
           <NavigationBar />
           {children}
-          <Dummy />
+          {/* <Dummy /> */}
         </AppProvider>
       </body>
     </html>
