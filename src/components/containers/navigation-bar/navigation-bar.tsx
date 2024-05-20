@@ -1,18 +1,24 @@
+import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 
 import Divider from '@/components/common/divider';
 import Flex from '@/components/common/flex';
 import SearchButton from '@/components/common/search-button';
-import ThemeSwitcher from '@/components/common/theme-switcher';
 
 import { navigationList } from './navigation-bar.config';
 import styles from './navigation-bar.module.css';
 import NavigationItem from './navigation-item';
 
+const ThemeSwitcher = dynamic(
+  () => import('@/components/common/theme-switcher'),
+  {
+    ssr: false,
+    loading: () => <div>Loading...</div>,
+  },
+);
+
 function NavigationBar() {
   const tNavigationList = useTranslations('Layout.Header.Navigation');
-  const tSearchButton = useTranslations('components.search.searchBox');
-  const tThemeSwitcher = useTranslations('components.common.theme switcher');
 
   return (
     <nav className={styles.wrapper}>
@@ -29,9 +35,9 @@ function NavigationBar() {
       </ul>
 
       <Flex spacing={12}>
-        <SearchButton placeholder={tSearchButton('placeholder')} />
+        <SearchButton />
 
-        <ThemeSwitcher label={tThemeSwitcher('label')} />
+        <ThemeSwitcher />
 
         <Divider
           orientation="vertical"
