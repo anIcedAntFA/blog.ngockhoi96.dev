@@ -1,16 +1,26 @@
 {
   "components": {
     "common": {
-      "theme switcher": {
+      "themeSwitcher": {
         "label": "Toggle Dark Mode"
       }
     },
     "search": {
       "searchButton": {
-        "placeholder": "Start typing..."
+        "placeholder": "Start typing...",
+        "press": "Press",
+        "and": "and",
+        "toSearch": "to search"
       },
       "searchBox": {
-        "placeholder": "Search..."
+        "placeholder": "What are you looking for?",
+        "search": "Search",
+        "clearButtonLabel": "Clear search input",
+        "dialogCloseTriggerLabel": "Close search box dialog",
+        "press": "Press",
+        "toSelect": "to select",
+        "toNavigate": "to navigate",
+        "toClose": "to close"
       }
     }
   },

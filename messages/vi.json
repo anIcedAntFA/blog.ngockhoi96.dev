@@ -1,13 +1,26 @@
 {
   "components": {
     "common": {
-      "theme switcher": {
+      "themeSwitcher": {
         "label": "Chế độ sáng/tối"
       }
     },
     "search": {
+      "searchButton": {
+        "placeholder": "Bắt đầu nhập...",
+        "press": "Nhấn",
+        "and": "và",
+        "toSearch": "để tìm kiếm"
+      },
       "searchBox": {
-        "placeholder": "Tìm kiếm..."
+        "placeholder": "Ban muốn tìm kiếm gì?",
+        "search": "Tìm kiếm",
+        "clearButtonLabel": "Xóa ô tìm kiếm",
+        "dialogCloseTriggerLabel": "Đóng hộp thoại tìm kiếm",
+        "press": "Nhấn",
+        "toSelect": "để chọn",
+        "toNavigate": "để điều hướng",
+        "toClose": "để đóng"
       }
     }
   },

@@ -1,42 +1,46 @@
-import type { Metadata } from 'next';
-import { unstable_setRequestLocale } from 'next-intl/server';
-// import dynamic from "next/dynamic";
-import { ReactNode } from 'react';
+import {
+  getLocale,
+  getTranslations,
+  unstable_setRequestLocale,
+} from 'next-intl/server';
+import { PropsWithChildren } from 'react';
 
 import NavigationBar from '@/components/containers/navigation-bar';
-// import Dummy from '@/components/dummy';
 import { jetBrainMono, lora, openSans } from '@/configs/fonts';
 import {
   availableLocaleCodes,
   availableLocalesMap,
   defaultLocale,
 } from '@/i18n/locales';
-import AppProvider from '@/providers/app-provider';
+import LocaleProvider from '@/providers/locale-provider';
+import ThemeProvider from '@/providers/theme-provider';
 import '@/styles/main.css';
-// import { Locale } from '@/types/locales';
 
-export const metadata: Metadata = {
-  title: 'ngockhoi96 blog | Home',
-  description:
-    'A personal blog that share my ideas, experiences about techs and lifestyles.',
-};
+// export const metadata: Metadata = {
+//   title: 'ngockhoi96 blog | Home',
+//   description:
+//     'A personal blog that share my ideas, experiences about techs and lifestyles.',
+// };
 
-type LocaleLayoutProps = {
-  children: ReactNode;
-  params: {
-    locale: string;
-  };
-};
-
-// const Header = dynamic(() => import("@/layouts/Header"), {
-//   ssr: false,
-//   loading: () => <div>Loading...</div>,
-// });
-
-function LocaleLayout({
-  children,
+export async function generateMetadata({
   params: { locale },
-}: Readonly<LocaleLayoutProps>) {
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale, namespace: 'Home' });
+
+  return {
+    title: t('Title'),
+    description: t('Description'),
+  };
+}
+
+async function LocaleLayout({
+  children,
+  // params: { locale },
+}: PropsWithChildren) {
+  const locale = await getLocale();
+
   // Enable static rendering
   unstable_setRequestLocale(locale);
 
@@ -53,11 +57,12 @@ function LocaleLayout({
       <body
         className={`${openSans.variable} ${lora.variable} ${jetBrainMono.variable}`}
       >
-        <AppProvider>
-          <NavigationBar />
-          {children}
-          {/* <Dummy /> */}
-        </AppProvider>
+        <LocaleProvider>
+          <ThemeProvider>
+            <NavigationBar />
+            {children}
+          </ThemeProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

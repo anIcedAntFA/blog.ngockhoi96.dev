@@ -1,6 +1,5 @@
 'use client';
 
-import { useMessages } from 'next-intl';
 import { ElementRef, useRef } from 'react';
 import { useTranslations } from 'use-intl';
 
@@ -15,12 +14,11 @@ import VisuallyHidden from '../visually-hidden';
 
 import SearchBox from './search-box/search-box';
 import styles from './search-button.module.css';
-import { SearchButtonProps } from './search-button.type';
 
 function SearchButton() {
   const searchBtnRef = useRef<ElementRef<'button'>>(null);
 
-  const messages = useMessages();
+  const t = useTranslations('components.search.searchButton');
 
   const openSearchBox = useBoolean(false);
 
@@ -34,18 +32,12 @@ function SearchButton() {
     },
   });
 
-  const msg = messages;
-
-  // console.log({
-  //   msg,
-  // });
-
   return (
     <>
       <button
         ref={searchBtnRef}
         type="button"
-        aria-label={messages.c}
+        aria-label={t('placeholder')}
         data-active={openSearchBox.value}
         className={styles.root}
         onClick={openSearchBox.on}
@@ -54,15 +46,15 @@ function SearchButton() {
           <SearchIcon />
         </span>
         <Flex className={styles['text-and-kbd']}>
-          {/* <p className={styles.text}>{placeholder}</p> */}
+          <p className={styles.text}>{t('placeholder')}</p>
           <Flex align="center" spacing={4}>
-            <VisuallyHidden>Press</VisuallyHidden>
+            <VisuallyHidden>{t('press')}</VisuallyHidden>
             <Kbd>
               <abbr title="Control">Ctrl</abbr>
             </Kbd>
-            <VisuallyHidden>and</VisuallyHidden>
+            <VisuallyHidden>{t('and')}</VisuallyHidden>
             <Kbd>K</Kbd>
-            <VisuallyHidden>to-search</VisuallyHidden>
+            <VisuallyHidden>{t('toSearch')}</VisuallyHidden>
           </Flex>
         </Flex>
       </button>

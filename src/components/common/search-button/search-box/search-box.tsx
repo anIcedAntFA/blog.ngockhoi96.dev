@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { ChangeEvent, ElementRef, useRef, useState } from 'react';
 
 import Backdrop from '@/components/common/backdrop';
@@ -31,6 +32,8 @@ function SearchBox({
 
   const inputRef = useRef<ElementRef<'input'>>(null);
 
+  const t = useTranslations('components.search.searchBox');
+
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value);
   };
@@ -62,13 +65,13 @@ function SearchBox({
               <span className={styles['search-icon']}>
                 <SearchIcon />
               </span>
-              <VisuallyHidden>Search</VisuallyHidden>
+              <VisuallyHidden>{t('search')}</VisuallyHidden>
             </label>
             <input
               ref={inputRef}
               id="search"
               type="search"
-              placeholder="What are you looking for?"
+              placeholder={t('placeholder')}
               value={searchText}
               className={styles.input}
               onChange={handleSearchChange}
@@ -76,7 +79,7 @@ function SearchBox({
             {!!searchText && (
               <IconButton
                 size="small"
-                label="Clear text"
+                label={t('clearButtonLabel')}
                 onClick={handleSearchClear}
               >
                 <CancelIcon />
@@ -84,7 +87,10 @@ function SearchBox({
             )}
           </form>
         </DialogHeader>
-        <DialogCloseTrigger label="Close dialog" color="primary" />
+        <DialogCloseTrigger
+          label={t('dialogCloseTriggerLabel')}
+          color="primary"
+        />
         <Divider className={styles.divider} />
         <DialogBody>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam
@@ -105,18 +111,18 @@ function SearchBox({
               <Kbd color="primary">
                 <abbr title="Enter">↵</abbr>
               </Kbd>
-              <p>to select</p>
+              <p>{t('toSelect')}</p>
             </Flex>
 
             <Flex align="center" spacing={8}>
-              <VisuallyHidden>Press</VisuallyHidden>
+              <VisuallyHidden>{t('press')}</VisuallyHidden>
               <Kbd color="primary">
                 <abbr title="Down">↓</abbr>
               </Kbd>
               <Kbd color="primary">
                 <abbr title="Up">↑</abbr>
               </Kbd>
-              <p>to navigate</p>
+              <p>{t('toNavigate')}</p>
             </Flex>
 
             <Flex align="center" spacing={8}>
@@ -124,7 +130,7 @@ function SearchBox({
               <Kbd color="primary">
                 <abbr title="Escape">Esc</abbr>
               </Kbd>
-              <p>to close</p>
+              <p>{t('toClose')}</p>
             </Flex>
           </Flex>
         </DialogFooter>

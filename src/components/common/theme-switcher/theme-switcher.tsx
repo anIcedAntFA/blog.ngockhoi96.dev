@@ -1,6 +1,7 @@
 'use client';
 
 import cx from 'clsx';
+import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 
 import { themes } from '@/configs/themes';
@@ -9,8 +10,10 @@ import { equal } from '@/utils/equal';
 import styles from './theme-switcher.module.css';
 import { ThemeSwitcherProps } from './theme-switcher.type';
 
-function ThemeSwitcher({ label, ...restProps }: ThemeSwitcherProps) {
+function ThemeSwitcher(inputProps: ThemeSwitcherProps) {
   const { setTheme, resolvedTheme } = useTheme();
+
+  const t = useTranslations();
 
   const isDarkMode = equal(resolvedTheme, themes.DARK);
 
@@ -25,10 +28,10 @@ function ThemeSwitcher({ label, ...restProps }: ThemeSwitcherProps) {
         id="switch"
         checked={isDarkMode}
         hidden
-        aria-label={label}
+        aria-label={t('components.common.themeSwitcher.label')}
         data-testid="theme-switcher"
         onChange={handleToggleTheme}
-        {...restProps}
+        {...inputProps}
       />
       <label htmlFor="switch" className={styles.sky}>
         <ul className={styles.sun}>
