@@ -1,19 +1,19 @@
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 import vercelLogo from '/public/favicons/vercel.svg';
 
 export const runtime = 'edge';
 
 export default function Home() {
-  const t = useTranslations('Home');
+  const t = useTranslations('home');
   // const t2 = useTranslations("Layout.Header.Navigation");
 
   return (
     <main>
       <div>
-        <h1>{t('Title')}</h1>
-        <h3>{t('Description')}</h3>
+        <h1>{t('metadata.title')}</h1>
+        <h3>{t('metadata.subtitle')}</h3>
         <p>
           Get started by editing&nbsp;
           <code>src/app/page.tsx</code>

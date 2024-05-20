@@ -61,14 +61,12 @@
       }
     }
   },
-  "Home": {
-    "Title": "Trang chủ",
-    "Subtitle": "Welcome to the home page",
-    "Description": "This is the home page of the website. You can find all the information you need here."
-  },
-  "About": {
-    "Title": "Về chúng tôi",
-    "Subtitle": "Welcome to the about page",
-    "Description": "This is the about page of the website. You can find all the information you need here."
+  "home": {
+    "metadata": {
+      "title": "Trang chủ",
+      "subtitle": "Chào mừng đến với blog của tôi",
+      "description": "Một trang web cá nhân để chia sẻ kiến thức và kinh nghiệm của tôi với mọi người.",
+      "keywords": "ngockhoi96, blog, phát triển website, lập trình, cuộc sống, học tập, chia sẻ"
+    }
   }
 }

@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 
@@ -9,6 +10,11 @@ interface ITodo {
   title: string;
   completed: boolean;
 }
+
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'About page',
+};
 
 async function AboutPage() {
   const data: Response = await fetch(

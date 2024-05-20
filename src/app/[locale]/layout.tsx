@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import {
   getLocale,
   getTranslations,
@@ -16,29 +17,54 @@ import LocaleProvider from '@/providers/locale-provider';
 import ThemeProvider from '@/providers/theme-provider';
 import '@/styles/main.css';
 
-// export const metadata: Metadata = {
-//   title: 'ngockhoi96 blog | Home',
-//   description:
-//     'A personal blog that share my ideas, experiences about techs and lifestyles.',
-// };
+type GenerateMetadataProps = {
+  params: {
+    locale: string;
+  };
+};
 
 export async function generateMetadata({
   params: { locale },
-}: {
-  params: { locale: string };
-}) {
-  const t = await getTranslations({ locale, namespace: 'Home' });
+}: GenerateMetadataProps): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'home.metadata' });
 
   return {
-    title: t('Title'),
-    description: t('Description'),
+    metadataBase: new URL('https://blog.ngockhoi96.dev'),
+    title: {
+      default: "ngockhoi96's blog",
+      template: "%s | ngockhoi96's blog",
+    },
+    description: t('description'),
+    alternates: {
+      canonical: '/',
+      languages: {
+        en: '/en',
+        vi: '/vi',
+      },
+    },
+    generator: 'Next.js',
+    applicationName: "ngockhoi96's blog",
+    referrer: 'origin-when-cross-origin',
+    keywords: [t('keywords')],
+    authors: [{ name: 'ngockhoi96', url: 'https://blog.ngockhoi96.dev' }],
+    creator: 'ngockhoi96',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    openGraph: {
+      title: 'ngockhoi96',
+      description: 'Developer, writer, and creator.',
+      url: 'https://blog.ngockhoi96.dev',
+      type: 'website',
+      siteName: "ngockhoi96's blog",
+      locale: 'vi_VN',
+    },
   };
 }
 
-async function LocaleLayout({
-  children,
-  // params: { locale },
-}: PropsWithChildren) {
+async function LocaleLayout({ children }: PropsWithChildren) {
   const locale = await getLocale();
 
   // Enable static rendering
