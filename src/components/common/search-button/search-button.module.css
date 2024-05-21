@@ -17,7 +17,7 @@ html[data-theme='dark'] .root {
   border: 2px solid transparent;
   border-radius: var(--br-medium);
   height: 44px;
-  width: 400px;
+  width: 320px;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-inline: 12px 12px;
