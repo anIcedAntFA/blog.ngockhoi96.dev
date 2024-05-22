@@ -5,8 +5,16 @@
   justify-content: space-between;
 }
 
+.wrapper {
+  padding: 8px 12px;
+}
+
 .item {
   &:not(:first-child) {
     margin-left: 12px;
   }
+}
+
+.subscribe-btn {
+  width: 144px;
 }

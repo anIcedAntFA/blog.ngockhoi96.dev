@@ -1,6 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Todo = any;
 
+export type Nullable<T> = T | null;
+
+export type KeyType<T> = keyof T;
+
+export type ValueType<T> = T[keyof T];
+
 export type OverrideProps<T, TOverridden> = Omit<T, keyof TOverridden> &
   TOverridden;
 

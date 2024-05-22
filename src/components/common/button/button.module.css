@@ -247,7 +247,7 @@ html[data-theme='dark'] {
   }
 
   &[data-size='medium'] {
-    height: 48px;
+    height: 44px;
     padding: 10px 16px;
 
     &:not([data-variant='link']) {

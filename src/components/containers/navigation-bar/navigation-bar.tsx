@@ -1,9 +1,11 @@
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 
+import Button from '@/components/common/button';
 import Divider from '@/components/common/divider';
 import Flex from '@/components/common/flex';
 import SearchButton from '@/components/common/search-button';
+import EmailIcon from '@/components/icons/email-icon';
 
 import { navigationList } from './navigation-bar.config';
 import styles from './navigation-bar.module.css';
@@ -22,7 +24,7 @@ function NavigationBar() {
 
   return (
     <nav className={styles.wrapper}>
-      <Flex spacing={12}>
+      <Flex spacing={16}>
         <h3 className={styles.logo}>ngockhoi96</h3>
       </Flex>
 
@@ -45,6 +47,19 @@ function NavigationBar() {
           color="primary"
           height="40px"
         />
+
+        <Button
+          icon={{
+            position: 'left',
+            children: <EmailIcon />,
+            animation: 'shake-y',
+            hidden: true,
+          }}
+          uppercase
+          className={styles['subscribe-btn']}
+        >
+          Subscribe
+        </Button>
       </Flex>
     </nav>
   );
