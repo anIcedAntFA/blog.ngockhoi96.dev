@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import Button from '@/components/common/button';
 import Divider from '@/components/common/divider';
 import Flex from '@/components/common/flex';
+import GithubStarButton from '@/components/common/github-star-button';
 import SearchButton from '@/components/common/search-button';
 import EmailIcon from '@/components/icons/email-icon';
 
@@ -60,6 +61,8 @@ function NavigationBar() {
         >
           Subscribe
         </Button>
+
+        <GithubStarButton />
       </Flex>
     </nav>
   );
