@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import Button from '@/components/common/button';
 import Divider from '@/components/common/divider';
 import Flex from '@/components/common/flex';
+import GithubStarButton from '@/components/common/github-star-button';
 import SearchButton from '@/components/common/search-button';
 import EmailIcon from '@/components/icons/email-icon';
 
@@ -19,8 +20,23 @@ const ThemeSwitcher = dynamic(
   },
 );
 
-function NavigationBar() {
+async function getStarCount(user: string, repo: string): Promise<number> {
+  const response = await fetch(`https://api.github.com/repos/${user}/${repo}`);
+
+  if (!response.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+
+  const data = (await response.json()) as { stargazers_count: number };
+
+  return data.stargazers_count;
+}
+
+async function NavigationBar() {
   const tNavigationList = useTranslations('Layout.Header.Navigation');
+
+  const starCount = await getStarCount('anIcedAntFA', 'blog.ngockhoi96.dev');
 
   return (
     <nav className={styles.wrapper}>
@@ -60,6 +76,11 @@ function NavigationBar() {
         >
           Subscribe
         </Button>
+
+        <GithubStarButton
+          href="https://github.com/anIcedAntFA/blog.ngockhoi96.dev"
+          count={starCount}
+        />
       </Flex>
     </nav>
   );
