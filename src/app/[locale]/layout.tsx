@@ -70,15 +70,12 @@ async function LocaleLayout({ children }: PropsWithChildren) {
   // Enable static rendering
   unstable_setRequestLocale(locale);
 
-  // Validate the locale
   if (!availableLocaleCodes.includes(locale)) {
     // throw new Error(`Unknown locale encountered: "${locale}".`);
     return null;
   }
 
   const { langDir, hrefLang } = availableLocalesMap[locale] || defaultLocale;
-
-  // const starCount = await getStarCount('anIcedAntFA', 'blog.ngockhoi96.dev');
 
   return (
     <html lang={hrefLang} dir={langDir} suppressHydrationWarning>

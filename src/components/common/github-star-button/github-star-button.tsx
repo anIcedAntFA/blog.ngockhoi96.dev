@@ -1,4 +1,4 @@
-import Link, { LinkProps } from 'next/link';
+import Link from 'next/link';
 
 import StarIcon from '@/components/icons/star-icon';
 
@@ -6,11 +6,7 @@ import Divider from '../divider';
 import Flex from '../flex';
 
 import styles from './github-star-button.module.css';
-
-export type GithubStarButtonProps = {
-  href: LinkProps['href'];
-  count: number;
-};
+import { GithubStarButtonProps } from './github-star-button.type';
 
 function GithubStarButton({ href, count }: GithubStarButtonProps) {
   return (
