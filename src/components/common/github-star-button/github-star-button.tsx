@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
 
 import StarIcon from '@/components/icons/star-icon';
 
@@ -7,10 +7,15 @@ import Flex from '../flex';
 
 import styles from './github-star-button.module.css';
 
-function GithubStarButton() {
+export type GithubStarButtonProps = {
+  href: LinkProps['href'];
+  count: number;
+};
+
+function GithubStarButton({ href, count }: GithubStarButtonProps) {
   return (
     <Link
-      href="https://github.com/anIcedAntFA/blog.ngockhoi96.dev"
+      href={href}
       target="_blank"
       rel="noopener"
       aria-label="Star button"
@@ -28,7 +33,7 @@ function GithubStarButton() {
         color="primary"
         height="44px"
       />
-      <span className={styles.count}>69</span>
+      <span className={styles.count}>{count}</span>
     </Link>
   );
 }

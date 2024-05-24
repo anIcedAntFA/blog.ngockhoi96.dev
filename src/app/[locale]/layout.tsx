@@ -78,6 +78,8 @@ async function LocaleLayout({ children }: PropsWithChildren) {
 
   const { langDir, hrefLang } = availableLocalesMap[locale] || defaultLocale;
 
+  // const starCount = await getStarCount('anIcedAntFA', 'blog.ngockhoi96.dev');
+
   return (
     <html lang={hrefLang} dir={langDir} suppressHydrationWarning>
       <body

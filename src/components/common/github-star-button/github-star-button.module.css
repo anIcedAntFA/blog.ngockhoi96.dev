@@ -18,7 +18,7 @@ html[data-theme='dark'] .root {
   height: 44px;
   padding: 10px 12px;
 
-  background-color: alpha(var(--clr-primary), 10%);
+  box-shadow: 2px 2px 4px 1px alpha(var(--clr-primary), 10%);
 
   transition: background-color 0.3s ease-in-out;
 
