@@ -1,0 +1,32 @@
+.toggle-btn {
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 80px;
+  height: 44px;
+  border-radius: 9999px;
+  padding: 8px 12px;
+
+  background-color: var(--clr-primary);
+
+  cursor: pointer;
+
+  transition: background-color 0.3s ease-in-out;
+}
+
+.trigger-image {
+  box-shadow: 2px 2px 12px -4px alpha(var(--clr-primary), 60%);
+}
+
+.trigger-label {
+  padding-left: 6px;
+
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  color: var(--clr-text-2);
+
+  transition: color 0.3s ease-in-out;
+}
