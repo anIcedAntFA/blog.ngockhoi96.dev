@@ -2,7 +2,7 @@ import cx from 'clsx';
 
 import { styleProps } from './flex.config';
 import styles from './flex.module.css';
-import { FlexProps } from './flex.type';
+import type { FlexProps } from './flex.type';
 
 function Flex({
   direction = 'row',

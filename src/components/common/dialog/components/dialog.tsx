@@ -8,7 +8,7 @@ import useIds from '@/hooks/use-ids';
 
 import { scrollBehaviors } from '../dialog.config';
 import { InternalDialogProvider } from '../dialog.context';
-import { DialogProps } from '../dialog.type';
+import type { DialogProps } from '../dialog.type';
 
 import DialogWrapper from './dialog-wrapper';
 

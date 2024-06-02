@@ -1,4 +1,4 @@
-import { ElementRef, RefObject } from 'react';
+import type { ElementRef, RefObject } from 'react';
 
 export type SearchBoxProps = {
   searchBtnRef?: RefObject<ElementRef<'button'>>;

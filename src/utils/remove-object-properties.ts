@@ -1,4 +1,4 @@
-import { Todo } from '@/types/common';
+import type { Todo } from '@/types/common';
 
 /**
  * @remarks Removes specified properties from an object and returns a new object.

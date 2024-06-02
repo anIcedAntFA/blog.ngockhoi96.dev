@@ -1,6 +1,6 @@
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 
-import { Color } from '@/types/constants';
+import type { Color } from '@/types/constants';
 
 export type PaginationProps = {
   color?: Color;

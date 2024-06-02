@@ -1,6 +1,6 @@
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 
-import { BaseValue } from '@/types/common';
+import type { BaseValue } from '@/types/common';
 
 export type FlexStyleProps = {
   direction: 'row' | 'row-reverse' | 'column' | 'column-reverse';

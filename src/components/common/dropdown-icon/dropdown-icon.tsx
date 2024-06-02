@@ -1,16 +1,17 @@
 import cx from 'clsx';
 
 import ChevronDownIcon from '@/components/icons/chervon-down-icon';
+import { equal } from '@/utils/equal';
 
 import styles from './dropdown-icon.module.css';
-import { DropdownIconProps } from './dropdown-icon.type';
+import type { DropdownIconProps } from './dropdown-icon.type';
 
 function DropdownIcon({
   type = 'rotate',
   active = false,
   className,
 }: DropdownIconProps) {
-  if (type === 'rotate') {
+  if (equal(type, 'rotate')) {
     return (
       <span
         data-active={active}

@@ -63,7 +63,10 @@ async function NavigationBar() {
           color="primary"
           height="40px"
         />
-
+        <GithubStarButton
+          href="https://github.com/anIcedAntFA/blog.ngockhoi96.dev"
+          count={starCount}
+        />
         <Button
           icon={{
             position: 'left',
@@ -76,11 +79,6 @@ async function NavigationBar() {
         >
           Subscribe
         </Button>
-
-        <GithubStarButton
-          href="https://github.com/anIcedAntFA/blog.ngockhoi96.dev"
-          count={starCount}
-        />
       </Flex>
     </nav>
   );

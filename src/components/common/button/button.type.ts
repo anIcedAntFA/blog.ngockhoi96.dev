@@ -1,8 +1,8 @@
-import { ComponentProps, ReactElement } from 'react';
+import type { ComponentProps, ReactElement } from 'react';
 
-import { Color, Size } from '@/types/constants';
+import type { Color, Size } from '@/types/constants';
 
-import { buttonVariants } from './button.config';
+import type { buttonVariants } from './button.config';
 
 export type ButtonVarianKey = keyof typeof buttonVariants;
 

@@ -1,14 +1,15 @@
 'use client';
 
 import cx from 'clsx';
-import { ElementRef, ForwardedRef, forwardRef, useId } from 'react';
+import type { ElementRef, ForwardedRef } from 'react';
+import { forwardRef, useId } from 'react';
 
 import { colors, sizes } from '@/configs/constants';
 
 import { buttonVariants } from '../button';
 
 import styles from './icon-button.module.css';
-import { IconButtonProps } from './icon-button.type';
+import type { IconButtonProps } from './icon-button.type';
 
 function IconButton(
   {

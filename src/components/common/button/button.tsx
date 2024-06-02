@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import cx from 'clsx';
-import { ElementRef, ForwardedRef, forwardRef, useId } from 'react';
+import type { ElementRef, ForwardedRef } from 'react';
+import { forwardRef, useId } from 'react';
 
 import { colors, sizes } from '@/configs/constants';
+import { equal } from '@/utils/equal';
 
 import { buttonVariants } from './button.config';
 import styles from './button.module.css';
-import { ButtonIconStyleProps, ButtonProps } from './button.type';
+import type { ButtonIconStyleProps, ButtonProps } from './button.type';
 
 function Button(
   {
@@ -50,7 +52,7 @@ function Button(
   }) => {
     if (loading?.enabled) {
       return (
-        loading.position === position && (
+        equal(loading.position, position) && (
           <div
             data-variant={variant}
             data-size={size}
@@ -66,7 +68,7 @@ function Button(
     }
 
     return (
-      icon?.position === position && (
+      equal(icon?.position, position) && (
         <span
           data-variant={variant}
           data-size={size}

@@ -1,7 +1,7 @@
 import Button from '../button';
 
 import styles from './pagination.module.css';
-import { PaginationItemProps } from './pagination.type';
+import type { PaginationItemProps } from './pagination.type';
 
 function PaginationItem({
   color = 'base',

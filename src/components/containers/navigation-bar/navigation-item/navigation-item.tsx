@@ -2,13 +2,14 @@
 
 import cx from 'clsx';
 import { useSelectedLayoutSegment } from 'next/navigation';
-import { ElementRef, ReactElement, useRef } from 'react';
+import type { ElementRef, ReactElement } from 'react';
+import { useRef } from 'react';
 
 import DropdownIcon from '@/components/common/dropdown-icon';
 import useBoolean from '@/hooks/use-boolean';
 import useOutsideClick from '@/hooks/use-outside-click';
 import { Link } from '@/i18n/navigation';
-import { Pathname } from '@/types/locales';
+import type { Pathname } from '@/types/locales';
 import { equal } from '@/utils/equal';
 
 import styles from './navigation-item.module.css';
@@ -36,7 +37,7 @@ function NavigationItem({ type, title, href, icon }: NavigationItemProps) {
 
   const isActive = equal(pathname, href);
 
-  if (type === 'link') {
+  if (equal(type, 'link')) {
     return (
       <Link
         href={href}

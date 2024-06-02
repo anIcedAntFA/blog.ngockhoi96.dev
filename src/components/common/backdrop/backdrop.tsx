@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { motionPresets, motionVariants } from '@/configs/motion-variants';
 
 import styles from './backdrop.module.css';
-import { BackdropProps } from './backdrop.type';
+import type { BackdropProps } from './backdrop.type';
 
 function Backdrop({ className, ...restProps }: BackdropProps) {
   return (

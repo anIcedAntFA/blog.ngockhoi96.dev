@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 
 export type DropdownIconProps = ComponentProps<'span'> & {
   type?: 'rotate' | 'close';

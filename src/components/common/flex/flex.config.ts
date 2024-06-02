@@ -1,4 +1,4 @@
-import { FlexStylePropsKeys } from './flex.type';
+import type { FlexStylePropsKeys } from './flex.type';
 
 export const styleProps: FlexStylePropsKeys[] = [
   'direction',

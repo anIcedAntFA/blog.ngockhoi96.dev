@@ -1,5 +1,5 @@
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 import { THEME_ATTRIBUTE, THEME_STORAGE_KEY, themes } from '@/configs/themes';
 

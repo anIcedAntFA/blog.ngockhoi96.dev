@@ -4,7 +4,7 @@ import {
   getTranslations,
   unstable_setRequestLocale,
 } from 'next-intl/server';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 import NavigationBar from '@/components/containers/navigation-bar';
 import { jetBrainMono, lora, openSans } from '@/configs/fonts';

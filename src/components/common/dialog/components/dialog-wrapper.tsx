@@ -7,7 +7,7 @@ import { RemoveScroll } from 'react-remove-scroll';
 
 import { useInternalDialog } from '../dialog.hook';
 import styles from '../dialog.module.css';
-import { DialogWrapperProps } from '../dialog.type';
+import type { DialogWrapperProps } from '../dialog.type';
 
 function DialogWrapper({ children, ...restProps }: DialogWrapperProps) {
   const {

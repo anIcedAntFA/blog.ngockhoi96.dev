@@ -1,5 +1,5 @@
 import { NextIntlClientProvider, useMessages, useTimeZone } from 'next-intl';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 function LocaleProvider({ children }: PropsWithChildren) {
   const messages = useMessages();

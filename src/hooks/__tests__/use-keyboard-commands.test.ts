@@ -1,12 +1,13 @@
 import { renderHook } from '@testing-library/react';
-import userEvent, { UserEvent } from '@testing-library/user-event';
-import { afterEach, beforeEach, describe, expect, it, Mock, vi } from 'vitest';
+import type { UserEvent } from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
+import type { Mock } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { keyboardCommands, keys } from '@/configs/constants';
 
-import useKeyboardCommands, {
-  UseKeyboardCommandsProps,
-} from '../use-keyboard-commands';
+import type { UseKeyboardCommandsProps } from '../use-keyboard-commands';
+import useKeyboardCommands from '../use-keyboard-commands';
 
 describe('useKeyboardCommands', () => {
   let callback: Mock<string[], void>;

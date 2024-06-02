@@ -2,14 +2,16 @@
 
 import cx from 'clsx';
 import { motion } from 'framer-motion';
-import { ElementRef, useEffect, useRef } from 'react';
+import type { ElementRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { motionVariants } from '@/configs/motion-variants';
 import useOutsideClick from '@/hooks/use-outside-click';
+import { equal } from '@/utils/equal';
 
 import { useInternalDialog } from '../dialog.hook';
 import styles from '../dialog.module.css';
-import { DialogContentProps } from '../dialog.type';
+import type { DialogContentProps } from '../dialog.type';
 
 function DialogContent({
   className,
@@ -37,7 +39,7 @@ function DialogContent({
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && hasCloseOnEscKey) {
+      if (equal(event.key, 'Escape') && hasCloseOnEscKey) {
         event.stopPropagation();
         onClose?.();
       }
