@@ -1,7 +1,7 @@
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 
-import { OverrideProps } from '@/types/common';
-import { Color } from '@/types/constants';
+import type { OverrideProps } from '@/types/common';
+import type { Color } from '@/types/constants';
 
 export type KbdProps = OverrideProps<
   ComponentProps<'kbd'>,

@@ -1,11 +1,11 @@
-import { MessageKeys } from 'next-intl';
-import { ReactElement } from 'react';
+import type { MessageKeys } from 'next-intl';
+import type { ReactElement } from 'react';
 
 import ContactIcon from '@/components/icons/contact-icon';
 import HomeIcon from '@/components/icons/home-icon';
 import NewspaperIcon from '@/components/icons/newspaper-icon';
 import PackageIcon from '@/components/icons/package-icon';
-import { Pathname } from '@/types/locales';
+import type { Pathname } from '@/types/locales';
 
 type NavigationListKey = MessageKeys<
   { Home: string; About: string; Articles: string; Resources: string },

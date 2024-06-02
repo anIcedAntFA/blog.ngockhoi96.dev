@@ -1,4 +1,4 @@
-import { motionPresets, motionVariants } from '@/configs/motion-variants';
+import type { motionPresets, motionVariants } from '@/configs/motion-variants';
 
 export type MotionPresetKey = keyof typeof motionPresets;
 export type MotionPreset = (typeof motionPresets)[MotionPresetKey];

@@ -4,7 +4,7 @@ import cx from 'clsx';
 
 import { useInternalDialog } from '../dialog.hook';
 import styles from '../dialog.module.css';
-import { DialogBodyProps } from '../dialog.type';
+import type { DialogBodyProps } from '../dialog.type';
 
 function DialogBody({ className, children }: DialogBodyProps) {
   const { scrollBehavior, bodyId } = useInternalDialog();

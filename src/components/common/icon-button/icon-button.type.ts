@@ -1,8 +1,8 @@
-import { AriaAttributes, ComponentProps } from 'react';
+import type { AriaAttributes, ComponentProps } from 'react';
 
-import { Color, Size } from '@/types/constants';
+import type { Color, Size } from '@/types/constants';
 
-import { ButtonVariant } from '../button';
+import type { ButtonVariant } from '../button';
 
 export type IconButtonStyleProp = {
   variant: Extract<ButtonVariant, 'contained' | 'outlined'>;

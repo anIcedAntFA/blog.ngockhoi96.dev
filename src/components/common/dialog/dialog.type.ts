@@ -1,11 +1,11 @@
-import { MotionProps } from 'framer-motion';
-import { ComponentProps, ComponentPropsWithRef, RefObject } from 'react';
+import type { MotionProps } from 'framer-motion';
+import type { ComponentProps, ComponentPropsWithRef, RefObject } from 'react';
 
-import { MotionPreset } from '@/types/motion-variants';
+import type { MotionPreset } from '@/types/motion-variants';
 
-import { IconButtonProps } from '../icon-button';
+import type { IconButtonProps } from '../icon-button';
 
-import { ScrollBehavior } from './dialog.config';
+import type { ScrollBehavior } from './dialog.config';
 
 export type FocusableElement = {
   focus(options?: FocusOptions): void;

@@ -1,4 +1,4 @@
-import { pathnames } from '@/configs/locales';
+import type { pathnames } from '@/configs/locales';
 
 // export type PathnamesReturn = NextIntlPathnames<typeof locales>;
 

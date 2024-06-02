@@ -1,7 +1,10 @@
 import { render, screen, waitFor, within } from '@testing-library/react';
-import userEvent, { UserEvent } from '@testing-library/user-event';
-import { ElementRef, useRef } from 'react';
-import { afterEach, beforeEach, describe, expect, it, Mock, vi } from 'vitest';
+import type { UserEvent } from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
+import type { ElementRef } from 'react';
+import { useRef } from 'react';
+import type { Mock } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import Backdrop from '@/components/common/backdrop';
 import useBoolean from '@/hooks/use-boolean';
@@ -11,7 +14,7 @@ import DialogBody from '../components/dialog-body';
 import DialogCloseTrigger from '../components/dialog-close-trigger';
 import DialogContent from '../components/dialog-content';
 import DialogHeader from '../components/dialog-header';
-import { DialogProps } from '../dialog.type';
+import type { DialogProps } from '../dialog.type';
 
 const RenderedDialog = (dialogProps: DialogProps) => {
   return (

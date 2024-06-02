@@ -1,12 +1,14 @@
 'use client';
 
-import { ElementRef, useRef } from 'react';
+import type { ElementRef } from 'react';
+import { useRef } from 'react';
 import { useTranslations } from 'use-intl';
 
 import SearchIcon from '@/components/icons/search-icon';
 import { keyboardCommands } from '@/configs/constants';
 import useBoolean from '@/hooks/use-boolean';
 import useKeyboardCommands from '@/hooks/use-keyboard-commands';
+import { equal } from '@/utils/equal';
 
 import Flex from '../flex';
 import Kbd from '../kbd';
@@ -24,9 +26,9 @@ function SearchButton() {
 
   useKeyboardCommands({
     callback: (key) => {
-      if (key === keyboardCommands.CMD_K) {
+      if (equal(key, keyboardCommands.CMD_K)) {
         openSearchBox.on();
-      } else if (key === keyboardCommands.ESCAPE) {
+      } else if (equal(key, keyboardCommands.ESCAPE)) {
         openSearchBox.off();
       }
     },

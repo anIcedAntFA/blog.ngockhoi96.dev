@@ -22,3 +22,9 @@
     @mixin-content;
   }
 }
+
+@define-mixin text-shadow $level: 1, $color: currentcolor {
+  text-shadow:
+    calc(-0.1px * $level) calc(-0.1px * $level) $color,
+    calc(0.1px * $level) calc(0.1px * $level);
+}

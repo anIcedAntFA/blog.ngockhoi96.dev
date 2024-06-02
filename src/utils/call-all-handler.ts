@@ -1,4 +1,4 @@
-import { Todo } from '@/types/common';
+import type { Todo } from '@/types/common';
 
 function callAllHandlers<T extends (event: Todo) => void>(
   ...fns: (T | undefined)[]

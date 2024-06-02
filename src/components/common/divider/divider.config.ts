@@ -1,5 +1,5 @@
 import { orientations } from '@/configs/constants';
-import { BaseValue } from '@/types/common';
+import type { BaseValue } from '@/types/common';
 
 export const dividerVariants = {
   SOLID: 'solid',

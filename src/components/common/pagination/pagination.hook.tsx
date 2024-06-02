@@ -1,6 +1,7 @@
-import { ComponentProps, useMemo } from 'react';
+import type { ComponentProps } from 'react';
+import { useMemo } from 'react';
 
-import Pagination from './pagination';
+import type Pagination from './pagination';
 import {
   FIRST_PAGE_INDEX,
   LEFT_ELLIPSIS_PAGE_INDEX,

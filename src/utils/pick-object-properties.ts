@@ -1,4 +1,4 @@
-import { Todo } from '@/types/common';
+import type { Todo } from '@/types/common';
 
 export function pickObjectProperties<
   Obj extends Record<string, Todo>,

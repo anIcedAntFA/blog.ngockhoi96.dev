@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { Todo } from '@/types/common';
+import type { Todo } from '@/types/common';
 
 import { pickObjectProperties as pick } from '../pick-object-properties';
 

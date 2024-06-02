@@ -1,4 +1,4 @@
-import { SVGProps } from 'react';
+import type { SVGProps } from 'react';
 
 function ArrowRightIcon(props: SVGProps<SVGSVGElement>) {
   return (

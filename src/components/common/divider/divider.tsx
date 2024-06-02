@@ -8,7 +8,7 @@ import {
   dividerVariants,
 } from './divider.config';
 import styles from './divider.module.css';
-import { DividerProps } from './divider.type';
+import type { DividerProps } from './divider.type';
 
 function Divider({
   orientation = orientations.HORIZONTAL,

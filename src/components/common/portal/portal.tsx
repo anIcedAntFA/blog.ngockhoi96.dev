@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 
-import { PortalProps } from './portal.type';
+import type { PortalProps } from './portal.type';
 
 function Portal({ container, children }: PortalProps) {
   if (container) {

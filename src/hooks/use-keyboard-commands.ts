@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 
 import { keyboardCommands, keys } from '@/configs/constants';
-import { KeyboardCommand } from '@/types/constants';
+import type { KeyboardCommand } from '@/types/constants';
+import { equal } from '@/utils/equal';
 
 export type KeyboardCommandCallback = (key: KeyboardCommand) => void;
 
@@ -39,7 +40,7 @@ function useKeyboardCommands({
 
     const handleKeyDown = (event: KeyboardEvent) => {
       //* Detect ⌘ + k on Mac, Ctrl + k on Windows
-      if ((event.metaKey || event.ctrlKey) && event.key === keys.K) {
+      if ((event.metaKey || event.ctrlKey) && equal(event.key, keys.K)) {
         event.preventDefault();
         callbackRef.current.callback(keyboardCommands.CMD_K);
       }

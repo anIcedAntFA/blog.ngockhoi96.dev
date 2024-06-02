@@ -1,8 +1,8 @@
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 
-import { Color, Orientation } from '@/types/constants';
+import type { Color, Orientation } from '@/types/constants';
 
-import { dividerThicknesses, dividerVariants } from './divider.config';
+import type { dividerThicknesses, dividerVariants } from './divider.config';
 
 export type DividerVariantKey = keyof typeof dividerVariants;
 

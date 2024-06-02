@@ -10,7 +10,7 @@ import PaginationItem from './pagination-item';
 import { DEFAULT_SIBLING_COUNT, FIRST_PAGE_INDEX } from './pagination.config';
 import useGetPageRange from './pagination.hook';
 import styles from './pagination.module.css';
-import { PaginationProps } from './pagination.type';
+import type { PaginationProps } from './pagination.type';
 
 function Pagination({
   totalCount,

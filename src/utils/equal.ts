@@ -1,4 +1,4 @@
-import { Primitive } from '@/types/common';
+import type { Primitive } from '@/types/common';
 
 /**
  * @remarks Checks if two primitive values are strictly equal.

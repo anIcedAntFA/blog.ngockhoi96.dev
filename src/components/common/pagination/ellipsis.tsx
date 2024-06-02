@@ -1,6 +1,6 @@
 import { ELLIPSIS } from './pagination.config';
 import styles from './pagination.module.css';
-import { EllipsisProps } from './pagination.type';
+import type { EllipsisProps } from './pagination.type';
 
 function Ellipsis({ color = 'base' }: EllipsisProps) {
   return (

@@ -1,7 +1,7 @@
 import { Link as LocalizedLink } from '@/i18n/navigation';
-import { Pathname } from '@/types/locales';
+import type { Pathname } from '@/types/locales';
 
-import { LinkProps } from './link.type';
+import type { LinkProps } from './link.type';
 
 function Link<TPathname extends Pathname>({
   children,

@@ -1,9 +1,10 @@
-import { RefObject, useEffect, useRef } from 'react';
+import type { RefObject } from 'react';
+import { useEffect, useRef } from 'react';
 
-import { Todo } from '@/types/common';
+import type { Todo } from '@/types/common';
 
 export type UseOutsideClickProps = {
-  isEnabled?: boolean;
+  isEnabled?: boolean | (() => boolean);
   ref: React.RefObject<HTMLElement>;
   handler?: (e: Event) => void;
 };

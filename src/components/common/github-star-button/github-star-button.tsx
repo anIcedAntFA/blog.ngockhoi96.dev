@@ -6,7 +6,7 @@ import Divider from '../divider';
 import Flex from '../flex';
 
 import styles from './github-star-button.module.css';
-import { GithubStarButtonProps } from './github-star-button.type';
+import type { GithubStarButtonProps } from './github-star-button.type';
 
 function GithubStarButton({ href, count }: GithubStarButtonProps) {
   return (

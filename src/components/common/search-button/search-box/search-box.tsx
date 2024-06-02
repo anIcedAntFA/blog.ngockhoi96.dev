@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
-import { ChangeEvent, ElementRef, useRef, useState } from 'react';
+import type { ChangeEvent, ElementRef } from 'react';
+import { useRef, useState } from 'react';
 
 import Backdrop from '@/components/common/backdrop';
 import {
@@ -19,7 +20,7 @@ import CancelIcon from '@/components/icons/cancel-icon';
 import SearchIcon from '@/components/icons/search-icon';
 import { motionPresets } from '@/configs/motion-variants';
 
-import { SearchBoxProps } from '../search-button.type';
+import type { SearchBoxProps } from '../search-button.type';
 
 import styles from './search-box.module.css';
 

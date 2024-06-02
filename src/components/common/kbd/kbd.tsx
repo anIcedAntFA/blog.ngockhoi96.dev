@@ -3,7 +3,7 @@ import cx from 'clsx';
 import { colors } from '@/configs/constants';
 
 import styles from './kbd.module.css';
-import { KbdProps } from './kbd.type';
+import type { KbdProps } from './kbd.type';
 
 function Kbd({
   color = colors.BASE,

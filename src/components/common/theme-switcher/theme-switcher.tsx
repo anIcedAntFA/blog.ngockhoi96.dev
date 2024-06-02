@@ -8,7 +8,7 @@ import { themes } from '@/configs/themes';
 import { equal } from '@/utils/equal';
 
 import styles from './theme-switcher.module.css';
-import { ThemeSwitcherProps } from './theme-switcher.type';
+import type { ThemeSwitcherProps } from './theme-switcher.type';
 
 function ThemeSwitcher(inputProps: ThemeSwitcherProps) {
   const { setTheme, resolvedTheme } = useTheme();

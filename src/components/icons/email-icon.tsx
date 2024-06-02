@@ -1,4 +1,4 @@
-import { SVGProps } from 'react';
+import type { SVGProps } from 'react';
 
 function EmailIcon(props: SVGProps<SVGSVGElement>) {
   return (
