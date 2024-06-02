@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import type { ElementRef, ForwardedRef } from 'react';
 import { forwardRef, useRef, useState } from 'react';
 
-import { placements } from '@/configs/constants';
+import { colors, placements } from '@/configs/constants';
 import useIds from '@/hooks/use-ids';
 
 import { DEFAULT_MENU_OFFSET } from '../menu.config';
@@ -18,6 +18,7 @@ function Menu(
     id,
     opened = false,
     placement = placements.BOTTOM_END,
+    color = colors.BASE,
     offset = DEFAULT_MENU_OFFSET,
     autoSelect = true,
     hasClosedOnSelect = true,
@@ -45,6 +46,7 @@ function Menu(
     onClose,
     placement,
     offset,
+    color,
     autoSelect,
     hasClosedOnSelect,
     hasClosedOutsideClick,

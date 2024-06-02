@@ -1,7 +1,7 @@
 import type { MotionProps } from 'framer-motion';
 import type { ComponentProps, RefObject } from 'react';
 
-import type { Direction, Placement } from '@/types/constants';
+import type { Color, Direction, Placement } from '@/types/constants';
 
 export type MenuDirection = Exclude<Direction, 'forward' | 'back'>;
 
@@ -10,6 +10,7 @@ export type MenuStyleProps = {
   onOpen: VoidFunction;
   onClose: VoidFunction;
   placement: Placement;
+  color: Color;
   offset: number;
   autoSelect: boolean;
   hasClosedOnSelect: boolean;

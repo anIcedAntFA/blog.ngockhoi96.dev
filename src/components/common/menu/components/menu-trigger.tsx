@@ -11,7 +11,13 @@ function MenuTrigger({
   children,
   ...buttonProps
 }: MenuTriggerProps) {
-  const { opened: isOpened, triggerRef, triggerId, listId } = useMenuContext();
+  const {
+    opened: isOpened,
+    color,
+    triggerRef,
+    triggerId,
+    listId,
+  } = useMenuContext();
 
   return (
     <button
@@ -22,6 +28,7 @@ function MenuTrigger({
       aria-expanded={isOpened}
       aria-haspopup="menu"
       aria-controls={listId}
+      data-color={color}
       data-active={isOpened}
       className={cx(styles.trigger, className)}
       {...buttonProps}

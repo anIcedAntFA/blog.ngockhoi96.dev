@@ -37,6 +37,7 @@ function MenuList({
     listId,
     placement,
     offset,
+    color,
     autoSelect: isAutoSelect,
     hasClosedOutsideClick,
     hasCloseOnEscKey,
@@ -199,6 +200,7 @@ function MenuList({
           role="menu"
           aria-orientation="vertical"
           data-placement={placement}
+          data-color={color}
           className={cx(styles.list, className)}
           style={{
             transform: transformStyles[placement!],

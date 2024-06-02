@@ -25,6 +25,7 @@ function MenuItem({
   const reactId = useId();
 
   const {
+    color,
     triggerRef,
     listId,
     focusedId,
@@ -43,6 +44,7 @@ function MenuItem({
       type="button"
       role="menuitem"
       tabIndex={isFocused ? 0 : -1}
+      data-color={color}
       data-focused={isFocused}
       data-disabled={disabled}
       className={cx(styles.item, className)}
