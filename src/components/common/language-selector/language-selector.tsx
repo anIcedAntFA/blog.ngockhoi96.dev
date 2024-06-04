@@ -35,8 +35,6 @@ function LanguageSelector() {
     });
   };
 
-  console.log({ currentLocale });
-
   return (
     <Menu
       opened={showLanguageDropdown.value}

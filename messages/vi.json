@@ -11,6 +11,10 @@
       "languageSelector": {
         "label": "Lựa chọn ngôn ngữ",
         "tooltip": "Lựa chọn ngôn ngữ"
+      },
+      "githubStarButton": {
+        "label": "Sao trên GitHub",
+        "tooltip": "Đánh giá dự án trên GitHub"
       }
     },
     "search": {

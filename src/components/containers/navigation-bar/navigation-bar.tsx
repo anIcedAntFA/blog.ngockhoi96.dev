@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 
 import Button from '@/components/common/button';
-import CustomTooltip from '@/components/common/custom-tooltip';
 import Divider from '@/components/common/divider';
 import Flex from '@/components/common/flex';
 import GithubStarButton from '@/components/common/github-star-button';
@@ -68,12 +67,10 @@ async function NavigationBar() {
           height="40px"
         />
 
-
-          <GithubStarButton
-            href="https://github.com/anIcedAntFA/blog.ngockhoi96.dev"
-            count={1}
-          />
-        </CustomTooltip>
+        <GithubStarButton
+          href="https://github.com/anIcedAntFA/blog.ngockhoi96.dev"
+          count={1}
+        />
 
         <Button
           icon={{
