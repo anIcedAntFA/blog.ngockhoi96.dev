@@ -2,7 +2,19 @@
   "components": {
     "common": {
       "themeSwitcher": {
-        "label": "Chế độ sáng/tối"
+        "label": "Chế độ sáng/tối",
+        "tooltip": {
+          "light": "Chuyển sang chế độ sáng",
+          "dark": "Chuyển sang chế độ tối"
+        }
+      },
+      "languageSelector": {
+        "label": "Lựa chọn ngôn ngữ",
+        "tooltip": "Lựa chọn ngôn ngữ"
+      },
+      "githubStarButton": {
+        "label": "Sao trên GitHub",
+        "tooltip": "Đánh giá dự án trên GitHub"
       }
     },
     "search": {

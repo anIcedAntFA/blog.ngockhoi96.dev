@@ -66,10 +66,12 @@ async function NavigationBar() {
           color="primary"
           height="40px"
         />
+
         <GithubStarButton
           href="https://github.com/anIcedAntFA/blog.ngockhoi96.dev"
           count={1}
         />
+
         <Button
           icon={{
             position: 'left',

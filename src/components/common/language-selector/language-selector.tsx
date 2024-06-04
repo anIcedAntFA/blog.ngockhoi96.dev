@@ -2,12 +2,13 @@
 
 import cx from 'clsx';
 import Image from 'next/image';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useTransition } from 'react';
 
 import useBoolean from '@/hooks/use-boolean';
 import { usePathname, useRouter } from '@/i18n/navigation';
 
+import CustomTooltip from '../custom-tooltip';
 import { Menu, MenuItem, MenuLabel, MenuList, MenuTrigger } from '../menu';
 
 import {
@@ -20,6 +21,8 @@ function LanguageSelector() {
   const [isPending, startTransition] = useTransition();
 
   const currentLocale = useLocale();
+
+  const t = useTranslations('components.common.languageSelector');
 
   const router = useRouter();
   const pathname = usePathname();
@@ -42,25 +45,29 @@ function LanguageSelector() {
       onOpen={showLanguageDropdown.on}
       onClose={showLanguageDropdown.off}
     >
-      <MenuTrigger
-        className={cx(styles['toggle-btn'], {
-          [styles.focus]: showLanguageDropdown.value,
-        })}
-        disabled={isPending}
-        onClick={showLanguageDropdown.toggle}
-      >
-        <Image
-          src={languageOptionsMap[currentLocale].image}
-          alt={languageOptionsMap[currentLocale].alt}
-          width={28}
-          height={28}
-          priority
-          className={styles['trigger-image']}
-        />
-        <span className={styles['trigger-label']}>
-          {languageOptionsMap[currentLocale].value}
-        </span>
-      </MenuTrigger>
+      <CustomTooltip label={t('tooltip')} hasArrow>
+        <div>
+          <MenuTrigger
+            className={cx(styles['toggle-btn'], {
+              [styles.focus]: showLanguageDropdown.value,
+            })}
+            disabled={isPending}
+            onClick={showLanguageDropdown.toggle}
+          >
+            <Image
+              src={languageOptionsMap[currentLocale].image}
+              alt={languageOptionsMap[currentLocale].alt}
+              width={28}
+              height={28}
+              priority
+              className={styles['trigger-image']}
+            />
+            <span className={styles['trigger-label']}>
+              {languageOptionsMap[currentLocale].value}
+            </span>
+          </MenuTrigger>
+        </div>
+      </CustomTooltip>
 
       <MenuList
         initial={{ width: 86, height: 54, opacity: 0.5 }}

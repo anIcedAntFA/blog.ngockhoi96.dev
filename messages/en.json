@@ -2,7 +2,19 @@
   "components": {
     "common": {
       "themeSwitcher": {
-        "label": "Toggle Dark Mode"
+        "label": "Toggle Dark Mode",
+        "tooltip": {
+          "light": "Switch to light mode",
+          "dark": "Switch to dark mode"
+        }
+      },
+      "languageSelector": {
+        "label": "Select Language",
+        "tooltip": "Select Language"
+      },
+      "githubStarButton": {
+        "label": "Star on GitHub",
+        "tooltip": "Star this project on GitHub"
       }
     },
     "search": {
