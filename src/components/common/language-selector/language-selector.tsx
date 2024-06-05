@@ -57,8 +57,8 @@ function LanguageSelector() {
             <Image
               src={languageOptionsMap[currentLocale].image}
               alt={languageOptionsMap[currentLocale].alt}
-              width={28}
-              height={28}
+              width={24}
+              height={24}
               priority
               className={styles['trigger-image']}
             />

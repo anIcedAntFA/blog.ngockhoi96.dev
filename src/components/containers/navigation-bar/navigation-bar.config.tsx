@@ -38,7 +38,7 @@ export const navigationList = (
     },
     {
       id: 3,
-      type: 'button',
+      type: 'link',
       title: t('Articles'),
       icon: <NewspaperIcon />,
       href: '/articles',

@@ -41,9 +41,7 @@ async function NavigationBar() {
 
   return (
     <nav className={styles.wrapper}>
-      <Flex spacing={16}>
-        <h3 className={styles.logo}>ngockhoi96</h3>
-      </Flex>
+      <h3 className={styles.logo}>ngockhoi96</h3>
 
       <ul className={styles.list}>
         {navigationList(tNavigationList).map((navItem) => (
@@ -67,11 +65,6 @@ async function NavigationBar() {
           height="40px"
         />
 
-        <GithubStarButton
-          href="https://github.com/anIcedAntFA/blog.ngockhoi96.dev"
-          count={1}
-        />
-
         <Button
           icon={{
             position: 'left',
@@ -79,11 +72,15 @@ async function NavigationBar() {
             animation: 'shake-y',
             hidden: true,
           }}
-          uppercase
           className={styles['subscribe-btn']}
         >
           Subscribe
         </Button>
+
+        <GithubStarButton
+          href="https://github.com/anIcedAntFA/blog.ngockhoi96.dev"
+          count={1}
+        />
       </Flex>
     </nav>
   );

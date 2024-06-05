@@ -1,20 +1,33 @@
-.wrapper,
-.list {
+.wrapper {
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  border-bottom: 1px solid var(--clr-gray-500);
+  max-width: 100%;
+  padding: 8px 24px;
 }
 
-.wrapper {
-  padding: 8px 200px;
+.logo {
+  font-style: italic;
+}
+
+.list {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
 }
 
 .item {
   &:not(:first-child) {
-    margin-left: 12px;
+    margin-left: 8px;
   }
 }
 
 .subscribe-btn {
-  width: 144px;
+  width: 132px;
 }

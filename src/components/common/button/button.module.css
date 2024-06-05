@@ -238,7 +238,7 @@ html[data-theme='dark'] {
   }
 
   &[data-size='small'] {
-    height: 36px;
+    height: 32px;
     padding: 8px 12px;
 
     &:not([data-variant='link']) {
@@ -247,7 +247,7 @@ html[data-theme='dark'] {
   }
 
   &[data-size='medium'] {
-    height: 44px;
+    height: 40px;
     padding: 10px 14px;
 
     &:not([data-variant='link']) {
@@ -256,7 +256,7 @@ html[data-theme='dark'] {
   }
 
   &[data-size='large'] {
-    height: 60px;
+    height: 48px;
     padding: 12px 24px;
 
     &:not([data-variant='link']) {
