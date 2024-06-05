@@ -32,7 +32,7 @@ function GithubStarButton({ href, count }: GithubStarButtonProps) {
           orientation="vertical"
           thickness="medium"
           color="primary"
-          height="44px"
+          height="40px"
         />
         <span className={styles.count}>{count}</span>
       </Link>

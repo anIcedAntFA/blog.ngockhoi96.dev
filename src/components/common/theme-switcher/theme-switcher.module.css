@@ -3,8 +3,8 @@
   display: inline-block;
   overflow: hidden;
 
-  width: 80px;
-  height: 44px;
+  width: 72px;
+  height: 40px;
   border-radius: 9999px;
 
   background-color: #0ea5e9;
@@ -17,11 +17,11 @@
 .sun {
   position: absolute;
   top: 50%;
-  left: 14px;
+  left: 12px;
   transform: translateY(-50%);
   display: inline-block;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: #fde047;
   box-shadow: 0 0 8px rgb(255 255 8 / 50%);

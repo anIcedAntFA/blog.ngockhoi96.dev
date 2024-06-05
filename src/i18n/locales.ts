@@ -1,4 +1,4 @@
-import localeConfig from '#site/messages/config.json' assert { type: 'json' };
+import localeConfig from '../../messages/config.json' assert { type: 'json' };
 
 // Use the default: `always`
 export const localePrefix = undefined;

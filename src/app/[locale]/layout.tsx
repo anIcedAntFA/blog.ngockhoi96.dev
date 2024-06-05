@@ -6,6 +6,7 @@ import {
 } from 'next-intl/server';
 import type { PropsWithChildren } from 'react';
 
+import Container from '@/components/common/container';
 import NavigationBar from '@/components/containers/navigation-bar';
 import { jetBrainMono, lora, openSans } from '@/configs/fonts';
 import {
@@ -85,7 +86,7 @@ async function LocaleLayout({ children }: PropsWithChildren) {
         <LocaleProvider>
           <ThemeProvider>
             <NavigationBar />
-            {children}
+            <Container>{children}</Container>
           </ThemeProvider>
         </LocaleProvider>
       </body>
