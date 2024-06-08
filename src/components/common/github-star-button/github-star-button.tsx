@@ -14,7 +14,7 @@ function GithubStarButton({ href, count }: GithubStarButtonProps) {
   const t = useTranslations('components.common.githubStarButton');
 
   return (
-    <CustomTooltip label={t('tooltip')} hasArrow isOpen>
+    <CustomTooltip label={t('tooltip')} hasArrow>
       <Link
         href={href}
         target="_blank"
