@@ -9,6 +9,7 @@ function CustomTooltip({ children, ...tooltipProps }: TooltipProps) {
       color="black"
       bg="#36d399"
       fontSize="small"
+      offset={[0, 12]}
       {...tooltipProps}
     >
       {children}
