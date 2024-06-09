@@ -1,10 +1,17 @@
+.root {
+  position: relative;
+  display: inline-block;
+  width: 72px;
+  height: 40px;
+}
+
 .sky {
   position: relative;
   display: inline-block;
   overflow: hidden;
 
-  width: 72px;
-  height: 40px;
+  width: 100%;
+  height: 100%;
   border-radius: 9999px;
 
   background-color: #0ea5e9;

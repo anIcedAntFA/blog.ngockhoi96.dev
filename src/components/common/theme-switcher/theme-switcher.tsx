@@ -27,14 +27,15 @@ function ThemeSwitcher(inputProps: ThemeSwitcherProps) {
 
   return (
     <CustomTooltip label={tooltipLabel} hasArrow>
-      <div className={styles.root} data-testid="theme-switcher">
+      <div className={styles.root}>
         <input
           type="checkbox"
           id="switch"
           checked={isDarkMode}
+          value={isDarkMode ? themes.DARK : themes.LIGHT}
           hidden
           aria-label={t('label')}
-          data-testid="theme-switcher"
+          data-testid="theme-switcher-input"
           onChange={handleToggleTheme}
           {...inputProps}
         />
