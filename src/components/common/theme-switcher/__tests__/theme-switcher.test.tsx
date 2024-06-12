@@ -52,7 +52,7 @@ const Component = () => {
 describe('ThemeSwitcher', () => {
   let checkbox: HTMLInputElement;
   let user: UserEvent;
-  let rerender: (ui: ReactNode) => void = () => {};
+  let rerender: (ui: ReactNode) => void;
 
   beforeEach(() => {
     vi.resetModules();
