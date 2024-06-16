@@ -6,8 +6,8 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import CustomTooltip from '../custom-tooltip';
 
 describe('CustomTooltip', () => {
-  let user: UserEvent;
   let target: HTMLElement;
+  let user: UserEvent;
 
   beforeEach(() => {
     render(

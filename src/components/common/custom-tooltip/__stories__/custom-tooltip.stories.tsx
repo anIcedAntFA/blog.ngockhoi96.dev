@@ -25,7 +25,7 @@ const meta = {
     children: {
       name: 'Children',
       description: 'Tooltip children',
-      defaultValue: <></>,
+      defaultValue: '',
       control: 'text',
     },
   },
