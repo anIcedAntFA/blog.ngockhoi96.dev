@@ -1,298 +1,111 @@
 'use client';
 
-import { useTheme } from 'next-themes';
-import { useState } from 'react';
-
-import { themes } from '@/configs/themes';
-
-import Button from './common/button';
-import IconButton from './common/icon-button';
-import Link from './common/link';
-import Pagination from './common/pagination';
-import ArrowUpIcon from './icons/arrow-up-icon';
+import Flex from './common/flex';
+import { Tag, TagCloseTrigger, TagIcon, TagLabel } from './common/tag';
+import CloseIcon from './icons/close-icon';
+import ContactIcon from './icons/contact-icon';
 
 function Dummy() {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const { setTheme, resolvedTheme } = useTheme();
-
-  const handleToggleTheme = () => {
-    const isDarkMode = resolvedTheme === themes.DARK;
-
-    setTheme(isDarkMode ? themes.LIGHT : themes.DARK);
-  };
-
   return (
     <div>
-      <div style={{ display: 'flex', gap: 24, margin: '48px' }}>
-        <Button
-          variant="contained"
-          size="small"
-          icon={{
-            position: 'right',
-            children: <ArrowUpIcon />,
-            animation: 'shake-x',
-          }}
-          // rounded
-          uppercase
-          onClick={handleToggleTheme}
-        >
-          click me
-        </Button>
-
-        <Link href="/about">
-          <Button
-            variant="contained"
-            size="medium"
-            icon={{
-              position: 'right',
-              children: <ArrowUpIcon />,
-              animation: 'shake-x',
-            }}
-            rounded
-            loading={{
-              enabled: false,
-              position: 'left',
-              // icon: <ArrowUpIcon data-testid="custom-loading-icon-left" />,
-            }}
-            // uppercase
-            // disabled
-            // onClick={handleToggleTheme}
-          >
-            click me
-          </Button>
-        </Link>
-
-        <Button
-          variant="contained"
-          size="large"
-          icon={{
-            position: 'right',
-            children: <ArrowUpIcon />,
-            // animation: "shake-x",
-            hidden: true,
-          }}
-          // rounded
-          uppercase
-          loading={{
-            enabled: false,
-            position: 'right',
-          }}
-          style={{ width: '170px' }}
-        >
-          show me
-        </Button>
-
-        <Button
-          variant="outlined"
-          size="small"
-          // icon={{
-          //   position: "right",
-          //   children: <ArrowUpIcon />,
-          //   animation: "shake-x",
-          // }}
-          loading={{
-            enabled: true,
-            position: 'left',
-            text: 'loading...',
-          }}
-          // rounded
-          uppercase
-          onClick={handleToggleTheme}
-        >
-          click me
-        </Button>
-
-        <Button
-          variant="outlined"
-          size="medium"
-          icon={{
-            position: 'left',
-            children: <ArrowUpIcon />,
-            animation: 'shake-y',
-            // hidden: true,
-          }}
-          // rounded
-          uppercase
-          style={{ width: '136px' }}
-          onClick={handleToggleTheme}
-        >
-          click me
-        </Button>
-
-        <Button
-          variant="outlined"
-          size="large"
-          icon={{
-            position: 'right',
-            children: <ArrowUpIcon />,
-            animation: 'shake-y',
-            hidden: true,
-          }}
-          // rounded
-          uppercase
-          onClick={handleToggleTheme}
-        >
-          click me
-        </Button>
-
-        <Button
-          variant="text"
-          size="small"
-          icon={{
-            position: 'right',
-            children: <ArrowUpIcon />,
-            animation: 'shake-x',
-          }}
-          // rounded
-          uppercase
-          onClick={handleToggleTheme}
-        >
-          click me
-        </Button>
-
-        <Button
-          variant="text"
-          size="medium"
-          icon={{
-            position: 'right',
-            children: <ArrowUpIcon />,
-            animation: 'shake-x',
-          }}
-          loading={{
-            enabled: true,
-            text: 'loading...',
-          }}
-          // rounded
-          uppercase
-          onClick={handleToggleTheme}
-        >
-          click me
-        </Button>
-
-        <Button
-          variant="text"
-          size="large"
-          icon={{
-            position: 'right',
-            children: <ArrowUpIcon />,
-            // animation: "shake-x",
-            hidden: true,
-          }}
-          // rounded
-          uppercase
-          style={{ width: '170px' }}
-          onClick={handleToggleTheme}
-        >
-          click me
-        </Button>
-
-        <Button
-          variant="link"
-          size="small"
-          // icon={{
-          //   position: "right",
-          //   children: <ArrowUpIcon />,
-          //   // animation: "shake-x",
-          //   hidden: true,
-          // }}
-          // rounded
-          uppercase
-        >
-          click me
-        </Button>
-        <Button
-          variant="link"
-          size="medium"
-          icon={{
-            position: 'right',
-            children: <ArrowUpIcon />,
-            // animation: "shake-x",
-            hidden: true,
-          }}
-          // rounded
-          uppercase
-          onClick={handleToggleTheme}
-        >
-          click me
-        </Button>
-        <Button
-          variant="link"
-          size="large"
-          icon={{
-            position: 'right',
-            children: <ArrowUpIcon />,
-            animation: 'shake-x',
-            hidden: true,
-          }}
-          // rounded
-          uppercase
-          style={{ width: '170px' }}
-          onClick={handleToggleTheme}
-        >
-          click me
-        </Button>
-      </div>
-
-      <div style={{ display: 'flex', gap: 24, margin: '48px' }}>
-        <IconButton variant="contained" size="small" color="base" label="hehe">
-          <ArrowUpIcon />
-        </IconButton>
-        <IconButton
-          variant="contained"
-          size="medium"
-          color="primary"
-          label="hehe"
-        >
-          <ArrowUpIcon />
-        </IconButton>
-        <IconButton variant="contained" size="large" color="base" label="hehe">
-          <ArrowUpIcon />
-        </IconButton>
-        <IconButton
-          variant="contained"
+      <Flex spacing={20} align="center">
+        <Tag variant="solid" size="small" color="base">
+          <TagIcon>
+            <ContactIcon />
+          </TagIcon>
+          <TagLabel>#reactjs</TagLabel>
+          <TagCloseTrigger>
+            <CloseIcon />
+          </TagCloseTrigger>
+        </Tag>
+        <Tag variant="solid" size="medium" color="base">
+          <TagIcon>
+            <ContactIcon />
+          </TagIcon>
+          <TagLabel>#reactjs</TagLabel>
+          <TagCloseTrigger>
+            <CloseIcon />
+          </TagCloseTrigger>
+        </Tag>
+        <Tag
+          variant="solid"
           size="large"
           color="base"
-          label="hehe"
-          rounded
+          onClick={() => console.log('golang')}
         >
-          <ArrowUpIcon />
-        </IconButton>
+          <TagIcon>
+            <ContactIcon />
+          </TagIcon>
+          <TagLabel>#reactjs</TagLabel>
+        </Tag>
+      </Flex>
 
-        <IconButton variant="outlined" size="small" color="base" label="hehe">
-          <ArrowUpIcon />
-        </IconButton>
-        <IconButton
+      <Flex spacing={20} align="center" style={{ marginTop: '20px' }}>
+        <Tag variant="outlined" size="small" color="base">
+          <TagIcon>
+            <ContactIcon />
+          </TagIcon>
+          <TagLabel>#reactjs</TagLabel>
+          <TagCloseTrigger>
+            <CloseIcon />
+          </TagCloseTrigger>
+        </Tag>
+        <Tag
           variant="outlined"
           size="medium"
-          color="primary"
-          label="hehe"
+          color="base"
+          onClick={() => console.log('golang')}
         >
-          <ArrowUpIcon />
-        </IconButton>
-        <IconButton variant="outlined" size="large" color="base" label="hehe">
-          <ArrowUpIcon />
-        </IconButton>
-        <IconButton
-          variant="outlined"
-          size="large"
-          color="primary"
-          label="hehe"
-          rounded
-        >
-          <ArrowUpIcon />
-        </IconButton>
-      </div>
+          <TagLabel>#golang</TagLabel>
+          <TagIcon>
+            <ContactIcon />
+          </TagIcon>
+        </Tag>
+        <Tag variant="outlined" size="large" color="base">
+          <TagIcon>
+            <ContactIcon />
+          </TagIcon>
+          <TagLabel>#reactjs</TagLabel>
+          <TagCloseTrigger>
+            <CloseIcon />
+          </TagCloseTrigger>
+        </Tag>
+      </Flex>
 
-      <div style={{ display: 'flex', margin: '48px' }}>
-        <Pagination
-          totalCount={80}
-          pageSize={10}
-          currentPage={currentPage}
-          siblingCount={1}
-          onPageChange={(page) => setCurrentPage(page)}
-        />
-      </div>
+      <Flex spacing={20} align="center" style={{ marginTop: '20px' }}>
+        <Tag variant="subtle" size="small" color="base">
+          <TagIcon>
+            <ContactIcon />
+          </TagIcon>
+          <TagLabel>#reactjs</TagLabel>
+          <TagCloseTrigger>
+            <CloseIcon />
+          </TagCloseTrigger>
+        </Tag>
+        <Tag variant="subtle" size="medium" color="base">
+          <TagIcon>
+            <ContactIcon />
+          </TagIcon>
+          <TagLabel>#reactjs</TagLabel>
+          <TagCloseTrigger>
+            <CloseIcon />
+          </TagCloseTrigger>
+        </Tag>
+        <Tag
+          variant="subtle"
+          size="large"
+          color="base"
+          onClick={() => console.log('golang')}
+        >
+          <TagIcon>
+            <ContactIcon />
+          </TagIcon>
+          <TagLabel>#reactjs</TagLabel>
+          <TagCloseTrigger>
+            <CloseIcon />
+          </TagCloseTrigger>
+        </Tag>
+      </Flex>
     </div>
   );
 }
