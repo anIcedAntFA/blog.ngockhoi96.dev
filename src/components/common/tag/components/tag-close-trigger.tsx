@@ -27,6 +27,7 @@ function TagCloseTrigger({
       data-variant={variant}
       data-size={size}
       data-color={color}
+      data-testid="tag-close-trigger"
       className={cx(styles['close-trigger'], className)}
       onClick={handleClick}
       {...buttonProps}
