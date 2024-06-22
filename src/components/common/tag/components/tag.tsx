@@ -33,6 +33,7 @@ function Tag({
         data-size={size}
         data-color={color}
         data-clickable={!!onClick || undefined}
+        data-testid="tag"
         className={cx(styles.root, className)}
         onClick={onClick}
         {...divProps}
