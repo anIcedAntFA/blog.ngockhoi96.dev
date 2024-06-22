@@ -31,7 +31,7 @@ describe('Tag', () => {
 
     render(
       <Tag onClick={onClick}>
-        <TagLabel>#typescript</TagLabel>
+        <TagLabel>#reactjs</TagLabel>
       </Tag>,
     );
 
@@ -53,7 +53,7 @@ describe('Tag', () => {
         <TagIcon>
           <ContactIcon />
         </TagIcon>
-        <TagLabel>#typescript</TagLabel>
+        <TagLabel>#golang</TagLabel>
       </Tag>,
     );
 
@@ -69,7 +69,7 @@ describe('Tag', () => {
 
     render(
       <Tag onClick={onClick}>
-        <TagLabel>#typescript</TagLabel>
+        <TagLabel>#postgres</TagLabel>
         <TagCloseTrigger onClick={onClose} />
       </Tag>,
     );
