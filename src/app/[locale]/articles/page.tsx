@@ -2,8 +2,6 @@ import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 
-import Dummy from '@/components/dummy';
-
 export const runtime = 'edge';
 
 interface ITodo {
@@ -44,8 +42,6 @@ async function ArticlePage() {
           </div>
         ))}
       </div>
-
-      <Dummy />
     </div>
   );
 }
