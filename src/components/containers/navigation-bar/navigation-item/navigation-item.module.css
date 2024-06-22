@@ -5,7 +5,7 @@
   @mixin flex-center;
   gap: 8px;
 
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-radius: var(--br-medium);
   padding: 8px 12px;
 
