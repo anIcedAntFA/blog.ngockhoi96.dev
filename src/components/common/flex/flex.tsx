@@ -22,11 +22,16 @@ function Flex({
     wrap: styles[wrap],
   };
 
+  console.log(justify, styleMap.justify);
+
   return (
     <div
       className={cx(
         styles.root,
-        ...styleProps.map((prop) => styleMap[prop]),
+        ...styleProps.map((prop) => {
+          console.log(styleMap[prop]);
+          return styleMap[prop];
+        }),
         className,
       )}
       style={{ gap: spacing, ...style }}

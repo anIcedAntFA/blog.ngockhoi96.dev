@@ -1,0 +1,21 @@
+.heading {
+  font-size: var(--fs-medium);
+  font-weight: var(--fw-bold);
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.author,
+.date {
+  font-size: var(--fs-small);
+  color: var(--clr-gray-700);
+}
+
+.time {
+  font-size: var(--fs-small);
+  color: var(--clr-gray-700);
+}

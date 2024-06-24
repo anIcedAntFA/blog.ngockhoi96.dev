@@ -106,19 +106,19 @@ html[data-theme='dark'] {
   }
 
   &[data-size='small'] {
-    min-height: 24px;
+    min-height: 20px;
     border-radius: var(--br-small);
     padding-inline: 8px;
   }
 
   &[data-size='medium'] {
-    min-height: 32px;
+    min-height: 28px;
     border-radius: var(--br-normal);
     padding-inline: 10px;
   }
 
   &[data-size='large'] {
-    min-height: 40px;
+    min-height: 36px;
     border-radius: var(--br-medium);
     padding-inline: 12px;
   }
