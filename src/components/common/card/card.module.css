@@ -1,10 +1,25 @@
 .root {
   position: relative;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;
 
-  border: 1px solid orange;
-  border-radius: var(--br-medium);
-  max-width: 400px;
+  border: 1px solid var(--clr-base);
+  border-radius: var(--br-large);
+  max-width: 408px;
+
+  &:hover {
+    border-color: var(--clr-primary);
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
 }

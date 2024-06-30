@@ -1,21 +1,129 @@
-.heading {
-  font-size: var(--fs-medium);
-  font-weight: var(--fw-bold);
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+
+  &:hover {
+    .image-overlay {
+      opacity: 1;
+    }
+
+    .image {
+      transform: scale(1.1);
+    }
+  }
 }
 
-.avatar {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
+.image {
+  object-fit: cover;
+
+  transition: transform 0.4s ease-in-out;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  z-index: var(--z-index-2);
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgb(0 0 0 / 20%);
+  opacity: 0;
+
+  transition: opacity 0.4s ease-in-out;
+}
+
+.information {
+  display: grid;
+  grid-template-columns: 1fr 6fr 5fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'avatar author time'
+    'avatar date .';
+  gap: 4px 8px;
+
+  padding-top: 16px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .author,
 .date {
   font-size: var(--fs-small);
+  line-height: 1;
   color: var(--clr-gray-700);
 }
 
-.time {
-  font-size: var(--fs-small);
+.avatar {
+  grid-area: avatar;
+  align-self: center;
+
+  border-radius: 50%;
+}
+
+.author {
+  grid-area: author;
+
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--clr-primary);
+  }
+}
+
+.date {
+  grid-area: date;
+
+  font-size: var(--fs-xsmall);
+}
+
+.reading-time {
+  grid-area: time;
+  align-self: center;
+  justify-self: end;
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: var(--fs-xsmall);
+  line-height: 1;
   color: var(--clr-gray-700);
+
+  .timer-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.heading {
+  padding-top: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+
+  font-size: var(--fs-large);
+  font-weight: var(--fw-bold);
+
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--clr-primary);
+  }
+}
+
+.description {
+  padding-top: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+
+  color: var(--clr-gray-700);
+
+  @mixin line-clamp 2;
+}
+
+.footer {
+  gap: 8px;
+  padding: 12px 12px 16px;
 }
