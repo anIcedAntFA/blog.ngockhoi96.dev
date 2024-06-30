@@ -5,7 +5,7 @@ import type { CardFooterProps } from '../card.type';
 
 function CardFooter({ className, children, ...footerProps }: CardFooterProps) {
   return (
-    <footer className={cx(styles.header, className)} {...footerProps}>
+    <footer className={cx(styles.footer, className)} {...footerProps}>
       {children}
     </footer>
   );
