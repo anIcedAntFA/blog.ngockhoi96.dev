@@ -18,7 +18,11 @@ function Card({
 
   return (
     <CardProvider value={contextValue}>
-      <article className={cx(styles.root, className)} {...articleProps}>
+      <article
+        className={cx(styles.root, className)}
+        data-orientation={orientation}
+        {...articleProps}
+      >
         {children}
       </article>
     </CardProvider>

@@ -3,7 +3,14 @@
   overflow: hidden;
 
   display: flex;
-  flex-direction: column;
+
+  &[data-orientation='vertical'] {
+    flex-direction: column;
+  }
+
+  &[data-orientation='horizontal'] {
+    flex-direction: row;
+  }
 }
 
 .body {
