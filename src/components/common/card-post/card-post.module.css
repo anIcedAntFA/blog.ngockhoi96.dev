@@ -40,14 +40,13 @@
     }
 
     .thumbnail-overlay {
-      border-radius: 8px;
       opacity: 1;
     }
   }
 }
 
 .thumbnail {
-  border-radius: 8px;
+  border-radius: var(--cl-large);
   width: calc(400px - 32px);
 
   object-fit: cover;
@@ -58,7 +57,7 @@
 .thumbnail-overlay {
   position: absolute;
 
-  border-radius: 8px;
+  border-radius: var(--cl-large);
   width: 100%;
   height: 100%;
 
