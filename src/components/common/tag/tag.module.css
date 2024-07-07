@@ -105,22 +105,36 @@ html[data-theme='dark'] {
     }
   }
 
+  &[data-variant='text'] {
+    background-color: transparent;
+
+    &[data-clickable='true'] {
+      &:hover {
+        background-color: alpha(var(--clr-primary), 10%);
+      }
+
+      &:active {
+        box-shadow: 1px 2px 2px 0 alpha(var(--clr-base), 20%);
+      }
+    }
+  }
+
   &[data-size='small'] {
-    min-height: 24px;
+    min-height: 20px;
     border-radius: var(--br-small);
-    padding-inline: 8px;
+    padding-inline: 4px;
   }
 
   &[data-size='medium'] {
-    min-height: 32px;
+    min-height: 24px;
     border-radius: var(--br-normal);
-    padding-inline: 10px;
+    padding-inline: 6px;
   }
 
   &[data-size='large'] {
-    min-height: 40px;
+    min-height: 32px;
     border-radius: var(--br-medium);
-    padding-inline: 12px;
+    padding-inline: 8px;
   }
 
   &[data-clickable='true'] {
@@ -150,6 +164,12 @@ html[data-theme='dark'] {
 
   &[data-variant='subtle'] {
     color: var(--clr-subtle);
+  }
+
+  &[data-variant='text'] {
+    &[data-color='primary'] {
+      color: var(--clr-primary);
+    }
   }
 
   &[data-size='small'] {

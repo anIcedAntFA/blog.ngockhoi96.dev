@@ -1,112 +1,25 @@
 'use client';
 
+import { VerticalCardPost } from './common/card-post';
 import Flex from './common/flex';
-import { Tag, TagCloseTrigger, TagIcon, TagLabel } from './common/tag';
-import CloseIcon from './icons/close-icon';
-import ContactIcon from './icons/contact-icon';
 
 function Dummy() {
   return (
-    <div>
-      <Flex spacing={20} align="center">
-        <Tag variant="solid" size="small" color="base">
-          <TagIcon>
-            <ContactIcon />
-          </TagIcon>
-          <TagLabel>#reactjs</TagLabel>
-          <TagCloseTrigger>
-            <CloseIcon />
-          </TagCloseTrigger>
-        </Tag>
-        <Tag variant="solid" size="medium" color="base">
-          <TagIcon>
-            <ContactIcon />
-          </TagIcon>
-          <TagLabel>#reactjs</TagLabel>
-          <TagCloseTrigger>
-            <CloseIcon />
-          </TagCloseTrigger>
-        </Tag>
-        <Tag
-          variant="solid"
-          size="large"
-          color="base"
-          onClick={() => console.log('golang')}
-        >
-          <TagIcon>
-            <ContactIcon />
-          </TagIcon>
-          <TagLabel>#reactjs</TagLabel>
-        </Tag>
-      </Flex>
-
-      <Flex spacing={20} align="center" style={{ marginTop: '20px' }}>
-        <Tag variant="outlined" size="small" color="base">
-          <TagIcon>
-            <ContactIcon />
-          </TagIcon>
-          <TagLabel>#reactjs</TagLabel>
-          <TagCloseTrigger>
-            <CloseIcon />
-          </TagCloseTrigger>
-        </Tag>
-        <Tag
-          variant="outlined"
-          size="medium"
-          color="base"
-          onClick={() => console.log('golang')}
-        >
-          <TagLabel>#golang</TagLabel>
-          <TagIcon>
-            <ContactIcon />
-          </TagIcon>
-        </Tag>
-        <Tag variant="outlined" size="large" color="base">
-          <TagIcon>
-            <ContactIcon />
-          </TagIcon>
-          <TagLabel>#reactjs</TagLabel>
-          <TagCloseTrigger>
-            <CloseIcon />
-          </TagCloseTrigger>
-        </Tag>
-      </Flex>
-
-      <Flex spacing={20} align="center" style={{ marginTop: '20px' }}>
-        <Tag variant="subtle" size="small" color="base">
-          <TagIcon>
-            <ContactIcon />
-          </TagIcon>
-          <TagLabel>#reactjs</TagLabel>
-          <TagCloseTrigger>
-            <CloseIcon />
-          </TagCloseTrigger>
-        </Tag>
-        <Tag variant="subtle" size="medium" color="base">
-          <TagIcon>
-            <ContactIcon />
-          </TagIcon>
-          <TagLabel>#reactjs</TagLabel>
-          <TagCloseTrigger>
-            <CloseIcon />
-          </TagCloseTrigger>
-        </Tag>
-        <Tag
-          variant="subtle"
-          size="large"
-          color="base"
-          onClick={() => console.log('golang')}
-        >
-          <TagIcon>
-            <ContactIcon />
-          </TagIcon>
-          <TagLabel>#reactjs</TagLabel>
-          <TagCloseTrigger>
-            <CloseIcon />
-          </TagCloseTrigger>
-        </Tag>
-      </Flex>
-    </div>
+    <Flex spacing={36} justify="space-between" wrap="wrap">
+      <VerticalCardPost
+        author="ngockhoi96"
+        avatar="https://images.unsplash.com/photo-1568162603664-fcd658421851?q=80&w=1981&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        modifiedDate="June 23, 2024"
+        readingTime="15 min read"
+        title="How to build you custom Tab component in Reactjs"
+        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus nemo
+          ex perspiciatis rerum laudantium quae autem tempora harum, perferendis
+          nulla, accusantium incidunt, provident optio labore totam neque cum.
+          Atque, soluta."
+        thumbnail="https://images.unsplash.com/photo-1719032168861-994a74306944?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        tags={['react', 'typescript', 'testing']}
+      />
+    </Flex>
   );
 }
 

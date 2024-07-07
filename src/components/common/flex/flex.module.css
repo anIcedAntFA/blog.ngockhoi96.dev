@@ -33,15 +33,15 @@
     justify-content: flex-end;
   }
 
-  &.space-between {
+  &.justify-space-between {
     justify-content: space-between;
   }
 
-  &.space-around {
+  &.justify-space-around {
     justify-content: space-around;
   }
 
-  &.space-evenly {
+  &.justify-space-evenly {
     justify-content: space-evenly;
   }
 
