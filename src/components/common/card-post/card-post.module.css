@@ -1,23 +1,34 @@
 .wrapper {
-  outline: 2px solid transparent;
+  border: 2px solid transparent;
   border-radius: var(--br-xlg);
-  max-width: 400px;
 
   background-color: var(--clr-bg-2);
   box-shadow: 1px 1px 4px 1px alpha(var(--clr-base), 10%);
 
   transition:
-    outline 0.3s ease-in-out,
+    border 0.3s ease-in-out,
     transform 0.3s ease-in-out;
 
+  &[data-orientation='vertical'] {
+    max-width: 400px;
+
+    &:hover {
+      transform: translate3d(0, -12px, 0);
+    }
+  }
+
+  &[data-orientation='horizontal'] {
+    max-width: 800px;
+
+    &:hover {
+      transform: translate3d(-16px, 0, 0);
+    }
+  }
+
   &:hover {
-    outline-color: var(--clr-primary);
+    border-color: var(--clr-primary);
     transform: translate3d(0, -12px, 0);
     box-shadow: 2px 2px 8px 2px alpha(var(--clr-primary), 10%);
-
-    .body-footer {
-      border-color: var(--clr-primary);
-    }
   }
 }
 
@@ -25,14 +36,20 @@
   position: relative;
   overflow: hidden;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @mixin flex-center;
 
   border-radius: var(--br-large);
-  margin: 16px 16px 8px;
 
   transition: transform 0.3s ease-in-out;
+
+  &[data-orientation='vertical'] {
+    margin: 16px 16px 8px;
+  }
+
+  &[data-orientation='horizontal'] {
+    margin: 16px;
+    width: 240px;
+  }
 
   &:hover {
     .thumbnail {
@@ -46,7 +63,7 @@
 }
 
 .thumbnail {
-  border-radius: var(--cl-large);
+  border-radius: var(--br-large);
   width: calc(400px - 32px);
 
   object-fit: cover;
@@ -57,7 +74,7 @@
 .thumbnail-overlay {
   position: absolute;
 
-  border-radius: var(--cl-large);
+  border-radius: var(--br-large);
   width: 100%;
   height: 100%;
 
@@ -67,13 +84,13 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.body-footer {
-  border: 1px solid transparent;
-  border-top-width: 0;
-  border-bottom-left-radius: var(--br-large);
-  border-bottom-right-radius: var(--br-large);
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  transition: border 0.3s ease-in-out;
+  width: calc(100% - 240px - 32px);
+  padding-top: 16px;
 }
 
 .header {
@@ -168,6 +185,12 @@
 }
 
 .footer {
+  justify-content: space-between;
+
+  padding: 16px;
+}
+
+.tag-list {
+  display: flex;
   gap: 8px;
-  padding: 12px 20px 16px;
 }

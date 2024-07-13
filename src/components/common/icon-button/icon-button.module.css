@@ -118,15 +118,15 @@ html[data-theme='dark'] {
   }
 
   &[data-size='small'] {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     border-radius: var(--br-normal);
     padding: 4px;
   }
 
   &[data-size='medium'] {
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
     border-radius: var(--br-medium);
     padding: 4px;
   }

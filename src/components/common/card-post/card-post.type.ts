@@ -9,4 +9,5 @@ export type CardPostProps = CardProps & {
   description: string;
   thumbnail: string;
   tags: string[];
+  isEvenIndex?: boolean;
 };

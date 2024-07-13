@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { cookies } from 'next/headers';
 import Link from 'next/link';
 
 import Dummy from '@/components/dummy';
@@ -25,8 +24,6 @@ async function ArticlePage() {
 
   const result: ITodo = await data.json();
 
-  const cookieStore = cookies();
-
   return (
     <div>
       <div>
@@ -34,15 +31,6 @@ async function ArticlePage() {
         <Link href="/">Home</Link>
 
         <pre>{result.title}</pre>
-      </div>
-
-      <div>
-        {cookieStore.getAll().map((cookie) => (
-          <div key={cookie.name}>
-            <p>Name: {cookie.name}</p>
-            <p>Value: {cookie.value}</p>
-          </div>
-        ))}
       </div>
 
       <Dummy />
