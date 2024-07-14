@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 
 import ShareIcon from '@/components/icons/share-icon';
@@ -10,17 +12,18 @@ import { Tag, TagLabel } from '../tag';
 import styles from './card-post.module.css';
 import type { CardPostProps } from './card-post.type';
 
-function VerticalCardPost({
-  author,
-  avatar,
-  modifiedDate,
-  readingTime,
-  title,
-  description,
-  thumbnail,
-  tags,
-  ...cardProps
-}: CardPostProps) {
+function VerticalCardPost({ data, ...cardProps }: CardPostProps) {
+  const {
+    author,
+    avatar,
+    modifiedDate,
+    readingTime,
+    title,
+    description,
+    thumbnail,
+    tags,
+  } = data;
+
   return (
     <Card data-orientation="vertical" className={styles.wrapper} {...cardProps}>
       <Link

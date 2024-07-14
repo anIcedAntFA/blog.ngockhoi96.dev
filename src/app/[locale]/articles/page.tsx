@@ -1,39 +1,27 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 
-import Dummy from '@/components/dummy';
+import { posts } from '@/__mocks__';
+
+import ArticleViewLayouts from './_components/article-view-layouts';
+import ArticleViewList from './_components/article-view-list';
+import styles from './page.module.css';
 
 export const runtime = 'edge';
 
-interface ITodo {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-}
-
 export const metadata: Metadata = {
-  title: 'About',
-  description: 'About page',
+  title: 'Article',
+  description: 'Article page',
 };
 
 async function ArticlePage() {
-  const data: Response = await fetch(
-    'https://jsonplaceholder.typicode.com/todos/1',
-  );
-
-  const result: ITodo = await data.json();
-
   return (
-    <div>
-      <div>
-        <h1>Article</h1>
-        <Link href="/">Home</Link>
-
-        <pre>{result.title}</pre>
+    <div className={styles.wrapper}>
+      <div className={styles.control}>
+        <div>tab filter</div>
+        <ArticleViewLayouts />
       </div>
 
-      <Dummy />
+      <ArticleViewList data={posts} isLoading={false} />
     </div>
   );
 }

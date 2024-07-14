@@ -6,6 +6,7 @@ import type {
   orientations,
   placements,
   sizes,
+  viewLayouts,
 } from '@/configs/constants';
 
 import type { ValueType } from './common';
@@ -14,6 +15,7 @@ export type Size = ValueType<typeof sizes>;
 export type Orientation = ValueType<typeof orientations>;
 export type Direction = ValueType<typeof directions>;
 export type Placement = ValueType<typeof placements>;
+export type ViewLayout = ValueType<typeof viewLayouts>;
 export type Color = ValueType<typeof colors>;
 
 export type KeyboardCommand = ValueType<typeof keyboardCommands>;

@@ -80,5 +80,25 @@
       "description": "A personal blog that share my ideas, experiences about techs and lifestyles.",
       "keywords": "ngockhoi96, blog, web development, programming, techs, lifestyles, learn, sharing"
     }
+  },
+  "articles": {
+    "metadata": {
+      "title": "Articles",
+      "subtitle": "A collection of articles",
+      "description": "A collection of articles that share my ideas, experiences about techs and lifestyles.",
+      "keywords": "ngockhoi96, blog, web development, programming, techs, lifestyles, learn, sharing"
+    },
+    "components": {
+      "articleViewLayouts": {
+        "list": {
+          "iconButtonLabel": "List layout button",
+          "tooltipLabel": "List layout"
+        },
+        "grid": {
+          "iconButtonLabel": "Grid layout button",
+          "tooltipLabel": "Grid layout"
+        }
+      }
+    }
   }
 }

@@ -9,6 +9,7 @@ export type IconButtonStyleProp = {
   size: Size;
   color: Color;
   rounded: boolean;
+  isActive: boolean;
 };
 
 export type IconButtonProps = ComponentProps<'button'> &

@@ -18,8 +18,9 @@ function IconButton(
     variant = buttonVariants.CONTAINED,
     size = sizes.MEDIUM,
     color = colors.BASE,
-    label,
+    label = 'Icon button',
     rounded = false,
+    isActive = false,
     disabled = false,
     className,
     children,
@@ -39,6 +40,7 @@ function IconButton(
       data-color={color}
       aria-label={label}
       data-rounded={rounded || undefined}
+      data-active={isActive || undefined}
       aria-disabled={disabled}
       disabled={disabled}
       className={cx(styles.root, className)}
