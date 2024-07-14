@@ -33,13 +33,14 @@ function VerticalCardPost({
           alt="thumbnail"
           width={360}
           height={220}
+          data-orientation="vertical"
           className={styles.thumbnail}
         />
         <div className={styles['thumbnail-overlay']} />
       </Link>
       <CardHeader className={styles.header}>
         <Link href="/about" className={styles.avatar}>
-          <Image src={avatar} alt="avatar" width={32} height={32} />
+          <Image src={avatar} alt="avatar" width={36} height={36} />
         </Link>
         <Link href="/about" className={styles.author}>
           <p>{author}</p>

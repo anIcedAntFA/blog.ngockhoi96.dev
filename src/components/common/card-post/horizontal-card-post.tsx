@@ -33,7 +33,7 @@ function HorizontalCardPost({
           <div className={styles.content}>
             <CardHeader className={styles.header}>
               <Link href="/about" className={styles.avatar}>
-                <Image src={avatar} alt="avatar" width={32} height={32} />
+                <Image src={avatar} alt="avatar" width={36} height={36} />
               </Link>
               <Link href="/about" className={styles.author}>
                 <p>{author}</p>
@@ -73,8 +73,8 @@ function HorizontalCardPost({
             <Image
               src={thumbnail}
               alt="thumbnail"
-              width={240}
-              height={240}
+              width={208}
+              height={208}
               className={styles.thumbnail}
             />
             <div className={styles['thumbnail-overlay']} />
@@ -90,8 +90,8 @@ function HorizontalCardPost({
             <Image
               src={thumbnail}
               alt="thumbnail"
-              width={240}
-              height={240}
+              width={208}
+              height={208}
               className={styles.thumbnail}
             />
             <div className={styles['thumbnail-overlay']} />
@@ -99,7 +99,7 @@ function HorizontalCardPost({
           <div className={styles.content}>
             <CardHeader className={styles.header}>
               <Link href="/about" className={styles.avatar}>
-                <Image src={avatar} alt="avatar" width={32} height={32} />
+                <Image src={avatar} alt="avatar" width={36} height={36} />
               </Link>
               <Link href="/about" className={styles.author}>
                 <p>{author}</p>
