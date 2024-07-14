@@ -1,8 +1,10 @@
 import Image from 'next/image';
 
+import ShareIcon from '@/components/icons/share-icon';
 import { Link } from '@/i18n/navigation';
 
 import { Card, CardBody, CardHeader, CardFooter } from '../card';
+import IconButton from '../icon-button';
 import { Tag, TagLabel } from '../tag';
 
 import styles from './card-post.module.css';
@@ -20,43 +22,54 @@ function VerticalCardPost({
   ...cardProps
 }: CardPostProps) {
   return (
-    <Card className={styles.wrapper} {...cardProps}>
-      <Link href="/articles" className={styles['thumbnail-wrapper']}>
+    <Card data-orientation="vertical" className={styles.wrapper} {...cardProps}>
+      <Link
+        href="/articles"
+        data-orientation="vertical"
+        className={styles['thumbnail-wrapper']}
+      >
         <Image
           src={thumbnail}
           alt="thumbnail"
           width={360}
-          height={240}
+          height={220}
+          data-orientation="vertical"
           className={styles.thumbnail}
         />
         <div className={styles['thumbnail-overlay']} />
       </Link>
+      <CardHeader className={styles.header}>
+        <Link href="/about" className={styles.avatar}>
+          <Image src={avatar} alt="avatar" width={36} height={36} />
+        </Link>
+        <Link href="/about" className={styles.author}>
+          <p>{author}</p>
+        </Link>
+        <time className={styles['modified-date']}>{modifiedDate}</time>
+        <small className={styles['reading-time']}>{readingTime}</small>
+      </CardHeader>
       <CardBody>
-        <CardHeader className={styles.header}>
-          <Link href="/about" className={styles.avatar}>
-            <Image src={avatar} alt="avatar" width={32} height={32} />
-          </Link>
-          <Link href="/about" className={styles.author}>
-            <p>{author}</p>
-          </Link>
-          <time className={styles['modified-date']}>{modifiedDate}</time>
-          <small className={styles['reading-time']}>{readingTime}</small>
-        </CardHeader>
         <Link href="/articles" className={styles.heading}>
           <h5>{title}</h5>
         </Link>
         <p className={styles.description}>{description}</p>
       </CardBody>
       <CardFooter className={styles.footer}>
-        {tags.map((tag) => (
-          <Tag
-            key={tag}
-            variant="text"
-            onClick={() => console.log(`go to ${tag} posts`)}
-          >
-            <TagLabel>#{tag}</TagLabel>
-          </Tag>
-        ))}
+        <ul className={styles['tag-list']}>
+          {tags.map((tag) => (
+            <li key={tag}>
+              <Tag
+                variant="text"
+                onClick={() => console.log(`go to ${tag} posts`)}
+              >
+                <TagLabel>#{tag}</TagLabel>
+              </Tag>
+            </li>
+          ))}
+        </ul>
+        <IconButton>
+          <ShareIcon />
+        </IconButton>
       </CardFooter>
     </Card>
   );
