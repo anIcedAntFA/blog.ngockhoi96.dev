@@ -1,6 +1,7 @@
 import type { CardProps } from '../card/card.type';
 
-export type CardPostProps = CardProps & {
+export type CardPost = {
+  id: number;
   author: string;
   avatar: string;
   modifiedDate: string;
@@ -10,4 +11,8 @@ export type CardPostProps = CardProps & {
   thumbnail: string;
   tags: string[];
   isEvenIndex?: boolean;
+};
+
+export type CardPostProps = CardProps & {
+  data: CardPost;
 };

@@ -1,0 +1,10 @@
+.group {
+  display: flex;
+  gap: 4px;
+}
+
+.list {
+  &[data-active='true'] {
+    color: var(--clr-primary);
+  }
+}

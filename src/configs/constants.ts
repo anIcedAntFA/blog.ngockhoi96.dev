@@ -31,6 +31,11 @@ export const placements = {
   LEFT_END: 'left-end',
 } as const;
 
+export const viewLayouts = {
+  LIST: 'list',
+  GRID: 'grid',
+} as const;
+
 export const colors = {
   BASE: 'base',
   PRIMARY: 'primary',

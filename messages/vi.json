@@ -80,5 +80,25 @@
       "description": "Một trang web cá nhân để chia sẻ kiến thức và kinh nghiệm của tôi với mọi người.",
       "keywords": "ngockhoi96, blog, phát triển website, lập trình, cuộc sống, học tập, chia sẻ"
     }
+  },
+  "articles": {
+    "metadata": {
+      "title": "Articles",
+      "subtitle": "A collection of articles",
+      "description": "A collection of articles that share my ideas, experiences about techs and lifestyles.",
+      "keywords": "ngockhoi96, blog, web development, programming, techs, lifestyles, learn, sharing"
+    },
+    "components": {
+      "articleViewLayouts": {
+        "list": {
+          "iconButtonLabel": "Nút chọn dạng danh sách",
+          "tooltipLabel": "Hiển thị dạng danh sách"
+        },
+        "grid": {
+          "iconButtonLabel": "Nút chọn dạng lưới",
+          "tooltipLabel": "Hiển thị dạng lưới"
+        }
+      }
+    }
   }
 }

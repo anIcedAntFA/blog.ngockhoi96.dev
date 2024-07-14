@@ -10,18 +10,19 @@ import { Tag, TagLabel } from '../tag';
 import styles from './card-post.module.css';
 import type { CardPostProps } from './card-post.type';
 
-function HorizontalCardPost({
-  author,
-  avatar,
-  modifiedDate,
-  readingTime,
-  title,
-  description,
-  thumbnail,
-  tags,
-  isEvenIndex,
-  ...cardProps
-}: CardPostProps) {
+function HorizontalCardPost({ data, ...cardProps }: CardPostProps) {
+  const {
+    author,
+    avatar,
+    modifiedDate,
+    readingTime,
+    title,
+    description,
+    thumbnail,
+    tags,
+    isEvenIndex,
+  } = data;
+
   return (
     <Card
       data-orientation="horizontal"
