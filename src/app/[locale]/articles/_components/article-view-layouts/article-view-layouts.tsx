@@ -6,7 +6,7 @@ import CustomTooltip from '@/components/common/custom-tooltip';
 import IconButton from '@/components/common/icon-button';
 import GridLayoutIcon from '@/components/icons/grid-layout-icon';
 import ListIcon from '@/components/icons/list-icon';
-import { sizes, viewLayouts } from '@/configs/constants';
+import { viewLayouts } from '@/configs/constants';
 
 import {
   useArticleActions,
@@ -25,7 +25,6 @@ function ArticleViewLayouts() {
     <div className={styles.group}>
       <CustomTooltip label={t('list.tooltipLabel')} hasArrow>
         <IconButton
-          size={sizes.LARGE}
           label={t('list.iconButtonLabel')}
           isActive={viewLayout === viewLayouts.LIST}
           onClick={() => setViewType('list')}
@@ -35,7 +34,6 @@ function ArticleViewLayouts() {
       </CustomTooltip>
       <CustomTooltip label={t('grid.tooltipLabel')} hasArrow>
         <IconButton
-          size={sizes.LARGE}
           label={t('grid.iconButtonLabel')}
           isActive={viewLayout === viewLayouts.GRID}
           onClick={() => setViewType('grid')}
