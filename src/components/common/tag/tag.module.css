@@ -259,6 +259,10 @@ html[data-theme='dark'] {
     opacity: 1;
   }
 
+  &:focus {
+    outline: 2px solid var(--clr-primary);
+  }
+
   &:active {
     scale: 1.1;
   }

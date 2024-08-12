@@ -10,6 +10,19 @@ import TagIcon from '../components/tag-icon';
 import TagLabel from '../components/tag-label';
 
 describe('Tag', () => {
+  it('it should throw an error if used outside of `TagProvider`', () => {
+    vi.spyOn(console, 'error').mockImplementation(() => null);
+
+    expect(() =>
+      render(
+        <>
+          <TagLabel>#docker</TagLabel>
+          <TagCloseTrigger onClick={vi.fn()} />
+        </>,
+      ),
+    ).toThrowError('useTagContext must be used within a TagProvider');
+  });
+
   it('should render correctly tag and tag label', () => {
     render(
       <Tag>
@@ -26,25 +39,29 @@ describe('Tag', () => {
     expect(tagLabel).toHaveTextContent('#typescript');
   });
 
-  it('should render correctly tag with onClick function', async () => {
-    const onClick = vi.fn(() => 'clicked');
+  it('should render correctly tag with `onClick` and `onKeyDown` function', async () => {
+    const onClickMock = vi.fn().mockImplementation(() => 'clicked');
+    const onKeyDownMock = vi.fn().mockImplementation(() => 'pressed');
 
     render(
-      <Tag onClick={onClick}>
+      <Tag onClick={onClickMock} onKeyDown={onKeyDownMock}>
         <TagLabel>#reactjs</TagLabel>
       </Tag>,
     );
 
     const tag = screen.getByTestId('tag');
+    const user = userEvent.setup();
+
     expect(tag).toHaveProperty('role', 'button');
     expect(tag).toHaveProperty('tabIndex', 0);
     expect(tag).toHaveAttribute('data-clickable', 'true');
 
-    const user = userEvent.setup();
     await user.click(tag);
+    expect(onClickMock).toHaveBeenCalledOnce();
+    expect(onClickMock).toHaveReturnedWith('clicked');
 
-    expect(onClick).toHaveBeenCalledOnce();
-    expect(onClick).toHaveReturnedWith('clicked');
+    await user.keyboard('{enter}');
+    expect(onKeyDownMock).toHaveBeenCalledOnce();
   });
 
   it('should render correctly tag with icon', () => {
@@ -58,34 +75,31 @@ describe('Tag', () => {
     );
 
     const tag = screen.getByTestId('tag');
-
     const tagIcon = within(tag).getByTestId('tag-icon');
     expect(tagIcon.firstChild).toBeInstanceOf(SVGElement);
   });
 
   it('should render correctly tag with close trigger', async () => {
-    const onClose = vi.fn(() => 'closed');
-    const onClick = vi.fn(() => 'clicked');
+    const onCloseMock = vi.fn().mockImplementation(() => 'closed');
+    const onClickMock = vi.fn().mockImplementation(() => 'clicked');
 
     render(
-      <Tag onClick={onClick}>
+      <Tag onClick={onClickMock}>
         <TagLabel>#postgres</TagLabel>
-        <TagCloseTrigger onClick={onClose} />
+        <TagCloseTrigger onClick={onCloseMock} />
       </Tag>,
     );
 
     const tag = screen.getByTestId('tag');
-
     const tagCloseTrigger = within(tag).getByTestId('tag-close-trigger');
+    const user = userEvent.setup();
+
     expect(tagCloseTrigger).toHaveProperty('type', 'button');
     expect(tagCloseTrigger).toHaveAttribute('aria-label', 'close');
 
-    const user = userEvent.setup();
     await user.click(tagCloseTrigger);
-
-    expect(onClose).toHaveBeenCalledOnce();
-    expect(onClose).toHaveReturnedWith('closed');
-
-    expect(onClick).not.toHaveBeenCalled();
+    expect(onCloseMock).toHaveBeenCalledOnce();
+    expect(onCloseMock).toHaveReturnedWith('closed');
+    expect(onClickMock).not.toHaveBeenCalled();
   });
 });

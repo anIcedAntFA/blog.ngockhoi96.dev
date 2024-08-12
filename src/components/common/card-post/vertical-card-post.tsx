@@ -7,7 +7,7 @@ import { Link } from '@/i18n/navigation';
 
 import { Card, CardBody, CardHeader, CardFooter } from '../card';
 import IconButton from '../icon-button';
-import { Tag, TagLabel } from '../tag';
+import { Tag, TagCloseTrigger, TagLabel } from '../tag';
 
 import styles from './card-post.module.css';
 import type { CardPostProps } from './card-post.type';
@@ -66,6 +66,7 @@ function VerticalCardPost({ data, ...cardProps }: CardPostProps) {
                 onClick={() => console.log(`go to ${tag} posts`)}
               >
                 <TagLabel>#{tag}</TagLabel>
+                <TagCloseTrigger />
               </Tag>
             </li>
           ))}

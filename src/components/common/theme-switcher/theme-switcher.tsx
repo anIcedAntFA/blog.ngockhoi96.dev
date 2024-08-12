@@ -27,7 +27,7 @@ function ThemeSwitcher(inputProps: ThemeSwitcherProps) {
 
   return (
     <CustomTooltip label={tooltipLabel} hasArrow>
-      <div className={styles.root}>
+      <label htmlFor="switch" className={styles.root}>
         <input
           type="checkbox"
           id="switch"
@@ -39,7 +39,7 @@ function ThemeSwitcher(inputProps: ThemeSwitcherProps) {
           onChange={handleToggleTheme}
           {...inputProps}
         />
-        <label htmlFor="switch" className={styles.sky}>
+        <div className={styles.sky}>
           <ul className={styles.sun}>
             <li />
             <li />
@@ -79,8 +79,8 @@ function ThemeSwitcher(inputProps: ThemeSwitcherProps) {
             className={cx([styles.star, styles['star-04']])}
             data-testid="star-04"
           />
-        </label>
-      </div>
+        </div>
+      </label>
     </CustomTooltip>
   );
 }
