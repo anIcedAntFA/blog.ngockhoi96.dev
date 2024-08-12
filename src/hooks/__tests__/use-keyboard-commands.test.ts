@@ -10,7 +10,7 @@ import type { UseKeyboardCommandsProps } from '../use-keyboard-commands';
 import useKeyboardCommands from '../use-keyboard-commands';
 
 describe('useKeyboardCommands', () => {
-  let callback: Mock<string[], void>;
+  let callback: Mock;
   let user: UserEvent;
 
   beforeEach(() => {

@@ -37,7 +37,7 @@ const RenderedDialog = (dialogProps: DialogProps) => {
 };
 
 describe('Dialog', () => {
-  let onClose: Mock<string[], void>;
+  let onClose: Mock;
   let user: UserEvent;
 
   beforeEach(() => {

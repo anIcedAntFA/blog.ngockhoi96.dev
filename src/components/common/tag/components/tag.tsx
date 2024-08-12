@@ -1,6 +1,7 @@
 'use client';
 
 import cx from 'clsx';
+import type { KeyboardEvent } from 'react';
 
 import { colors, sizes } from '@/configs/constants';
 
@@ -16,12 +17,21 @@ function Tag({
   className,
   children,
   onClick,
+  onKeyDown,
   ...divProps
 }: TagProps) {
   const contextValue = {
     variant,
     size,
     color,
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+
+    if (onKeyDown && event.key === 'Enter') {
+      onKeyDown(event);
+    }
   };
 
   return (
@@ -36,6 +46,7 @@ function Tag({
         data-testid="tag"
         className={cx(styles.root, className)}
         onClick={onClick}
+        onKeyDown={handleKeyDown}
         {...divProps}
       >
         {children}
