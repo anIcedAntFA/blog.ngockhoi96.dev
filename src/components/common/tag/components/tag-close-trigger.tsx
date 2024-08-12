@@ -15,10 +15,10 @@ function TagCloseTrigger({
 }: TagCloseTriggerProps) {
   const { variant, size, color } = useTagContext();
 
-  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+  function handleClick(event: MouseEvent<HTMLButtonElement>) {
     event.stopPropagation();
     onClick?.(event);
-  };
+  }
 
   return (
     <button

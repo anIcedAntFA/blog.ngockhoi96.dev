@@ -66,7 +66,7 @@ function VerticalCardPost({ data, ...cardProps }: CardPostProps) {
                 onClick={() => console.log(`go to ${tag} posts`)}
               >
                 <TagLabel>#{tag}</TagLabel>
-                <TagCloseTrigger />
+                <TagCloseTrigger onClick={() => console.log('first')} />
               </Tag>
             </li>
           ))}

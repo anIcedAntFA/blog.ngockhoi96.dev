@@ -1,0 +1,152 @@
+.root {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: var(--br-tabs);
+
+  &[data-orientation='vertical'] {
+    display: flex;
+    height: 300px;
+  }
+}
+
+.list {
+  display: flex;
+
+  &[data-orientation='vertical'] {
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+.trigger {
+  flex-grow: 1;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: 100%;
+  padding: 12px;
+
+  font-weight: var(--fw-semibold);
+  letter-spacing: 1px;
+
+  cursor: pointer;
+  background-color: transparent;
+
+  transition: color 0.3s ease-in-out;
+
+  &[data-orientation='horizontal'] {
+    border-bottom: 1px solid #e2e8f0;
+    border-bottom-width: 1px;
+
+    &::before {
+      bottom: 0;
+
+      width: 100%;
+      height: 0;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+
+      transition: height 0.3s ease-in-out;
+    }
+
+    &[data-active='true']::before {
+      height: 100%;
+    }
+  }
+
+  &[data-orientation='vertical'] {
+    border-right: 1px solid #e2e8f0;
+    border-right-width: 1px;
+
+    &::before {
+      right: 0;
+
+      width: 0;
+      height: 100%;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+
+      transition: width 0.3s ease-in-out;
+    }
+
+    &[data-active='true']::before {
+      height: 100%;
+    }
+  }
+
+  &[data-active='true'] {
+    color: var(--clr-primary);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+
+    width: 100%;
+    height: 0;
+
+    background-color: alpha(var(--clr-primary), 10%);
+
+    transition: height 0.3s ease-in-out;
+  }
+
+  &:hover:not(:disabled) {
+    color: var(--clr-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--clr-primary);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}
+
+/* .tab-trigger:where(
+    .tab-trigger--horizontal,
+    .tab-trigger--vertical
+  ).tab-trigger--active::before {
+  transition: all 0.3s ease-in-out 0.1s;
+} */
+
+.indicator {
+  position: absolute;
+
+  border-radius: var(--br-normal);
+
+  background-color: var(--clr-primary);
+
+  &[data-orientation='horizontal'] {
+    margin-top: -3px;
+    height: 3px;
+  }
+
+  &[data-orientation='vertical'] {
+    margin-left: -3px;
+    width: 3px;
+  }
+}
+
+.tab-panel-group {
+  display: flex;
+}
+
+.tab-panel {
+  overflow: auto;
+
+  display: none;
+
+  padding: 24px 32px 32px;
+
+  &[data-active='true'] {
+    display: block;
+  }
+}
