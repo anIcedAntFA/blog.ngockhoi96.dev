@@ -20,7 +20,7 @@ describe('Tag', () => {
           <TagCloseTrigger onClick={vi.fn()} />
         </>,
       ),
-    ).toThrow('useTagContext must be used within a TagProvider');
+    ).toThrowError('useTagContext must be used within a TagProvider');
   });
 
   it('should render correctly tag and tag label', () => {
