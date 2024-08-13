@@ -6,6 +6,7 @@ import { useId, useRef, useState } from 'react';
 
 import { orientations } from '@/configs/constants';
 
+import { tabVariants } from '../tabs.config';
 import { TabProvider } from '../tabs.context';
 import styles from '../tabs.module.css';
 import type { BaseValue, TabsProps } from '../tabs.type';
@@ -13,6 +14,7 @@ import type { BaseValue, TabsProps } from '../tabs.type';
 function Tabs({
   value,
   onChange,
+  variant = tabVariants.LINE,
   orientation = orientations.HORIZONTAL,
   isActiveFocusedMode = false,
   isLazyMount = false,
@@ -32,6 +34,7 @@ function Tabs({
 
   const contextValue = {
     id: tabsID,
+    variant,
     orientation,
     rootRef: tabsRootRef,
     activeValue: value,
@@ -48,6 +51,7 @@ function Tabs({
       <div
         ref={tabsRootRef}
         data-orientation={orientation}
+        data-variant={variant}
         className={cx(styles.root, className)}
         {...passProps}
       >

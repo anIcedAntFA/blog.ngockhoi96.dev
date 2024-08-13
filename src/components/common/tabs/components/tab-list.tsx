@@ -15,7 +15,7 @@ function TabList({ className, children, ...passProps }: TabListProps) {
   //* ref store all available tab elements
   const tabsRef = useRef<ElementRef<'button'>[]>([]);
 
-  const { orientation, focusedValue } = useTabsContext();
+  const { orientation, variant, focusedValue } = useTabsContext();
 
   const queryTab = (selector: string) => {
     if (!tabListRef.current) return;
@@ -82,6 +82,7 @@ function TabList({ className, children, ...passProps }: TabListProps) {
         orientation === orientations.VERTICAL ? 'vertical' : 'horizontal'
       }
       data-orientation={orientation}
+      data-variant={variant}
       className={cx(styles.list, className)}
       onKeyDown={handleKeyDown}
       tabIndex={0} // Add tabIndex attribute to make the element focusable

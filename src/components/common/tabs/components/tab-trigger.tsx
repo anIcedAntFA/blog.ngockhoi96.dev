@@ -14,6 +14,7 @@ function TabTrigger({
 }: TabTriggerProps) {
   const {
     id,
+    variant,
     orientation,
     activeValue,
     isActiveFocusedMode,
@@ -43,9 +44,10 @@ function TabTrigger({
       aria-disabled={disabled}
       aria-controls={generateTabPanelId(id, currentValue)}
       data-index={currentValue}
-      disabled={disabled}
+      data-variant={variant}
       data-orientation={orientation}
       data-active={isActive}
+      disabled={disabled}
       className={cx(styles.trigger, className)}
       onClick={handleClick}
       onFocus={handleFocus}

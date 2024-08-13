@@ -5,7 +5,7 @@ import { useState } from 'react';
 import {
   TabIndicator,
   TabList,
-  TabPanel,
+  // TabPanel,
   TabPanelGroup,
   Tabs,
   TabTrigger,
@@ -19,7 +19,8 @@ function ArticleFilterByView() {
 
   return (
     <Tabs
-      // orientation='vertical'
+      variant="solid"
+      // orientation="vertical"
       value={activeValue}
       // activeFocusedMode
       // lazyMount
@@ -38,7 +39,7 @@ function ArticleFilterByView() {
       </TabList>
       <TabIndicator />
       <TabPanelGroup>
-        <TabPanel value={0}>
+        {/* <TabPanel value={0}>
           <p>
             tab content 1 Lorem ipsum dolor sit amet consectetur adipisicing
             elit. Ut maxime nesciunt mollitia repellat distinctio ipsa. Culpa
@@ -81,7 +82,7 @@ function ArticleFilterByView() {
             eos, quas quae quidem temporibus non vitae? Id in expedita assumenda
             sequi quia recusandae amet tenetur ab.
           </p>
-        </TabPanel>
+        </TabPanel> */}
       </TabPanelGroup>
     </Tabs>
   );

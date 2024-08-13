@@ -12,7 +12,7 @@ function TabIndicator() {
 
   const isFirstRender = useRef<boolean>(true);
 
-  const { orientation, rootRef, activeValue } = useTabsContext();
+  const { variant, orientation, rootRef, activeValue } = useTabsContext();
 
   const isHorizontal = orientation === orientations.HORIZONTAL;
   const isVertical = orientation === orientations.VERTICAL;
@@ -25,9 +25,8 @@ function TabIndicator() {
   //* This can be useful if you need to make DOM measurements(like in your case)
   //* and then make DOM mutations or trigger a synchronous re-render by updating state.
 
-  //TODO use useLayoutEffect instead of useEffect to prevent visual break
+  //* Use useLayoutEffect instead of useEffect to prevent visual break
   useLayoutEffect(() => {
-    //TODO create a ResizeObserver instance
     //* watches for size changes in the rootRef.current element. when a size change is detected
     //* it adjusts the position and width of the tab indicator to match the currently active tab.
     const resizeObserver = new ResizeObserver(() => {
@@ -38,9 +37,7 @@ function TabIndicator() {
           `[data-index="${activeValue}"]`,
         );
 
-      if (isFirstRender.current) {
-        isFirstRender.current = false;
-      }
+      if (isFirstRender.current) isFirstRender.current = false;
 
       indicatorRef.current.style.transitionProperty = isHorizontal
         ? 'left, width'
@@ -71,6 +68,7 @@ function TabIndicator() {
   return (
     <span
       ref={indicatorRef}
+      data-variant={variant}
       data-orientation={orientation}
       className={cx(styles.indicator)}
     />

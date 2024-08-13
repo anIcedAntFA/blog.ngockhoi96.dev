@@ -6,10 +6,15 @@ import type {
   SetStateAction,
 } from 'react';
 
+import type { ValueType } from '@/types/common';
 import type { Direction, Orientation } from '@/types/constants';
+
+import type { tabVariants } from './tabs.config';
 
 export type OverrideProps<T, TOverridden> = Omit<T, keyof TOverridden> &
   TOverridden;
+
+export type TabVariant = ValueType<typeof tabVariants>;
 
 export type BaseValue = number | string;
 
@@ -19,6 +24,7 @@ export type TabDirection = Extract<Direction, 'forward' | 'back'>;
 
 export type TabsContextState = {
   id: string;
+  variant: TabVariant;
   orientation: Orientation;
   rootRef: RefObject<ElementRef<'div'>>;
   activeValue: BaseValue;
@@ -45,6 +51,7 @@ export type TabsProps = OverrideProps<
   }
 > &
   Partial<{
+    variant: TabVariant;
     orientation: Orientation;
     isActiveFocusedMode: boolean;
     isLazyMount: boolean;
