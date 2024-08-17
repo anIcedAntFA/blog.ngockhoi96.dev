@@ -1,6 +1,5 @@
 'use client';
 
-import cx from 'clsx';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { useTransition } from 'react';
@@ -48,9 +47,7 @@ function LanguageSelector() {
       <CustomTooltip label={t('tooltip')} hasArrow>
         <div>
           <MenuTrigger
-            className={cx(styles['toggle-btn'], {
-              [styles.focus]: showLanguageDropdown.value,
-            })}
+            className={styles['toggle-btn']}
             disabled={isPending}
             onClick={showLanguageDropdown.toggle}
           >

@@ -10,7 +10,6 @@ export type CardPost = {
   description: string;
   thumbnail: string;
   tags: string[];
-  isEvenIndex?: boolean;
 };
 
 export type CardPostProps = CardProps & {

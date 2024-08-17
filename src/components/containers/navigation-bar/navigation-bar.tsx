@@ -21,23 +21,23 @@ const ThemeSwitcher = dynamic(
   },
 );
 
-// async function getStarCount(user: string, repo: string): Promise<number> {
-//   const response = await fetch(`https://api.github.com/repos/${user}/${repo}`);
+async function getStarCount(user: string, repo: string): Promise<number> {
+  const response = await fetch(`https://api.github.com/repos/${user}/${repo}`);
 
-//   if (!response.ok) {
-//     // This will activate the closest `error.js` Error Boundary
-//     throw new Error('Failed to fetch data');
-//   }
+  if (!response.ok) {
+    //* return default value 4 stars if the request fails
+    return Promise.resolve(4);
+  }
 
-//   const data = (await response.json()) as { stargazers_count: number };
+  const data = (await response.json()) as { stargazers_count: number };
 
-//   return data.stargazers_count;
-// }
+  return data.stargazers_count;
+}
 
 async function NavigationBar() {
   const tNavigationList = useTranslations('Layout.Header.Navigation');
 
-  // const starCount = await getStarCount('anIcedAntFA', 'blog.ngockhoi96.dev');
+  const starCount = await getStarCount('anIcedAntFA', 'blog.ngockhoi96.dev');
 
   return (
     <nav className={styles.wrapper}>
@@ -53,9 +53,7 @@ async function NavigationBar() {
 
       <Flex spacing={12}>
         <SearchButton />
-
         <ThemeSwitcher />
-
         <LanguageSelector />
 
         <Divider
@@ -79,7 +77,7 @@ async function NavigationBar() {
 
         <GithubStarButton
           href="https://github.com/anIcedAntFA/blog.ngockhoi96.dev"
-          count={1}
+          count={starCount}
         />
       </Flex>
     </nav>

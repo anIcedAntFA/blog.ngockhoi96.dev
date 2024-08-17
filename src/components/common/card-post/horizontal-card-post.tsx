@@ -20,11 +20,28 @@ function HorizontalCardPost({ data, ...cardProps }: CardPostProps) {
     description,
     thumbnail,
     tags,
-    isEvenIndex,
   } = data;
 
-  const renderCardPostContent = () => {
-    return (
+  return (
+    <Card
+      data-orientation="horizontal"
+      className={styles.wrapper}
+      {...cardProps}
+    >
+      <Link
+        href="/articles"
+        data-orientation="horizontal"
+        className={styles['thumbnail-wrapper']}
+      >
+        <Image
+          src={thumbnail}
+          alt="thumbnail"
+          width={208}
+          height={208}
+          className={styles.thumbnail}
+        />
+        <div className={styles['thumbnail-overlay']} />
+      </Link>
       <div className={styles.content}>
         <CardHeader className={styles.header}>
           <Link href="/about" className={styles.avatar}>
@@ -60,45 +77,6 @@ function HorizontalCardPost({ data, ...cardProps }: CardPostProps) {
           </IconButton>
         </CardFooter>
       </div>
-    );
-  };
-
-  const renderCardPostMedia = () => {
-    return (
-      <Link
-        href="/articles"
-        data-orientation="horizontal"
-        className={styles['thumbnail-wrapper']}
-      >
-        <Image
-          src={thumbnail}
-          alt="thumbnail"
-          width={208}
-          height={208}
-          className={styles.thumbnail}
-        />
-        <div className={styles['thumbnail-overlay']} />
-      </Link>
-    );
-  };
-
-  return (
-    <Card
-      data-orientation="horizontal"
-      className={styles.wrapper}
-      {...cardProps}
-    >
-      {isEvenIndex ? (
-        <>
-          {renderCardPostContent()}
-          {renderCardPostMedia()}
-        </>
-      ) : (
-        <>
-          {renderCardPostMedia()}
-          {renderCardPostContent()}
-        </>
-      )}
     </Card>
   );
 }
