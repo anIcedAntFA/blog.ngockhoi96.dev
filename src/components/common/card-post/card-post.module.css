@@ -3,11 +3,12 @@
   border-radius: var(--br-xlg);
 
   background-color: var(--clr-bg-2);
-  box-shadow: 1px 1px 4px 1px alpha(var(--clr-base), 10%);
+  box-shadow: 1px 1px 4px 1px alpha(var(--clr-base), 8%);
 
   transition:
     border 0.3s ease-in-out,
-    transform 0.3s ease-in-out;
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
 
   &[data-orientation='vertical'] {
     max-width: 400px;

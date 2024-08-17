@@ -16,6 +16,7 @@ export type MenuStyleProps = {
   hasClosedOnSelect: boolean;
   hasClosedOutsideClick: boolean;
   hasCloseOnEscKey: boolean;
+  hasFocusedAfterClosed: boolean;
   initialFocusRef: RefObject<{ focus(): void }>;
 };
 

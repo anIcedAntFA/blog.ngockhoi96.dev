@@ -41,6 +41,7 @@ function MenuList({
     autoSelect: isAutoSelect,
     hasClosedOutsideClick,
     hasCloseOnEscKey,
+    hasFocusedAfterClosed,
     focusedId,
     setFocusedId,
   } = useMenuContext();
@@ -59,7 +60,6 @@ function MenuList({
   const queryItem = useCallback(
     (selector: string) => {
       if (!listRef.current) return;
-
       return listRef.current.querySelector<HTMLButtonElement>(selector);
     },
     [listRef],
@@ -67,7 +67,6 @@ function MenuList({
 
   const queryItems = (selector: string) => {
     if (!listRef.current) return;
-
     return listRef.current.querySelectorAll<HTMLButtonElement>(selector);
   };
 
@@ -128,7 +127,7 @@ function MenuList({
   }, []);
 
   useUpdateEffect(() => {
-    if (isOpened) return;
+    if (!hasFocusedAfterClosed || isOpened) return;
 
     const element = triggerRef.current ?? listRef.current;
     let rafId: number;
@@ -191,7 +190,7 @@ function MenuList({
   };
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="sync">
       {isOpened && (
         <motion.ul
           ref={listRef}

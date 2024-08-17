@@ -3,7 +3,7 @@
 import cx from 'clsx';
 import { motion } from 'framer-motion';
 import type { ElementRef, ForwardedRef } from 'react';
-import { forwardRef, useRef, useState } from 'react';
+import { forwardRef, useMemo, useRef, useState } from 'react';
 
 import { colors, placements } from '@/configs/constants';
 import useIds from '@/hooks/use-ids';
@@ -24,48 +24,67 @@ function Menu(
     hasClosedOnSelect = true,
     hasClosedOutsideClick = true,
     hasCloseOnEscKey = true,
+    hasFocusedAfterClosed = false,
     initialFocusRef,
     className,
     onOpen,
     onClose,
     children,
-    ...restProps
+    ...divProps
   }: MenuProps,
   ref: ForwardedRef<ElementRef<'div'>>,
 ) {
   const [focusedId, setFocusedId] = useState<string | null>(null);
+  const [triggerId, listId] = useIds(id, 'menu-button', 'menu-list');
 
   const triggerRef = useRef<ElementRef<'button'>>(null);
   const listRef = useRef<ElementRef<'ul'>>(null);
 
-  const [triggerId, listId] = useIds(id, 'menu-button', 'menu-list');
-
-  const menuContext = {
-    opened,
-    onOpen,
-    onClose,
-    placement,
-    offset,
-    color,
+  const menuContext = useMemo(() => {
+    return {
+      opened,
+      onOpen,
+      onClose,
+      placement,
+      offset,
+      color,
+      autoSelect,
+      hasClosedOnSelect,
+      hasClosedOutsideClick,
+      hasCloseOnEscKey,
+      hasFocusedAfterClosed,
+      initialFocusRef,
+      triggerRef,
+      listRef,
+      triggerId,
+      listId,
+      focusedId,
+      setFocusedId,
+    };
+  }, [
     autoSelect,
+    color,
+    focusedId,
+    hasCloseOnEscKey,
     hasClosedOnSelect,
     hasClosedOutsideClick,
-    hasCloseOnEscKey,
+    hasFocusedAfterClosed,
     initialFocusRef,
-    triggerRef,
-    listRef,
-    triggerId,
     listId,
-    focusedId,
-    setFocusedId,
-  };
+    offset,
+    onClose,
+    onOpen,
+    opened,
+    placement,
+    triggerId,
+  ]);
 
   return (
     <MenuProvider value={menuContext}>
       <motion.div
         ref={ref}
         className={cx(styles.root, className)}
-        {...restProps}
+        {...divProps}
       >
         {children}
       </motion.div>

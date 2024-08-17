@@ -21,15 +21,9 @@ function ArticleViewList({ data }: ArticleViewListProps) {
 
   return (
     <div className={styles.wrapper}>
-      {data.map((post, index) =>
+      {data.map((post) =>
         viewLayout === viewLayouts.LIST ? (
-          <HorizontalCardPost
-            key={post.id}
-            data={{
-              ...post,
-              isEvenIndex: index % 2 === 0,
-            }}
-          />
+          <HorizontalCardPost key={post.id} data={post} />
         ) : (
           <VerticalCardPost key={post.id} data={post} />
         ),
