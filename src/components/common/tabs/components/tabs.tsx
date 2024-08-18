@@ -5,11 +5,12 @@ import type { ElementRef } from 'react';
 import { useId, useRef, useState } from 'react';
 
 import { orientations } from '@/configs/constants';
+import type { BaseValue } from '@/types/common';
 
 import { tabVariants } from '../tabs.config';
 import { TabProvider } from '../tabs.context';
 import styles from '../tabs.module.css';
-import type { BaseValue, TabsProps } from '../tabs.type';
+import type { TabsProps } from '../tabs.type';
 
 function Tabs({
   value,

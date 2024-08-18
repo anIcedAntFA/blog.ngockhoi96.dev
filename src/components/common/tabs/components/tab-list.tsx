@@ -1,6 +1,7 @@
 import cx from 'clsx';
 import type { ElementRef, KeyboardEvent, KeyboardEventHandler } from 'react';
 import { useRef } from 'react';
+import invariant from 'tiny-invariant';
 
 import { directions, orientations } from '@/configs/constants';
 
@@ -12,13 +13,13 @@ import type { TabDirection, TabListProps } from '../tabs.type';
 function TabList({ className, children, ...passProps }: TabListProps) {
   const tabListRef = useRef<ElementRef<'div'>>(null);
 
-  //* ref store all available tab elements
+  //* store all available tab elements
   const tabsRef = useRef<ElementRef<'button'>[]>([]);
 
   const { orientation, variant, focusedValue } = useTabsContext();
 
   const queryTab = (selector: string) => {
-    if (!tabListRef.current) return;
+    invariant(tabListRef.current, 'tabListRef.current is null');
 
     return tabListRef.current.querySelector<HTMLButtonElement>(selector);
   };
@@ -85,7 +86,7 @@ function TabList({ className, children, ...passProps }: TabListProps) {
       data-variant={variant}
       className={cx(styles.list, className)}
       onKeyDown={handleKeyDown}
-      tabIndex={0} // Add tabIndex attribute to make the element focusable
+      tabIndex={0} //* Add tabIndex attribute to make the element focusable
       {...passProps}
     >
       {children}

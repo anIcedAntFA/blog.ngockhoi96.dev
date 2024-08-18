@@ -6,17 +6,12 @@ import type {
   SetStateAction,
 } from 'react';
 
-import type { ValueType } from '@/types/common';
+import type { BaseValue, OverrideProps, ValueType } from '@/types/common';
 import type { Direction, Orientation } from '@/types/constants';
 
 import type { tabVariants } from './tabs.config';
 
-export type OverrideProps<T, TOverridden> = Omit<T, keyof TOverridden> &
-  TOverridden;
-
 export type TabVariant = ValueType<typeof tabVariants>;
-
-export type BaseValue = number | string;
 
 export type LazyMode = 'unmount' | 'keepMounted';
 

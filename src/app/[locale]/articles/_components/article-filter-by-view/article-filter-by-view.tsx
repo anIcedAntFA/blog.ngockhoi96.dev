@@ -27,7 +27,6 @@ function ArticleFilterByView() {
       onChange={(value) => setActiveValue(value)}
     >
       <TabList>
-        <TabTrigger value={0}>All results</TabTrigger>
         <TabTrigger value={1}>Latest</TabTrigger>
         <TabTrigger value={2}>Top</TabTrigger>
         <TabTrigger value={4}>Discussion</TabTrigger>

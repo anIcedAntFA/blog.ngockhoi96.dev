@@ -1,4 +1,6 @@
-import type { BaseValue, LazyControl } from './tabs.type';
+import type { BaseValue } from '@/types/common';
+
+import type { LazyControl } from './tabs.type';
 
 export const lazyControl = ({
   enabled,
