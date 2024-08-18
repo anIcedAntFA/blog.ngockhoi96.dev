@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import { posts } from '@/__mocks__';
 
+import ArticleFilterByView from './_components/article-filter-by-view';
 import ArticleViewLayouts from './_components/article-view-layouts';
 import ArticleViewList from './_components/article-view-list';
 import styles from './page.module.css';
@@ -17,7 +18,7 @@ async function ArticlePage() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.control}>
-        <div>tab filter</div>
+        <ArticleFilterByView />
         <ArticleViewLayouts />
       </div>
 
