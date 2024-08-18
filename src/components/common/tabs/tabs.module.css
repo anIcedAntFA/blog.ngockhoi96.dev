@@ -41,6 +41,10 @@
       border-right: 1px solid var(--clr-base);
       border-right-width: 1px;
     }
+
+    &[data-variant='solid'] {
+      padding: 8px;
+    }
   }
 }
 
@@ -55,8 +59,7 @@
   justify-content: center;
   gap: 8px;
 
-  width: 100%;
-  padding: 8px 12px;
+  /* width: 100%; */
 
   font-weight: var(--fw-semibold);
   letter-spacing: 1px;
@@ -68,14 +71,16 @@
   transition: color 0.3s ease-in-out;
 
   &[data-orientation='horizontal'] {
+    padding: 8px 12px;
+
     &[data-variant='line'] {
       &::before {
         bottom: 0;
 
         width: 100%;
         height: 0;
-        border-top-left-radius: var(--br-large);
-        border-top-right-radius: var(--br-large);
+        border-top-left-radius: var(--br-medium);
+        border-top-right-radius: var(--br-medium);
 
         transition: height 0.3s ease-in-out;
       }
@@ -87,14 +92,16 @@
   }
 
   &[data-orientation='vertical'] {
+    padding: 8px 20px;
+
     &[data-variant='line'] {
       &::before {
         right: 0;
 
         width: 0;
         height: 100%;
-        border-top-left-radius: var(--br-large);
-        border-bottom-left-radius: var(--br-large);
+        border-top-left-radius: var(--br-medium);
+        border-bottom-left-radius: var(--br-medium);
 
         transition: width 0.3s ease-in-out;
       }
@@ -143,6 +150,7 @@
 
 .indicator {
   position: absolute;
+  z-index: 3;
 
   border-radius: var(--br-normal);
 
@@ -158,7 +166,7 @@
       top: 6px;
 
       height: calc(100% - 14px);
-      border-radius: var(--br-large);
+      border-radius: var(--br-medium);
 
       background-color: alpha(var(--clr-primary), 10%);
       box-shadow:
@@ -173,17 +181,16 @@
       width: 3px;
     }
 
-    /* &[data-variant='solid'] {
-      left: 60px;
-
-      width: calc(100% - 14px);
-      border-radius: var(--br-large);
+    &[data-variant='solid'] {
+      margin-left: 8px;
+      margin-right: 8px;
+      border-radius: var(--br-medium);
 
       background-color: alpha(var(--clr-primary), 10%);
       box-shadow:
         1px 1px 1px 0 alpha(var(--clr-primary), 10%),
         1px 1px 1px 0 alpha(var(--clr-primary), 5%);
-    } */
+    }
   }
 }
 

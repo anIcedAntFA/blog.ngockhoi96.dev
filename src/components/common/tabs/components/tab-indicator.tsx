@@ -1,9 +1,11 @@
 import cx from 'clsx';
 import type { ElementRef } from 'react';
 import { useLayoutEffect, useRef } from 'react';
+import invariant from 'tiny-invariant';
 
 import { orientations } from '@/configs/constants';
 
+import { tabVariants } from '../tabs.config';
 import { useTabsContext } from '../tabs.context';
 import styles from '../tabs.module.css';
 
@@ -16,6 +18,7 @@ function TabIndicator() {
 
   const isHorizontal = orientation === orientations.HORIZONTAL;
   const isVertical = orientation === orientations.VERTICAL;
+  const isSolid = variant === tabVariants.SOLID;
 
   //* useEffect runs asynchronously and after a render is painted to the screen.
   //* You cause a visual break if your effect changes something in the DOM
@@ -30,7 +33,8 @@ function TabIndicator() {
     //* watches for size changes in the rootRef.current element. when a size change is detected
     //* it adjusts the position and width of the tab indicator to match the currently active tab.
     const resizeObserver = new ResizeObserver(() => {
-      if (!rootRef.current || !indicatorRef.current) return;
+      invariant(rootRef.current, 'rootRef.current is null');
+      invariant(indicatorRef.current, 'indicatorRef.current is null');
 
       const currentActiveTab =
         rootRef.current.ownerDocument.querySelector<HTMLButtonElement>(
@@ -46,16 +50,22 @@ function TabIndicator() {
       indicatorRef.current.style.transitionTimingFunction =
         'cubic-bezier(0, 0.2, 0.4, 1.1)';
 
-      if (!currentActiveTab) return;
+      invariant(currentActiveTab, 'currentActiveTab is null');
 
       if (isHorizontal) {
         indicatorRef.current.style.left = `${currentActiveTab.offsetLeft}px`;
         indicatorRef.current.style.width = `${currentActiveTab.offsetWidth}px`;
       }
 
-      if (isVertical) {
+      if (isVertical && !isSolid) {
         indicatorRef.current.style.top = `${currentActiveTab.offsetTop}px`;
         indicatorRef.current.style.left = `${currentActiveTab.clientWidth}px`;
+        indicatorRef.current.style.height = `${currentActiveTab.offsetHeight}px`;
+      }
+
+      if (isVertical && isSolid) {
+        indicatorRef.current.style.top = `${currentActiveTab.offsetTop}px`;
+        indicatorRef.current.style.width = `${currentActiveTab.offsetWidth}px`;
         indicatorRef.current.style.height = `${currentActiveTab.offsetHeight}px`;
       }
     });
@@ -63,7 +73,7 @@ function TabIndicator() {
     if (rootRef.current) resizeObserver.observe(rootRef.current);
 
     return () => resizeObserver.disconnect();
-  }, [activeValue, isHorizontal, isVertical, rootRef]);
+  }, [activeValue, isHorizontal, isSolid, isVertical, rootRef]);
 
   return (
     <span
