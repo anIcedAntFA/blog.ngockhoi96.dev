@@ -15,7 +15,7 @@ function TagCloseTrigger({
 }: TagCloseTriggerProps) {
   const { variant, size, color } = useTagContext();
 
-  function handleClick(temp: string, event: MouseEvent<HTMLButtonElement>) {
+  function handleClick(event: MouseEvent<HTMLButtonElement>) {
     event.stopPropagation();
     onClick?.(event);
   }
@@ -29,7 +29,7 @@ function TagCloseTrigger({
       data-color={color}
       data-testid="tag-close-trigger"
       className={cx(styles['close-trigger'], className)}
-      onClick={handleClick.bind(null, 'temp')}
+      onClick={handleClick}
       {...buttonProps}
     >
       {children}

@@ -1,4 +1,3 @@
-import cx from 'clsx';
 import type { ElementRef } from 'react';
 import { useLayoutEffect, useRef } from 'react';
 import invariant from 'tiny-invariant';
@@ -52,22 +51,31 @@ function TabIndicator() {
 
       invariant(currentActiveTab, 'currentActiveTab is null');
 
-      if (isHorizontal) {
-        indicatorRef.current.style.left = `${currentActiveTab.offsetLeft}px`;
-        indicatorRef.current.style.width = `${currentActiveTab.offsetWidth}px`;
-      }
+      const updateIndicatorStyle = (currentActiveTab: HTMLButtonElement) => {
+        invariant(indicatorRef.current, 'indicatorRef.current is null');
 
-      if (isVertical && !isSolid) {
-        indicatorRef.current.style.top = `${currentActiveTab.offsetTop}px`;
-        indicatorRef.current.style.left = `${currentActiveTab.clientWidth}px`;
-        indicatorRef.current.style.height = `${currentActiveTab.offsetHeight}px`;
-      }
+        indicatorRef.current.style.transitionProperty = isHorizontal
+          ? 'left, width'
+          : 'top, height';
+        indicatorRef.current.style.transitionDuration = '0.4s';
+        indicatorRef.current.style.transitionTimingFunction =
+          'cubic-bezier(0, 0.2, 0.4, 1.1)';
 
-      if (isVertical && isSolid) {
-        indicatorRef.current.style.top = `${currentActiveTab.offsetTop}px`;
-        indicatorRef.current.style.width = `${currentActiveTab.offsetWidth}px`;
-        indicatorRef.current.style.height = `${currentActiveTab.offsetHeight}px`;
-      }
+        if (isHorizontal) {
+          indicatorRef.current.style.left = `${currentActiveTab.offsetLeft}px`;
+          indicatorRef.current.style.width = `${currentActiveTab.offsetWidth}px`;
+        } else if (isVertical) {
+          indicatorRef.current.style.top = `${currentActiveTab.offsetTop}px`;
+          indicatorRef.current.style.height = `${currentActiveTab.offsetHeight}px`;
+          if (!isSolid) {
+            indicatorRef.current.style.left = `${currentActiveTab.clientWidth}px`;
+          } else {
+            indicatorRef.current.style.width = `${currentActiveTab.offsetWidth}px`;
+          }
+        }
+      };
+
+      updateIndicatorStyle(currentActiveTab);
     });
 
     if (rootRef.current) resizeObserver.observe(rootRef.current);
@@ -80,7 +88,7 @@ function TabIndicator() {
       ref={indicatorRef}
       data-variant={variant}
       data-orientation={orientation}
-      className={cx(styles.indicator)}
+      className={styles.indicator}
     />
   );
 }

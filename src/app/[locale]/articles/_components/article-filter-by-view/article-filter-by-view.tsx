@@ -18,11 +18,10 @@ function ArticleFilterByView() {
   return (
     <Tabs
       variant="solid"
-      // orientation="vertical"
       value={activeValue}
-      // activeFocusedMode
-      // lazyMount
-      // lazyBehavior='keepMounted'
+      isActiveFocusedMode
+      isLazyMount
+      lazyBehavior="keepMounted"
       className={styles.wrapper}
       onChange={(value) => setActiveValue(value)}
     >
