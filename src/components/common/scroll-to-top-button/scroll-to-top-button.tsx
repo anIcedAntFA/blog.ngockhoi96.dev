@@ -1,31 +1,18 @@
 'use client';
 
-import type { MotionProps } from 'framer-motion';
-import type { ComponentProps, ElementRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import type { ElementRef } from 'react';
 import { useEffect, useRef } from 'react';
 
 import ArrowUpIcon from '@/components/icons/arrow-up-icon';
 import useBoolean from '@/hooks/use-boolean';
 
+import CustomTooltip from '../custom-tooltip';
+
+import { TOP_POSITION } from './scroll-to-top-button.config';
+import { scrollToTop } from './scroll-to-top-button.helper';
 import styles from './scroll-to-top-button.module.css';
-
-const TOP_POSITION = 200;
-
-type ScrollToTopButtonProps = ComponentProps<'button'> &
-  MotionProps &
-  Partial<{
-    top: number;
-    isSmooth: boolean;
-  }>;
-
-function scrollToTop(isSmooth: boolean) {
-  if (!isSmooth) document.documentElement.scrollTop = 0;
-
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
-}
+import type { ScrollToTopButtonProps } from './scroll-to-top-button.type';
 
 function ScrollToTopButton({
   top = TOP_POSITION,
@@ -36,25 +23,10 @@ function ScrollToTopButton({
 
   const isVisible = useBoolean(false);
 
-  // const updateScrollToTopPosition = () => {
-  //   const footer = document.querySelector<HTMLDivElement>('footer');
-
-  //   if (!footer || !btnRef.current) return;
-
-  //   const footerTop = footer.getBoundingClientRect().top;
-
-  //   if (footerTop > window.innerHeight) {
-  //     btnRef.current.style.position = 'fixed';
-  //   } else {
-  //     btnRef.current.style.position = 'absolute';
-  //   }
-  // };
-
   useEffect(() => {
     const handleScroll = () => {
       const isTopPosition = document.documentElement.scrollTop >= top;
       isVisible.setValue(isTopPosition);
-      // updateScrollToTopPosition();
     };
 
     document.addEventListener('scroll', handleScroll);
@@ -70,18 +42,27 @@ function ScrollToTopButton({
   };
 
   return (
-    <button
-      ref={btnRef}
-      type="button"
-      className={styles.root}
-      data-active={isVisible.value || undefined}
-      onClick={handleScrollToTop}
-      {...passProps}
-    >
-      <span className={styles.icon}>
-        <ArrowUpIcon />
-      </span>
-    </button>
+    <AnimatePresence>
+      {isVisible.value && (
+        <CustomTooltip label="Scroll to top" placement="auto" hasArrow>
+          <motion.button
+            ref={btnRef}
+            type="button"
+            aria-label="Scroll back to top"
+            tabIndex={0}
+            className={styles.root}
+            initial={{ opacity: 0, scale: 0.5, visibility: 'hidden' }}
+            animate={{ opacity: 1, scale: 1, visibility: 'visible' }}
+            onClick={handleScrollToTop}
+            {...passProps}
+          >
+            <span className={styles.icon}>
+              <ArrowUpIcon />
+            </span>
+          </motion.button>
+        </CustomTooltip>
+      )}
+    </AnimatePresence>
   );
 }
 
