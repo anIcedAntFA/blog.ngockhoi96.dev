@@ -2,34 +2,29 @@
   position: fixed;
   right: 48px;
   bottom: 48px;
-  z-index: var(--z-index-8);
   overflow: hidden;
+  z-index: var(--z-index-8);
 
   @mixin flex-center;
 
   width: 48px;
   height: 48px;
-  border: 2px solid alpha(var(--clr-primary), 60%);
+  border: 2px solid var(--clr-primary);
   border-radius: var(--br-circle);
 
   user-select: none;
   cursor: pointer;
-  background-color: alpha(var(--clr-primary), 10%);
+  background-color: var(--clr-bg-1);
   box-shadow: 4px 4px 8px 1px alpha(var(--clr-primary), 10%);
-  transition:
-    background-color 0.4s ease-in-out,
-    transform 0.2s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 
   &:hover {
-    background-color: alpha(var(--clr-primary), 20%);
+    background-color: var(--clr-primary);
 
     .icon {
+      color: var(--clr-bg-1);
       animation: go-to-top 0.8s cubic-bezier(0.57, 0.21, 0.69, 1.25);
     }
-  }
-
-  &:active {
-    transform: scale(0.9);
   }
 }
 
