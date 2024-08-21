@@ -5,6 +5,7 @@ import {
   VerticalCardPost,
 } from '@/components/common/card-post';
 import type { CardPost } from '@/components/common/card-post/card-post.type';
+import ScrollProgressBar from '@/components/common/scroll-progress-bar';
 import { viewLayouts } from '@/configs/constants';
 
 import { useArticleViewLayout } from '../../_store/article.store';
@@ -21,6 +22,7 @@ function ArticleViewList({ data }: ArticleViewListProps) {
 
   return (
     <>
+      <ScrollProgressBar />
       <div className={styles.wrapper}>
         {data.map((post) =>
           viewLayout === viewLayouts.LIST ? (
