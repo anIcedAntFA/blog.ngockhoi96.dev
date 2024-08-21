@@ -7,6 +7,7 @@ import {
 import type { PropsWithChildren } from 'react';
 
 import Container from '@/components/common/container';
+import ScrollProgressBar from '@/components/common/scroll-progress-bar';
 import ScrollToTopButton from '@/components/common/scroll-to-top-button';
 import NavigationBar from '@/components/containers/navigation-bar';
 import { jetBrainMono, lora, openSans } from '@/configs/fonts';
@@ -86,6 +87,7 @@ async function LocaleLayout({ children }: PropsWithChildren) {
       >
         <LocaleProvider>
           <ThemeProvider>
+            <ScrollProgressBar />
             <NavigationBar />
             <Container>{children}</Container>
             <ScrollToTopButton />

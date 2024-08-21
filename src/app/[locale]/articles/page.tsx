@@ -22,6 +22,9 @@ async function ArticlePage() {
         <ArticleViewLayouts />
       </div>
       <ArticleViewList data={posts} isLoading={false} />
+      <ArticleViewList data={posts} isLoading={false} />
+      <ArticleViewList data={posts} isLoading={false} />
+      <ArticleViewList data={posts} isLoading={false} />
     </div>
   );
 }

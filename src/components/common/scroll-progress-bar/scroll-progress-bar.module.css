@@ -1,0 +1,13 @@
+.root {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 6px;
+
+  background-color: alpha(var(--clr-primary), 90%);
+
+  transform-origin: 0%;
+}
