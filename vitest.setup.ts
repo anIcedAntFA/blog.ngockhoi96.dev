@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom';
 import { cleanup } from '@testing-library/react';
 import { afterEach, vi } from 'vitest';
+import { configMocks } from 'jsdom-testing-mocks';
+import { act } from 'react';
 
 vi.mock('server only', () => {
   return {};
@@ -10,6 +12,8 @@ vi.mock('server only', () => {
 afterEach(() => {
   cleanup();
 });
+
+configMocks({ act });
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
