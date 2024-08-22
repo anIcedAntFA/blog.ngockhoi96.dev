@@ -1,16 +1,10 @@
 'use client';
 
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useSpring,
-  useTransform,
-} from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useTheme } from 'next-themes';
-import { useLayoutEffect, useState } from 'react';
-import invariant from 'tiny-invariant';
+import { useLayoutEffect } from 'react';
 
+import { themes } from '@/configs/themes';
 import useBoolean from '@/hooks/use-boolean';
 
 import {
@@ -20,8 +14,6 @@ import {
 import styles from './scroll-progress-bar.module.css';
 
 function ScrollProgressBar() {
-  const [scrollPercentage, setScrollPercentage] = useState<number>(0);
-
   const { resolvedTheme } = useTheme();
 
   const { scrollYProgress } = useScroll();
@@ -32,17 +24,10 @@ function ScrollProgressBar() {
     restDelta: 0.0002,
   });
 
-  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    const percentage = latest * 100;
-    setScrollPercentage(percentage);
-  });
-
-  invariant(resolvedTheme, 'resolvedTheme is undefined');
-
   const backgroundColor = useTransform(
     scrollYProgress,
     inputRanges,
-    themeWithOutputRanges[resolvedTheme],
+    themeWithOutputRanges[resolvedTheme ?? themes.LIGHT],
   );
 
   const isScrollable = useBoolean(false);
@@ -71,7 +56,6 @@ function ScrollProgressBar() {
     <motion.div
       role="progressbar"
       aria-label="Scroll progress bar"
-      aria-valuenow={scrollPercentage}
       className={styles.root}
       style={{ scaleX, backgroundColor }}
     />
