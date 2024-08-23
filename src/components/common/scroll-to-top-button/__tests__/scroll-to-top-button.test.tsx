@@ -1,9 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { NextIntlClientProvider } from 'next-intl';
+import type { PropsWithChildren } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import ScrollToTopButton from '../scroll-to-top-button';
 import { scrollToTop } from '../scroll-to-top-button.helper';
+import type { ScrollToTopButtonProps } from '../scroll-to-top-button.type';
 
 vi.mock('../scroll-to-top-button.helper', () => ({
   scrollToTop: vi.fn(),
@@ -12,6 +15,30 @@ vi.mock('../scroll-to-top-button.helper', () => ({
 const setupScroll = (scrollTop: number) => {
   document.documentElement.scrollTop = scrollTop;
   fireEvent.scroll(window);
+};
+
+const renderComponent = (prop?: ScrollToTopButtonProps) => {
+  const Wrapper = ({ children }: PropsWithChildren) => {
+    return (
+      <NextIntlClientProvider
+        locale="en"
+        messages={{
+          components: {
+            common: {
+              scrollToTopButton: {
+                label: 'Back to top',
+                tooltip: 'Back to top',
+              },
+            },
+          },
+        }}
+      >
+        {children}
+      </NextIntlClientProvider>
+    );
+  };
+
+  render(<ScrollToTopButton {...prop} />, { wrapper: Wrapper });
 };
 
 describe('ScrollToTopButton', () => {
@@ -25,7 +52,7 @@ describe('ScrollToTopButton', () => {
   });
 
   it("it should not render button when it's invisible", () => {
-    render(<ScrollToTopButton top={200} />);
+    renderComponent({ top: 200 });
 
     setupScroll(100);
 
@@ -34,7 +61,7 @@ describe('ScrollToTopButton', () => {
   });
 
   it('it should render button when it becomes visible', async () => {
-    render(<ScrollToTopButton />);
+    renderComponent();
 
     setupScroll(500);
 
@@ -43,7 +70,7 @@ describe('ScrollToTopButton', () => {
   });
 
   it('should call `scrollToTop` when button is clicked', async () => {
-    render(<ScrollToTopButton top={200} />);
+    renderComponent({ top: 200 });
 
     setupScroll(300);
 

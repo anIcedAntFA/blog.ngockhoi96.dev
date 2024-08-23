@@ -1,5 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { mockResizeObserver } from 'jsdom-testing-mocks';
+import { NextIntlClientProvider } from 'next-intl';
+import type { PropsWithChildren } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import ScrollProgressBar from '../scroll-progress-bar';
@@ -21,7 +23,26 @@ vi.mock('@/hooks/use-boolean', () => ({
 mockResizeObserver();
 
 const renderComponent = () => {
-  render(<ScrollProgressBar />);
+  const Wrapper = ({ children }: PropsWithChildren) => {
+    return (
+      <NextIntlClientProvider
+        locale="en"
+        messages={{
+          components: {
+            common: {
+              scrollProgressBar: {
+                label: 'Scroll progress indicator page',
+              },
+            },
+          },
+        }}
+      >
+        {children}
+      </NextIntlClientProvider>
+    );
+  };
+
+  render(<ScrollProgressBar />, { wrapper: Wrapper });
 
   return {
     progressBar: screen.queryByRole('progressbar', {

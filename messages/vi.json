@@ -15,6 +15,13 @@
       "githubStarButton": {
         "label": "Sao trên GitHub",
         "tooltip": "Đánh giá dự án trên GitHub"
+      },
+      "scrollToTopButton": {
+        "label": "Cuộn lên đầu trang",
+        "tooltip": "Cuộn lên đầu trang"
+      },
+      "scrollProgressBar": {
+        "label": "Thanh tiến trình cuộn trang"
       }
     },
     "search": {
