@@ -19,12 +19,34 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "import", "eslint-plugin-next-on-pages"],
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "eslint-plugin-next-on-pages",
+    "check-file"
+  ],
   "rules": {
     "prettier/prettier": [
       "error",
       {
         "endOfLine": "auto"
+      }
+    ],
+    "check-file/folder-match-with-fex": [
+      "error",
+      {
+        "*.test.{ts,tsx}": "**/__tests__/",
+        "*.stories.{tsx}": "**/__stories__/"
+      }
+    ],
+
+    "check-file/filename-naming-convention": [
+      "error",
+      {
+        "**/*.{jsx,tsx, js,ts}": "KEBAB_CASE"
+      },
+      {
+        "ignoreMiddleExtensions": true
       }
     ],
     "react/react-in-jsx-scope": "off",
