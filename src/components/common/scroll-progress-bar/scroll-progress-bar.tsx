@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import { useLayoutEffect } from 'react';
 
@@ -14,6 +15,8 @@ import {
 import styles from './scroll-progress-bar.module.css';
 
 function ScrollProgressBar() {
+  const t = useTranslations('components.common.scrollProgressBar');
+
   const { resolvedTheme } = useTheme();
 
   const { scrollYProgress } = useScroll();
@@ -55,7 +58,7 @@ function ScrollProgressBar() {
   return (
     <motion.div
       role="progressbar"
-      aria-label="Scroll progress bar"
+      aria-label={t('label')}
       className={styles.root}
       style={{ scaleX, backgroundColor }}
     />

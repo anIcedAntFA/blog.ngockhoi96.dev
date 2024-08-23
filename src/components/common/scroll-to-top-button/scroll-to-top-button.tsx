@@ -1,6 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import type { ElementRef } from 'react';
 import { useEffect, useRef } from 'react';
 
@@ -21,6 +22,8 @@ function ScrollToTopButton({
   ...buttonProps
 }: ScrollToTopButtonProps) {
   const btnRef = useRef<ElementRef<'button'>>(null);
+
+  const t = useTranslations('components.common.scrollToTopButton');
 
   const isVisible = useBoolean(false);
 
@@ -46,11 +49,11 @@ function ScrollToTopButton({
     <AnimatePresence>
       {isVisible.value && (
         <Portal>
-          <CustomTooltip label="Scroll to top" placement="auto" hasArrow>
+          <CustomTooltip label={t('tooltip')} placement="auto" hasArrow>
             <motion.button
               ref={btnRef}
               type="button"
-              aria-label="Scroll back to top"
+              aria-label={t('label')}
               tabIndex={0}
               className={styles.root}
               initial={{ opacity: 0, scale: 0.5, visibility: 'hidden' }}

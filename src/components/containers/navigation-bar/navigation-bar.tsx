@@ -22,16 +22,20 @@ const ThemeSwitcher = dynamic(
 );
 
 async function getStarCount(user: string, repo: string): Promise<number> {
-  const response = await fetch(`https://api.github.com/repos/${user}/${repo}`);
+  try {
+    const response = await fetch(
+      `https://api.github.com/repos/${user}/${repo}`,
+    );
+    const data = (await response.json()) as { stargazers_count: number };
 
-  if (!response.ok) {
-    //* return default value 4 stars if the request fails
+    if (!response.ok) return Promise.resolve(4);
+
+    return data.stargazers_count;
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Failed to fetch star count', error);
     return Promise.resolve(4);
   }
-
-  const data = (await response.json()) as { stargazers_count: number };
-
-  return data.stargazers_count;
 }
 
 async function NavigationBar() {

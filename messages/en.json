@@ -15,6 +15,13 @@
       "githubStarButton": {
         "label": "Star on GitHub",
         "tooltip": "Star this project on GitHub"
+      },
+      "scrollToTopButton": {
+        "label": "Scroll back to top",
+        "tooltip": "Scroll to top"
+      },
+      "scrollProgressBar": {
+        "label": "Scroll progress indicator page"
       }
     },
     "search": {

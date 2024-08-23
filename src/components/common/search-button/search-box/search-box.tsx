@@ -39,8 +39,9 @@ function SearchBox({
     setSearchText(event.target.value);
   };
 
-  const handleSearchClear = () => {
+  const handleClearSearchText = () => {
     setSearchText('');
+    inputRef.current?.focus();
   };
 
   const handleCloseSearchBox = () => {
@@ -81,7 +82,7 @@ function SearchBox({
               <IconButton
                 size="small"
                 label={t('clearButtonLabel')}
-                onClick={handleSearchClear}
+                onClick={handleClearSearchText}
               >
                 <CancelIcon />
               </IconButton>
