@@ -2,26 +2,32 @@
   "components": {
     "common": {
       "themeSwitcher": {
-        "label": "Toggle Dark Mode",
-        "tooltip": {
+        "ariaLabel": "Toggle Dark Mode",
+        "tooltipLabel": {
           "light": "Switch to light mode",
           "dark": "Switch to dark mode"
         }
       },
       "languageSelector": {
-        "label": "Select Language",
-        "tooltip": "Select Language"
+        "ariaLabel": "Select language",
+        "tooltipLabel": "Select language"
+      },
+      "subscribeButton": {
+        "tooltipLabel": "Subscribe to get the latest updates",
+        "ariaLabel": "Subscribe to get the latest updates",
+        "label": "Subscribe"
       },
       "githubStarButton": {
-        "label": "Star on GitHub",
-        "tooltip": "Star this project on GitHub"
+        "tooltipLabel": "Star this project on GitHub",
+        "ariaLabel": "Star on GitHub",
+        "label": "Star"
       },
       "scrollToTopButton": {
-        "label": "Scroll back to top",
-        "tooltip": "Scroll to top"
+        "tooltipLabel": "Scroll to top",
+        "ariaLabel": "Scroll back to top"
       },
       "scrollProgressBar": {
-        "label": "Scroll progress indicator page"
+        "ariaLabel": "Scroll progress indicator page"
       }
     },
     "search": {
@@ -43,38 +49,38 @@
       }
     }
   },
-  "Layout": {
-    "Header": {
-      "Navigation": {
-        "Home": "Home",
-        "About": "About",
-        "Articles": "Articles",
-        "Resources": "Resources"
+  "layout": {
+    "header": {
+      "navigation": {
+        "home": "Home",
+        "about": "About",
+        "articles": "Articles",
+        "resources": "Resources"
       },
-      "Actions": {
-        "Languages": {
-          "English": "English",
-          "EN": "EN",
-          "Vietnam": "Vietnam",
-          "VI": "VI"
+      "actions": {
+        "languages": {
+          "english": "English",
+          "en": "EN",
+          "vietnam": "Vietnam",
+          "vi": "VI"
         },
-        "Light Mode": "Light Mode",
-        "Dark Mode": "Dark Mode",
-        "Search": "Search",
-        "Subscribe": "Subscribe",
-        "Login": "Login",
-        "Write": "Write",
-        "Write Posts": "Write Posts",
-        "Notifications": "Notifications",
-        "Account Menu": {
-          "Member": "Member",
-          "List": {
-            "Profile": "Profile",
-            "Library": "Library",
-            "Stats": "Stats",
-            "Settings": "Settings",
-            "Helps": "Helps",
-            "Sign Out": "Sign Out"
+        "lightMode": "Light Mode",
+        "darkMode": "Dark Mode",
+        "search": "Search",
+        "subscribe": "Subscribe",
+        "login": "Login",
+        "write": "Write",
+        "writePosts": "Write Posts",
+        "notifications": "Notifications",
+        "accountMenu": {
+          "member": "Member",
+          "list": {
+            "profile": "Profile",
+            "library": "Library",
+            "stats": "Stats",
+            "settings": "Settings",
+            "helps": "Helps",
+            "signOut": "Sign Out"
           }
         }
       }

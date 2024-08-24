@@ -39,7 +39,8 @@ async function getStarCount(user: string, repo: string): Promise<number> {
 }
 
 async function NavigationBar() {
-  const tNavigationList = useTranslations('Layout.Header.Navigation');
+  const tNavigationList = useTranslations('layout.header.navigation');
+  const tSubscribeBtn = useTranslations('components.common.subscribeButton');
 
   const starCount = await getStarCount('anIcedAntFA', 'blog.ngockhoi96.dev');
 
@@ -68,6 +69,7 @@ async function NavigationBar() {
         />
 
         <Button
+          aria-label={tSubscribeBtn('ariaLabel')}
           icon={{
             position: 'left',
             children: <EmailIcon />,
@@ -76,7 +78,7 @@ async function NavigationBar() {
           }}
           className={styles['subscribe-btn']}
         >
-          Subscribe
+          {tSubscribeBtn('label')}
         </Button>
 
         <GithubStarButton

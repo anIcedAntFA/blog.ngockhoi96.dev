@@ -14,19 +14,19 @@ function GithubStarButton({ href, count }: GithubStarButtonProps) {
   const t = useTranslations('components.common.githubStarButton');
 
   return (
-    <CustomTooltip label={t('tooltip')} hasArrow>
+    <CustomTooltip label={t('tooltipLabel')} hasArrow>
       <Link
         href={href}
         target="_blank"
         rel="noopener"
-        aria-label={t('label')}
+        aria-label={t('ariaLabel')}
         className={styles.root}
       >
         <Flex align="center" spacing="8px">
           <span className={styles.icon}>
             <StarIcon />
           </span>
-          <span className={styles.star}>Star</span>
+          <span className={styles.star}>{t('label')}</span>
         </Flex>
         <Divider
           orientation="vertical"
