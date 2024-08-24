@@ -44,7 +44,7 @@ function LanguageSelector() {
       onOpen={showLanguageDropdown.on}
       onClose={showLanguageDropdown.off}
     >
-      <CustomTooltip label={t('tooltip')} hasArrow>
+      <CustomTooltip label={t('tooltipLabel')} hasArrow>
         <div>
           <MenuTrigger
             className={styles['toggle-btn']}

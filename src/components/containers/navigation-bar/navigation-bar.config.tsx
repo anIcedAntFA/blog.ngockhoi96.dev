@@ -8,8 +8,8 @@ import PackageIcon from '@/components/icons/package-icon';
 import type { Pathname } from '@/types/locales';
 
 type NavigationListKey = MessageKeys<
-  { Home: string; About: string; Articles: string; Resources: string },
-  'Home' | 'About' | 'Articles' | 'Resources'
+  { home: string; about: string; articles: string; resources: string },
+  'home' | 'about' | 'articles' | 'resources'
 >;
 
 export const navigationList = (
@@ -25,28 +25,28 @@ export const navigationList = (
     {
       id: 1,
       type: 'link',
-      title: t('Home'),
+      title: t('home'),
       icon: <HomeIcon />,
       href: '/',
     },
     {
       id: 2,
       type: 'link',
-      title: t('About'),
+      title: t('about'),
       icon: <ContactIcon />,
       href: '/about',
     },
     {
       id: 3,
       type: 'link',
-      title: t('Articles'),
+      title: t('articles'),
       icon: <NewspaperIcon />,
       href: '/articles',
     },
     {
       id: 4,
       type: 'button',
-      title: t('Resources'),
+      title: t('resources'),
       icon: <PackageIcon />,
       href: '/resources',
     },

@@ -49,11 +49,11 @@ function ScrollToTopButton({
     <AnimatePresence>
       {isVisible.value && (
         <Portal>
-          <CustomTooltip label={t('tooltip')} placement="auto" hasArrow>
+          <CustomTooltip label={t('tooltipLabel')} placement="auto" hasArrow>
             <motion.button
               ref={btnRef}
               type="button"
-              aria-label={t('label')}
+              aria-label={t('ariaLabel')}
               tabIndex={0}
               className={styles.root}
               initial={{ opacity: 0, scale: 0.5, visibility: 'hidden' }}
