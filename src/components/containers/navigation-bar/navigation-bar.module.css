@@ -1,5 +1,7 @@
 .wrapper {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 
   display: flex;
   align-items: center;
@@ -7,18 +9,25 @@
 
   border-bottom: 1px solid var(--clr-gray-500);
   max-width: 100%;
+  height: 60px;
   padding: 8px 24px;
+
+  &.blur {
+    backdrop-filter: blur(20px);
+  }
 }
 
 .logo {
   font-style: italic;
 }
 
-.list {
+.nav {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
 
+.list {
   display: flex;
 }
 

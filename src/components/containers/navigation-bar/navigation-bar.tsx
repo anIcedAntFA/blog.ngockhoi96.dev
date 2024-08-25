@@ -1,5 +1,10 @@
-import dynamic from 'next/dynamic';
+'use client';
+
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import type { ElementRef } from 'react';
+import { useRef } from 'react';
+import invariant from 'tiny-invariant';
 
 import Button from '@/components/common/button';
 import Divider from '@/components/common/divider';
@@ -7,54 +12,66 @@ import Flex from '@/components/common/flex';
 import GithubStarButton from '@/components/common/github-star-button';
 import LanguageSelector from '@/components/common/language-selector';
 import SearchButton from '@/components/common/search-button';
+import ThemeSwitcher from '@/components/common/theme-switcher';
 import EmailIcon from '@/components/icons/email-icon';
+import useBoolean from '@/hooks/use-boolean';
 
 import { navigationList } from './navigation-bar.config';
 import styles from './navigation-bar.module.css';
 import NavigationItem from './navigation-item';
 
-const ThemeSwitcher = dynamic(
-  () => import('@/components/common/theme-switcher'),
-  {
-    ssr: false,
-    loading: () => <div>Loading...</div>,
-  },
-);
+type NavigationBarProps = {
+  starCount: number;
+};
 
-async function getStarCount(user: string, repo: string): Promise<number> {
-  try {
-    const response = await fetch(
-      `https://api.github.com/repos/${user}/${repo}`,
-    );
-    const data = (await response.json()) as { stargazers_count: number };
+const HIDE_THRESHOLD = 160;
+const BLUR_THRESHOLD = 60;
 
-    if (!response.ok) return Promise.resolve(4);
+function NavigationBar({ starCount }: NavigationBarProps) {
+  const headerRef = useRef<ElementRef<'header'>>(null);
 
-    return data.stargazers_count;
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Failed to fetch star count', error);
-    return Promise.resolve(4);
-  }
-}
-
-async function NavigationBar() {
   const tNavigationList = useTranslations('layout.header.navigation');
   const tSubscribeBtn = useTranslations('components.common.subscribeButton');
 
-  const starCount = await getStarCount('anIcedAntFA', 'blog.ngockhoi96.dev');
+  const { scrollY } = useScroll();
+  const isHidden = useBoolean(false);
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    const previous = scrollY.getPrevious();
+
+    invariant(previous !== undefined, 'Previous value is undefined');
+    invariant(headerRef.current, 'Header ref is null');
+
+    isHidden.setValue(latest > previous && latest > HIDE_THRESHOLD);
+    headerRef.current.classList.toggle(styles.blur, latest > BLUR_THRESHOLD);
+  });
 
   return (
-    <nav className={styles.wrapper}>
+    <motion.header
+      ref={headerRef}
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: '-100%' },
+      }}
+      animate={isHidden.value ? 'hidden' : 'visible'}
+      transition={{ type: 'spring', bounce: 40, damping: 16, stiffness: 80 }}
+      className={styles.wrapper}
+    >
       <h3 className={styles.logo}>ngockhoi96</h3>
 
-      <ul className={styles.list}>
-        {navigationList(tNavigationList).map((navItem) => (
-          <li key={navItem.id} className={styles.item}>
-            <NavigationItem {...navItem} />
-          </li>
-        ))}
-      </ul>
+      <nav
+        id="main nav"
+        aria-labelledby="main-menu-content"
+        className={styles.nav}
+      >
+        <ul id="main-menu-content" className={styles.list}>
+          {navigationList(tNavigationList).map((navItem) => (
+            <li key={navItem.id} className={styles.item}>
+              <NavigationItem {...navItem} />
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       <Flex spacing={12}>
         <SearchButton />
@@ -86,7 +103,7 @@ async function NavigationBar() {
           count={starCount}
         />
       </Flex>
-    </nav>
+    </motion.header>
   );
 }
 
