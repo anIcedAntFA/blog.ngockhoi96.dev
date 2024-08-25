@@ -66,6 +66,23 @@ export async function generateMetadata({
   };
 }
 
+async function getStarCount(user: string, repo: string): Promise<number> {
+  try {
+    const response = await fetch(
+      `https://api.github.com/repos/${user}/${repo}`,
+    );
+    const data = (await response.json()) as { stargazers_count: number };
+
+    if (!response.ok) return Promise.resolve(4);
+
+    return data.stargazers_count;
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Failed to fetch star count', error);
+    return Promise.resolve(4);
+  }
+}
+
 async function LocaleLayout({ children }: PropsWithChildren) {
   const locale = await getLocale();
 
@@ -79,6 +96,8 @@ async function LocaleLayout({ children }: PropsWithChildren) {
 
   const { langDir, hrefLang } = availableLocalesMap[locale] || defaultLocale;
 
+  const starCount = await getStarCount('anIcedAntFA', 'blog.ngockhoi96.dev');
+
   return (
     <html lang={hrefLang} dir={langDir} suppressHydrationWarning>
       <body
@@ -86,7 +105,7 @@ async function LocaleLayout({ children }: PropsWithChildren) {
       >
         <LocaleProvider>
           <ThemeProvider>
-            <NavigationBar />
+            <NavigationBar starCount={starCount} />
             <Container>{children}</Container>
             <ScrollToTopButton />
           </ThemeProvider>
