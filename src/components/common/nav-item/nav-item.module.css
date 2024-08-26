@@ -1,0 +1,151 @@
+.wrapper {
+  position: relative;
+
+  display: flex;
+  gap: 4px;
+
+  border-radius: var(--br-normal);
+  padding: 4px;
+
+  background-color: transparent;
+
+  /* &[data-variant='line'] {
+    &::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 2px;
+
+      width: 0;
+      height: 1.6px;
+
+      background-color: var(--clr-info);
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      inset: 0;
+
+      width: calc(100%);
+      height: calc(100%);
+      border-radius: var(--br-normal);
+
+      background-color: transparent;
+    }
+  } */
+
+  &[data-variant='bg'],
+  &[data-variant='icon'] {
+    transition: background-color 0.2s ease-in-out;
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: 16px;
+      left: 22px;
+      transform: translate(-50%, -50%);
+
+      width: calc(100% + 12px);
+      height: calc(100% + 6px);
+      border-radius: var(--br-normal);
+
+      background-color: transparent;
+    }
+  }
+
+  &:hover {
+    &[data-variant='line'] {
+      .label::before {
+        width: calc(100%);
+
+        transition: width 0.2s ease-in-out;
+      }
+
+      &::after {
+        background-color: var(--clr-info);
+        opacity: 0.1;
+      }
+    }
+
+    &[data-variant='bg'],
+    &[data-variant='icon'] {
+      &::after {
+        background-color: var(--clr-base);
+        opacity: 0.05;
+      }
+    }
+
+    .label {
+      @mixin text-shadow 1, var(--clr-info);
+    }
+
+    .nav-icon {
+      opacity: 1;
+    }
+  }
+}
+
+.label {
+  position: relative;
+  letter-spacing: 0.4px;
+  transition: text-shadow 0.2s ease-in-out;
+
+  &[data-variant='line'] {
+    &::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0;
+
+      width: 0;
+      height: 1.6px;
+
+      background-color: var(--clr-info);
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      inset: 0;
+
+      width: calc(100%);
+      height: calc(100%);
+      border-radius: var(--br-normal);
+
+      background-color: transparent;
+    }
+  }
+
+  &[data-color='info'] {
+    color: var(--clr-info);
+  }
+}
+
+.icon {
+  display: flex;
+
+  width: 24px;
+  height: 24px;
+}
+
+.nav-icon {
+  display: flex;
+
+  width: 16px;
+  height: 16px;
+
+  opacity: 0;
+
+  &[data-variant='icon'] {
+    position: absolute;
+    top: 0;
+    right: -12px;
+  }
+
+  &[data-color='info'] {
+    color: var(--clr-info);
+  }
+
+  transition: opacity 0.2s ease-in-out;
+}

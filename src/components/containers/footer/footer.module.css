@@ -1,0 +1,42 @@
+.wrapper {
+  @mixin flex-center;
+  flex-direction: column;
+  gap: 8px;
+
+  border-top: 1px solid var(--clr-base);
+  padding: 32px 16px;
+
+  background-color: var(--clr-bg-1);
+}
+
+.github-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.email-info {
+  display: flex;
+  gap: 8px;
+
+  a {
+    font-weight: var(--fw-medium);
+    color: var(--clr-base);
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  /* display: flex;
+
+  width: 24px;
+  height: 24px; */
+}
+
+.copyright-info {
+  font-size: var(--fs-small);
+}
