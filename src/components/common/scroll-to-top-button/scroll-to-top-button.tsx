@@ -48,7 +48,6 @@ function ScrollToTopButton({
   return (
     <AnimatePresence>
       {isVisible.value && (
-        // <Portal container={document.body}>
         <CustomTooltip label={t('tooltipLabel')} placement="auto" hasArrow>
           <motion.button
             ref={btnRef}
@@ -68,7 +67,6 @@ function ScrollToTopButton({
             </span>
           </motion.button>
         </CustomTooltip>
-        // </Portal>
       )}
     </AnimatePresence>
   );

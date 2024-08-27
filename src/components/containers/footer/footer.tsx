@@ -18,10 +18,10 @@ function Footer() {
         </NavItem>
       </div>
       <div className={styles['email-info']}>
-        <p>Need help?</p>
-        <a href="mailto:ngockhoi96.dev@gmail.com">
-          Email <strong>ngockhoi96.dev@gmail.com</strong>
-        </a>
+        <p>Need help? Email</p>
+        <NavItem variant="bg" color="info" to="mailto:ngockhoi96.dev@gmail.com">
+          ngockhoi96.dev@gmail.com
+        </NavItem>
       </div>
       <ul className={styles['social-links']}>
         {socialLinks.map((item) => (
@@ -39,9 +39,7 @@ function Footer() {
           </li>
         ))}
       </ul>
-      <p className={styles['copyright-info']}>
-        Copyright &copy; 2024-2025 ngockhoi96
-      </p>
+      <p className={styles.copyright}>Copyright &copy; 2024-2025 ngockhoi96</p>
     </footer>
   );
 }

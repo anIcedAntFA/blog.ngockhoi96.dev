@@ -3,15 +3,15 @@
   left: 100%;
 
   /* it will effect when in viewport without footer */
-  bottom: 48px;
+  bottom: 32px;
   overflow: hidden;
   z-index: var(--z-index-8);
 
   @mixin flex-center;
 
   /* it will effect when footer appear in viewport */
-  margin-bottom: 48px;
-  margin-right: 48px;
+  margin-bottom: 32px;
+  margin-right: 32px;
   width: 48px;
   height: 48px;
   border: 2px solid var(--clr-primary);

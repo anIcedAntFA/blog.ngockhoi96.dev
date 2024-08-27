@@ -31,21 +31,14 @@ function NavItem({
       target={target}
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
       data-variant={variant}
+      data-color={color}
       className={styles.wrapper}
     >
-      <span
-        data-variant={variant}
-        data-color={color}
-        className={variant === 'icon' ? styles.icon : styles.label}
-      >
+      <span className={variant === 'icon' ? styles.icon : styles.label}>
         {children}
       </span>
       {target === '_blank' && (
-        <span
-          data-variant={variant}
-          data-color={color}
-          className={styles['nav-icon']}
-        >
+        <span className={styles['nav-icon']}>
           <ArrowUpRightIcon />
         </span>
       )}
