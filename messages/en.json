@@ -84,6 +84,16 @@
           }
         }
       }
+    },
+    "footer": {
+      "githubInfo": {
+        "infoText": "Find an issue with this page?",
+        "linkText": "Fix it on GitHub"
+      },
+      "emailInfo": {
+        "infoText": "Need help? Email"
+      },
+      "copyright": "Copyright"
     }
   },
   "home": {

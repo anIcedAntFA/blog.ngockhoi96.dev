@@ -9,7 +9,6 @@ import ArrowUpIcon from '@/components/icons/arrow-up-icon';
 import useBoolean from '@/hooks/use-boolean';
 
 import CustomTooltip from '../custom-tooltip';
-import Portal from '../portal';
 
 import { TOP_POSITION } from './scroll-to-top-button.config';
 import { scrollToTop } from './scroll-to-top-button.helper';
@@ -48,27 +47,25 @@ function ScrollToTopButton({
   return (
     <AnimatePresence>
       {isVisible.value && (
-        <Portal>
-          <CustomTooltip label={t('tooltipLabel')} placement="auto" hasArrow>
-            <motion.button
-              ref={btnRef}
-              type="button"
-              aria-label={t('ariaLabel')}
-              tabIndex={0}
-              className={styles.root}
-              initial={{ opacity: 0, scale: 0.5, visibility: 'hidden' }}
-              animate={{ opacity: 1, scale: 1, visibility: 'visible' }}
-              exit={{ opacity: 0, scale: 0.5 }}
-              transition={{ ease: 'easeInOut' }}
-              onClick={handleScrollToTop}
-              {...buttonProps}
-            >
-              <span className={styles.icon}>
-                <ArrowUpIcon />
-              </span>
-            </motion.button>
-          </CustomTooltip>
-        </Portal>
+        <CustomTooltip label={t('tooltipLabel')} placement="auto" hasArrow>
+          <motion.button
+            ref={btnRef}
+            type="button"
+            aria-label={t('ariaLabel')}
+            tabIndex={0}
+            className={styles.root}
+            initial={{ opacity: 0, scale: 0.5, visibility: 'hidden' }}
+            animate={{ opacity: 1, scale: 1, visibility: 'visible' }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ ease: 'easeInOut' }}
+            onClick={handleScrollToTop}
+            {...buttonProps}
+          >
+            <span className={styles.icon}>
+              <ArrowUpIcon />
+            </span>
+          </motion.button>
+        </CustomTooltip>
       )}
     </AnimatePresence>
   );

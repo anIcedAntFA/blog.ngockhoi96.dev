@@ -35,6 +35,7 @@ html[data-theme='light'] {
   --clr-burnt-sienna-700: #c54119;
   --clr-base: var(--clr-gray-500);
   --clr-primary: var(--clr-emerald-600);
+  --clr-info: #0476d0;
   --clr-text-0: var(--clr-obsidian);
   --clr-text-1: var(--clr-obsidian);
   --clr-text-2: var(--clr-snow);

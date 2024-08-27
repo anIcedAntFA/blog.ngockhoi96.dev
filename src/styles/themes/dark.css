@@ -32,6 +32,7 @@ html[data-theme='dark'] {
   --clr-emerald-950: #022c22;
   --clr-base: var(--clr-gray-200);
   --clr-primary: var(--clr-emerald-300);
+  --clr-info: #35a4fb;
   --clr-text-0: var(--clr-snow);
   --clr-text-1: var(--clr-snow);
   --clr-text-2: var(--clr-obsidian);

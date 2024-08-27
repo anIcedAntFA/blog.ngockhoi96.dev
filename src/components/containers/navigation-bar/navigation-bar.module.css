@@ -1,13 +1,13 @@
 .wrapper {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: var(--z-index-8);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  border-bottom: 1px solid var(--clr-gray-500);
+  border-bottom: 1px solid var(--clr-base);
   max-width: 100%;
   height: 60px;
   padding: 8px 24px;

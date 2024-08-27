@@ -1,0 +1,150 @@
+.wrapper {
+  --size-nav-icon: 16px;
+  --spacing-wrapper: 4px;
+
+  position: relative;
+
+  display: flex;
+  gap: var(--spacing-wrapper);
+
+  border-radius: var(--br-normal);
+  padding: 4px;
+
+  &[data-variant='line'] {
+    &::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 2px;
+
+      width: 0;
+      height: 1.6px;
+      border-radius: var(--br-small);
+    }
+
+    &[data-color='base']::before {
+      background-color: var(--clr-base);
+    }
+
+    &[data-color='info']::before {
+      background-color: var(--clr-info);
+    }
+
+    &:hover::before {
+      width: calc(100% - var(--size-nav-icon) - var(--spacing-wrapper));
+      transition: width 0.3s ease-in-out;
+    }
+  }
+
+  &[data-variant='bg'] {
+    &::after {
+      position: absolute;
+      content: '';
+      inset: 0;
+
+      border-radius: var(--br-normal);
+
+      background-color: transparent;
+      opacity: 0.1;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    &[data-color='base']:hover::after {
+      background-color: var(--clr-base);
+      opacity: 0.1;
+    }
+
+    &[data-color='info']:hover::after {
+      background-color: var(--clr-info);
+      opacity: 0.1;
+    }
+  }
+
+  &[data-variant='icon'] {
+    &::after {
+      position: absolute;
+      content: '';
+      top: 14px;
+      left: 22px;
+
+      width: calc(100% + 14px);
+      height: calc(100% + 6px);
+      border-radius: var(--br-medium);
+
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      opacity: 0.1;
+
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    &[data-color='base']:hover::after {
+      background-color: var(--clr-base);
+      opacity: 0.1;
+    }
+
+    &[data-color='info']:hover::after {
+      background-color: var(--clr-info);
+      opacity: 0.1;
+    }
+  }
+
+  &:hover {
+    .nav-icon {
+      scale: 1;
+    }
+  }
+}
+
+.label {
+  letter-spacing: 0.4px;
+  font-weight: var(--fw-medium);
+
+  .wrapper[data-color='base'] & {
+    color: var(--clr-base);
+  }
+
+  .wrapper[data-color='info'] & {
+    color: var(--clr-info);
+  }
+}
+
+.icon {
+  display: flex;
+
+  width: 24px;
+  height: 24px;
+
+  .wrapper[data-color='base'] & {
+    color: var(--clr-base);
+  }
+
+  .wrapper[data-color='info'] & {
+    color: var(--clr-info);
+  }
+}
+
+.nav-icon {
+  display: flex;
+
+  width: 16px;
+  height: 16px;
+
+  scale: 0;
+
+  .wrapper[data-variant='icon'] & {
+    position: absolute;
+    top: -2px;
+    right: -12px;
+  }
+
+  .wrapper[data-color='base'] & {
+    color: var(--clr-base);
+  }
+
+  .wrapper[data-color='info'] & {
+    color: var(--clr-info);
+  }
+
+  transition: scale 0.2s ease-in-out;
+}

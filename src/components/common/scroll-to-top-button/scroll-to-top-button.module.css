@@ -1,12 +1,15 @@
 .root {
-  position: fixed;
-  right: 48px;
-  bottom: 48px;
+  position: sticky;
+  left: 100%;
+
+  bottom: 32px; /* Effected when btn is scrolled in viewport without footer */
   overflow: hidden;
   z-index: var(--z-index-8);
 
   @mixin flex-center;
 
+  margin-bottom: 32px; /* Effected when btn is scrolled down and footer appear in viewport */
+  margin-right: 32px;
   width: 48px;
   height: 48px;
   border: 2px solid var(--clr-primary);

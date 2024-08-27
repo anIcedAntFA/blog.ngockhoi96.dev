@@ -1,0 +1,33 @@
+.wrapper {
+  @mixin flex-center;
+  flex-direction: column;
+  gap: 4px;
+
+  border-top: 1px solid var(--clr-base);
+  padding: 32px 16px;
+}
+
+.github-info,
+.email-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  p {
+    color: var(--clr-base);
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.copyright {
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-small);
+  color: var(--clr-base);
+}
