@@ -9,7 +9,6 @@ import ArrowUpIcon from '@/components/icons/arrow-up-icon';
 import useBoolean from '@/hooks/use-boolean';
 
 import CustomTooltip from '../custom-tooltip';
-// import Portal from '../portal';
 
 import { TOP_POSITION } from './scroll-to-top-button.config';
 import { scrollToTop } from './scroll-to-top-button.helper';

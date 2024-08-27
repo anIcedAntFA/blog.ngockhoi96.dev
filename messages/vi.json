@@ -84,6 +84,16 @@
           }
         }
       }
+    },
+    "footer": {
+      "githubInfo": {
+        "infoText": "Gặp vấn đề với trang này?",
+        "linkText": "Sửa nó trên GitHub"
+      },
+      "emailInfo": {
+        "infoText": "Cần hỗ trợ, liên hệ qua email"
+      },
+      "copyright": "Bản quyền"
     }
   },
   "home": {

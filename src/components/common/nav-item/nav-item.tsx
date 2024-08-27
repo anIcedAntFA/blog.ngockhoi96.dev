@@ -23,6 +23,7 @@ function NavItem({
   to,
   target,
   children,
+  ...linkProps
 }: NavItemProps) {
   return (
     <Link
@@ -33,6 +34,7 @@ function NavItem({
       data-variant={variant}
       data-color={color}
       className={styles.wrapper}
+      {...linkProps}
     >
       <span className={variant === 'icon' ? styles.icon : styles.label}>
         {children}
