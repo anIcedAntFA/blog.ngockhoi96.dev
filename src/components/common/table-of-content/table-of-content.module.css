@@ -1,0 +1,26 @@
+.wrapper {
+  position: sticky;
+  top: 0;
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 320px;
+  height: calc(100vh - 16px);
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.item-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding-top: 4px;
+
+  .wrapper & & {
+    padding-left: 8px;
+  }
+}

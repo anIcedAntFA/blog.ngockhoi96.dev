@@ -13,14 +13,14 @@ const author = defineCollection({
   }),
 });
 
-const posts = defineCollection({
-  name: 'Post', // collection type name
-  pattern: 'posts/**/*.mdx', // content files glob pattern
+const articles = defineCollection({
+  name: 'Articles', // collection type name
+  pattern: 'articles/**/*.mdx', // content files glob pattern
   schema: s
     .object({
       title: s.string().max(99), // Zod primitive type
       description: s.string().max(199),
-      slug: s.slug('posts'), // validate format, unique in posts collection
+      slug: s.slug('articles'), // validate format, unique in posts collection
       // slug: s.path(), // auto generate slug from file path
       date: s.isodate(), // input Date-like string, output ISO Date string.
       // cover: s.image(), // input image relative path, output image object with blurImage.
@@ -29,6 +29,8 @@ const posts = defineCollection({
       metadata: s.metadata(), // extract markdown reading-time, word-count, etc.
       excerpt: s.excerpt(), // excerpt of markdown content
       content: s.markdown(), // transform markdown to html
+      toc: s.toc(), // table of content,
+      body: s.mdx(), // transform mdx to html
     })
     // more additional fields (computed fields)
     .transform((data) => ({ ...data, permalink: `/blog/${data.slug}` })),
@@ -43,5 +45,5 @@ export default defineConfig({
     name: '[name]-[hash:6].[ext]',
     clean: true,
   },
-  collections: { author, posts },
+  collections: { author, articles },
 });
