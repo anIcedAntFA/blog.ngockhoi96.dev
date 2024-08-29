@@ -1,6 +1,6 @@
 .wrapper {
   position: sticky;
-  top: 0;
+  top: 60px;
   overflow-y: scroll;
 
   display: flex;
@@ -10,7 +10,6 @@
   height: calc(100vh - 16px);
   padding: 1rem;
   border-radius: 10px;
-  background-color: #f9f9f9;
 }
 
 .item-wrapper {
@@ -22,5 +21,15 @@
 
   .wrapper & & {
     padding-left: 8px;
+  }
+}
+
+.item {
+  background-color: transparent;
+  transition: background-color 0.2s ease-in-out;
+
+  &[aria-current='true'] {
+    background-color: var(--clr-primary);
+    border-radius: 8px;
   }
 }

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import { articles as allPosts } from '#site/content';
+import MDXContent from '@/components/common/mdx-component';
 import TableOfContent from '@/components/common/table-of-content';
 
 import styles from './page.module.css';
@@ -42,8 +43,6 @@ function PostsPage({ params }: IPostProps) {
     return <div>Post not found</div>;
   }
 
-  console.log('body', post.body);
-
   return (
     <main className={styles.wrapper}>
       <article className="prose lg:prose-lg dark:prose-invert py-6">
@@ -76,10 +75,11 @@ function PostsPage({ params }: IPostProps) {
         />
 
         <hr className="my-4" />
-        <div
+        {/* <div
           className="prose"
           dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        /> */}
+        <MDXContent code={post.body} />
       </article>
       <div>
         <TableOfContent toc={post.toc} />

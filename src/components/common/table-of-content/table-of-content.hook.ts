@@ -6,47 +6,38 @@ function useActiveItemId(itemIds: string[]) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        console.log({ entries });
-
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
+        const intersectingEntry = entries.find((entry) => entry.isIntersecting);
+        intersectingEntry && setActiveId(intersectingEntry.target.id);
       },
       { rootMargin: `0% 0% -80% 0%` },
     );
 
-    itemIds?.forEach((id) => {
-      if (!id) {
-        return;
-      }
-
-      console.log(id);
+    itemIds.forEach((id) => {
       const element = document.getElementById(id);
-      console.log(element);
-
-      if (element) {
-        console.log(element);
-        observer.observe(element);
-      }
+      element && observer.observe(element);
     });
 
-    console.log(observer);
-
     return () => {
-      itemIds?.forEach((id) => {
-        if (!id) {
-          return;
-        }
-
-        const element = document.getElementById(id);
-        if (element) {
-          observer.unobserve(element);
-        }
-      });
+      observer.disconnect();
     };
   }, [itemIds]);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (
+  //       window.innerHeight + window.scrollY + 1 >=
+  //       document.body.offsetHeight
+  //     ) {
+  //       setActiveId(itemIds[itemIds.length - 1]);
+  //     }
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, [itemIds]);
 
   return activeId;
 }

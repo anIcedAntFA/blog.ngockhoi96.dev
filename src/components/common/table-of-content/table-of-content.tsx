@@ -7,11 +7,9 @@ import styles from './table-of-content.module.css';
 import type { TableOfContentProps } from './table-of-content.type';
 
 function TableOfContent({ toc }: TableOfContentProps) {
-  const itemIds = getItemIds(toc, 6).map((id) => id?.split('#')[1]);
+  const itemIds = getItemIds(toc, 6);
 
   const activeHeading = useActiveItemId(itemIds);
-
-  console.log({ itemIds, activeHeading });
 
   return (
     <div className={styles.wrapper}>

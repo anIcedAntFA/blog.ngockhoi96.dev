@@ -21,6 +21,10 @@ import type { TocEntry } from './table-of-content.type';
 //   return itemIds;
 // }
 
+export function getIdFromUrl(url: string): string {
+  return url.split('#')[1];
+}
+
 //* Recursive with flatMap and spread operator
 export function getItemIds(
   tocEntries: TocEntry[],
@@ -30,9 +34,10 @@ export function getItemIds(
   if (currentDepth > maxDepth) return [];
 
   return tocEntries.flatMap(({ items, url }) => {
-    const nextItemIds = getItemIds(items, maxDepth, currentDepth + 1);
+    const itemId = getIdFromUrl(url);
     const hasItems = items && items.length > 0;
+    const nextItemIds = getItemIds(items, maxDepth, currentDepth + 1);
 
-    return [url, ...(hasItems ? nextItemIds : [])];
+    return [itemId, ...(hasItems ? nextItemIds : [])];
   });
 }

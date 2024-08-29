@@ -1,5 +1,8 @@
+import { equal } from '@/utils/equal';
+
 import Link from '../link';
 
+import { getIdFromUrl } from './table-of-content.helper';
 import styles from './table-of-content.module.css';
 import type { TableOfContentItemProps } from './table-of-content.type';
 
@@ -12,7 +15,13 @@ function TableOfContentItem({
     <ul className={styles['item-wrapper']}>
       {data.map((item) => (
         <li key={item.url}>
-          <Link to={item.url}>{item.title}</Link>
+          <Link
+            to={item.url}
+            aria-current={equal(getIdFromUrl(item.url), activeId)}
+            className={styles.item}
+          >
+            {item.title}
+          </Link>
           {item.items.length > 0 && (
             <TableOfContentItem
               data={item.items}

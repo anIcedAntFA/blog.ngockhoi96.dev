@@ -1,3 +1,5 @@
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
 import { defineCollection, defineConfig, s } from 'velite';
 
 // `s` is extended from Zod with some custom schemas,
@@ -21,7 +23,6 @@ const articles = defineCollection({
       title: s.string().max(99), // Zod primitive type
       description: s.string().max(199),
       slug: s.slug('articles'), // validate format, unique in posts collection
-      // slug: s.path(), // auto generate slug from file path
       date: s.isodate(), // input Date-like string, output ISO Date string.
       // cover: s.image(), // input image relative path, output image object with blurImage.
       cover: s.string().max(99),
@@ -33,7 +34,7 @@ const articles = defineCollection({
       body: s.mdx(), // transform mdx to html
     })
     // more additional fields (computed fields)
-    .transform((data) => ({ ...data, permalink: `/blog/${data.slug}` })),
+    .transform((data) => ({ ...data, permalink: `/articles/${data.slug}` })),
 });
 
 export default defineConfig({
@@ -46,4 +47,19 @@ export default defineConfig({
     clean: true,
   },
   collections: { author, articles },
+  mdx: {
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'wrap',
+          properties: {
+            className: ['subheading-anchor'],
+            ariaLabel: 'Link to section',
+          },
+        },
+      ],
+    ],
+  },
 });
