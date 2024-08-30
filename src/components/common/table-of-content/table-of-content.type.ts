@@ -8,8 +8,9 @@ export type TableOfContentProps = {
   toc: TocEntry[];
 };
 
-export type TableOfContentItemProps = {
+export type TableOfContentListProps = {
   data: TocEntry[];
   level: number;
-  activeId: string;
+  activeId: string | null;
+  passedIds: string[];
 };

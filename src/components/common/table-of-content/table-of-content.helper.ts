@@ -1,3 +1,5 @@
+import { equal } from '@/utils/equal';
+
 import type { TocEntry } from './table-of-content.type';
 
 //* Recursive with forEach and push
@@ -26,6 +28,7 @@ export function getIdFromUrl(url: string): string {
 }
 
 //* Recursive with flatMap and spread operator
+//* Get all item ids from the table of content
 export function getItemIds(
   tocEntries: TocEntry[],
   maxDepth: number = Infinity,
@@ -40,4 +43,13 @@ export function getItemIds(
 
     return [itemId, ...(hasItems ? nextItemIds : [])];
   });
+}
+
+//* Get passed ids before the active id
+export function getPassedIds(itemIds: string[], activeId: string | null) {
+  if (!activeId) return [];
+
+  const currentIndex = itemIds.findIndex((id) => equal(id, activeId));
+
+  return itemIds.slice(0, currentIndex);
 }

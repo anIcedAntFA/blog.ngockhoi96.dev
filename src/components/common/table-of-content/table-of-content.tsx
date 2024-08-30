@@ -1,7 +1,7 @@
 'use client';
 
-import TableOfContentItem from './table-of-content-item';
-import { getItemIds } from './table-of-content.helper';
+import TableOfContentList from './table-of-content-list';
+import { getItemIds, getPassedIds } from './table-of-content.helper';
 import useActiveItemId from './table-of-content.hook';
 import styles from './table-of-content.module.css';
 import type { TableOfContentProps } from './table-of-content.type';
@@ -9,17 +9,24 @@ import type { TableOfContentProps } from './table-of-content.type';
 function TableOfContent({ toc }: TableOfContentProps) {
   const itemIds = getItemIds(toc, 6);
 
-  const activeHeading = useActiveItemId(itemIds);
+  const activeId = useActiveItemId(itemIds);
+
+  const passedIds = getPassedIds(itemIds, activeId);
 
   return (
-    <div className={styles.wrapper}>
-      <aside>
+    <div className={styles.wrapper} data-id="toc-wrapper">
+      <aside className={styles.aside}>
         <nav>
-          <section>
+          <section className={styles.section}>
             <header>
-              <h2>In this article</h2>
+              <h2 className={styles.heading}>In this article</h2>
             </header>
-            <TableOfContentItem data={toc} level={1} activeId={activeHeading} />
+            <TableOfContentList
+              data={toc}
+              level={1}
+              activeId={activeId}
+              passedIds={passedIds}
+            />
           </section>
         </nav>
       </aside>

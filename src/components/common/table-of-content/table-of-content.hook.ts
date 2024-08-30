@@ -1,43 +1,44 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
-function useActiveItemId(itemIds: string[]) {
-  const [activeId, setActiveId] = useState<string>('');
+import { getDocumentHeight } from '@/utils/get-document-height';
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const intersectingEntry = entries.find((entry) => entry.isIntersecting);
-        intersectingEntry && setActiveId(intersectingEntry.target.id);
-      },
-      { rootMargin: `0% 0% -80% 0%` },
-    );
+function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
+  const [activeId, setActiveId] = useState<string | null>(null);
 
-    itemIds.forEach((id) => {
-      const element = document.getElementById(id);
-      element && observer.observe(element);
+  const handleScroll = useCallback(() => {
+    const scrollHeight = getDocumentHeight() - window.innerHeight;
+    const isBottomDocument = window.scrollY >= scrollHeight;
+
+    if (isBottomDocument) {
+      setActiveId(itemIds[itemIds.length - 1]);
+      return;
+    }
+
+    const currentItemId = itemIds.find((item, index) => {
+      const element = document.getElementById(item);
+      if (!element) return;
+
+      const rect = element.getBoundingClientRect();
+      const isFirstElement = index === 0 && rect.top > 0;
+      const isLastElement = index === itemIds.length - 1;
+      const isInViewport =
+        rect.top + offsetTop >= 0 && rect.bottom + offsetTop >= 0;
+
+      return isFirstElement || isLastElement || isInViewport;
     });
 
+    if (currentItemId) return setActiveId(currentItemId);
+    // setActiveId(null);
+  }, [itemIds, offsetTop]);
+
+  useEffect(() => {
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+
     return () => {
-      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [itemIds]);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (
-  //       window.innerHeight + window.scrollY + 1 >=
-  //       document.body.offsetHeight
-  //     ) {
-  //       setActiveId(itemIds[itemIds.length - 1]);
-  //     }
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, [itemIds]);
+  }, [handleScroll]);
 
   return activeId;
 }
