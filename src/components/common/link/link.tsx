@@ -1,17 +1,17 @@
+import { forwardRef, type ForwardedRef } from 'react';
+
 import { Link as LocalizedLink } from '@/i18n/navigation';
 import type { Pathname } from '@/types/locales';
 
 import type { LinkProps } from './link.type';
 
-function Link<TPathname extends Pathname>({
-  children,
-  href,
-  to,
-  ...restProps
-}: LinkProps<TPathname>) {
+function Link<TPathname extends Pathname>(
+  { children, href, to, ...restProps }: LinkProps<TPathname>,
+  ref: ForwardedRef<HTMLAnchorElement>,
+) {
   if (!href || to) {
     return (
-      <a href={to} {...restProps}>
+      <a ref={ref} href={to} {...restProps}>
         {children}
       </a>
     );
@@ -24,4 +24,4 @@ function Link<TPathname extends Pathname>({
   );
 }
 
-export default Link;
+export default forwardRef(Link);
