@@ -82,7 +82,7 @@ function PostsPage({ params }: IPostProps) {
           <MDXContent code={post.body} />
         </article>
         <div>
-          <TableOfContent toc={post.toc} />
+          <TableOfContent title="In this article" toc={post.toc} />
         </div>
       </main>
     </>

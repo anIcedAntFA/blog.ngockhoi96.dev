@@ -3,7 +3,7 @@ html[data-theme='light'] .wrapper {
 }
 
 html[data-theme='dark'] .wrapper {
-  --clr-bg-item-active: var(--clr-emerald-800);
+  --clr-bg-item-active: var(--clr-emerald-700);
 }
 
 .wrapper {

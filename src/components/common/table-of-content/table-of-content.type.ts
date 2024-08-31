@@ -5,6 +5,7 @@ export type TocEntry = {
 };
 
 export type TableOfContentProps = {
+  title: string;
   toc: TocEntry[];
 };
 

@@ -31,6 +31,8 @@ function TableOfContentList({
         const itemId = getIdFromUrl(url);
         const isPassedId = passedIds.includes(itemId);
         const isActiveId = equal(itemId, activeId);
+        const hasNestedTocList = items.length > 0 && depth <= MAX_DEPTH;
+
         return (
           <li key={url}>
             <Link
@@ -47,7 +49,7 @@ function TableOfContentList({
               />
               {title}
             </Link>
-            {items.length > 0 && depth <= MAX_DEPTH && (
+            {hasNestedTocList && (
               <TableOfContentList
                 data={items}
                 depth={depth + 1}

@@ -17,7 +17,7 @@ const markerMotions = {
   }),
 };
 
-function TableOfContent({ toc }: TableOfContentProps) {
+function TableOfContent({ title, toc }: TableOfContentProps) {
   const itemIds = getItemIds(toc, 6);
   const activeId = useActiveItemId(itemIds);
   const passedIds = getPassedIds(itemIds, activeId);
@@ -25,11 +25,11 @@ function TableOfContent({ toc }: TableOfContentProps) {
   return (
     <div className={styles.wrapper} data-id="toc-wrapper">
       <aside className={styles.aside}>
-        <nav aria-labelledby="toc-in-this-article">
+        <nav aria-labelledby={`toc-${title}`}>
           <section className={styles.section}>
             <header>
-              <h2 id="toc-in-this-article" className={styles.heading}>
-                In this article
+              <h2 id={`toc-${title}`} className={styles.heading}>
+                {title}
               </h2>
             </header>
             <motion.div
