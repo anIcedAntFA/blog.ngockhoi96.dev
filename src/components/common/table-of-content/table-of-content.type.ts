@@ -10,7 +10,7 @@ export type TableOfContentProps = {
 
 export type TableOfContentListProps = {
   data: TocEntry[];
-  level: number;
+  depth: number;
   activeId: string | null;
   passedIds: string[];
 };

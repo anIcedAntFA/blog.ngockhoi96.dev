@@ -78,10 +78,7 @@ function PostsPage({ params }: IPostProps) {
           />
 
           <hr className="my-4" />
-          {/* <div
-          className="prose"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        /> */}
+
           <MDXContent code={post.body} />
         </article>
         <div>

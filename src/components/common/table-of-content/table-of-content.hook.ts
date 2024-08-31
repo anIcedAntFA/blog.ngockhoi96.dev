@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { getDocumentHeight } from '@/utils/get-document-height';
 
 function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
-  const [activeId, setActiveId] = useState<string | null>(null);
+  const [activeId, setActiveId] = useState<string>('');
 
   const handleScroll = useCallback(() => {
     const scrollHeight = getDocumentHeight() - window.innerHeight;
@@ -14,11 +14,11 @@ function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
       return;
     }
 
-    const currentItemId = itemIds.find((item, index) => {
-      const element = document.getElementById(item);
-      if (!element) return;
+    const currentHeadingId = itemIds.find((id, index) => {
+      const heading = document.getElementById(id);
+      if (!heading) return;
 
-      const rect = element.getBoundingClientRect();
+      const rect = heading.getBoundingClientRect();
       const isFirstElement = index === 0 && rect.top > 0;
       const isLastElement = index === itemIds.length - 1;
       const isInViewport =
@@ -27,8 +27,8 @@ function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
       return isFirstElement || isLastElement || isInViewport;
     });
 
-    if (currentItemId) return setActiveId(currentItemId);
-    // setActiveId(null);
+    if (currentHeadingId) return setActiveId(currentHeadingId);
+    setActiveId('');
   }, [itemIds, offsetTop]);
 
   useEffect(() => {

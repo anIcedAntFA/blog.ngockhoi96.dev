@@ -1,5 +1,4 @@
-import { useEffect, useRef, type ElementRef } from 'react';
-import invariant from 'tiny-invariant';
+import { motion } from 'framer-motion';
 
 import { equal } from '@/utils/equal';
 
@@ -9,57 +8,49 @@ import { getIdFromUrl } from './table-of-content.helper';
 import styles from './table-of-content.module.css';
 import type { TableOfContentListProps } from './table-of-content.type';
 
+const bgIndicatorMotions = {
+  initial: { width: 0, opacity: 0 },
+  animate: (isActive: boolean) => ({
+    width: isActive ? '100%' : 0,
+    opacity: isActive ? 1 : 0,
+    transition: { delay: 0.05 },
+  }),
+};
+
+const MAX_DEPTH = 6;
+
 function TableOfContentList({
   data,
-  level,
+  depth,
   activeId,
   passedIds,
 }: TableOfContentListProps) {
-  const wrapperRef = useRef<ElementRef<'ul'>>(null);
-  const activeItemRef = useRef<ElementRef<'a'>>(null);
-
-  useEffect(() => {
-    const handleScrollIntoItem = () => {
-      if (!activeItemRef.current) return;
-
-      const parent = document.querySelector<HTMLDivElement>(
-        '[data-id="toc-wrapper"]',
-      );
-      invariant(parent, 'Parent element is not found');
-
-      const item = activeItemRef.current;
-      const parentHeight = window.getComputedStyle(parent).height;
-      const itemOffsetTop = item.offsetTop;
-
-      parent.scrollTo({
-        top: itemOffsetTop - parseFloat(parentHeight) / 2,
-        behavior: 'smooth',
-      });
-    };
-
-    handleScrollIntoItem();
-  }, [activeId]);
-
   return (
-    <ul ref={wrapperRef} className={styles.list}>
-      {data.map((item) => {
-        const isPassedId = passedIds.includes(getIdFromUrl(item.url));
-        const isActive = equal(getIdFromUrl(item.url), activeId);
+    <ul className={styles.list}>
+      {data.map(({ items, title, url }) => {
+        const itemId = getIdFromUrl(url);
+        const isPassedId = passedIds.includes(itemId);
+        const isActiveId = equal(itemId, activeId);
         return (
-          <li key={item.url}>
+          <li key={url}>
             <Link
-              to={item.url}
-              ref={isActive ? activeItemRef : null}
-              aria-current={equal(getIdFromUrl(item.url), activeId)}
-              data-passed-link={isPassedId || undefined}
+              to={url}
+              aria-current={isActiveId}
               className={styles.item}
+              data-depth={depth}
+              data-passed-link={isPassedId || undefined}
             >
-              {item.title}
+              <motion.span
+                initial={bgIndicatorMotions.initial}
+                animate={bgIndicatorMotions.animate(isActiveId)}
+                className={styles['bg-indicator']}
+              />
+              {title}
             </Link>
-            {item.items.length > 0 && (
+            {items.length > 0 && depth <= MAX_DEPTH && (
               <TableOfContentList
-                data={item.items}
-                level={level + 1}
+                data={items}
+                depth={depth + 1}
                 activeId={activeId}
                 passedIds={passedIds}
               />
