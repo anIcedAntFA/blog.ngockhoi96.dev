@@ -121,6 +121,9 @@
           "iconButtonLabel": "Grid layout button",
           "tooltipLabel": "Grid layout"
         }
+      },
+      "tableOfContents": {
+        "title": "In this article"
       }
     }
   }

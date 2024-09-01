@@ -7,6 +7,7 @@ export type TocEntry = {
 export type TableOfContentProps = {
   title: string;
   toc: TocEntry[];
+  id?: string;
 };
 
 export type TableOfContentListProps = {

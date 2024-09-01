@@ -17,8 +17,9 @@ describe('GithubStarButton', () => {
           components: {
             common: {
               githubStarButton: {
-                label: 'Star on GitHub',
-                tooltip: 'Star this project on GitHub',
+                tooltipLabel: 'Star this project on GitHub',
+                ariaLabel: 'Star on GitHub',
+                label: 'Star',
               },
             },
           },

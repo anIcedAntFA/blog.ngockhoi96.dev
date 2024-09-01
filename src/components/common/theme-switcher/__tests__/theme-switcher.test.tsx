@@ -34,8 +34,8 @@ const Component = () => {
         components: {
           common: {
             themeSwitcher: {
-              label: 'Toggle theme',
-              tooltip: {
+              ariaLabel: 'Toggle theme',
+              tooltipLabel: {
                 light: 'Switch to light theme',
                 dark: 'Switch to dark theme',
               },

@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
+import invariant from 'tiny-invariant';
 
+import { HEADER_HEIGHT } from '@/configs/constants';
 import { getDocumentHeight } from '@/utils/get-document-height';
 
 function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
@@ -8,27 +10,30 @@ function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
   const handleScroll = useCallback(() => {
     const scrollHeight = getDocumentHeight() - window.innerHeight;
     const isBottomDocument = window.scrollY >= scrollHeight;
+    const lastIndex = itemIds.length - 1;
 
-    if (isBottomDocument) {
-      setActiveId(itemIds[itemIds.length - 1]);
-      return;
-    }
+    //* Make sure always active the last element when scrolling to the bottom
+    if (isBottomDocument) return setActiveId(itemIds[lastIndex]);
 
-    const currentHeadingId = itemIds.find((id, index) => {
+    const currentId = itemIds.find((id, index) => {
       const heading = document.getElementById(id);
-      if (!heading) return;
+      invariant(heading, `Element with id ${id} not found`);
 
       const rect = heading.getBoundingClientRect();
-      const isFirstElement = index === 0 && rect.top > 0;
-      const isLastElement = index === itemIds.length - 1;
+      const isFirstElement = index === 0 && rect.top > HEADER_HEIGHT;
+      const isLastElement = index === lastIndex;
       const isInViewport =
-        rect.top + offsetTop >= 0 && rect.bottom + offsetTop >= 0;
+        rect.top + offsetTop >= HEADER_HEIGHT &&
+        rect.bottom + offsetTop >= HEADER_HEIGHT;
+      //* Check if the element is scrolled past the top of the viewport
+      const isScrolledPastTop = window.innerHeight >= rect.top;
 
-      return isFirstElement || isLastElement || isInViewport;
+      return (
+        isScrolledPastTop && (isFirstElement || isLastElement || isInViewport)
+      );
     });
 
-    if (currentHeadingId) return setActiveId(currentHeadingId);
-    setActiveId('');
+    setActiveId(currentId ?? '');
   }, [itemIds, offsetTop]);
 
   useEffect(() => {

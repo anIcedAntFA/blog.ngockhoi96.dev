@@ -60,3 +60,5 @@ export const keys = {
   ENTER: 'Enter',
   K: 'k',
 } as const;
+
+export const HEADER_HEIGHT = 60;

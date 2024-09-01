@@ -31,7 +31,7 @@ const renderComponent = () => {
           components: {
             common: {
               scrollProgressBar: {
-                label: 'Scroll progress indicator page',
+                ariaLabel: 'Scroll progress indicator page',
               },
             },
           },

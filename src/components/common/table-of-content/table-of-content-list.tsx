@@ -4,20 +4,13 @@ import { equal } from '@/utils/equal';
 
 import Link from '../link';
 
-import { getIdFromUrl } from './table-of-content.helper';
+import { MAX_DEPTH } from './table-of-content.config';
+import {
+  getMotionAnimateBgIndicator,
+  getIdFromUrl,
+} from './table-of-content.helper';
 import styles from './table-of-content.module.css';
 import type { TableOfContentListProps } from './table-of-content.type';
-
-const bgIndicatorMotions = {
-  initial: { width: 0, opacity: 0 },
-  animate: (isActive: boolean) => ({
-    width: isActive ? '100%' : 0,
-    opacity: isActive ? 1 : 0,
-    transition: { delay: 0.05 },
-  }),
-};
-
-const MAX_DEPTH = 6;
 
 function TableOfContentList({
   data,
@@ -43,8 +36,7 @@ function TableOfContentList({
               data-passed-link={isPassedId || undefined}
             >
               <motion.span
-                initial={bgIndicatorMotions.initial}
-                animate={bgIndicatorMotions.animate(isActiveId)}
+                animate={getMotionAnimateBgIndicator(isActiveId)}
                 className={styles['bg-indicator']}
               />
               {title}
