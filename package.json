@@ -31,7 +31,7 @@
     "@chakra-ui/tooltip": "^2.3.1",
     "dompurify": "^3.1.6",
     "framer-motion": "^11.3.29",
-    "next": "14.1.0",
+    "next": "^14.2.7",
     "next-intl": "^3.11.1",
     "next-themes": "^0.3.0",
     "react": "^18",

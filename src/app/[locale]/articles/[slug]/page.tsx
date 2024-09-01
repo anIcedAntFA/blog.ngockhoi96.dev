@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import { articles as allPosts } from '#site/content';
 import MDXContent from '@/components/common/mdx-component';
@@ -39,6 +40,8 @@ export function generateMetadata({ params }: IPostProps): Metadata {
 
 function PostsPage({ params }: IPostProps) {
   const post = getPostBySlug(params.slug);
+
+  const t = useTranslations('articles.components.tableOfContents');
 
   if (post == null) {
     return <div>Post not found</div>;
@@ -82,7 +85,11 @@ function PostsPage({ params }: IPostProps) {
           <MDXContent code={post.body} />
         </article>
         <div>
-          <TableOfContent title="In this article" toc={post.toc} />
+          <TableOfContent
+            title={t('title')}
+            toc={post.toc}
+            id="toc-in-this-article"
+          />
         </div>
       </main>
     </>

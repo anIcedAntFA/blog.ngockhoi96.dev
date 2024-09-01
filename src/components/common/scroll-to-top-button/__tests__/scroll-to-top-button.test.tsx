@@ -26,8 +26,8 @@ const renderComponent = (prop?: ScrollToTopButtonProps) => {
           components: {
             common: {
               scrollToTopButton: {
-                label: 'Back to top',
-                tooltip: 'Back to top',
+                ariaLabel: 'Back to top',
+                tooltipLabel: 'Back to top',
               },
             },
           },

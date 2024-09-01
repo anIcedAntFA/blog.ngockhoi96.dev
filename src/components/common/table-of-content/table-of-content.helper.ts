@@ -31,6 +31,25 @@ export function getPassedIds(itemIds: string[], activeId: string): string[] {
   return itemIds.slice(0, currentIndex);
 }
 
+export function getMotionAnimateMarker(
+  hasActiveId: boolean,
+  itemHeight: number,
+  passedIdsCount: number,
+) {
+  return {
+    top: hasActiveId ? `calc(${itemHeight}px * ${passedIdsCount})` : itemHeight,
+    scale: hasActiveId ? 1 : 0,
+  };
+}
+
+export function getMotionAnimateBgIndicator(isActive: boolean) {
+  return {
+    width: isActive ? '100%' : 0,
+    opacity: isActive ? 1 : 0,
+    transition: { delay: 0.05 },
+  };
+}
+
 //* Recursive with forEach and push
 // export function getItemIds(
 //   tocEntries: TocEntry[],

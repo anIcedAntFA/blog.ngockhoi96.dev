@@ -16,7 +16,6 @@ html[data-theme='dark'] .wrapper {
 
   width: 280px;
   height: calc(100vh - 16px);
-  border-radius: 10px;
 }
 
 .aside {

@@ -121,6 +121,9 @@
           "iconButtonLabel": "Nút chọn dạng lưới",
           "tooltipLabel": "Hiển thị dạng lưới"
         }
+      },
+      "tableOfContents": {
+        "title": "Trong bài viết này"
       }
     }
   }
