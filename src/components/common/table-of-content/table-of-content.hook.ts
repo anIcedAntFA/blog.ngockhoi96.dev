@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import invariant from 'tiny-invariant';
 
-import { HEADER_HEIGHT } from '@/configs/constants';
 import { getDocumentHeight } from '@/utils/get-document-height';
 
 function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
@@ -20,16 +19,17 @@ function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
       invariant(heading, `Element with id ${id} not found`);
 
       const rect = heading.getBoundingClientRect();
-      const isFirstElement = index === 0 && rect.top > HEADER_HEIGHT;
+      const isFirstElement = index === 0 && rect.top > 0;
       const isLastElement = index === lastIndex;
       const isInViewport =
-        rect.top + offsetTop >= HEADER_HEIGHT &&
-        rect.bottom + offsetTop >= HEADER_HEIGHT;
+        rect.top + offsetTop >= 0 && rect.bottom + offsetTop >= 0;
       //* Check if the element is scrolled past the top of the viewport
       const isScrolledPastTop = window.innerHeight >= rect.top;
 
       return (
-        isScrolledPastTop && (isFirstElement || isLastElement || isInViewport)
+        window.scrollY > 0 &&
+        isScrolledPastTop &&
+        (isFirstElement || isLastElement || isInViewport)
       );
     });
 

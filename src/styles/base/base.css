@@ -10,14 +10,18 @@
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
+  --fw-xbold: 800;
   --fs-xsmall: 12px;
   --fs-small: 14px;
   --fs-normal: 16px;
+  --fx-xnormal: 18px;
   --fs-medium: 20px;
   --fs-large: 24px;
-  --fs-xlg: 48px;
-  --fs-xxlg: 64px;
-  --fs-xxxlg: 80px;
+  --fs-xl: 28px;
+  --fs-2xl: 32px;
+  --fs-3xl: 48px;
+  --fs-4xl: 64px;
+  --fs-5xl: 80px;
   --z-index-1: 1;
   --z-index-2: 2;
   --z-index-3: 3;
@@ -67,7 +71,6 @@ button {
   outline: none;
   border: none;
   padding: 0;
-
   background: transparent;
 }
 
@@ -115,4 +118,16 @@ input[type='search']::-webkit-search-results-decoration {
 ::selection {
   background-color: var(--clr-primary);
   color: var(--clr-bg-1);
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+
+  margin: -1px;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  clip: rect(0 0 0 0);
 }
