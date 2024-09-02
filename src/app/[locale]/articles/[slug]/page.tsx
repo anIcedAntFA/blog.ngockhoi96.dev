@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 import { articles as allPosts } from '#site/content';
-import MDXContent from '@/components/common/mdx-component';
 import ScrollProgressBar from '@/components/common/scroll-progress-bar';
 import TableOfContent from '@/components/common/table-of-content';
+import MDXContent from '@/components/mdx/mdx-content';
 
 import styles from './page.module.css';
 
@@ -52,12 +52,6 @@ function PostsPage({ params }: IPostProps) {
       <ScrollProgressBar />
       <main className={styles.wrapper}>
         <article className="prose lg:prose-lg dark:prose-invert py-6">
-          <h1 className="mb-2">{post.title}</h1>
-
-          <p className="mt-0 text-xl text-slate-700 dark:text-slate-200">
-            {post.description}
-          </p>
-
           {post.cover && (
             <Image
               src={post.cover}
@@ -79,6 +73,12 @@ function PostsPage({ params }: IPostProps) {
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
           />
+
+          <h1 className={styles.heading}>{post.title}</h1>
+
+          <p className="mt-0 text-xl text-slate-700 dark:text-slate-200">
+            {post.description}
+          </p>
 
           <hr className="my-4" />
 

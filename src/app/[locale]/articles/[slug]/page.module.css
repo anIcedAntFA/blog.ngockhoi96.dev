@@ -1,3 +1,10 @@
 .wrapper {
   display: flex;
 }
+
+.heading {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-xbold);
+  line-height: 1.32;
+  color: var(--clr-primary);
+}
