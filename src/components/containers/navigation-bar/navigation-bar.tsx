@@ -56,6 +56,7 @@ function NavigationBar({ starCount }: NavigationBarProps) {
       animate={isHidden.value ? 'hidden' : 'visible'}
       transition={{ type: 'spring', bounce: 20, damping: 12, stiffness: 80 }}
       className={styles.wrapper}
+      data-hidden={isHidden.value}
     >
       <h3 className={styles.logo}>ngockhoi96</h3>
 

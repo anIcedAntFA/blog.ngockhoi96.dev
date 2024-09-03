@@ -3,8 +3,10 @@
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
+import invariant from 'tiny-invariant';
 
+import { HEADER_HEIGHT } from '@/configs/constants';
 import { themes } from '@/configs/themes';
 import useBoolean from '@/hooks/use-boolean';
 
@@ -34,6 +36,7 @@ function ScrollProgressBar() {
   );
 
   const isScrollable = useBoolean(false);
+  const hasHeader = useBoolean(false);
 
   useLayoutEffect(() => {
     const handleResize = () => {
@@ -53,6 +56,21 @@ function ScrollProgressBar() {
     };
   }, [isScrollable]);
 
+  useEffect(() => {
+    const handleHeaderHidden = () => {
+      const header = document.querySelector('header');
+      invariant(header, 'Header is not found');
+
+      hasHeader.setValue(header.dataset.hidden === 'false');
+    };
+
+    window.addEventListener('scroll', handleHeaderHidden);
+
+    return () => {
+      window.removeEventListener('scroll', handleHeaderHidden);
+    };
+  }, [hasHeader]);
+
   if (!isScrollable.value) return null;
 
   return (
@@ -60,7 +78,11 @@ function ScrollProgressBar() {
       role="progressbar"
       aria-label={t('ariaLabel')}
       className={styles.root}
-      style={{ scaleX, backgroundColor }}
+      style={{
+        top: hasHeader.value ? HEADER_HEIGHT : 0,
+        scaleX,
+        backgroundColor,
+      }}
     />
   );
 }
