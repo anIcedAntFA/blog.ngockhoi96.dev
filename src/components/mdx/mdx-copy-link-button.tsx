@@ -1,5 +1,6 @@
 'use client';
 
+import useCopyToClipboard from '@/hooks/use-copy-to-clipboard';
 import type { Size } from '@/types/constants';
 
 import CustomTooltip from '../common/custom-tooltip';
@@ -8,28 +9,49 @@ import LinkIcon from '../icons/link-icon';
 
 type MdxCopyLinkButtonProps = {
   size: Size;
+  headingId?: string;
 };
 
-const MdxCopyLinkButton = ({ size }: MdxCopyLinkButtonProps) => {
-  const handleCopy = () => {
-    navigator.clipboard
-      .writeText(window.location.href)
+const getUrlFromId = (id?: string) => {
+  if (!id) return '';
+
+  const { origin, pathname } = window.location;
+  return `${origin}${pathname}#${id}`;
+};
+
+const MdxCopyLinkButton = ({ size, headingId }: MdxCopyLinkButtonProps) => {
+  const { copyText, hasCopied, copiedText } = useCopyToClipboard();
+
+  const handleCopyUrl = () => {
+    const url = getUrlFromId(headingId);
+
+    copyText(url)
       .then(() => {
-        console.log('URL copied to clipboard');
+        //TODO Handle success toast message
+        console.log('URL copied to clipboard: 📋', url);
       })
-      .catch((err) => {
-        console.error('Failed to copy URL: ', err);
+      .catch((error) => {
+        //TODO Handle error toast message
+        console.error('Failed to copy URL to clipboard: ❌', error);
       });
   };
 
+  console.log({ copiedText, hasCopied });
+
   return (
-    <CustomTooltip label="Copy URL link" placement="right" hasArrow>
-      <span className={'md-copy-link-btn'}>
-        <IconButton aria-label="Copy URL link" size={size} onClick={handleCopy}>
-          <LinkIcon />
-        </IconButton>
-      </span>
-    </CustomTooltip>
+    <>
+      <CustomTooltip label="Copy URL link" placement="right" hasArrow>
+        <span className={'md-copy-link-btn'}>
+          <IconButton
+            aria-label="Copy URL link"
+            size={size}
+            onClick={handleCopyUrl}
+          >
+            <LinkIcon />
+          </IconButton>
+        </span>
+      </CustomTooltip>
+    </>
   );
 };
 
