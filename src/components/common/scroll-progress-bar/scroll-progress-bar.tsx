@@ -1,9 +1,15 @@
 'use client';
 
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useSpring,
+  useTransform,
+} from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
-import { useEffect, useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import invariant from 'tiny-invariant';
 
 import { HEADER_HEIGHT } from '@/configs/constants';
@@ -21,7 +27,7 @@ function ScrollProgressBar() {
 
   const { resolvedTheme } = useTheme();
 
-  const { scrollYProgress } = useScroll();
+  const { scrollY, scrollYProgress } = useScroll();
 
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 80,
@@ -35,8 +41,15 @@ function ScrollProgressBar() {
     themeWithOutputRanges[resolvedTheme ?? themes.LIGHT],
   );
 
-  const isScrollable = useBoolean(false);
   const hasHeader = useBoolean(false);
+  const isScrollable = useBoolean(false);
+
+  useMotionValueEvent(scrollY, 'change', () => {
+    const header = document.getElementById('app-header');
+    invariant(header, 'Header is not found');
+
+    hasHeader.setValue(header.dataset.hidden === 'false');
+  });
 
   useLayoutEffect(() => {
     const handleResize = () => {
@@ -55,21 +68,6 @@ function ScrollProgressBar() {
       resizeObserver.disconnect();
     };
   }, [isScrollable]);
-
-  useEffect(() => {
-    const handleHeaderHidden = () => {
-      const header = document.querySelector('header');
-      invariant(header, 'Header is not found');
-
-      hasHeader.setValue(header.dataset.hidden === 'false');
-    };
-
-    window.addEventListener('scroll', handleHeaderHidden);
-
-    return () => {
-      window.removeEventListener('scroll', handleHeaderHidden);
-    };
-  }, [hasHeader]);
 
   if (!isScrollable.value) return null;
 

@@ -49,6 +49,7 @@ function NavigationBar({ starCount }: NavigationBarProps) {
   return (
     <motion.header
       ref={headerRef}
+      id="app-header"
       variants={{
         visible: { y: 0 },
         hidden: { y: '-100%' },
