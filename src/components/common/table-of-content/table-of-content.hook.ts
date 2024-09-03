@@ -8,7 +8,8 @@ function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
 
   const handleScroll = useCallback(() => {
     const scrollHeight = getDocumentHeight() - window.innerHeight;
-    const isBottomDocument = window.scrollY >= scrollHeight;
+    //* +1 to make sure the bottom of the document is reached
+    const isBottomDocument = window.scrollY + 1 >= scrollHeight;
     const lastIndex = itemIds.length - 1;
 
     //* Make sure always active the last element when scrolling to the bottom

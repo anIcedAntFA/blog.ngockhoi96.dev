@@ -89,10 +89,8 @@
     }
   }
 
-  &:hover {
-    .nav-icon {
-      scale: 1;
-    }
+  &:hover .nav-icon {
+    scale: 1;
   }
 }
 

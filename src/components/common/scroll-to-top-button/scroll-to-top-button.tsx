@@ -10,7 +10,7 @@ import useBoolean from '@/hooks/use-boolean';
 
 import CustomTooltip from '../custom-tooltip';
 
-import { TOP_POSITION } from './scroll-to-top-button.config';
+import { motionVariant, TOP_POSITION } from './scroll-to-top-button.config';
 import { scrollToTop } from './scroll-to-top-button.helper';
 import styles from './scroll-to-top-button.module.css';
 import type { ScrollToTopButtonProps } from './scroll-to-top-button.type';
@@ -54,9 +54,10 @@ function ScrollToTopButton({
             aria-label={t('ariaLabel')}
             tabIndex={0}
             className={styles.root}
-            initial={{ opacity: 0, scale: 0.5, visibility: 'hidden' }}
-            animate={{ opacity: 1, scale: 1, visibility: 'visible' }}
-            exit={{ opacity: 0, scale: 0.5 }}
+            variants={motionVariant}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             transition={{ ease: 'easeInOut' }}
             onClick={handleScrollToTop}
             {...buttonProps}

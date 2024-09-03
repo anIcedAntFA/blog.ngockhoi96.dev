@@ -1,15 +1,18 @@
 .root {
+  --spacing: 32px;
   position: sticky;
   left: 100%;
 
-  bottom: 32px; /* Effected when btn is scrolled in viewport without footer */
+  /* Effected when btn is scrolled in viewport without footer */
+  bottom: var(--spacing);
   overflow: hidden;
   z-index: var(--z-index-8);
 
   @mixin flex-center;
 
-  margin-bottom: 32px; /* Effected when btn is scrolled down and footer appear in viewport */
-  margin-right: 32px;
+  /* Effected when btn is scrolled down and footer appear in viewport */
+  margin-bottom: var(--spacing);
+  margin-right: var(--spacing);
   width: 48px;
   height: 48px;
   border: 2px solid var(--clr-primary);
@@ -26,7 +29,7 @@
 
     .icon {
       color: var(--clr-bg-1);
-      animation: go-to-top 0.8s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+      animation: go-to-top-icon 0.8s cubic-bezier(0.57, 0.21, 0.69, 1.25);
     }
   }
 }
@@ -40,7 +43,7 @@
   color: var(--clr-primary);
 }
 
-@keyframes go-to-top {
+@keyframes go-to-top-icon {
   0% {
     transform: translateY(0);
     opacity: 1;
