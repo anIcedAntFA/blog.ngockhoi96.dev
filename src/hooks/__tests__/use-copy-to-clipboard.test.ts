@@ -23,16 +23,6 @@ describe('useCopyToClipboard', () => {
     vi.clearAllTimers();
   });
 
-  it.each(timeoutValues)(
-    'should call setTimeout with proper value %d',
-    (timeout) => {
-      const { result } = renderHook(() => useCopyToClipboard(timeout));
-
-      expect(result.current.copiedText).toBe(null);
-      expect(result.current.hasCopied).toBe(false);
-    },
-  );
-
   it('should copy text to clipboard correctly', async () => {
     const { result } = renderHook(() => useCopyToClipboard());
 
@@ -56,6 +46,16 @@ describe('useCopyToClipboard', () => {
     expect(result.current.copiedText).toBe(newText);
     expect(result.current.hasCopied).toBe(true);
   });
+
+  it.each(timeoutValues)(
+    'should call setTimeout with proper value %d',
+    (timeout) => {
+      const { result } = renderHook(() => useCopyToClipboard(timeout));
+
+      expect(result.current.copiedText).toBe(null);
+      expect(result.current.hasCopied).toBe(false);
+    },
+  );
 
   it('should reset hasCopied after timeout', async () => {
     const { result } = renderHook(() => useCopyToClipboard());
