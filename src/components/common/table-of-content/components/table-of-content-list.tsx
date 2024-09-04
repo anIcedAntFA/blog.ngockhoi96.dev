@@ -1,16 +1,15 @@
 import { motion } from 'framer-motion';
 
+import Link from '@/components/common/link';
 import { equal } from '@/utils/equal';
 
-import Link from '../link';
-
-import { MAX_DEPTH } from './table-of-content.config';
+import { MAX_DEPTH } from '../table-of-content.config';
 import {
   getMotionAnimateBgIndicator,
   getIdFromUrl,
-} from './table-of-content.helper';
-import styles from './table-of-content.module.css';
-import type { TableOfContentListProps } from './table-of-content.type';
+} from '../table-of-content.helper';
+import styles from '../table-of-content.module.css';
+import type { TableOfContentListProps } from '../table-of-content.type';
 
 function TableOfContentList({
   data,

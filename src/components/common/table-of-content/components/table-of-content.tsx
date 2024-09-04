@@ -3,22 +3,27 @@
 import { motion } from 'framer-motion';
 import { useId } from 'react';
 
-import TableOfContentList from './table-of-content-list';
-import { ITEM_HEIGHT, MAX_DEPTH } from './table-of-content.config';
+import {
+  DEFAULT_OFFSET_TOP,
+  ITEM_HEIGHT,
+  MAX_DEPTH,
+} from '../table-of-content.config';
 import {
   getItemIds,
   getMotionAnimateMarker,
   getPassedIds,
-} from './table-of-content.helper';
-import useActiveItemId from './table-of-content.hook';
-import styles from './table-of-content.module.css';
-import type { TableOfContentProps } from './table-of-content.type';
+} from '../table-of-content.helper';
+import useActiveItemId from '../table-of-content.hook';
+import styles from '../table-of-content.module.css';
+import type { TableOfContentProps } from '../table-of-content.type';
+
+import TableOfContentList from './table-of-content-list';
 
 function TableOfContent({ title, toc, id }: TableOfContentProps) {
   const internalId = useId();
 
   const itemIds = getItemIds(toc, MAX_DEPTH);
-  const activeId = useActiveItemId(itemIds);
+  const activeId = useActiveItemId(itemIds, DEFAULT_OFFSET_TOP);
   const passedIds = getPassedIds(itemIds, activeId);
 
   return (
