@@ -20,7 +20,7 @@ const getUrlFromId = (id?: string) => {
 };
 
 const MdxCopyLinkButton = ({ size, headingId }: MdxCopyLinkButtonProps) => {
-  const { copyText, hasCopied, copiedText } = useCopyToClipboard();
+  const { copyText } = useCopyToClipboard();
 
   const handleCopyUrl = () => {
     const url = getUrlFromId(headingId);
@@ -35,8 +35,6 @@ const MdxCopyLinkButton = ({ size, headingId }: MdxCopyLinkButtonProps) => {
         console.error('Failed to copy URL to clipboard: ❌', error);
       });
   };
-
-  console.log({ copiedText, hasCopied });
 
   return (
     <>

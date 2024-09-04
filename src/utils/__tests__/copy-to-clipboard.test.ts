@@ -1,6 +1,4 @@
-import { it, expect, describe, vi, beforeEach } from 'vitest';
-
-import { afterEach } from 'node:test';
+import { it, expect, describe, vi, beforeEach, afterEach } from 'vitest';
 
 import { copyToClipboard } from '../copy-to-clipboard';
 
@@ -19,7 +17,6 @@ describe('copyToClipboard', () => {
   });
 
   afterEach(() => {
-    vi.clearAllMocks();
     Object.defineProperty(window, 'navigator', {
       value: originalNavigator,
     });
