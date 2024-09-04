@@ -6,28 +6,28 @@ import MdxCopyLinkBtn from './mdx-copy-link-button';
 
 export const htmlComponents = {
   a: Link,
-  h1: ({ children, ...headingProps }: ComponentProps<'h1'>) => (
-    <h1 {...headingProps}>
+  h1: ({ id, children, ...headingProps }: ComponentProps<'h1'>) => (
+    <h1 id={id} {...headingProps}>
       {children}
-      <MdxCopyLinkBtn size="large" />
+      <MdxCopyLinkBtn size="large" headingId={id} />
     </h1>
   ),
-  h2: ({ children, ...headingProps }: ComponentProps<'h2'>) => (
-    <h2 {...headingProps}>
+  h2: ({ id, children, ...headingProps }: ComponentProps<'h2'>) => (
+    <h2 id={id} {...headingProps}>
       {children}
-      <MdxCopyLinkBtn size="large" />
+      <MdxCopyLinkBtn size="large" headingId={id} />
     </h2>
   ),
-  h3: ({ children, ...headingProps }: ComponentProps<'h3'>) => (
-    <h3 {...headingProps}>
+  h3: ({ id, children, ...headingProps }: ComponentProps<'h3'>) => (
+    <h3 id={id} {...headingProps}>
       {children}
-      <MdxCopyLinkBtn size="medium" />
+      <MdxCopyLinkBtn size="medium" headingId={id} />
     </h3>
   ),
-  h4: ({ children, ...headingProps }: ComponentProps<'h4'>) => (
-    <h4 {...headingProps}>
+  h4: ({ id, children, ...headingProps }: ComponentProps<'h4'>) => (
+    <h4 id={id} {...headingProps}>
       {children}
-      <MdxCopyLinkBtn size="small" />
+      <MdxCopyLinkBtn size="small" headingId={id} />
     </h4>
   ),
 };
