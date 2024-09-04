@@ -1,1 +1,1 @@
-export { default } from './table-of-content';
+export { default } from './components/table-of-content';
