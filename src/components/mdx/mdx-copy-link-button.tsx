@@ -1,5 +1,7 @@
 'use client';
 
+import { toast } from 'sonner';
+
 import useCopyToClipboard from '@/hooks/use-copy-to-clipboard';
 import type { Size } from '@/types/constants';
 
@@ -20,20 +22,20 @@ const getUrlFromId = (id?: string) => {
 };
 
 const MdxCopyLinkButton = ({ size, headingId }: MdxCopyLinkButtonProps) => {
-  const { copyText } = useCopyToClipboard();
+  const { copyText, hasCopied } = useCopyToClipboard();
 
   const handleCopyUrl = () => {
+    if (hasCopied) return;
+
     const url = getUrlFromId(headingId);
 
     copyText(url)
       .then(() => {
-        //TODO Handle success toast message
-        console.log('URL copied to clipboard: 📋', url);
+        toast.success('URL copied to clipboard', {
+          icon: <LinkIcon />,
+        });
       })
-      .catch((error) => {
-        //TODO Handle error toast message
-        console.error('Failed to copy URL to clipboard: ❌', error);
-      });
+      .catch((error) => toast.error(error.message));
   };
 
   return (

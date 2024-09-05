@@ -35,7 +35,22 @@ html[data-theme='light'] {
   --clr-burnt-sienna-700: #c54119;
   --clr-base: var(--clr-gray-500);
   --clr-primary: var(--clr-emerald-600);
-  --clr-info: #0476d0;
+  --clr-info-text: #2563eb;
+  --clr-info-close-btn: #60a5fa;
+  --clr-info-border: #bfdbfe;
+  --clr-info-bg: #dbeafe;
+  --clr-success-text: #16a34a;
+  --clr-success-close-btn: #4ade80;
+  --clr-success-border: #bbf7d0;
+  --clr-success-bg: #dcfce7;
+  --clr-warning-text: #ea580c;
+  --clr-warning-close-btn: #fb923c;
+  --clr-warning-border: #fecdd3;
+  --clr-warning-bg: #fed7aa;
+  --clr-error-text: #e11d48;
+  --clr-error-close-btn: #fb7185;
+  --clr-error-border: #fecdd3;
+  --clr-error-bg: #ffe4e6;
   --clr-text-0: var(--clr-obsidian);
   --clr-text-1: var(--clr-obsidian);
   --clr-text-2: var(--clr-snow);
@@ -47,11 +62,3 @@ html[data-theme='light'] {
   --clr-bg-kbd: var(--clr-gray-100);
   --clr-caption: var(--clr-gray-600);
 }
-
-/* success: limegreen */
-
-/* error: scarlet */
-
-/* info: blue grotto */
-
-/* warning: burnt sienna */

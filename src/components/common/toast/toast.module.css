@@ -1,0 +1,86 @@
+.root {
+  border: 1px solid;
+  border-radius: var(--br-medium);
+  padding: 16px;
+
+  font-weight: var(--fw-medium);
+}
+
+.info {
+  border-color: var(--clr-info-border);
+  background-color: var(--clr-info-bg);
+  color: var(--clr-info-text);
+}
+
+.success {
+  border-color: var(--clr-success-border);
+  background-color: var(--clr-success-bg);
+  color: var(--clr-success-text);
+}
+
+.warning {
+  border-color: var(--clr-warning-border);
+  background-color: var(--clr-warning-bg);
+  color: var(--clr-warning-text);
+}
+
+.error {
+  border-color: var(--clr-error-border);
+  background-color: var(--clr-error-bg);
+  color: var(--clr-error-text);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.close-btn {
+  top: 50%;
+  left: calc(100% - 32px - 16px);
+
+  width: 32px;
+  height: 32px;
+  padding: 5px;
+
+  transform: translate(0%, -50%);
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+
+  .info & {
+    color: var(--clr-info-close-btn);
+  }
+
+  .success & {
+    color: var(--clr-success-close-btn);
+  }
+
+  .warning & {
+    color: var(--clr-warning-close-btn);
+  }
+
+  .error & {
+    color: var(--clr-error-close-btn);
+  }
+
+  &[data-close-button]:hover {
+    background-color: rgb(0 0 0 / 5%);
+  }
+
+  .info &[data-close-button]:hover {
+    color: var(--clr-info-text);
+  }
+
+  .success &[data-close-button]:hover {
+    color: var(--clr-success-text);
+  }
+
+  .warning &[data-close-button]:hover {
+    color: var(--clr-warning-text);
+  }
+
+  .error &[data-close-button]:hover {
+    color: var(--clr-error-text);
+  }
+}

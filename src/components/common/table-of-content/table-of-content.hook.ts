@@ -11,8 +11,7 @@ function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
     const viewportHeight = window.innerHeight;
     const scrollPosition = window.scrollY;
     const scrollHeight = getDocumentHeight() - viewportHeight;
-    //* +1 to make sure the bottom of the document is reached
-    const isBottomDocument = scrollPosition + 1 >= scrollHeight;
+    const isBottomDocument = scrollPosition >= scrollHeight;
     //* Make sure always active the last element when scrolling to the bottom
     if (isBottomDocument) {
       setActiveId(itemIds[itemIds.length - 1]);
