@@ -12,14 +12,14 @@ import type { Theme } from '@/types/themes';
 
 import styles from './toast.module.css';
 
-function Toaster(props: ToasterProps) {
+function Toaster(toasterProps: ToasterProps) {
   const { resolvedTheme } = useTheme();
 
   return (
     <RootToaster
       position="bottom-right"
       gap={16}
-      duration={2000}
+      duration={4000}
       visibleToasts={8}
       theme={resolvedTheme as Theme}
       closeButton
@@ -31,6 +31,7 @@ function Toaster(props: ToasterProps) {
           warning: styles.warning,
           error: styles.error,
           icon: styles.icon,
+          title: styles.title,
           closeButton: styles['close-btn'],
         },
       }}
@@ -40,7 +41,7 @@ function Toaster(props: ToasterProps) {
         warning: <WarningIcon />,
         error: <DangerIcon />,
       }}
-      {...props}
+      {...toasterProps}
     />
   );
 }

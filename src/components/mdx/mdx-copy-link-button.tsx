@@ -31,7 +31,7 @@ const MdxCopyLinkButton = ({ size, headingId }: MdxCopyLinkButtonProps) => {
 
     copyText(url)
       .then(() => {
-        toast.success('URL copied to clipboard', {
+        toast.success('Copied link to clipboard', {
           icon: <LinkIcon />,
         });
       })

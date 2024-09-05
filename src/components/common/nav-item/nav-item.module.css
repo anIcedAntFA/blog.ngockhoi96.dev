@@ -1,3 +1,11 @@
+html[data-theme='light'] .wrapper {
+  --clr-info: #2563eb;
+}
+
+html[data-theme='dark'] .wrapper {
+  --clr-info: #3b82f6;
+}
+
 .wrapper {
   --size-nav-icon: 16px;
   --spacing-wrapper: 4px;
