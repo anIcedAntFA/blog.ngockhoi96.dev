@@ -8,6 +8,9 @@ import type { PropsWithChildren } from 'react';
 
 import Container from '@/components/common/container';
 import ScrollToTopButton from '@/components/common/scroll-to-top-button';
+import CustomToaster, {
+  mapLangDirToToasterDir,
+} from '@/components/common/toast';
 import Footer from '@/components/containers/footer';
 import NavigationBar from '@/components/containers/navigation-bar';
 import { jetBrainMono, lora, openSans } from '@/configs/fonts';
@@ -110,6 +113,7 @@ async function LocaleLayout({ children }: PropsWithChildren) {
             <Container>{children}</Container>
             <ScrollToTopButton />
             <Footer />
+            <CustomToaster dir={mapLangDirToToasterDir(langDir)} />
           </ThemeProvider>
         </LocaleProvider>
       </body>
