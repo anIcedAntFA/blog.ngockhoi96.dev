@@ -1,19 +1,17 @@
-import type { ComponentProps, ElementType } from 'react';
+import { type ComponentProps, type ElementType } from 'react';
 
 import Link from '@/components/common/link';
 import VisuallyHidden from '@/components/common/visually-hidden';
 import HashIcon from '@/components/icons/hash-icon';
+import type { Size } from '@/types/constants';
 
+import MdxCopyLinkButton from './mdx-copy-link-button';
 import styles from './mdx.module.css';
 
-type HeadingElement = Extract<
-  ElementType,
-  'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
->;
+type HeadingElement = Extract<ElementType, 'h1' | 'h2' | 'h3' | 'h4'>;
 
 type MdxHeadingProps = ComponentProps<'h2'> & {
   as: HeadingElement;
-  headingId?: string;
 };
 
 const getStringFromId = (id?: string) => {
@@ -22,10 +20,18 @@ const getStringFromId = (id?: string) => {
 };
 
 function MdxHeading({ as, children, ...headingProps }: MdxHeadingProps) {
+  const { id } = headingProps;
+
   const Element = as || 'h2';
 
-  const { id } = headingProps;
   const idString = getStringFromId(id);
+
+  const headingWithSizes: Record<HeadingElement, Size> = {
+    h1: 'large',
+    h2: 'large',
+    h3: 'medium',
+    h4: 'medium',
+  };
 
   return (
     <Element className={styles.heading} data-heading={as} {...headingProps}>
@@ -41,6 +47,7 @@ function MdxHeading({ as, children, ...headingProps }: MdxHeadingProps) {
         </span>
       </Link>
       {children}
+      <MdxCopyLinkButton size={headingWithSizes[as]} headingId={id} />
     </Element>
   );
 }

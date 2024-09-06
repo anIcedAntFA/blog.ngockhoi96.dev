@@ -2,36 +2,29 @@ import { type ComponentProps } from 'react';
 
 import NavItem from '../common/nav-item';
 
-import MdxCopyLinkButton from './mdx-copy-link-button';
 import MdxHeading from './mdx-heading';
 import styles from './mdx.module.css';
 
 //* A list of wired HTML elements into custom React Components
 export const htmlComponents = {
   h1: ({ children, ...props }: ComponentProps<'h1'>) => (
-    <MdxHeading as="h1" id={props.id} {...props}>
+    <MdxHeading as="h1" {...props}>
       {children}
-      <MdxCopyLinkButton size="large" headingId={props.id} />
     </MdxHeading>
   ),
-  h2: ({ children, ...props }: ComponentProps<'h2'>) => {
-    return (
-      <MdxHeading as="h2" {...props}>
-        {children}
-        <MdxCopyLinkButton size="large" headingId={props.id} />
-      </MdxHeading>
-    );
-  },
-  h3: ({ children, ...props }: ComponentProps<'h3'>) => (
-    <MdxHeading as="h3" id={props.id} {...props}>
+  h2: ({ children, ...props }: ComponentProps<'h2'>) => (
+    <MdxHeading as="h2" {...props}>
       {children}
-      <MdxCopyLinkButton size="medium" headingId={props.id} />
+    </MdxHeading>
+  ),
+  h3: ({ children, ...props }: ComponentProps<'h3'>) => (
+    <MdxHeading as="h3" {...props}>
+      {children}
     </MdxHeading>
   ),
   h4: ({ children, ...props }: ComponentProps<'h4'>) => (
-    <MdxHeading as="h4" id={props.id} {...props}>
+    <MdxHeading as="h4" {...props}>
       {children}
-      <MdxCopyLinkButton size="small" headingId={props.id} />
     </MdxHeading>
   ),
   p: (props: ComponentProps<'p'>) => (

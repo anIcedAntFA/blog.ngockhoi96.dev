@@ -100,6 +100,10 @@
   &:hover {
     color: var(--clr-emerald-700);
   }
+
+  html[data-theme='dark'] &:hover {
+    color: var(--clr-emerald-500);
+  }
 }
 
 .code {
@@ -137,13 +141,17 @@
   font-style: italic;
 }
 
-.ul {
+.ul,
+.ol {
   margin-block: 16px;
   padding-inline: 32px;
 
-  list-style: disc;
   font-size: var(--fs-xnormal);
   line-height: 30px;
+}
+
+.ul {
+  list-style: disc;
 
   & .ul {
     list-style: circle;
@@ -151,12 +159,7 @@
 }
 
 .ol {
-  margin-block: 16px;
-  padding-inline: 32px;
-
   list-style: decimal;
-  font-size: var(--fs-xnormal);
-  line-height: 30px;
 
   & .ol {
     list-style: lower-alpha;
