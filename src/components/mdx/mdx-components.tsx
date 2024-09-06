@@ -1,33 +1,64 @@
 import { type ComponentProps } from 'react';
 
-import Link from '../common/link';
+import NavItem from '../common/nav-item';
 
-import MdxCopyLinkBtn from './mdx-copy-link-button';
+import MdxCopyLinkButton from './mdx-copy-link-button';
+import MdxHeading from './mdx-heading';
+import styles from './mdx.module.css';
 
+//* A list of wired HTML elements into custom React Components
 export const htmlComponents = {
-  a: Link,
-  h1: ({ id, children, ...headingProps }: ComponentProps<'h1'>) => (
-    <h1 id={id} {...headingProps}>
+  h1: ({ children, ...props }: ComponentProps<'h1'>) => (
+    <MdxHeading as="h1" id={props.id} {...props}>
       {children}
-      <MdxCopyLinkBtn size="large" headingId={id} />
-    </h1>
+      <MdxCopyLinkButton size="large" headingId={props.id} />
+    </MdxHeading>
   ),
-  h2: ({ id, children, ...headingProps }: ComponentProps<'h2'>) => (
-    <h2 id={id} {...headingProps}>
+  h2: ({ children, ...props }: ComponentProps<'h2'>) => {
+    return (
+      <MdxHeading as="h2" {...props}>
+        {children}
+        <MdxCopyLinkButton size="large" headingId={props.id} />
+      </MdxHeading>
+    );
+  },
+  h3: ({ children, ...props }: ComponentProps<'h3'>) => (
+    <MdxHeading as="h3" id={props.id} {...props}>
       {children}
-      <MdxCopyLinkBtn size="large" headingId={id} />
-    </h2>
+      <MdxCopyLinkButton size="medium" headingId={props.id} />
+    </MdxHeading>
   ),
-  h3: ({ id, children, ...headingProps }: ComponentProps<'h3'>) => (
-    <h3 id={id} {...headingProps}>
+  h4: ({ children, ...props }: ComponentProps<'h4'>) => (
+    <MdxHeading as="h4" id={props.id} {...props}>
       {children}
-      <MdxCopyLinkBtn size="medium" headingId={id} />
-    </h3>
+      <MdxCopyLinkButton size="small" headingId={props.id} />
+    </MdxHeading>
   ),
-  h4: ({ id, children, ...headingProps }: ComponentProps<'h4'>) => (
-    <h4 id={id} {...headingProps}>
-      {children}
-      <MdxCopyLinkBtn size="small" headingId={id} />
-    </h4>
+  p: (props: ComponentProps<'p'>) => (
+    <p className={styles.paragraph} {...props} />
   ),
+  a: (props: ComponentProps<'a'>) => (
+    <a className={styles.link} {...props}>
+      {props.children}
+    </a>
+  ),
+  code: (props: ComponentProps<'code'>) => (
+    <code className={styles.code} {...props} />
+  ),
+  blockquote: (props: ComponentProps<'blockquote'>) => (
+    <blockquote className={styles.blockquote} {...props} />
+  ),
+  strong: (props: ComponentProps<'strong'>) => (
+    <strong className={styles.strong} {...props} />
+  ),
+  em: (props: ComponentProps<'em'>) => <em className={styles.em} {...props} />,
+  ul: (props: ComponentProps<'ul'>) => <ul className={styles.ul} {...props} />,
+  ol: (props: ComponentProps<'ol'>) => <ol className={styles.ol} {...props} />,
+  hr: (props: ComponentProps<'hr'>) => <hr className={styles.hr} {...props} />,
+  br: (props: ComponentProps<'br'>) => <br className={styles.br} {...props} />,
+};
+
+//* A list of React Components that we want to pass through to MDX
+export const mdxComponents = {
+  NavItem,
 };

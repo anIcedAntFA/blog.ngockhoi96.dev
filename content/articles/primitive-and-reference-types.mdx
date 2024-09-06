@@ -1,0 +1,80 @@
+---
+title: Primitive and Reference Types
+description: This is a test post
+slug: primitive-and-reference-types
+date: 2024-09-06 10:00
+cover: /images/posts/cover.jpg
+video: /videos/posts/video.mp4
+authors:
+  - ngockhoi96
+---
+
+## Primitive types
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
+ontrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+### What is a primitive type?
+
+#### Definition
+
+##### Primitive types
+
+Trong JavaScript, các kiểu dữ liệu nguyên thủy (_primitive types_) bao gồm: `string`, `number`,
+`bigint`, `boolean`, `symbol`, `null` và `undefined`. Đây là những kiểu dữ liệu mà giá trị của chúng
+chỉ chứa một giá trị đơn giản và không phải là một đối tượng.
+
+**Cú pháp sử dụng**: không cần cú pháp đặc biệt, chỉ cần gán giá trị cho biến.
+
+### How Primitive types are stored
+
+Các giá trị nguyên thủy được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến, không giống như _reference types_
+(chỉ lưu địa chỉ tham chiếu đến nơi chứa dữ liệu thực tế).
+
+Ví dụ: Khi khai báo một biến kiểu nguyên thủy.
+
+Giá trị `"Bob"` và `25` được lưu trực tiếp tại vị trí bộ nhớ của biến `userName` và `userAge`.
+
+### Advantages of using Primitive types
+
+- **Hiệu suất cao hơn**: Vì giá trị được lưu trực tiếp trong vị trí bộ nhớ của biến, việc truy cập và xử lý dữ liệu nhanh chóng.
+- **So sánh giá trị dễ dàng**: Khi so sánh 2 giá trị nguyên thủy, JavaScript sẽ so sánh giá trị thực tế của chúng, đảm bảo tính chính xác.
+
+Ví dụ: Dễ dàng so sánh 2 giá trị nguyên thủy.
+
+---
+
+## Reference types
+
+- Các kiểu dữ liệu nguyên thủy trong JavaScript: Bao gồm string, number, bigint, boolean, symbol, null, và undefined. Các giá trị này được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến và là bất biến.
+
+  - Ưu điểm khi sử dụng: Hiệu suất cao hơn và so sánh giá trị dễ dàng.
+
+- Kiểu tham chiếu trong JavaScript: Bao gồm object, array, function, và các đối tượng khác. Kiểu tham chiếu lưu trữ địa chỉ tham chiếu của giá trị trong Stack, giá trị thực tế được lưu trong Heap.
+  - Tại sao cần sử dụng: Cho phép lưu trữ và quản lý cấu trúc dữ liệu phức tạp, thao tác linh hoạt thông qua các phương thức và thuộc tính.
+
+> _Nếu vô tình để xảy ra lặp vô hạn dẫn tới treo chương trình, với trình duyệt<br />
+> bạn chỉ cần tắt Tab bị treo, sửa lại code và mở lại trên trình duyệt._
+
+Các lý do vì sao nên học lập trình hướng đối tượng OOP:
+
+1. Tiêu chuẩn trong ngành phát triển phần mềm: OOP được phát triển và hỗ trợ từ đại đa số các ngôn ngữ lập trình, thư viện và framework phổ biến.
+2. Tiêu chí đầu vào bắt buộc ở các công ty phần mềm: OOP thường xuất hiện trong những yêu cầu bắt buộc trong các JD tuyển dụng developer/engineer.
+   1. Các nguyên lý cơ bản của OOP: Encapsulation, Inheritance, Polymorphism, Abstraction.
+   2. Các nguyên tắc cơ bản của OOP: SOLID, DRY, KISS, YAGNI.
+3. Tổ chức và thiết kế phần mềm: Các tính chất và nguyên lý của OOP thường được sử dụng trong việc thiết kế phần mềm, giảm thiểu các khai bắt trùng lặp, tăng khả năng tái sử dụng, cũng như đơn giản hoá cấu trúc phần mềm.
+4. Design Patterns và Design System: Các Design Patterns/System phần lớn dựa trên các nguyên lý lập trình OOP.
+
+<NavItem variant="bg" color="info" href="/articles/hello-world">
+  qwerty
+</NavItem>
+
+> Follow this guide for customising Chakra Icons
+> [Using Chakra UI Icons](/articles/hello-world).
+
+<NavItem color="info" href="/articles/hello-world">
+  qwerty
+</NavItem>

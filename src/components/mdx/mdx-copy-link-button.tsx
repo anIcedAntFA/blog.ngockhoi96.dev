@@ -2,12 +2,13 @@
 
 import { toast } from 'sonner';
 
+import CustomTooltip from '@/components/common/custom-tooltip';
+import IconButton from '@/components/common/icon-button';
+import LinkIcon from '@/components/icons/link-icon';
 import useCopyToClipboard from '@/hooks/use-copy-to-clipboard';
 import type { Size } from '@/types/constants';
 
-import CustomTooltip from '../common/custom-tooltip';
-import IconButton from '../common/icon-button';
-import LinkIcon from '../icons/link-icon';
+import styles from './mdx.module.css';
 
 type MdxCopyLinkButtonProps = {
   size: Size;
@@ -39,19 +40,17 @@ const MdxCopyLinkButton = ({ size, headingId }: MdxCopyLinkButtonProps) => {
   };
 
   return (
-    <>
-      <CustomTooltip label="Copy URL link" placement="right" hasArrow>
-        <span className={'md-copy-link-btn'}>
-          <IconButton
-            aria-label="Copy URL link"
-            size={size}
-            onClick={handleCopyUrl}
-          >
-            <LinkIcon />
-          </IconButton>
-        </span>
-      </CustomTooltip>
-    </>
+    <CustomTooltip label="Copy URL link" placement="right" hasArrow>
+      <span className={styles['copy-link-btn']}>
+        <IconButton
+          aria-label="Copy URL link"
+          size={size}
+          onClick={handleCopyUrl}
+        >
+          <LinkIcon />
+        </IconButton>
+      </span>
+    </CustomTooltip>
   );
 };
 

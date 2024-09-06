@@ -1,6 +1,7 @@
 :root {
   /* box-model */
   --br-small: 2px;
+  --br-xsmall: 3px;
   --br-normal: 4px;
   --br-medium: 6px;
   --br-large: 8px;
@@ -17,7 +18,7 @@
   --fs-xsmall: 12px;
   --fs-small: 14px;
   --fs-normal: 16px;
-  --fx-xnormal: 18px;
+  --fs-xnormal: 18px;
   --fs-medium: 20px;
   --fs-large: 24px;
   --fs-xl: 28px;

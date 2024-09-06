@@ -81,3 +81,70 @@
 
   transition: opacity 0.2s ease-in-out;
 }
+
+.md-paragraph {
+  margin-block: 16px;
+
+  font-size: var(--fs-xnormal);
+  line-height: 30px;
+}
+
+.md-code {
+  border-radius: var(--br-xsmall);
+  padding: 1px 3px;
+
+  font-family: var(--font-jet-brain-mono);
+  white-space: pre-wrap;
+  word-break: keep-all;
+
+  background-color: var(--clr-code-bg);
+}
+
+.md-blockquote {
+  border-left: 4px solid var(--clr-primary);
+  padding-left: 16px;
+
+  background-color: var(--clr-emerald-100);
+}
+
+.md-strong {
+  font-weight: var(--fw-semibold);
+}
+
+.md-em {
+  font-style: italic;
+}
+
+.md-ul {
+  margin-block: 16px;
+  padding-inline: 32px;
+
+  list-style: disc;
+  font-size: var(--fs-xnormal);
+  line-height: 30px;
+
+  & .md-ul {
+    list-style: circle;
+  }
+}
+
+.md-ol {
+  margin-block: 16px;
+  padding-inline: 32px;
+
+  list-style: decimal;
+  font-size: var(--fs-xnormal);
+  line-height: 30px;
+
+  & .md-ol {
+    list-style: lower-alpha;
+  }
+}
+
+.md-hr {
+  margin-block: 40px;
+  border: none;
+  height: 1px;
+
+  background-color: var(--clr-base);
+}

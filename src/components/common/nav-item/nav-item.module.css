@@ -12,7 +12,7 @@ html[data-theme='dark'] .wrapper {
 
   position: relative;
 
-  display: flex;
+  display: inline-flex;
   gap: var(--spacing-wrapper);
 
   border-radius: var(--br-normal);
@@ -39,6 +39,11 @@ html[data-theme='dark'] .wrapper {
     }
 
     &:hover::before {
+      width: 100%;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &[target='_blank']:hover::before {
       width: calc(100% - var(--size-nav-icon) - var(--spacing-wrapper));
       transition: width 0.3s ease-in-out;
     }

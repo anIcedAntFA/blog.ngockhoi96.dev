@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { articles as allPosts } from '#site/content';
 import ScrollProgressBar from '@/components/common/scroll-progress-bar';
 import TableOfContent from '@/components/common/table-of-content';
-import MDXContent from '@/components/mdx/mdx-content';
+import MDXContent from '@/components/mdx';
 
 import styles from './page.module.css';
 
