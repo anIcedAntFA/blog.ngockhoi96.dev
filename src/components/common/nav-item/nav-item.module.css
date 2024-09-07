@@ -118,6 +118,10 @@ html[data-theme='dark'] .wrapper {
   .wrapper[data-color='info'] & {
     color: var(--clr-info);
   }
+
+  & p {
+    margin-block: 0;
+  }
 }
 
 .icon {

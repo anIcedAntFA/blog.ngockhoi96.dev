@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 
 import CustomTooltip from '@/components/common/custom-tooltip';
@@ -23,6 +24,8 @@ const getUrlFromId = (id?: string) => {
 };
 
 const MdxCopyLinkButton = ({ size, headingId }: MdxCopyLinkButtonProps) => {
+  const t = useTranslations('components.markdown.copyHeadingUrlButton');
+
   const { copyText, hasCopied } = useCopyToClipboard();
 
   const handleCopyUrl = () => {
@@ -32,18 +35,18 @@ const MdxCopyLinkButton = ({ size, headingId }: MdxCopyLinkButtonProps) => {
 
     copyText(url)
       .then(() => {
-        toast.success('Copied link to clipboard', {
+        toast.success(t('toastMessage.success'), {
           icon: <LinkIcon />,
         });
       })
-      .catch((error) => toast.error(error.message));
+      .catch(() => toast.error(t('toastMessage.fail')));
   };
 
   return (
-    <CustomTooltip label="Copy URL link" placement="right" hasArrow>
+    <CustomTooltip label={t('tooltipLabel')} placement="right" hasArrow>
       <span className={styles['copy-link-btn']}>
         <IconButton
-          aria-label="Copy URL link"
+          aria-label={t('ariaLabel')}
           size={size}
           onClick={handleCopyUrl}
         >

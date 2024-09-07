@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { type ComponentProps, type ElementType } from 'react';
 
 import Link from '@/components/common/link';
@@ -20,6 +21,8 @@ const getStringFromId = (id?: string) => {
 };
 
 function MdxHeading({ as, children, ...headingProps }: MdxHeadingProps) {
+  const t = useTranslations('components.markdown.mdxHeading');
+
   const { id } = headingProps;
 
   const Element = as || 'h2';
@@ -37,11 +40,13 @@ function MdxHeading({ as, children, ...headingProps }: MdxHeadingProps) {
     <Element className={styles.heading} data-heading={as} {...headingProps}>
       <Link
         to={`#${id}`}
-        aria-label={`Permalink: ${idString}`}
+        aria-label={`${t('ariaLabel')} ${idString}`}
         aria-hidden
         tabIndex={-1}
       >
-        <VisuallyHidden>{`Read the "${idString}" section`}</VisuallyHidden>
+        <VisuallyHidden>
+          {t('visuallyHidden', { id: `"${idString}"` })}
+        </VisuallyHidden>
         <span className={styles['heading-hash-icon']}>
           <HashIcon />
         </span>
