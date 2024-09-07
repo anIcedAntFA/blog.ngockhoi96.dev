@@ -1,13 +1,15 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 
+import CustomTooltip from '@/components/common/custom-tooltip';
+import IconButton from '@/components/common/icon-button';
+import LinkIcon from '@/components/icons/link-icon';
 import useCopyToClipboard from '@/hooks/use-copy-to-clipboard';
 import type { Size } from '@/types/constants';
 
-import CustomTooltip from '../common/custom-tooltip';
-import IconButton from '../common/icon-button';
-import LinkIcon from '../icons/link-icon';
+import styles from './mdx.module.css';
 
 type MdxCopyLinkButtonProps = {
   size: Size;
@@ -22,6 +24,8 @@ const getUrlFromId = (id?: string) => {
 };
 
 const MdxCopyLinkButton = ({ size, headingId }: MdxCopyLinkButtonProps) => {
+  const t = useTranslations('components.markdown.copyHeadingUrlButton');
+
   const { copyText, hasCopied } = useCopyToClipboard();
 
   const handleCopyUrl = () => {
@@ -31,27 +35,25 @@ const MdxCopyLinkButton = ({ size, headingId }: MdxCopyLinkButtonProps) => {
 
     copyText(url)
       .then(() => {
-        toast.success('Copied link to clipboard', {
+        toast.success(t('toastMessage.success'), {
           icon: <LinkIcon />,
         });
       })
-      .catch((error) => toast.error(error.message));
+      .catch(() => toast.error(t('toastMessage.fail')));
   };
 
   return (
-    <>
-      <CustomTooltip label="Copy URL link" placement="right" hasArrow>
-        <span className={'md-copy-link-btn'}>
-          <IconButton
-            aria-label="Copy URL link"
-            size={size}
-            onClick={handleCopyUrl}
-          >
-            <LinkIcon />
-          </IconButton>
-        </span>
-      </CustomTooltip>
-    </>
+    <CustomTooltip label={t('tooltipLabel')} placement="right" hasArrow>
+      <span className={styles['copy-link-btn']}>
+        <IconButton
+          aria-label={t('ariaLabel')}
+          size={size}
+          onClick={handleCopyUrl}
+        >
+          <LinkIcon />
+        </IconButton>
+      </span>
+    </CustomTooltip>
   );
 };
 

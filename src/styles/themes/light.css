@@ -27,4 +27,5 @@ html[data-theme='light'] {
   --clr-bg-4: var(--clr-ivory);
   --clr-bg-kbd: var(--clr-gray-100);
   --clr-caption: var(--clr-gray-600);
+  --clr-code-bg: var(--clr-emerald-200);
 }

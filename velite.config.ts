@@ -1,8 +1,8 @@
-import { fromHtml } from 'hast-util-from-html';
-import { toString } from 'hast-util-to-string';
-import { h } from 'hastscript';
-import type { Options as RALOptions } from 'rehype-autolink-headings';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+// import { fromHtml } from 'hast-util-from-html';
+// import { toString } from 'hast-util-to-string';
+// import { h } from 'hastscript';
+// import type { Options as RALOptions } from 'rehype-autolink-headings';
+// import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import { defineCollection, defineConfig, s } from 'velite';
 
@@ -41,52 +41,52 @@ const articles = defineCollection({
     .transform((data) => ({ ...data, permalink: `/articles/${data.slug}` })),
 });
 
-const hashIcon = `
-  <span aria-hidden="true" className="md-hash-heading-icon">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="4" x2="20" y1="9" y2="9" />
-      <line x1="4" x2="20" y1="15" y2="15" />
-      <line x1="10" x2="8" y1="3" y2="21" />
-      <line x1="16" x2="14" y1="3" y2="21" />
-    </svg>
-  </span>
-`;
+// const hashIcon = `
+//   <span aria-hidden="true" className="md-hash-heading-icon">
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       width="24"
+//       height="24"
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <line x1="4" x2="20" y1="9" y2="9" />
+//       <line x1="4" x2="20" y1="15" y2="15" />
+//       <line x1="10" x2="8" y1="3" y2="21" />
+//       <line x1="16" x2="14" y1="3" y2="21" />
+//     </svg>
+//   </span>
+// `;
 
-const rehypeAutolinkOptions = {
-  behavior: 'prepend',
-  headingProperties(node) {
-    return {
-      dir: 'auto',
-      className: ['md-heading', `md-heading-${node.tagName[1]}`],
-    };
-  },
-  properties(node) {
-    return {
-      ariaHidden: true,
-      tabIndex: -1,
-      ariaLabel: `Permalink: ${toString(node)}`,
-      className: ['md-heading-anchor'],
-    };
-  },
-  content(node) {
-    return [
-      h('span.visually-hidden', {
-        children: `Read the "${toString(node)}" section`,
-      }),
-      fromHtml(hashIcon, { fragment: true }),
-    ];
-  },
-} as RALOptions;
+// const rehypeAutolinkOptions = {
+//   behavior: 'prepend',
+//   headingProperties(node) {
+//     return {
+//       dir: 'auto',
+//       className: ['md-heading', `md-heading-${node.tagName[1]}`],
+//     };
+//   },
+//   properties(node) {
+//     return {
+//       ariaHidden: true,
+//       tabIndex: -1,
+//       ariaLabel: `Permalink: ${toString(node)}`,
+//       className: ['md-heading-anchor'],
+//     };
+//   },
+//   content(node) {
+//     return [
+//       h('span.visually-hidden', {
+//         children: `Read the "${toString(node)}" section`,
+//       }),
+//       fromHtml(hashIcon, { fragment: true }),
+//     ];
+//   },
+// } as RALOptions;
 
 export default defineConfig({
   root: 'content',
@@ -101,7 +101,7 @@ export default defineConfig({
   mdx: {
     rehypePlugins: [
       rehypeSlug,
-      [rehypeAutolinkHeadings, rehypeAutolinkOptions],
+      // [rehypeAutolinkHeadings, rehypeAutolinkOptions],
     ],
   },
 });

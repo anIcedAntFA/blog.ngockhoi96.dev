@@ -1,6 +1,6 @@
 import * as runtime from 'react/jsx-runtime';
 
-import { htmlComponents } from './mdx-components';
+import { htmlComponents, mdxComponents } from './mdx-components';
 
 const useMdxComponent = (code: string) => {
   const fn = new Function(code);
@@ -9,6 +9,7 @@ const useMdxComponent = (code: string) => {
 
 const combineComponents = {
   ...htmlComponents,
+  ...mdxComponents,
 };
 
 type MdxProps = {

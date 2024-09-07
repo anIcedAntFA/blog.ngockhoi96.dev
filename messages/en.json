@@ -47,6 +47,20 @@
         "toNavigate": "to navigate",
         "toClose": "to close"
       }
+    },
+    "markdown": {
+      "mdxHeading": {
+        "ariaLabel": "Permalink: ",
+        "visuallyHidden": "Read the {id} section"
+      },
+      "copyHeadingUrlButton": {
+        "tooltipLabel": "Copy URL",
+        "ariaLabel": "Copy URL",
+        "toastMessage": {
+          "success": "Copied URL to clipboard",
+          "fail": "Couldn't copy URL to clipboard"
+        }
+      }
     }
   },
   "layout": {

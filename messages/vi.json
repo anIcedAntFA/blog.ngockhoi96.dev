@@ -47,6 +47,20 @@
         "toNavigate": "để điều hướng",
         "toClose": "để đóng"
       }
+    },
+    "markdown": {
+      "mdxHeading": {
+        "ariaLabel": "Liên kết cố định: ",
+        "visuallyHidden": "Đọc phần {id}"
+      },
+      "copyHeadingUrlButton": {
+        "tooltipLabel": "Sao chép URL",
+        "ariaLabel": "Sao chép URL",
+        "toastMessage": {
+          "success": "Đã sao chép URL vào bộ nhớ đệm",
+          "fail": "Không thể sao chép URL vào bộ nhớ đệm"
+        }
+      }
     }
   },
   "layout": {

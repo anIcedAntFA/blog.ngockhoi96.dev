@@ -1,4 +1,9 @@
-import type { HTMLAttributeAnchorTarget, PropsWithChildren } from 'react';
+import cx from 'clsx';
+import type {
+  ComponentProps,
+  HTMLAttributeAnchorTarget,
+  PropsWithChildren,
+} from 'react';
 
 import ArrowUpRightIcon from '@/components/icons/arrow-up-right-icon';
 import type { Pathname } from '@/types/locales';
@@ -8,13 +13,17 @@ import Link from '../link';
 
 import styles from './nav-item.module.css';
 
-type NavItemProps = PropsWithChildren<{
-  variant?: 'line' | 'bg' | 'icon';
-  color?: 'base' | 'info';
-  href?: LinkProps<Pathname>['href'];
-  to?: string;
-  target?: HTMLAttributeAnchorTarget;
-}>;
+type NavItemProps = PropsWithChildren<
+  Partial<{
+    variant: 'line' | 'bg' | 'icon';
+    color: 'base' | 'info';
+    href: LinkProps<Pathname>['href'];
+    to: string;
+    target: HTMLAttributeAnchorTarget;
+    className: ComponentProps<'a'>['className'];
+    classChildren: ComponentProps<'span'>['className'];
+  }>
+>;
 
 function NavItem({
   variant = 'line',
@@ -22,6 +31,8 @@ function NavItem({
   href,
   to,
   target,
+  className,
+  classChildren,
   children,
   ...linkProps
 }: NavItemProps) {
@@ -33,10 +44,15 @@ function NavItem({
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
       data-variant={variant}
       data-color={color}
-      className={styles.wrapper}
+      className={cx(styles.wrapper, className)}
       {...linkProps}
     >
-      <span className={variant === 'icon' ? styles.icon : styles.label}>
+      <span
+        className={cx(
+          variant === 'icon' ? styles.icon : styles.label,
+          classChildren,
+        )}
+      >
         {children}
       </span>
       {target === '_blank' && (
