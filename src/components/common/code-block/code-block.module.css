@@ -1,0 +1,45 @@
+.wrapper {
+  --spacing: 16px;
+
+  position: relative;
+  overflow: hidden;
+
+  margin-block: var(--spacing);
+
+  &:hover .copy-code-btn {
+    opacity: 1;
+  }
+}
+
+.highlight {
+  border-radius: var(--br-medium);
+  padding-block: var(--spacing);
+}
+
+.token-line {
+  padding-inline: var(--spacing);
+}
+
+.line-index {
+  font-size: var(--fs-small);
+
+  & + span {
+    margin-left: 8px;
+  }
+}
+
+.btn-and-lang {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.copy-code-btn {
+  opacity: 0;
+
+  transition: opacity 0.4s ease-in-out;
+}

@@ -117,6 +117,11 @@
   background-color: var(--clr-code-bg);
 }
 
+.pre {
+  margin-block: 16px;
+  border-radius: var(--br-normal);
+}
+
 .blockquote {
   border-left: 4px solid var(--clr-primary);
   border-radius: var(--br-normal);

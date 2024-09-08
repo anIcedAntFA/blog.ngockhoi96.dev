@@ -19,15 +19,25 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 
 ### What is a primitive type?
 
-#### Definition
-
-##### Primitive types
-
 Trong JavaScript, các kiểu dữ liệu nguyên thủy (_primitive types_) bao gồm: `string`, `number`,
 `bigint`, `boolean`, `symbol`, `null` và `undefined`. Đây là những kiểu dữ liệu mà giá trị của chúng
 chỉ chứa một giá trị đơn giản và không phải là một đối tượng.
 
 **Cú pháp sử dụng**: không cần cú pháp đặc biệt, chỉ cần gán giá trị cho biến.
+
+Ví dụ:
+
+```js live=false
+let name = 'John'; // string
+let age = 25; // number
+let isStudent = false; // boolean
+```
+
+```ts
+const isEqual = (a: number, b: number): boolean => a === b;
+```
+
+<pre>This is a plain text inside a pre tag.</pre>
 
 ### How Primitive types are stored
 
@@ -48,6 +58,21 @@ Ví dụ: Dễ dàng so sánh 2 giá trị nguyên thủy.
 ---
 
 ## Reference types
+
+### Reference types là gì?
+
+Kiểu tham chiếu (Reference types) trong JavaScript bao gồm các kiểu dữ liệu như object, array, function, và các đối tượng khác. Khác với kiểu dữ liệu nguyên thủy, kiểu tham chiếu lưu trữ địa chỉ (tham chiếu) của giá trị trong bộ nhớ, thay vì giá trị thực tế.
+
+Ví dụ:
+
+```jsx manual=true
+let person = { name: 'John', age: 25 };
+let numbers = [1, 2, 3, 4, 5];
+
+function sum(a, b) {
+  return a + b;
+}
+```
 
 - Các kiểu dữ liệu nguyên thủy trong JavaScript: Bao gồm string, number, bigint, boolean, symbol, null, và undefined. Các giá trị này được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến và là bất biến.
 

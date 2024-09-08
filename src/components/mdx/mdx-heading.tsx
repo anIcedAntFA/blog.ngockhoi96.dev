@@ -23,10 +23,9 @@ const getStringFromId = (id?: string) => {
 function MdxHeading({ as, children, ...headingProps }: MdxHeadingProps) {
   const t = useTranslations('components.markdown.mdxHeading');
 
-  const { id } = headingProps;
-
   const Element = as || 'h2';
 
+  const { id } = headingProps;
   const idString = getStringFromId(id);
 
   const headingWithSizes: Record<HeadingElement, Size> = {
