@@ -11,7 +11,7 @@ import styles from './mdx.module.css';
 
 type HeadingElement = Extract<ElementType, 'h1' | 'h2' | 'h3' | 'h4'>;
 
-type MdxHeadingProps = ComponentProps<'h2'> & {
+export type MdxHeadingProps = ComponentProps<'h2'> & {
   as: HeadingElement;
 };
 

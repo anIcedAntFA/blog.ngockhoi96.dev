@@ -12,7 +12,7 @@
 }
 
 .highlight {
-  border-radius: var(--br-medium);
+  border-radius: var(--br-large);
   padding-block: var(--spacing);
 }
 
@@ -43,6 +43,7 @@
 
   transition: opacity 0.4s ease-in-out;
 
+  /* override font weight btn label */
   & > button > span:nth-child(2) {
     font-weight: var(--fw-medium);
   }

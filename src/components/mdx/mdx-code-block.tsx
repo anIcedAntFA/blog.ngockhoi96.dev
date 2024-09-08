@@ -2,7 +2,7 @@ import { type PropsWithChildren } from 'react';
 
 import CodeBlock from '../common/code-block';
 
-type MdxCodeBlockProps = PropsWithChildren<{
+export type MdxCodeBlockProps = PropsWithChildren<{
   showLanguage?: boolean;
   showCopyButton?: boolean;
 }>;
