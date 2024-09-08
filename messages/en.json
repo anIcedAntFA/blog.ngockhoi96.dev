@@ -28,6 +28,13 @@
       },
       "scrollProgressBar": {
         "ariaLabel": "Scroll progress indicator page"
+      },
+      "codeBlock": {
+        "copyCodeButton": {
+          "ariaLabel": "Copy code",
+          "label": "Copy",
+          "copiedLabel": "Copied!"
+        }
       }
     },
     "search": {

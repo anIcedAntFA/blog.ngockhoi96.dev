@@ -28,6 +28,13 @@
       },
       "scrollProgressBar": {
         "ariaLabel": "Thanh tiến trình cuộn trang"
+      },
+      "codeBlock": {
+        "copyCodeButton": {
+          "ariaLabel": "Sao chép mã",
+          "label": "Sao chép",
+          "copiedLabel": "Đã sao chép!"
+        }
       }
     },
     "search": {

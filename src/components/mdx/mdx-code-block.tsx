@@ -8,15 +8,10 @@ type MdxCodeBlockProps = PropsWithChildren<{
 }>;
 
 function MdxCodeBlock({
-  showLanguage,
-  showCopyButton,
   children: code,
+  ...codeBlockProps
 }: MdxCodeBlockProps) {
-  return (
-    <CodeBlock showLanguage={showLanguage} showCopyButton={showCopyButton}>
-      {code}
-    </CodeBlock>
-  );
+  return <CodeBlock {...codeBlockProps}>{code}</CodeBlock>;
 }
 
 export default MdxCodeBlock;

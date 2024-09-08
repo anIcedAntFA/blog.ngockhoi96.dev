@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl';
+
 import CheckIcon from '@/components/icons/check-icon';
 import CopyIcon from '@/components/icons/copy-icon';
 import useCopyToClipboard from '@/hooks/use-copy-to-clipboard';
@@ -11,6 +13,8 @@ type CopyCodeButtonProps = {
 };
 
 function CopyCodeButton({ code }: CopyCodeButtonProps) {
+  const t = useTranslations('components.common.codeBlock.copyCodeButton');
+
   const { hasCopied, copyText } = useCopyToClipboard(COPIED_TIMEOUT);
 
   const handleCopyCode = () => {
@@ -26,9 +30,10 @@ function CopyCodeButton({ code }: CopyCodeButtonProps) {
           position: 'left',
           children: hasCopied ? <CheckIcon /> : <CopyIcon />,
         }}
+        aria-label={t('ariaLabel')}
         onClick={handleCopyCode}
       >
-        {hasCopied ? 'Copied!' : 'Copy'}
+        {hasCopied ? t('copiedLabel') : t('label')}
       </Button>
     </div>
   );
