@@ -2,6 +2,8 @@ import { type ComponentProps } from 'react';
 
 import NavItem from '../common/nav-item';
 
+import type { MdxCodeBlockProps } from './mdx-code-block';
+import MdxCodeBlock from './mdx-code-block';
 import MdxHeading from './mdx-heading';
 import styles from './mdx.module.css';
 
@@ -37,6 +39,9 @@ export const htmlComponents = {
   ),
   code: (props: ComponentProps<'code'>) => (
     <code className={styles.code} {...props} />
+  ),
+  pre: (props: MdxCodeBlockProps) => (
+    <MdxCodeBlock showLanguage showCopyButton {...props} />
   ),
   blockquote: (props: ComponentProps<'blockquote'>) => (
     <blockquote className={styles.blockquote} {...props} />

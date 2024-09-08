@@ -76,7 +76,7 @@ html[data-theme='dark'] {
 
     &:active:not(:disabled) {
       background-color: var(--clr-bg-btn-contained-active);
-      transform: scale(1.05, 0.95);
+      transform: scale(0.95);
 
       &[data-color='base'] {
         box-shadow: 2px 2px 4px 1px alpha(var(--clr-base), 10%);

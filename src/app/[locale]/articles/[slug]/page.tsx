@@ -47,6 +47,8 @@ function PostsPage({ params }: IPostProps) {
     return <div>Post not found</div>;
   }
 
+  // console.log(post.permalink, post.metadata);
+
   return (
     <>
       <ScrollProgressBar />

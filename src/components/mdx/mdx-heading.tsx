@@ -11,7 +11,7 @@ import styles from './mdx.module.css';
 
 type HeadingElement = Extract<ElementType, 'h1' | 'h2' | 'h3' | 'h4'>;
 
-type MdxHeadingProps = ComponentProps<'h2'> & {
+export type MdxHeadingProps = ComponentProps<'h2'> & {
   as: HeadingElement;
 };
 
@@ -23,10 +23,9 @@ const getStringFromId = (id?: string) => {
 function MdxHeading({ as, children, ...headingProps }: MdxHeadingProps) {
   const t = useTranslations('components.markdown.mdxHeading');
 
-  const { id } = headingProps;
-
   const Element = as || 'h2';
 
+  const { id } = headingProps;
   const idString = getStringFromId(id);
 
   const headingWithSizes: Record<HeadingElement, Size> = {
