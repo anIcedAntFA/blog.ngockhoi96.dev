@@ -8,6 +8,8 @@
 
   font-weight: var(--fw-bold);
 
+  color: var(--clr-text-content);
+
   &[data-heading='h1'] {
     margin-top: var(--fs-3xl);
 
@@ -89,6 +91,8 @@
 
   font-size: var(--fs-xnormal);
   line-height: 30px;
+
+  color: var(--clr-text-content);
 }
 
 .link {
@@ -110,11 +114,12 @@
   border-radius: var(--br-xsmall);
   padding: 1px 3px;
 
-  font-family: var(--font-jet-brain-mono);
+  font-family: var(--font-code);
   white-space: pre-wrap;
   word-break: keep-all;
 
   background-color: var(--clr-code-bg);
+  color: var(--clr-gray-700);
 }
 
 .blockquote {

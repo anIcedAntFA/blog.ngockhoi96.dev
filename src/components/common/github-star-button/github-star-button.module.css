@@ -1,10 +1,8 @@
 html[data-theme='light'] .root {
-  --clr-text: var(--clr-gray-600);
   --clr-icon: #f59e0b;
 }
 
 html[data-theme='dark'] .root {
-  --clr-text: var(--clr-gray-400);
   --clr-icon: #fde047;
 }
 
@@ -48,7 +46,7 @@ html[data-theme='dark'] .root {
 .star,
 .count {
   font-weight: var(--fw-bold);
-  color: var(--clr-text);
+  color: var(--clr-text-2);
   transition: color 0.3s ease-in-out;
 }
 

@@ -27,8 +27,12 @@
 
   appearance: none;
   background-color: transparent;
-
+  color: var(--clr-text-content);
   caret-color: var(--clr-primary);
+
+  &::placeholder {
+    color: var(--clr-text-2);
+  }
 }
 
 .footer {

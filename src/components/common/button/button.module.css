@@ -325,7 +325,7 @@ html[data-theme='dark'] {
   transition: color 0.2s ease-in-out;
 
   &[data-variant='contained'] {
-    color: var(--clr-text-2);
+    color: var(--clr-text-3);
   }
 
   &[data-variant='outlined'],
@@ -365,7 +365,7 @@ html[data-theme='dark'] {
   transition: color 0.3s ease-in-out;
 
   &[data-variant='contained'] {
-    color: var(--clr-text-2);
+    color: var(--clr-text-3);
   }
 
   &[data-variant='outlined;'],
