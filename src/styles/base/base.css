@@ -15,17 +15,17 @@
   --fw-semibold: 600;
   --fw-bold: 700;
   --fw-xbold: 800;
-  --fs-xsmall: 12px;
-  --fs-small: 14px;
-  --fs-normal: 16px;
-  --fs-xnormal: 18px;
-  --fs-medium: 20px;
-  --fs-large: 24px;
-  --fs-xl: 28px;
-  --fs-2xl: 32px;
-  --fs-3xl: 48px;
-  --fs-4xl: 64px;
-  --fs-5xl: 80px;
+  --fs-tiny: 0.75rem;
+  --fs-small: 0.875rem;
+  --fs-normal: 1rem;
+  --fs-xnormal: 1.125rem;
+  --fs-medium: 1.25rem;
+  --fs-large: 1.5rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 3rem;
+  --fs-4xl: 4rem;
+  --fs-5xl: 5rem;
 
   /* zIndexs */
   --z-index-1: 1;
