@@ -178,3 +178,11 @@
 
   background-color: var(--clr-base);
 }
+
+.image {
+  display: block;
+
+  border-radius: var(--br-large);
+  width: auto;
+  height: auto;
+}
