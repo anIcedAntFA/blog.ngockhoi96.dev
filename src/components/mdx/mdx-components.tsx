@@ -33,9 +33,7 @@ export const htmlComponents = {
     <p className={styles.paragraph} {...props} />
   ),
   a: (props: ComponentProps<'a'>) => (
-    <a className={styles.link} {...props}>
-      {props.children}
-    </a>
+    <a aria-label="link" className={styles.link} {...props} />
   ),
   code: (props: ComponentProps<'code'>) => (
     <code className={styles.code} {...props} />

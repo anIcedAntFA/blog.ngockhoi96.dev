@@ -28,7 +28,7 @@
     background-color: var(--clr-primary);
 
     .icon {
-      color: var(--clr-bg-1);
+      color: var(--clr-bg-3);
       animation: go-to-top-icon 0.8s cubic-bezier(0.57, 0.21, 0.69, 1.25);
     }
   }

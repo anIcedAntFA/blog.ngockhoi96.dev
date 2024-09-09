@@ -146,7 +146,7 @@
 .modified-date {
   grid-area: date;
 
-  font-size: var(--fs-xsmall);
+  font-size: var(--fs-tiny);
   color: var(--clr-base);
 }
 
@@ -159,7 +159,7 @@
   align-items: center;
   gap: 4px;
 
-  font-size: var(--fs-xsmall);
+  font-size: var(--fs-tiny);
   color: var(--clr-base);
 }
 

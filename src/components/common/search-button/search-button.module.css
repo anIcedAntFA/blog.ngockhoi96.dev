@@ -1,11 +1,9 @@
 html[data-theme='light'] .root {
-  --clr-text: var(--clr-gray-600);
   --clr-bg-search: alpha(var(--clr-ghost-white), 20%);
   --clr-bg-search-hover: alpha(var(--clr-ghost-white), 60%);
 }
 
 html[data-theme='dark'] .root {
-  --clr-text: var(--clr-gray-400);
   --clr-bg-search: alpha(var(--clr-gray-700), 70%);
   --clr-bg-search-hover: alpha(var(--clr-gray-700), 90%);
 }
@@ -64,7 +62,7 @@ html[data-theme='dark'] .root {
   width: 24px;
   height: 24px;
 
-  color: var(--clr-text);
+  color: var(--clr-text-2);
 
   transition: color 0.2s ease-in-out;
 }
@@ -84,7 +82,7 @@ html[data-theme='dark'] .root {
   text-align: left;
   font-weight: var(--fw-medium);
 
-  color: var(--clr-text);
+  color: var(--clr-text-2);
 
   transition: color 0.2s ease-in-out;
 }

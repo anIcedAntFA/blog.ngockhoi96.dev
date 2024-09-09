@@ -14,7 +14,7 @@ html[data-theme='dark'] .root {
   border-radius: var(--br-small);
   padding-inline: 0.4em 0.4em;
 
-  font-family: var(--font-jet-brain-mono);
+  font-family: var(--font-code);
   font-weight: var(--fw-bold);
   font-size: var(--fs-small);
   line-height: normal;
