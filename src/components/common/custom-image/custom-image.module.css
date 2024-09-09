@@ -7,10 +7,8 @@
   width: 100%;
   max-width: 800px;
 
-  &:hover {
-    .maximize-btn {
-      opacity: 1;
-    }
+  &:hover .maximize-btn {
+    opacity: 1;
   }
 }
 
