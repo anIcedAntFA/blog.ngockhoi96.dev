@@ -1,0 +1,11 @@
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.close-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9;
+}

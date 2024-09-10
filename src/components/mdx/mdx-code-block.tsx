@@ -11,7 +11,11 @@ function MdxCodeBlock({
   children: code,
   ...codeBlockProps
 }: MdxCodeBlockProps) {
-  return <CodeBlock {...codeBlockProps}>{code}</CodeBlock>;
+  return (
+    <CodeBlock showLanguage showCopyButton {...codeBlockProps}>
+      {code}
+    </CodeBlock>
+  );
 }
 
 export default MdxCodeBlock;

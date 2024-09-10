@@ -49,7 +49,7 @@
   cursor: pointer;
 
   opacity: 0;
-  background-color: rgb(23 25 35 / 70%);
+  background-color: alpha(var(--clr-gray-900), 70%);
 
   transition:
     opacity 0.2s ease-in-out,
@@ -57,7 +57,7 @@
     transform 0.1s ease-in-out;
 
   &:hover {
-    background-color: rgb(23 25 35 / 90%);
+    background-color: alpha(var(--clr-gray-900), 90%);
 
     .maximize-icon {
       color: var(--clr-snow);

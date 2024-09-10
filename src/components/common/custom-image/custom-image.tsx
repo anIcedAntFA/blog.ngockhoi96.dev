@@ -3,16 +3,26 @@ import type { ImageProps } from 'next/image';
 import NextImage from 'next/image';
 
 import MaximizeIcon from '@/components/icons/maximize-icon';
+import type { ImageUrl } from '@/types/common';
+
+import CustomTooltip from '../custom-tooltip';
 
 import styles from './custom-image.module.css';
+
+type ImgProps = {
+  url: ImageUrl;
+  alt: string;
+};
 
 type CustomImageProps = ImageProps & {
   caption?: string;
   showZoomInBtn?: boolean;
-  onZoomInImage?: VoidFunction;
+  onZoomInImage?: (imgUrl: ImgProps) => void;
 };
 
 function CustomImage({
+  src: url,
+  alt,
   caption = '',
   showZoomInBtn = false,
   onZoomInImage,
@@ -20,8 +30,10 @@ function CustomImage({
 }: CustomImageProps) {
   const Image = () => (
     <NextImage
+      src={url}
+      alt={alt}
       className={styles.image}
-      onClick={onZoomInImage}
+      onClick={() => onZoomInImage?.({ url, alt })}
       {...imageProps}
     />
   );
@@ -37,16 +49,22 @@ function CustomImage({
         <Image />
       )}
       {showZoomInBtn && (
-        <button
-          type="button"
-          aria-label="Zoom in image"
-          className={styles['maximize-btn']}
-          onClick={onZoomInImage}
+        <CustomTooltip
+          label="View image in full screen"
+          placement="right"
+          hasArrow
         >
-          <span className={styles['maximize-icon']}>
-            <MaximizeIcon />
-          </span>
-        </button>
+          <button
+            type="button"
+            aria-label="Zoom in image"
+            className={styles['maximize-btn']}
+            onClick={() => onZoomInImage?.({ url, alt })}
+          >
+            <span className={styles['maximize-icon']}>
+              <MaximizeIcon />
+            </span>
+          </button>
+        </CustomTooltip>
       )}
     </div>
   );

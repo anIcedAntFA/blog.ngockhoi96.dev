@@ -22,7 +22,7 @@
     "**/Thumbs.db": true
   },
 
-  "cSpell.words": ["clsx", "data-testid", "stylelint", "velite"],
+  "cSpell.words": ["clsx", "data-testid", "Lightbox", "stylelint", "velite"],
 
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

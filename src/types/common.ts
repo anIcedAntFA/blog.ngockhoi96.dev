@@ -1,3 +1,5 @@
+import type { ImageProps } from 'next/image';
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Todo = any;
 
@@ -28,3 +30,5 @@ export type BaseOption = {
   label: string;
   value: BaseValue;
 };
+
+export type ImageUrl = string | ImageProps['src'];

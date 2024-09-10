@@ -1,36 +1,37 @@
 'use client';
 
-import type { ImageProps } from 'next/image';
+import type { ImageProps as NextImageProps } from 'next/image';
 import { useState } from 'react';
 
 import useBoolean from '@/hooks/use-boolean';
+import type { ImageUrl } from '@/types/common';
 
-import Backdrop from '../common/backdrop';
 import CustomImage from '../common/custom-image';
-import { Dialog, DialogContent } from '../common/dialog';
-import ImagePreviewSlider from '../common/image-preview-slider';
+import MediaLightbox from '../common/media-lightbox';
 
-type MdxCustomImageProps = ImageProps & {
+type MdxCustomImageProps = NextImageProps & {
   caption?: string;
   showMaximizeBtn?: boolean;
   onZoomInImage?: VoidFunction;
 };
 
+type ImageProps = {
+  url: ImageUrl;
+  alt: string;
+};
+
 function MdxCustomImage(customImageProps: MdxCustomImageProps) {
-  const [imgUrls, setImgUrls] = useState<string[]>([]);
+  const [image, setImage] = useState<ImageProps | null>(null);
 
-  const showDialog = useBoolean(false);
+  const showLightbox = useBoolean(false);
 
-  const handleZoomIn = () => {
-    const images = document.querySelectorAll('img[data-src]');
-    const imageSources = Array.from(images).map((img) =>
-      img.getAttribute('data-src'),
-    );
+  const handleZoomIn = ({ url, alt }: ImageProps) => {
+    setImage({ url, alt });
+    showLightbox.on();
+  };
 
-    setImgUrls(imageSources.filter((src): src is string => src !== null));
-    showDialog.on();
-
-    // console.log('Zoom in', imageSources);
+  const handleCloseLightbox = () => {
+    showLightbox.off();
   };
 
   return (
@@ -41,14 +42,11 @@ function MdxCustomImage(customImageProps: MdxCustomImageProps) {
         {...customImageProps}
         data-src={customImageProps.src}
       />
-
-      <Dialog opened={showDialog.value} onClose={showDialog.off}>
-        <Backdrop />
-
-        <DialogContent>
-          <ImagePreviewSlider imageUrls={imgUrls} />
-        </DialogContent>
-      </Dialog>
+      <MediaLightbox
+        isOpened={showLightbox.value}
+        initialMedia={image}
+        onCloseModal={handleCloseLightbox}
+      />
     </>
   );
 }
