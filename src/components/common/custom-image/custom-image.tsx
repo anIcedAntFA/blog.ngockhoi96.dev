@@ -1,5 +1,4 @@
-'use client';
-
+/* eslint-disable jsx-a11y/alt-text */
 import type { ImageProps } from 'next/image';
 import NextImage from 'next/image';
 
@@ -9,42 +8,40 @@ import styles from './custom-image.module.css';
 
 type CustomImageProps = ImageProps & {
   caption?: string;
-  showMaximizeBtn?: boolean;
+  showZoomInBtn?: boolean;
+  onZoomInImage?: VoidFunction;
 };
 
 function CustomImage({
   caption = '',
-  showMaximizeBtn = false,
+  showZoomInBtn = false,
+  onZoomInImage,
   ...imageProps
 }: CustomImageProps) {
-  const handleZoomIn = () => {
-    console.log('zoom in');
-  };
+  const Image = () => (
+    <NextImage
+      className={styles.image}
+      onClick={onZoomInImage}
+      {...imageProps}
+    />
+  );
 
   return (
     <div className={styles.wrapper}>
       {caption ? (
         <figure className={styles.figure}>
-          <NextImage
-            className={styles.image}
-            onClick={handleZoomIn}
-            {...imageProps}
-          />
+          <Image />
           <figcaption className={styles.caption}>{caption}</figcaption>
         </figure>
       ) : (
-        <NextImage
-          className={styles.image}
-          onClick={handleZoomIn}
-          {...imageProps}
-        />
+        <Image />
       )}
-      {showMaximizeBtn && (
+      {showZoomInBtn && (
         <button
           type="button"
-          aria-label="Maximize image"
+          aria-label="Zoom in image"
           className={styles['maximize-btn']}
-          onClick={handleZoomIn}
+          onClick={onZoomInImage}
         >
           <span className={styles['maximize-icon']}>
             <MaximizeIcon />
