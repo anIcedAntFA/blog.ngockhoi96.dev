@@ -1,23 +1,18 @@
 /* eslint-disable jsx-a11y/alt-text */
 import type { ImageProps } from 'next/image';
 import NextImage from 'next/image';
+import { useCallback } from 'react';
 
 import MaximizeIcon from '@/components/icons/maximize-icon';
-import type { ImageUrl } from '@/types/common';
 
 import CustomTooltip from '../custom-tooltip';
 
 import styles from './custom-image.module.css';
 
-type ImgProps = {
-  url: ImageUrl;
-  alt: string;
-};
-
-type CustomImageProps = ImageProps & {
+export type CustomImageProps = ImageProps & {
   caption?: string;
   showZoomInBtn?: boolean;
-  onZoomInImage?: (imgUrl: ImgProps) => void;
+  onZoomInImage?: VoidFunction;
 };
 
 function CustomImage({
@@ -28,37 +23,36 @@ function CustomImage({
   onZoomInImage,
   ...imageProps
 }: CustomImageProps) {
-  const Image = () => (
-    <NextImage
-      src={url}
-      alt={alt}
-      className={styles.image}
-      onClick={() => onZoomInImage?.({ url, alt })}
-      {...imageProps}
-    />
+  const renderImage = useCallback(
+    () => (
+      <NextImage
+        src={url}
+        alt={alt}
+        className={styles.image}
+        onClick={onZoomInImage}
+        {...imageProps}
+      />
+    ),
+    [alt, imageProps, onZoomInImage, url],
   );
 
   return (
     <div className={styles.wrapper}>
       {caption ? (
         <figure className={styles.figure}>
-          <Image />
+          {renderImage()}
           <figcaption className={styles.caption}>{caption}</figcaption>
         </figure>
       ) : (
-        <Image />
+        renderImage()
       )}
       {showZoomInBtn && (
-        <CustomTooltip
-          label="View image in full screen"
-          placement="right"
-          hasArrow
-        >
+        <CustomTooltip label="Zoom in on this image" placement="right" hasArrow>
           <button
             type="button"
-            aria-label="Zoom in image"
+            aria-label="Zoom in on this image"
             className={styles['maximize-btn']}
-            onClick={() => onZoomInImage?.({ url, alt })}
+            onClick={onZoomInImage}
           >
             <span className={styles['maximize-icon']}>
               <MaximizeIcon />

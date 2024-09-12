@@ -8,7 +8,7 @@ import { motionPresets, motionVariants } from '@/configs/motion-variants';
 import styles from './backdrop.module.css';
 import type { BackdropProps } from './backdrop.type';
 
-function Backdrop({ className, ...restProps }: BackdropProps) {
+function Backdrop({ className, children, ...restProps }: BackdropProps) {
   return (
     <motion.div
       aria-hidden="true"
@@ -19,7 +19,9 @@ function Backdrop({ className, ...restProps }: BackdropProps) {
       data-testid="backdrop"
       className={cx(styles.root, className)}
       {...restProps}
-    />
+    >
+      {children}
+    </motion.div>
   );
 }
 

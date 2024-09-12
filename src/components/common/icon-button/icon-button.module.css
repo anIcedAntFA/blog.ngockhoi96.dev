@@ -138,6 +138,13 @@ html[data-theme='dark'] {
     padding: 6px;
   }
 
+  &[data-size='x-large'] {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--br-large);
+    padding: 6px;
+  }
+
   &[data-color='primary'] {
     color: var(--clr-primary);
   }

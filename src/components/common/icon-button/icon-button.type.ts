@@ -6,7 +6,7 @@ import type { ButtonVariant } from '../button';
 
 export type IconButtonStyleProp = {
   variant: Extract<ButtonVariant, 'contained' | 'outlined'>;
-  size: Size;
+  size: Size | 'x-large';
   color: Color;
   rounded: boolean;
   isActive: boolean;
