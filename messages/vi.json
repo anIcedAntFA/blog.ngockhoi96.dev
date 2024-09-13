@@ -33,7 +33,7 @@
         "ariaLabel": "Phóng to hình ảnh này",
         "tooltipLabel": "Phóng to hình ảnh này"
       },
-      "mediaLightbox": {
+      "imageLightbox": {
         "previewImage": {
           "title": "Thu nhỏ hình ảnh này"
         },

@@ -7,41 +7,28 @@ import { useEffect, useState } from 'react';
 import CloseIcon from '@/components/icons/close-icon';
 import DownloadIcon from '@/components/icons/download-icon';
 import { motionPresets } from '@/configs/motion-variants';
-import type { ImageUrl } from '@/types/common';
 
 import Backdrop from '../backdrop';
 import { Dialog, DialogContent, DialogFooter } from '../dialog';
 import IconButton from '../icon-button';
 
-import styles from './media-lightbox.module.css';
+import styles from './image-lightbox.module.css';
+import type { ImageProps, ImageLightboxProps } from './image-lightbox.type';
 import NavigationButton from './navigation-button';
-
-type ImageProps = {
-  url: ImageUrl;
-  alt: string;
-};
-
-type MediaLightboxProps = {
-  isOpened: boolean;
-  initialMedia: ImageProps | null;
-  onCloseModal: VoidFunction;
-  showCloseBtn?: boolean;
-  showDownloadBtn?: boolean;
-};
 
 const DEFAULT_INDEX = 0;
 
-function MediaLightbox({
+function ImageLightbox({
   isOpened,
-  initialMedia,
+  initialImage,
   onCloseModal,
   showCloseBtn = true,
   showDownloadBtn = false,
-}: MediaLightboxProps) {
+}: ImageLightboxProps) {
   const [mediaList, setMediaList] = useState<ImageProps[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(DEFAULT_INDEX);
 
-  const t = useTranslations('components.common.mediaLightbox');
+  const t = useTranslations('components.common.imageLightbox');
 
   useEffect(() => {
     const images = document.querySelectorAll('img[data-src]');
@@ -58,11 +45,11 @@ function MediaLightbox({
     setMediaList(imageSources);
 
     setCurrentIndex(
-      initialMedia?.url
-        ? imageSources.findIndex((img) => img.url === initialMedia.url)
+      initialImage?.url
+        ? imageSources.findIndex((img) => img.url === initialImage.url)
         : DEFAULT_INDEX,
     );
-  }, [initialMedia]);
+  }, [initialImage]);
 
   const mediaUrls = mediaList.map((img) => img.url);
   const mediaAlts = mediaList.map((img) => img.alt);
@@ -152,4 +139,4 @@ function MediaLightbox({
   );
 }
 
-export default MediaLightbox;
+export default ImageLightbox;

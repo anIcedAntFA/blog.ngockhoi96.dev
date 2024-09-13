@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import useBoolean from '@/hooks/use-boolean';
 
 import CustomImage from '../common/custom-image';
-import MediaLightbox from '../common/media-lightbox';
+import ImageLightbox from '../common/image-lightbox';
 
 type MdxCustomImageProps = NextImageProps & {
   caption?: string;
@@ -35,9 +35,9 @@ function MdxCustomImage({
         {...customImageProps}
       />
 
-      <MediaLightbox
+      <ImageLightbox
         isOpened={showLightbox.value}
-        initialMedia={{ url: src, alt }}
+        initialImage={{ url: src, alt }}
         showDownloadBtn
         onCloseModal={showLightbox.off}
       />

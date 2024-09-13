@@ -33,7 +33,7 @@
         "ariaLabel": "Zoom in on this image",
         "tooltipLabel": "Zoom in on this image"
       },
-      "mediaLightbox": {
+      "imageLightbox": {
         "previewImage": {
           "title": "Zoom out on this image"
         },
