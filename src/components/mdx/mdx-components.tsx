@@ -1,10 +1,9 @@
 import { type ComponentProps } from 'react';
 
-import CustomImage from '../common/custom-image';
 import NavItem from '../common/nav-item';
 
-import type { MdxCodeBlockProps } from './mdx-code-block';
 import MdxCodeBlock from './mdx-code-block';
+import MdxCustomImage from './mdx-custom-image';
 import MdxHeading from './mdx-heading';
 import MdxImage from './mdx-image';
 import styles from './mdx.module.css';
@@ -40,9 +39,7 @@ export const htmlComponents = {
   code: (props: ComponentProps<'code'>) => (
     <code className={styles.code} {...props} />
   ),
-  pre: (props: MdxCodeBlockProps) => (
-    <MdxCodeBlock showLanguage showCopyButton {...props} />
-  ),
+  pre: MdxCodeBlock,
   blockquote: (props: ComponentProps<'blockquote'>) => (
     <blockquote className={styles.blockquote} {...props} />
   ),
@@ -60,5 +57,5 @@ export const htmlComponents = {
 //* A list of React Components that we want to pass through to MDX
 export const mdxComponents = {
   NavItem,
-  Image: CustomImage,
+  Image: MdxCustomImage,
 };

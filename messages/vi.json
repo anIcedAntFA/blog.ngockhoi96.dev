@@ -29,6 +29,31 @@
       "scrollProgressBar": {
         "ariaLabel": "Thanh tiến trình cuộn trang"
       },
+      "customImage": {
+        "ariaLabel": "Phóng to hình ảnh này",
+        "tooltipLabel": "Phóng to hình ảnh này"
+      },
+      "imageLightbox": {
+        "previewImage": {
+          "title": "Thu nhỏ hình ảnh này"
+        },
+        "downloadButton": {
+          "label": "Tải hình ảnh",
+          "title": "Tải"
+        },
+        "closeButton": {
+          "label": "Đóng hộp thoại hình ảnh",
+          "title": "Đóng"
+        },
+        "previousButton": {
+          "ariaLabel": "Hình ảnh trước",
+          "title": "Trước"
+        },
+        "nextButton": {
+          "ariaLabel": "Hình ảnh tiếp theo",
+          "title": "Tiếp"
+        }
+      },
       "codeBlock": {
         "copyCodeButton": {
           "ariaLabel": "Sao chép mã",
@@ -59,6 +84,9 @@
       "mdxHeading": {
         "ariaLabel": "Liên kết cố định: ",
         "visuallyHidden": "Đọc phần {id}"
+      },
+      "mdxCustomImage": {
+        "title": "Phóng to hình ảnh này"
       },
       "copyHeadingUrlButton": {
         "tooltipLabel": "Sao chép URL",

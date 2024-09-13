@@ -21,6 +21,27 @@ export const blurVariant: Variants = {
   },
 };
 
+export const zoomInVariant: Variants = {
+  initial: {
+    scale: 0,
+    opacity: 0,
+  },
+  animate: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      type: 'spring',
+      damping: 25,
+      stiffness: 250,
+    },
+  },
+  exit: {
+    scale: 0,
+    opacity: 0,
+  },
+};
+
 export const dropInVariant: Variants = {
   initial: {
     y: '-100vh',
@@ -33,7 +54,7 @@ export const dropInVariant: Variants = {
       duration: 0.4,
       type: 'spring',
       damping: 25,
-      stiffness: 500,
+      stiffness: 400,
     },
   },
   exit: {
@@ -76,12 +97,14 @@ export const flipVariant: Variants = {
 
 export const motionPresets = {
   BLUR: 'blur',
+  ZOOM_IN: 'zoom-in',
   DROP_IN: 'drop-in',
   FLIP: 'flip',
 } as const;
 
 export const motionVariants = {
   [motionPresets.BLUR]: blurVariant,
+  [motionPresets.ZOOM_IN]: zoomInVariant,
   [motionPresets.DROP_IN]: dropInVariant,
   [motionPresets.FLIP]: flipVariant,
 } as const;

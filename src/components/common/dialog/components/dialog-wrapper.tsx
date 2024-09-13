@@ -9,7 +9,11 @@ import { useInternalDialog } from '../dialog.hook';
 import styles from '../dialog.module.css';
 import type { DialogWrapperProps } from '../dialog.type';
 
-function DialogWrapper({ children, ...restProps }: DialogWrapperProps) {
+function DialogWrapper({
+  className,
+  children,
+  ...restProps
+}: DialogWrapperProps) {
   const {
     hasBlockScroll,
     scrollBehavior,
@@ -39,9 +43,13 @@ function DialogWrapper({ children, ...restProps }: DialogWrapperProps) {
     >
       <Element
         data-scroll-behavior={scrollBehavior}
-        className={cx(styles.root, {
-          [styles.centered]: isCentered,
-        })}
+        className={cx(
+          styles.root,
+          {
+            [styles.centered]: isCentered,
+          },
+          className,
+        )}
         {...restProps}
       >
         {children}
