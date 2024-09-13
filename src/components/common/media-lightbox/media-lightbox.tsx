@@ -1,21 +1,19 @@
 'use client';
 
 import Image from 'next/image';
-import type { ElementRef } from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import ChevronLeftIcon from '@/components/icons/chervon-left-icon';
-import ChevronRightIcon from '@/components/icons/chervon-right-icon';
 import CloseIcon from '@/components/icons/close-icon';
 import DownloadIcon from '@/components/icons/download-icon';
+import { motionPresets } from '@/configs/motion-variants';
 import type { ImageUrl } from '@/types/common';
 
 import Backdrop from '../backdrop';
-import Button from '../button';
 import { Dialog, DialogContent, DialogFooter } from '../dialog';
 import IconButton from '../icon-button';
 
 import styles from './media-lightbox.module.css';
+import NavigationButton from './navigation-button';
 
 type ImageProps = {
   url: ImageUrl;
@@ -30,6 +28,8 @@ type MediaLightboxProps = {
   showDownloadBtn?: boolean;
 };
 
+const DEFAULT_INDEX = 0;
+
 function MediaLightbox({
   isOpened,
   initialMedia,
@@ -38,10 +38,7 @@ function MediaLightbox({
   showDownloadBtn = false,
 }: MediaLightboxProps) {
   const [mediaList, setMediaList] = useState<ImageProps[]>([]);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-
-  const nextBtnRef = useRef<ElementRef<'button'>>(null);
-  const prevBtnRef = useRef<ElementRef<'button'>>(null);
+  const [currentIndex, setCurrentIndex] = useState<number>(DEFAULT_INDEX);
 
   useEffect(() => {
     const images = document.querySelectorAll('img[data-src]');
@@ -60,73 +57,46 @@ function MediaLightbox({
     setCurrentIndex(
       initialMedia?.url
         ? imageSources.findIndex((img) => img.url === initialMedia.url)
-        : 0,
+        : DEFAULT_INDEX,
     );
   }, [initialMedia]);
 
   const mediaUrls = mediaList.map((img) => img.url);
   const mediaAlts = mediaList.map((img) => img.alt);
 
-  const goPreviousMedia = () => {
-    if (currentIndex === 0) {
-      onCloseModal();
-      return;
-    }
-
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-      return;
-    }
-  };
-
-  const goNextMedia = () => {
-    if (currentIndex === mediaList.length - 1) {
-      onCloseModal();
-      return;
-    }
-
-    if (currentIndex < mediaList.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-      return;
-    }
-  };
-
-  console.log({ initialMedia, currentIndex, mediaList });
-
   return (
     <Dialog
       opened={isOpened}
       isCentered
-      motionPreset="zoom-in"
-      className={styles.dialog}
-      onClose={() => {
-        onCloseModal();
-      }}
+      motionPreset={motionPresets.ZOOM_IN}
+      className={styles.wrapper}
+      onClose={onCloseModal}
     >
       <Backdrop />
 
-      <DialogContent className={styles['content']}>
+      <DialogContent className={styles.content}>
         <div className={styles.image}>
           <Image
             src={mediaUrls[currentIndex]}
             alt={mediaAlts[currentIndex]}
             title="Zoom out on this image"
-            fill
+            sizes="100vw"
+            width={0}
+            height={0}
             onClick={onCloseModal}
           />
         </div>
 
-        <DialogFooter className={styles['lightbox-footer']}>
-          <div>information</div>
-          <ul className={styles['list']}>
+        <DialogFooter className={styles.footer}>
+          <ul className={styles.list}>
             {mediaList.map(({ url, alt }, index) => (
               <li key={String(url)}>
                 <Image
                   src={url}
                   alt={alt}
                   title={alt}
-                  width={80}
-                  height={80}
+                  width={60}
+                  height={60}
                   className={styles['list-item']}
                   data-active={currentIndex === index}
                   onClick={() => setCurrentIndex(index)}
@@ -134,24 +104,20 @@ function MediaLightbox({
               </li>
             ))}
           </ul>
-          {showDownloadBtn && (
-            <Button
-              size="large"
-              icon={{
-                children: <DownloadIcon />,
-                position: 'left',
-                animation: 'shake-y',
-              }}
-            >
-              Download
-            </Button>
-          )}
         </DialogFooter>
+
+        {showDownloadBtn && (
+          <div className={styles['download-btn']}>
+            <IconButton size="large" label="Download image" title="Download">
+              <DownloadIcon />
+            </IconButton>
+          </div>
+        )}
 
         {showCloseBtn && (
           <div className={styles['close-btn']}>
             <IconButton
-              size="x-large"
+              size="large"
               label="Close lightbox"
               title="Close"
               onClick={onCloseModal}
@@ -162,33 +128,17 @@ function MediaLightbox({
         )}
 
         {currentIndex > 0 && (
-          <button
-            ref={prevBtnRef}
-            type="button"
-            title="Previous"
-            aria-label="Previous image"
-            className={styles['previous-btn']}
-            onClick={goPreviousMedia}
-          >
-            <span className={styles['previous-icon']}>
-              <ChevronLeftIcon />
-            </span>
-          </button>
+          <NavigationButton
+            type="prev"
+            onNavigate={() => setCurrentIndex(currentIndex - 1)}
+          />
         )}
 
         {currentIndex < mediaList.length - 1 && (
-          <button
-            ref={nextBtnRef}
-            type="button"
-            title="Next"
-            aria-label="Next image"
-            className={styles['next-btn']}
-            onClick={goNextMedia}
-          >
-            <span className={styles['next-icon']}>
-              <ChevronRightIcon />
-            </span>
-          </button>
+          <NavigationButton
+            type="next"
+            onNavigate={() => setCurrentIndex(currentIndex + 1)}
+          />
         )}
       </DialogContent>
     </Dialog>

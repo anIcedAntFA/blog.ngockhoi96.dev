@@ -22,15 +22,17 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 <Image
   src="https://images.unsplash.com/photo-1725976404931-84e8421d9710?q=80&w=1921&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   alt="Image test cover"
-  width={600}
-  height={400}
+  width={400}
+  height={1100}
 />
 
 <Image
-  src="https://images.unsplash.com/photo-1720048169707-a32d6dfca0b3?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  src="https://files.fullstack.edu.vn/f8-prod/public-images/6603a2aa457a2.png"
   alt="Image test unsplash"
-  width={600}
-  height={400}
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
   caption="A single track trail outside of Albuquerque, New Mexico."
 />
 
@@ -57,6 +59,13 @@ const isEqual = (a: number, b: number): boolean => a === b;
 <pre>This is a plain text inside a pre tag.</pre>
 
 ### How Primitive types are stored
+
+<Image
+  src="/images/posts/cover.jpg"
+  alt="Image test cover"
+  width={600}
+  height={400}
+/>
 
 Các giá trị nguyên thủy được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến, không giống như _reference types_
 (chỉ lưu địa chỉ tham chiếu đến nơi chứa dữ liệu thực tế).

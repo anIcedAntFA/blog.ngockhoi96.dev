@@ -27,16 +27,16 @@ function MdxCustomImage({
         alt={alt}
         title="Zoom in on this image"
         showZoomInBtn
-        onZoomInImage={showLightbox.on}
         data-src={src}
+        onZoomInImage={showLightbox.on}
         {...customImageProps}
       />
 
       <MediaLightbox
         isOpened={showLightbox.value}
         initialMedia={{ url: src, alt }}
-        onCloseModal={showLightbox.off}
         showDownloadBtn
+        onCloseModal={showLightbox.off}
       />
     </>
   );

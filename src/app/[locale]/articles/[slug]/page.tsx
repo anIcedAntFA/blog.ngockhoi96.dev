@@ -53,7 +53,7 @@ function PostsPage({ params }: IPostProps) {
     <>
       <ScrollProgressBar />
       <main className={styles.wrapper}>
-        <article className="prose lg:prose-lg dark:prose-invert py-6">
+        <article className={styles.content}>
           {post.cover && (
             <Image
               src={post.cover}

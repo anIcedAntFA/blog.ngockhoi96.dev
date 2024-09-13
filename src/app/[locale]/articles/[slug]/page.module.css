@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.content {
+  max-width: 840px;
+}
+
 .heading {
   font-family: var(--font-heading);
   font-size: var(--fs-3xl);
