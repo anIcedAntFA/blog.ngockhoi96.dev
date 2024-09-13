@@ -1,6 +1,8 @@
-/* eslint-disable jsx-a11y/alt-text */
+'use client';
+
 import type { ImageProps } from 'next/image';
 import NextImage from 'next/image';
+import { useTranslations } from 'next-intl';
 import { useCallback } from 'react';
 
 import MaximizeIcon from '@/components/icons/maximize-icon';
@@ -19,10 +21,12 @@ function CustomImage({
   src: url,
   alt,
   caption = '',
-  showZoomInBtn = false,
   onZoomInImage,
+  showZoomInBtn = false,
   ...imageProps
 }: CustomImageProps) {
+  const t = useTranslations('components.common.customImage');
+
   const renderImage = useCallback(
     () => (
       <NextImage
@@ -47,10 +51,10 @@ function CustomImage({
         renderImage()
       )}
       {showZoomInBtn && (
-        <CustomTooltip label="Zoom in on this image" placement="right" hasArrow>
+        <CustomTooltip label={t('tooltipLabel')} placement="right" hasArrow>
           <button
             type="button"
-            aria-label="Zoom in on this image"
+            aria-label={t('ariaLabel')}
             className={styles['maximize-btn']}
             onClick={onZoomInImage}
           >

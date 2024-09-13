@@ -1,12 +1,14 @@
 .wrapper {
   --spacing-edge: 96px;
 
+  /* Override default dialog styles */
   max-height: 100vh !important;
 }
 
 .content {
   justify-content: center;
 
+  /* Override default dialog-content styles */
   max-width: 100%;
   max-height: 100% !important;
   height: 100%;

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
 import CloseIcon from '@/components/icons/close-icon';
@@ -39,6 +40,8 @@ function MediaLightbox({
 }: MediaLightboxProps) {
   const [mediaList, setMediaList] = useState<ImageProps[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(DEFAULT_INDEX);
+
+  const t = useTranslations('components.common.mediaLightbox');
 
   useEffect(() => {
     const images = document.querySelectorAll('img[data-src]');
@@ -79,7 +82,7 @@ function MediaLightbox({
           <Image
             src={mediaUrls[currentIndex]}
             alt={mediaAlts[currentIndex]}
-            title="Zoom out on this image"
+            title={t('previewImage.title')}
             sizes="100vw"
             width={0}
             height={0}
@@ -108,7 +111,11 @@ function MediaLightbox({
 
         {showDownloadBtn && (
           <div className={styles['download-btn']}>
-            <IconButton size="large" label="Download image" title="Download">
+            <IconButton
+              size="large"
+              label={t('downloadButton.label')}
+              title={t('downloadButton.title')}
+            >
               <DownloadIcon />
             </IconButton>
           </div>
@@ -118,8 +125,8 @@ function MediaLightbox({
           <div className={styles['close-btn']}>
             <IconButton
               size="large"
-              label="Close lightbox"
-              title="Close"
+              label={t('closeButton.label')}
+              title={t('closeButton.title')}
               onClick={onCloseModal}
             >
               <CloseIcon />

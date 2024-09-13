@@ -1,6 +1,7 @@
 'use client';
 
 import type { ImageProps as NextImageProps } from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import useBoolean from '@/hooks/use-boolean';
 
@@ -18,6 +19,8 @@ function MdxCustomImage({
   alt,
   ...customImageProps
 }: MdxCustomImageProps) {
+  const t = useTranslations('components.markdown.mdxCustomImage');
+
   const showLightbox = useBoolean(false);
 
   return (
@@ -25,7 +28,7 @@ function MdxCustomImage({
       <CustomImage
         src={src}
         alt={alt}
-        title="Zoom in on this image"
+        title={t('title')}
         showZoomInBtn
         data-src={src}
         onZoomInImage={showLightbox.on}

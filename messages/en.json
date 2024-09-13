@@ -29,6 +29,31 @@
       "scrollProgressBar": {
         "ariaLabel": "Scroll progress indicator page"
       },
+      "customImage": {
+        "ariaLabel": "Zoom in on this image",
+        "tooltipLabel": "Zoom in on this image"
+      },
+      "mediaLightbox": {
+        "previewImage": {
+          "title": "Zoom out on this image"
+        },
+        "downloadButton": {
+          "label": "Download image",
+          "title": "Download"
+        },
+        "closeButton": {
+          "label": "Close lightbox",
+          "title": "Close"
+        },
+        "previousButton": {
+          "ariaLabel": "Previous image",
+          "title": "Previous"
+        },
+        "nextButton": {
+          "ariaLabel": "Next image",
+          "title": "Next"
+        }
+      },
       "codeBlock": {
         "copyCodeButton": {
           "ariaLabel": "Copy code",
@@ -59,6 +84,9 @@
       "mdxHeading": {
         "ariaLabel": "Permalink: ",
         "visuallyHidden": "Read the {id} section"
+      },
+      "mdxCustomImage": {
+        "title": "Zoom in on this image"
       },
       "copyHeadingUrlButton": {
         "tooltipLabel": "Copy URL",

@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl';
+
 import ChevronLeftIcon from '@/components/icons/chervon-left-icon';
 import ChevronRightIcon from '@/components/icons/chervon-right-icon';
 
@@ -8,24 +10,26 @@ type NavigationButtonProps = {
   onNavigate: () => void;
 };
 
-const typeWithProps = {
-  prev: {
-    title: 'Previous',
-    ariaLabel: 'Previous image',
-    styles: styles['previous-btn'],
-    icon: <ChevronLeftIcon />,
-    iconStyles: styles['previous-icon'],
-  },
-  next: {
-    title: 'Next',
-    ariaLabel: 'Next image',
-    styles: styles['next-btn'],
-    icon: <ChevronRightIcon />,
-    iconStyles: styles['next-icon'],
-  },
-};
-
 function NavigationButton({ type, onNavigate }: NavigationButtonProps) {
+  const t = useTranslations('components.common.mediaLightbox');
+
+  const typeWithProps = {
+    prev: {
+      title: t('previousButton.title'),
+      ariaLabel: t('previousButton.ariaLabel'),
+      styles: styles['previous-btn'],
+      icon: <ChevronLeftIcon />,
+      iconStyles: styles['previous-icon'],
+    },
+    next: {
+      title: t('nextButton.title'),
+      ariaLabel: t('nextButton.ariaLabel'),
+      styles: styles['next-btn'],
+      icon: <ChevronRightIcon />,
+      iconStyles: styles['next-icon'],
+    },
+  };
+
   return (
     <button
       type="button"
