@@ -15,9 +15,13 @@ export type ImageLightboxProps = {
   showDownloadBtn?: boolean;
 };
 
+export type DownloadButtonProps = {
+  onDownload: VoidFunction;
+};
+
 export type NavigationButtonProps = {
   type: 'prev' | 'next';
-  onNavigate: () => void;
+  onNavigate: VoidFunction;
 };
 
 export type TypeWithPropsKeys = MessageKeys<

@@ -128,7 +128,7 @@
   padding-top: 24px;
 }
 
-.list {
+.preview-list {
   overflow-x: auto;
 
   display: flex;
@@ -140,7 +140,7 @@
   }
 }
 
-.list-item {
+.preview-item {
   border: 1px solid transparent;
   border-radius: var(--br-normal);
 
