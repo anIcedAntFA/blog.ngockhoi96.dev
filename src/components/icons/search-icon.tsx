@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-function SearchIcon(props: SVGProps<SVGSVGElement>) {
+function SearchIcon(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ function SearchIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      {...props}
+      {...svgProps}
     >
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.3-4.3" />

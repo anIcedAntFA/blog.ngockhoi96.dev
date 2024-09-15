@@ -8,7 +8,7 @@ import { useRef } from 'react';
 import DropdownIcon from '@/components/common/dropdown-icon';
 import useBoolean from '@/hooks/use-boolean';
 import useOutsideClick from '@/hooks/use-outside-click';
-import { Link } from '@/i18n/navigation';
+import { Link } from '@/i18n/routing';
 import type { Pathname } from '@/types/locales';
 import { equal } from '@/utils/equal';
 

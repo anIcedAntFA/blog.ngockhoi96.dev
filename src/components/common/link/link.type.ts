@@ -1,13 +1,12 @@
 import type { ComponentProps } from 'react';
 
-import type { Link as LocalizedLink } from '@/i18n/navigation';
+import type { Link as LocalizedLink } from '@/i18n/routing';
 import type { OverrideProps } from '@/types/common';
-import type { Pathname } from '@/types/locales';
 
-export type LinkProps<TPathname extends Pathname> = OverrideProps<
-  ComponentProps<typeof LocalizedLink<TPathname>>,
+export type LinkProps = OverrideProps<
+  ComponentProps<typeof LocalizedLink>,
   {
-    href?: ComponentProps<typeof LocalizedLink<Pathname>>['href'];
+    href?: ComponentProps<typeof LocalizedLink>['href'];
   }
 > & {
   to?: string;

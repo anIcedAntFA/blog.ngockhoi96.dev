@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-function SuccessIcon(props: SVGProps<SVGSVGElement>) {
+function SuccessIcon(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ function SuccessIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      {...props}
+      {...svgProps}
     >
       <circle cx="12" cy="12" r="10" />
       <path d="m9 12 2 2 4-4" />

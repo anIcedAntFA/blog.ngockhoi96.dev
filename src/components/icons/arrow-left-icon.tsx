@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-function ArrowLeftIcon(props: SVGProps<SVGSVGElement>) {
+function ArrowLeftIcon(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ function ArrowLeftIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      {...props}
+      {...svgProps}
     >
       <path d="m12 19-7-7 7-7" />
       <path d="M19 12H5" />

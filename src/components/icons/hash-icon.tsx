@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-function HashIcon(props: SVGProps<SVGSVGElement>) {
+function HashIcon(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ function HashIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      {...props}
+      {...svgProps}
     >
       <line x1="4" x2="20" y1="9" y2="9" />
       <line x1="4" x2="20" y1="15" y2="15" />

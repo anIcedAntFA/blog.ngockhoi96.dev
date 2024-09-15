@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-function CloseIcon(props: SVGProps<SVGSVGElement>) {
+function CloseIcon(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ function CloseIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      {...props}
+      {...svgProps}
     >
       <path d="M18 6 6 18" />
       <path d="m6 6 12 12" />

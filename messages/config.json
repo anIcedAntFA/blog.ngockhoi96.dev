@@ -5,7 +5,7 @@
     "name": "English",
     "langDir": "ltr",
     "dateFormat": "MM.DD.YYYY",
-    "hrefLang": "en-GB",
+    "hrefLang": "en-US",
     "enabled": true,
     "default": true
   },

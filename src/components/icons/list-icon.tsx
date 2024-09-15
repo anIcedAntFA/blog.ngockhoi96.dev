@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-function ListIcon(props: SVGProps<SVGSVGElement>) {
+function ListIcon(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ function ListIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      {...props}
+      {...svgProps}
     >
       <line x1="8" x2="21" y1="6" y2="6" />
       <line x1="8" x2="21" y1="12" y2="12" />

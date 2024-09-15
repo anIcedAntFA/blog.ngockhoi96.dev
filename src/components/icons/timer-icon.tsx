@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-function TimerIcon(props: SVGProps<SVGSVGElement>) {
+function TimerIcon(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ function TimerIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      {...props}
+      {...svgProps}
     >
       <line x1="10" x2="14" y1="2" y2="2" />
       <line x1="12" x2="15" y1="14" y2="11" />

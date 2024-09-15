@@ -2,12 +2,12 @@
   position: relative;
 
   display: flex;
+  justify-content: center;
 
   margin-block: 16px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 800px;
 
   &:hover .maximize-btn {
     opacity: 1;
@@ -15,22 +15,27 @@
 }
 
 .image {
-  display: block;
+  position: relative;
 
-  border-radius: var(--br-large);
-  max-width: 100%;
-  width: 100%;
-  object-fit: cover;
+  display: flex;
 
   cursor: zoom-in;
+
+  img {
+    display: block;
+
+    margin: auto;
+    border-radius: var(--br-large);
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 }
 
 .figure {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  width: 100%;
 }
 
 .caption {

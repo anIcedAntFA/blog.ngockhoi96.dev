@@ -8,6 +8,10 @@ export const pathnames = {
     en: '/articles',
     vi: '/bai-viet',
   },
+  '/articles/[slug]': {
+    en: '/articles/[slug]',
+    vi: '/bai-viet/[slug]',
+  },
   '/resources': {
     en: '/resources',
     vi: '/tai-nguyen',

@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-function GridLayoutIcon(props: SVGProps<SVGSVGElement>) {
+function GridLayoutIcon(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ function GridLayoutIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      {...props}
+      {...svgProps}
     >
       <rect width="7" height="7" x="3" y="3" rx="1" />
       <rect width="7" height="7" x="14" y="3" rx="1" />

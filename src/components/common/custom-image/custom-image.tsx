@@ -29,15 +29,30 @@ function CustomImage({
 
   const renderImage = useCallback(
     () => (
-      <NextImage
-        src={url}
-        alt={alt}
-        className={styles.image}
-        onClick={onZoomInImage}
-        {...imageProps}
-      />
+      <div className={styles.image}>
+        <NextImage
+          src={url}
+          alt={alt}
+          onClick={onZoomInImage}
+          {...imageProps}
+        />
+        {showZoomInBtn && (
+          <CustomTooltip label={t('tooltipLabel')} placement="right" hasArrow>
+            <button
+              type="button"
+              aria-label={t('ariaLabel')}
+              className={styles['maximize-btn']}
+              onClick={onZoomInImage}
+            >
+              <span className={styles['maximize-icon']}>
+                <MaximizeIcon />
+              </span>
+            </button>
+          </CustomTooltip>
+        )}
+      </div>
     ),
-    [alt, imageProps, onZoomInImage, url],
+    [alt, imageProps, onZoomInImage, showZoomInBtn, t, url],
   );
 
   return (
@@ -49,20 +64,6 @@ function CustomImage({
         </figure>
       ) : (
         renderImage()
-      )}
-      {showZoomInBtn && (
-        <CustomTooltip label={t('tooltipLabel')} placement="right" hasArrow>
-          <button
-            type="button"
-            aria-label={t('ariaLabel')}
-            className={styles['maximize-btn']}
-            onClick={onZoomInImage}
-          >
-            <span className={styles['maximize-icon']}>
-              <MaximizeIcon />
-            </span>
-          </button>
-        </CustomTooltip>
       )}
     </div>
   );
