@@ -100,6 +100,7 @@
     "postcss-simple-vars": "^7.0.1",
     "prettier": "^3.2.5",
     "rehype-autolink-headings": "^7.1.0",
+    "rehype-mdx-code-props": "^3.0.1",
     "rehype-slug": "^6.0.0",
     "stylelint": "^16.3.1",
     "stylelint-config-property-sort-order-smacss": "^10.0.0",

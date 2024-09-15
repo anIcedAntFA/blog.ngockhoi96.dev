@@ -39,6 +39,13 @@
   --z-index-9: 9;
   --z-index-10: 10;
 
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --spacing-content: var(--space-4);
+
   /* colors */
   --clr-snow: #fffafa;
   --clr-ghost-white: #f8f8ff;

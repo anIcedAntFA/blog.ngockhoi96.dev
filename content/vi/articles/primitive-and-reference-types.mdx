@@ -1,6 +1,6 @@
 ---
-title: nguyên thủy và tham chiếu
-description: Học về các kiểu nguyên thủy và tham chiếu trong JavaScript.
+title: Kiểu Nguyên thủy và  kiểu Tham chiếu
+description: Tìm hiểu về các kiểu dữ liệu Nguyên thủy và Tham chiếu trong JavaScript.
 slug: primitive-and-reference-types
 locale: vi
 date: 2024-09-06 10:00
@@ -22,7 +22,7 @@ authors:
   caption="A single track trail outside of Albuquerque, New Mexico."
 />
 
-### What is a primitive type?
+### Primitive types là gì?
 
 Trong JavaScript, các kiểu dữ liệu nguyên thủy (_primitive types_) bao gồm: `string`, `number`,
 `bigint`, `boolean`, `symbol`, `null` và `undefined`. Đây là những kiểu dữ liệu mà giá trị của chúng
@@ -30,21 +30,19 @@ chỉ chứa một giá trị đơn giản và không phải là một đối t�
 
 **Cú pháp sử dụng**: không cần cú pháp đặc biệt, chỉ cần gán giá trị cho biến.
 
-Ví dụ:
+Thí dụ:
 
-```js live=false
-let name = 'John'; // string
-let age = 25; // number
-let isStudent = false; // boolean
+```js filename="awesome.js"
+const name = 'Grizz'; // string
+const age = 27; // number
+const isHuman = false; // boolean
+const car = null; // null
+const job = undefined; // undefined
+const bigNumber = 9007199254740991n; // bigint
+const symbol = Symbol('symbol'); // symbol
 ```
 
-```ts
-const isEqual = (a: number, b: number): boolean => a === b;
-```
-
-<pre>This is a plain text inside a pre tag.</pre>
-
-### How Primitive types are stored
+### Cách Primitive types được lưu trữ
 
 <Image
   src="/images/posts/cover.jpg"
@@ -56,16 +54,67 @@ const isEqual = (a: number, b: number): boolean => a === b;
 Các giá trị nguyên thủy được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến, không giống như _reference types_
 (chỉ lưu địa chỉ tham chiếu đến nơi chứa dữ liệu thực tế).
 
-Ví dụ: Khi khai báo một biến kiểu nguyên thủy.
+Thí dụ: Khi khai báo một biến kiểu nguyên thủy.
 
-Giá trị `"Bob"` và `25` được lưu trực tiếp tại vị trí bộ nhớ của biến `userName` và `userAge`.
+```js
+let myName = 'ngockhoi96';
+let myAge = 24;
+```
 
-### Advantages of using Primitive types
+Giá trị `"ngockhoi96"` và `24` được lưu trực tiếp tại vị trí bộ nhớ của biến `myName` và `myAge`.
+
+Tiếp theo, sửa giá trị của biến `myName` thành `"khoikhukho"`:
+
+```js
+myName = 'khoikhukho';
+```
+
+Biến `myName` được sửa thành `"khoikhukho"` và giá trị `"khoikhukho"` được thay thế trực tiếp vào vị trí bộ nhớ của biến.
+
+Tiếp tục tạo ra biến `myNameCopy` và gán giá trị của `myName` cho `myNameCopy`:
+
+```js
+let myNameCopy = myName;
+```
+
+Sửa giá trị của `myName` thành `"khoikhukho96"`:
+
+```js
+myName = 'khoikhukho96';
+```
+
+Kết quả, biến `myNameCopy` lưu trữ giá trị `"khoikhukho96"` và biến `myName` vẫn lưu trữ giá trị `"khoikhukho"`:
+
+Các giá trị nguyên thủy được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến, nên việc sửa biến copy sẽ chỉ thay đổi giá trị của biến copy mà không ảnh hưởng đến biến ban đầu.
+
+### Ưu điểm khi sử dụng Primitive types
 
 - **Hiệu suất cao hơn**: Vì giá trị được lưu trực tiếp trong vị trí bộ nhớ của biến, việc truy cập và xử lý dữ liệu nhanh chóng.
 - **So sánh giá trị dễ dàng**: Khi so sánh 2 giá trị nguyên thủy, JavaScript sẽ so sánh giá trị thực tế của chúng, đảm bảo tính chính xác.
 
-Ví dụ: Dễ dàng so sánh 2 giá trị nguyên thủy.
+Thí dụ: Dễ dàng so sánh 2 giá trị nguyên thủy.
+
+```js
+const herScore = 10;
+const hisScore = 10;
+
+console.log(herScore === hisScore); // true
+```
+
+### Primitive types là bất biến
+
+Trong JavaScript, các giá trị nguyên thủy là bất biến ([_immutable_](https://developer.mozilla.org/en-US/docs/Glossary/Immutable)). Điều này có nghĩa là một khi một giá trị nguyên thủy được tạo, giá trị đó không thể thay đổi.
+
+Thí dụ: Không thể sửa được một chuỗi
+
+```js
+let greeting = 'Hello';
+greeting[1] = 'i';
+
+console.log(greeting); // Hello
+```
+
+Sự bất biến của giá trị nguyên thủy giúp đảm bảo tính toàn vẹn của dữ liệu và giúp chúng ta dễ dàng kiểm soát các thay đổi dữ liệu trong chương trình.
 
 ---
 
@@ -81,53 +130,171 @@ Ví dụ: Dễ dàng so sánh 2 giá trị nguyên thủy.
   caption="A single track trail outside of Albuquerque, New Mexico."
 />
 
-Kiểu tham chiếu (Reference types) trong JavaScript bao gồm các kiểu dữ liệu như object, array, function, và các đối tượng khác. Khác với kiểu dữ liệu nguyên thủy, kiểu tham chiếu lưu trữ địa chỉ (tham chiếu) của giá trị trong bộ nhớ, thay vì giá trị thực tế.
+Kiểu tham chiếu (_Reference types_) trong JavaScript bao gồm các kiểu dữ liệu như `object`, `array`, `function`,
+và các đối tượng khác. Khác với kiểu dữ liệu nguyên thủy, kiểu tham chiếu lưu trữ địa chỉ (_tham chiếu_)
+của giá trị trong bộ nhớ, thay vì giá trị thực tế.
 
-Ví dụ:
+Thí dụ:
 
-```jsx manual=true
-let person = { name: 'John', age: 25 };
-let numbers = [1, 2, 3, 4, 5];
+```js
+const person = { name: 'Grizz', age: 8, isHungry: true };
+const numbers = [1, 2, 3, 4, 5];
 
 function sum(a, b) {
   return a + b;
 }
 ```
 
-- Các kiểu dữ liệu nguyên thủy trong JavaScript: Bao gồm string, number, bigint, boolean, symbol, null, và undefined. Các giá trị này được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến và là bất biến.
+Biến `person`, `numbers` và `sum` thực chất chỉ lưu trữ địa chỉ tham chiếu tới giá trị trong bộ nhớ _Heap_, chứ không trực tiếp lưu trữ chúng.
 
-  - Ưu điểm khi sử dụng: Hiệu suất cao hơn và so sánh giá trị dễ dàng.
+### Cách Reference types được lưu trữ
 
-- Kiểu tham chiếu trong JavaScript: Bao gồm object, array, function, và các đối tượng khác. Kiểu tham chiếu lưu trữ địa chỉ tham chiếu của giá trị trong Stack, giá trị thực tế được lưu trong Heap.
-  - Tại sao cần sử dụng: Cho phép lưu trữ và quản lý cấu trúc dữ liệu phức tạp, thao tác linh hoạt thông qua các phương thức và thuộc tính.
+Thí dụ: Tạo object person.
 
-> _Nếu vô tình để xảy ra lặp vô hạn dẫn tới treo chương trình, với trình duyệt<br />
-> bạn chỉ cần tắt Tab bị treo, sửa lại code và mở lại trên trình duyệt._
+```js
+let person = { name: 'Grizz' };
+```
 
-Các lý do vì sao nên học lập trình hướng đối tượng OOP:
+Tạo biến personCopy từ person.
 
-1. Tiêu chuẩn trong ngành phát triển phần mềm: OOP được phát triển và hỗ trợ từ đại đa số các ngôn ngữ lập trình, thư viện và framework phổ biến.
-2. Tiêu chí đầu vào bắt buộc ở các công ty phần mềm: OOP thường xuất hiện trong những yêu cầu bắt buộc trong các JD tuyển dụng developer/engineer.
-   1. Các nguyên lý cơ bản của OOP: Encapsulation, Inheritance, Polymorphism, Abstraction.
-   2. Các nguyên tắc cơ bản của OOP: SOLID, DRY, KISS, YAGNI.
-3. Tổ chức và thiết kế phần mềm: Các tính chất và nguyên lý của OOP thường được sử dụng trong việc thiết kế phần mềm, giảm thiểu các khai bắt trùng lặp, tăng khả năng tái sử dụng, cũng như đơn giản hoá cấu trúc phần mềm.
-4. Design Patterns và Design System: Các Design Patterns/System phần lớn dựa trên các nguyên lý lập trình OOP.
+```js
+let personCopy = person;
+```
 
-<NavItem variant="bg" color="info" href="/articles/hello-world">
-  qwerty
-</NavItem>
+Lúc này, cả `person` và `personCopy` đều tham chiếu đến cùng một object trong bộ nhớ _Heap_, nên sửa một biến sẽ thấy sự thay đổi thông qua biến còn lại.
 
-> Follow this guide for customising Chakra Icons
-> [Using Chakra UI Icons](/articles/hello-world).
+Thí dụ:
 
-<NavItem color="info" href="/articles/hello-world">
-  qwerty
-</NavItem>
+```js
+let person = { name: 'Grizz' };
+let personCopy = person;
 
-<Image
-  src="https://images.unsplash.com/photo-1719937206168-f4c829152b91?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  alt="Image test unsplash"
-  width={600}
-  height={400}
-  caption="A single track trail outside of Albuquerque, New Mexico."
-/>
+personCopy.name = 'Panda';
+
+console.log(personCopy.name); // Panda
+console.log(person.name); // Panda
+```
+
+### Ưu điểm khi sử dụng Reference types
+
+- **Lưu trữ và quản lý cấu trúc dữ liệu phức tạp**: Cho phép tạo ra các cấu trúc dữ liệu như đối tượng và mảng để lưu trữ và quản lý thông tin một cách có tổ chức.
+- **Thao tác linh hoạt**: Cung cấp khả năng thao tác dữ liệu thông qua các phương thức và thuộc tính, hỗ trợ lập trình hướng đối tượng.
+
+Thí dụ: Thay đổi giá trị của thuộc tính trong đối tượng.
+
+```js
+const myCar = { brand: 'BMW', year: 2020, color: 'gray' };
+myCar.color = 'black';
+
+console.log(myCar.color); // black
+```
+
+---
+
+## So sánh giữa Primitive và Reference types
+
+### So sánh chi tiết
+
+**Khi lưu trữ dữ liệu**:
+
+- **Primitive types**: Lưu giá trị trực tiếp trong vị trí bộ nhớ mà biến đề cập đến. Khi bạn gán giá trị của một biến nguyên thủy cho biến khác, một bản sao của giá trị đó được tạo và lưu trữ một cách độc lập.
+- **Reference types**: Lưu địa chỉ (tham chiếu) đến vị trí bộ nhớ nơi dữ liệu thực sự được lưu. Khi gán giá trị của một biến tham chiếu cho biến khác, cả hai biến đều tham chiếu đến cùng một địa chỉ bộ nhớ.
+
+**Khi so sánh**:
+
+- **Primitive types**: So sánh giá trị thực tế của chúng. Nếu giá trị giống nhau, kết quả trả về `true`.
+- **Reference types**: So sánh địa chỉ bộ nhớ mà chúng tham chiếu. Nếu cả hai tham chiếu đến cùng một địa chỉ, kết quả trả về `true`.
+
+**Về hiệu năng**:
+
+- **Primitive types**: Hiệu suất truy cập dữ liệu nhanh hơn hơn vì giá trị được lưu trực tiếp trong vị trí bộ nhớ.
+- **Reference types**: Hiệu suất truy cập dữ liệu chậm hơn vì cần truy cập đến địa chỉ tham chiếu trước khi truy cập dữ liệu thực sự.
+
+**Trường hợp sử dụng**:
+
+- **Primitive types**: Thích hợp cho việc lưu trữ và xử lý thông tin đơn giản, như tên người dùng, điểm số, v.v.
+- **Reference types**: Thích hợp cho việc lưu trữ và quản lý thông tin phức tạp, như thông tin người dùng, sản phẩm, hoặc các đối tượng có nhiều thuộc tính và phương thức.
+
+### Bảng so sánh nhanh
+
+| Đặc điểm           | Primitive types             | Reference types                    |
+| ------------------ | --------------------------- | ---------------------------------- |
+| Lưu trữ dữ liệu    | Trực tiếp tại vị trí bộ nhớ | Địa chỉ tham chiếu tới bộ nhớ      |
+| So sánh            | Giá trị thực tế             | Địa chỉ tham chiếu                 |
+| Sao chép giá trị   | Tạo bản sao độc lập         | Tham chiếu đến cùng địa chỉ bộ nhớ |
+| Hiệu năng          | Cao do truy cập trực tiếp   | Có thể chậm do truy cập gián tiếp  |
+| Trường hợp sử dụng | Dữ liệu đơn giản            | Dữ liệu phức tạp                   |
+
+Tóm lại, tùy vào nhu cầu cụ thể của từng tình huống cụ thể mà bạn sẽ chọn sử dụng kiểu dữ liệu nguyên thủy hoặc kiểu tham chiếu sao cho phù hợp.
+
+---
+
+## Các sai lầm thường gặp
+
+### So sánh trực tiếp giữa hai đối tượng
+
+Khi so sánh trực tiếp hai đối tượng, JavaScript sẽ so sánh địa chỉ tham chiếu, không phải giá trị của đối tượng.
+
+**Cách giải quyết**: Sử dụng vòng lặp hoặc phương thức như `JSON.stringify()` để so sánh giá trị bên trong.
+
+Thí dụ:
+
+```js
+const motorbike1 = { brand: 'Honda', year: 2020 };
+const motorbike2 = { brand: 'Honda', year: 2020 };
+
+console.log(JSON.stringify(motorbike1) === JSON.stringify(motorbike2)); // true
+```
+
+### Không hiểu rõ về tính chất tham chiếu
+
+Gán một đối tượng cho một biến khác và sửa đổi giá trị trong một biến có thể không ý thức được rằng nó cũng thay đổi giá trị trong biến khác.
+
+**Cách giải quyết**: Sử dụng `Object.assign()` để tạo bản sao mới.
+
+```js
+let originalBrand = { name: 'BWM' };
+let copyBrand = Object.assign({}, originalBrand);
+
+copyBrand.name = 'Audi';
+
+console.log(copyBrand.name); // Audi
+console.log(originalBrand.name); // BMW
+```
+
+_Lưu ý cách này chỉ là sao chép nông ([shallow copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)). Nếu có object con bên trong thì nó chỉ sao chép tham chiếu, chứ không tạo ra object mới cho object con đó._
+
+Thí dụ:
+
+```js
+let originalCar = {
+  brand: 'BMW',
+  engine: { type: 'V8' },
+};
+let copyCar = Object.assign({}, originalCar);
+
+console.log(copyCar.engine === originalCar.engine); // true
+```
+
+Cách giải quyết khi cần sao chép sâu ([_deep copy_](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)) là sử dụng hàm `structuredClone()` có sẵn trong JavaScript.
+
+Thí dụ:
+
+```js
+let originalCar = {
+  brand: 'BMW',
+  engine: { type: 'V8' },
+};
+let copyCar = structuredClone(originalCar);
+
+console.log(copyCar.engine === originalCar.engine); // false
+```
+
+Hàm `structuredClone()` sẽ nhận vào một object và trả về một object mới - là sao chép sâu \
+([_deep copy_](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)) của object ban đầu.
+
+I need to highlight these ==very important words==.
+
+I need to highlight these <mark style={{backgroundColor: 'orange'}}>very important words</mark>.
+
+==Text==

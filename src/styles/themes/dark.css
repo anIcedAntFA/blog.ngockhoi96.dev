@@ -40,5 +40,8 @@ html[data-theme='dark'] {
   /* other */
   --clr-bg-kbd: alpha(var(--clr-gray-100), 10%);
   --clr-caption: var(--clr-gray-400);
-  --clr-code-bg: var(--clr-emerald-200);
+
+  /* Code */
+  --clr-code-border: var(--clr-gray-800);
+  --clr-code-bg: var(--clr-gray-700);
 }

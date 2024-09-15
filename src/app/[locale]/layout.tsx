@@ -45,8 +45,8 @@ export async function generateMetadata({
     alternates: {
       canonical: '/',
       languages: {
-        en: '/en',
-        vi: '/vi',
+        'en-US': '/en-US',
+        'vi-VN': '/vi-VN',
       },
     },
     generator: 'Next.js',

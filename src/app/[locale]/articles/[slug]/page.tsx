@@ -11,7 +11,7 @@ import styles from './page.module.css';
 
 export const runtime = 'edge';
 
-type ArticlesPageProps = {
+type ArticlesProps = {
   params: {
     locale: string;
     slug: string;
@@ -26,7 +26,7 @@ function getArticleBySlug(slug: string, locale: string) {
 
 export async function generateMetadata({
   params: { locale, slug },
-}: ArticlesPageProps): Promise<Metadata> {
+}: ArticlesProps): Promise<Metadata> {
   const article = getArticleBySlug(slug, locale);
 
   if (!article) return {};
@@ -44,12 +44,12 @@ export async function generateMetadata({
   };
 }
 
-function ArticlesPage({ params: { locale, slug } }: ArticlesPageProps) {
+function ArticlesPage({ params: { locale, slug } }: ArticlesProps) {
   const article = getArticleBySlug(slug, locale);
 
   const t = useTranslations('articles.components.tableOfContents');
 
-  if (!article) return <div>Post not found</div>;
+  if (!article) return <div>Article not found</div>;
 
   return (
     <>
@@ -73,8 +73,6 @@ function ArticlesPage({ params: { locale, slug } }: ArticlesPageProps) {
           <p className="mt-0 text-xl text-slate-700 dark:text-slate-200">
             {article.description}
           </p>
-
-          <hr className="my-4" />
 
           <MDXContent code={article.body} />
         </article>

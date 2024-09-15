@@ -28,6 +28,7 @@ function CodeBlock({
   showCopyButton = false,
   showLineNumbers = false,
   children,
+  ...props
 }: CodeBlockProps) {
   const { resolvedTheme } = useTheme();
 
@@ -41,7 +42,7 @@ function CodeBlock({
   const hasBtnOrLang = showCopyButton || showLanguage;
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} {...props}>
       <CodeHighlight
         codeString={rawCode}
         language={langProp || language}

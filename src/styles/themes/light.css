@@ -41,5 +41,8 @@ html[data-theme='light'] {
   /* other */
   --clr-bg-kbd: var(--clr-gray-100);
   --clr-caption: var(--clr-gray-600);
-  --clr-code-bg: var(--clr-emerald-400);
+
+  /* Code */
+  --clr-code-border: var(--clr-gray-200);
+  --clr-code-bg: var(--clr-gray-100);
 }

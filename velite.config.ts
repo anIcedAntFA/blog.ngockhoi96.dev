@@ -3,6 +3,7 @@
 // import { h } from 'hastscript';
 // import type { Options as RALOptions } from 'rehype-autolink-headings';
 // import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeMdxCodeProps from 'rehype-mdx-code-props';
 import rehypeSlug from 'rehype-slug';
 import { defineCollection, defineConfig, s } from 'velite';
 
@@ -19,7 +20,7 @@ const author = defineCollection({
   }),
 });
 
-const existingSlugs = new Map();
+const existingSlugs = new Set();
 
 const articles = defineCollection({
   name: 'Articles', // collection type name
@@ -44,10 +45,10 @@ const articles = defineCollection({
         //* Custom validation to ensure unique slug-language combination
         const slugLocaleKey = `${data.slug}-${data.locale}`;
         if (existingSlugs.has(slugLocaleKey)) {
-          return false;
+          return true;
         }
-        existingSlugs.set(slugLocaleKey, true);
-        return true;
+        existingSlugs.add(slugLocaleKey);
+        return false;
       },
       {
         message: 'Slug must be unique per language',
@@ -121,6 +122,7 @@ export default defineConfig({
   mdx: {
     rehypePlugins: [
       rehypeSlug,
+      rehypeMdxCodeProps,
       // [rehypeAutolinkHeadings, rehypeAutolinkOptions],
     ],
   },
