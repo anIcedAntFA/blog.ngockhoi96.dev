@@ -1,8 +1,11 @@
 'use client';
 
-import { themes } from 'prism-react-renderer';
+import { useTheme } from 'next-themes';
+import { themes as prismThemes } from 'prism-react-renderer';
 import type { PropsWithChildren } from 'react';
 import { isValidElement } from 'react';
+
+import { themes } from '@/configs/themes';
 
 import { Tag, TagLabel } from '../../tag';
 import styles from '../code-block.module.css';
@@ -26,6 +29,8 @@ function CodeBlock({
   showLineNumbers = false,
   children,
 }: CodeBlockProps) {
+  const { resolvedTheme } = useTheme();
+
   if (!isValidElement(children)) return null;
 
   const { className, children: content } = children.props;
@@ -40,7 +45,11 @@ function CodeBlock({
       <CodeHighlight
         codeString={rawCode}
         language={langProp || language}
-        theme={themes.dracula}
+        theme={
+          resolvedTheme === themes.DARK
+            ? prismThemes.dracula
+            : prismThemes.vsLight
+        }
         showLines={showLineNumbers}
       />
       {hasBtnOrLang && (

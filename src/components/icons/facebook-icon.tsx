@@ -1,13 +1,13 @@
 import type { SVGProps } from 'react';
 
-function FacebookIcon(props: SVGProps<SVGSVGElement>) {
+function FacebookIcon(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
       viewBox="0 0 24 24"
-      {...props}
+      {...svgProps}
     >
       <path
         fill="currentColor"

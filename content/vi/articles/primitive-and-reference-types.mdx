@@ -1,0 +1,133 @@
+---
+title: nguyên thủy và tham chiếu
+description: Học về các kiểu nguyên thủy và tham chiếu trong JavaScript.
+slug: primitive-and-reference-types
+locale: vi
+date: 2024-09-06 10:00
+cover: /images/posts/cover.jpg
+excerpt: In JavaScript, primitive types include:\ string, number, bigint, boolean, symbol, null, and undefined. These are data types whose values contain a single simple value and are not objects.
+authors:
+  - ngockhoi96
+---
+
+## Primitive types
+
+<Image
+  src="https://files.fullstack.edu.vn/f8-prod/public-images/6603a2aa457a2.png"
+  alt="Image test unsplash"
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
+  caption="A single track trail outside of Albuquerque, New Mexico."
+/>
+
+### What is a primitive type?
+
+Trong JavaScript, các kiểu dữ liệu nguyên thủy (_primitive types_) bao gồm: `string`, `number`,
+`bigint`, `boolean`, `symbol`, `null` và `undefined`. Đây là những kiểu dữ liệu mà giá trị của chúng
+chỉ chứa một giá trị đơn giản và không phải là một đối tượng.
+
+**Cú pháp sử dụng**: không cần cú pháp đặc biệt, chỉ cần gán giá trị cho biến.
+
+Ví dụ:
+
+```js live=false
+let name = 'John'; // string
+let age = 25; // number
+let isStudent = false; // boolean
+```
+
+```ts
+const isEqual = (a: number, b: number): boolean => a === b;
+```
+
+<pre>This is a plain text inside a pre tag.</pre>
+
+### How Primitive types are stored
+
+<Image
+  src="/images/posts/cover.jpg"
+  alt="Image test cover"
+  width={600}
+  height={400}
+/>
+
+Các giá trị nguyên thủy được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến, không giống như _reference types_
+(chỉ lưu địa chỉ tham chiếu đến nơi chứa dữ liệu thực tế).
+
+Ví dụ: Khi khai báo một biến kiểu nguyên thủy.
+
+Giá trị `"Bob"` và `25` được lưu trực tiếp tại vị trí bộ nhớ của biến `userName` và `userAge`.
+
+### Advantages of using Primitive types
+
+- **Hiệu suất cao hơn**: Vì giá trị được lưu trực tiếp trong vị trí bộ nhớ của biến, việc truy cập và xử lý dữ liệu nhanh chóng.
+- **So sánh giá trị dễ dàng**: Khi so sánh 2 giá trị nguyên thủy, JavaScript sẽ so sánh giá trị thực tế của chúng, đảm bảo tính chính xác.
+
+Ví dụ: Dễ dàng so sánh 2 giá trị nguyên thủy.
+
+---
+
+## Reference types
+
+### Reference types là gì?
+
+<Image
+  src="https://images.unsplash.com/photo-1725905507743-30f903ebbf2c?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  alt="Image test unsplash"
+  width={600}
+  height={400}
+  caption="A single track trail outside of Albuquerque, New Mexico."
+/>
+
+Kiểu tham chiếu (Reference types) trong JavaScript bao gồm các kiểu dữ liệu như object, array, function, và các đối tượng khác. Khác với kiểu dữ liệu nguyên thủy, kiểu tham chiếu lưu trữ địa chỉ (tham chiếu) của giá trị trong bộ nhớ, thay vì giá trị thực tế.
+
+Ví dụ:
+
+```jsx manual=true
+let person = { name: 'John', age: 25 };
+let numbers = [1, 2, 3, 4, 5];
+
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- Các kiểu dữ liệu nguyên thủy trong JavaScript: Bao gồm string, number, bigint, boolean, symbol, null, và undefined. Các giá trị này được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến và là bất biến.
+
+  - Ưu điểm khi sử dụng: Hiệu suất cao hơn và so sánh giá trị dễ dàng.
+
+- Kiểu tham chiếu trong JavaScript: Bao gồm object, array, function, và các đối tượng khác. Kiểu tham chiếu lưu trữ địa chỉ tham chiếu của giá trị trong Stack, giá trị thực tế được lưu trong Heap.
+  - Tại sao cần sử dụng: Cho phép lưu trữ và quản lý cấu trúc dữ liệu phức tạp, thao tác linh hoạt thông qua các phương thức và thuộc tính.
+
+> _Nếu vô tình để xảy ra lặp vô hạn dẫn tới treo chương trình, với trình duyệt<br />
+> bạn chỉ cần tắt Tab bị treo, sửa lại code và mở lại trên trình duyệt._
+
+Các lý do vì sao nên học lập trình hướng đối tượng OOP:
+
+1. Tiêu chuẩn trong ngành phát triển phần mềm: OOP được phát triển và hỗ trợ từ đại đa số các ngôn ngữ lập trình, thư viện và framework phổ biến.
+2. Tiêu chí đầu vào bắt buộc ở các công ty phần mềm: OOP thường xuất hiện trong những yêu cầu bắt buộc trong các JD tuyển dụng developer/engineer.
+   1. Các nguyên lý cơ bản của OOP: Encapsulation, Inheritance, Polymorphism, Abstraction.
+   2. Các nguyên tắc cơ bản của OOP: SOLID, DRY, KISS, YAGNI.
+3. Tổ chức và thiết kế phần mềm: Các tính chất và nguyên lý của OOP thường được sử dụng trong việc thiết kế phần mềm, giảm thiểu các khai bắt trùng lặp, tăng khả năng tái sử dụng, cũng như đơn giản hoá cấu trúc phần mềm.
+4. Design Patterns và Design System: Các Design Patterns/System phần lớn dựa trên các nguyên lý lập trình OOP.
+
+<NavItem variant="bg" color="info" href="/articles/hello-world">
+  qwerty
+</NavItem>
+
+> Follow this guide for customising Chakra Icons
+> [Using Chakra UI Icons](/articles/hello-world).
+
+<NavItem color="info" href="/articles/hello-world">
+  qwerty
+</NavItem>
+
+<Image
+  src="https://images.unsplash.com/photo-1719937206168-f4c829152b91?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  alt="Image test unsplash"
+  width={600}
+  height={400}
+  caption="A single track trail outside of Albuquerque, New Mexico."
+/>

@@ -3,26 +3,26 @@ html[data-theme='light'] {
   --clr-primary: var(--clr-emerald-600);
 
   /* info */
-  --clr-info-text: var(--clr-blue-600);
-  --clr-info-close-btn: var(--clr-blue-400);
+  --clr-info-text: var(--clr-blue-700);
+  --clr-info-close-btn: var(--clr-blue-500);
   --clr-info-border: var(--clr-blue-200);
   --clr-info-bg: var(--clr-blue-100);
 
   /* success */
-  --clr-success-text: var(--clr-green-600);
-  --clr-success-close-btn: var(--clr-green-400);
+  --clr-success-text: var(--clr-green-700);
+  --clr-success-close-btn: var(--clr-green-500);
   --clr-success-border: var(--clr-green-200);
   --clr-success-bg: var(--clr-green-100);
 
   /* warning */
-  --clr-warning-text: var(--clr-orange-600);
-  --clr-warning-close-btn: var(--clr-orange-400);
+  --clr-warning-text: var(--clr-orange-700);
+  --clr-warning-close-btn: var(--clr-orange-500);
   --clr-warning-border: var(--clr-orange-200);
   --clr-warning-bg: var(--clr-orange-100);
 
   /* error */
-  --clr-error-text: var(--clr-red-600);
-  --clr-error-close-btn: var(--clr-red-400);
+  --clr-error-text: var(--clr-red-700);
+  --clr-error-close-btn: var(--clr-red-500);
   --clr-error-border: var(--clr-red-200);
   --clr-error-bg: var(--clr-red-100);
 

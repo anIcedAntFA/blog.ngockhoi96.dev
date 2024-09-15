@@ -3,7 +3,7 @@
 import Image from 'next/image';
 
 import ShareIcon from '@/components/icons/share-icon';
-import { Link } from '@/i18n/navigation';
+import { Link } from '@/i18n/routing';
 
 import { Card, CardBody, CardFooter, CardHeader } from '../card';
 import IconButton from '../icon-button';

@@ -11,6 +11,8 @@
   height: 60px;
   padding: 8px 24px;
 
+  background-color: var(--clr-bg);
+
   transition: box-shadow 0.2s ease-in-out;
 
   &.blur {
@@ -33,10 +35,8 @@
   display: flex;
 }
 
-.item {
-  &:not(:first-child) {
-    margin-left: 8px;
-  }
+.item:not(:first-child) {
+  margin-left: 8px;
 }
 
 .subscribe-btn {

@@ -5,7 +5,8 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useTransition } from 'react';
 
 import useBoolean from '@/hooks/use-boolean';
-import { usePathname, useRouter } from '@/i18n/navigation';
+import { usePathname, useRouter } from '@/i18n/routing';
+import type { Locale } from '@/types/locales';
 
 import CustomTooltip from '../custom-tooltip';
 import { Menu, MenuItem, MenuLabel, MenuList, MenuTrigger } from '../menu';
@@ -27,7 +28,7 @@ function LanguageSelector() {
   const pathname = usePathname();
   const showLanguageDropdown = useBoolean();
 
-  const onSelectLanguage = (nextLocale: string) => {
+  const onSelectLanguage = (nextLocale: Locale) => {
     showLanguageDropdown.off();
     startTransition(() => {
       router.replace(pathname, { locale: nextLocale });
@@ -110,7 +111,7 @@ function LanguageSelector() {
               duration: 0.3,
               delay: 0.1 * index,
             }}
-            onClick={() => onSelectLanguage(item.value)}
+            onClick={() => onSelectLanguage(item.value as Locale)}
           >
             <Image src={item.image} alt={item.alt} width={28} height={28} />
             <MenuLabel>{item.title}</MenuLabel>

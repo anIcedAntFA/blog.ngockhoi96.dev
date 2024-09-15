@@ -19,26 +19,46 @@ const author = defineCollection({
   }),
 });
 
+const existingSlugs = new Map();
+
 const articles = defineCollection({
   name: 'Articles', // collection type name
-  pattern: 'articles/**/*.mdx', // content files glob pattern
+  pattern: '{en,vi}/articles/**/*.mdx', // content files glob pattern
   schema: s
     .object({
       title: s.string().max(99), // Zod primitive type
       description: s.string().max(199),
-      slug: s.slug('articles'), // validate format, unique in posts collection
+      slug: s.string(), // validate format, unique in posts collection
+      locale: s.enum(['en', 'vi']), // enum type
       date: s.isodate(), // input Date-like string, output ISO Date string.
       // cover: s.image(), // input image relative path, output image object with blurImage.
       cover: s.string().max(99),
       video: s.file().optional(), // input file relative path, output file public path.
       metadata: s.metadata(), // extract markdown reading-time, word-count, etc.
-      excerpt: s.excerpt(), // excerpt of markdown content
-      content: s.markdown(), // transform markdown to html
       toc: s.toc(), // table of content,
       body: s.mdx(), // transform mdx to html
+      excerpt: s.excerpt(),
     })
-    // more additional fields (computed fields)
-    .transform((data) => ({ ...data, permalink: `/articles/${data.slug}` })),
+    .refine(
+      (data) => {
+        //* Custom validation to ensure unique slug-language combination
+        const slugLocaleKey = `${data.slug}-${data.locale}`;
+        if (existingSlugs.has(slugLocaleKey)) {
+          return false;
+        }
+        existingSlugs.set(slugLocaleKey, true);
+        return true;
+      },
+      {
+        message: 'Slug must be unique per language',
+        path: ['slug'],
+      },
+    )
+    //* more additional fields (computed fields)
+    .transform((data) => ({
+      ...data,
+      permalink: `${data.locale}/articles/${data.slug}`,
+    })),
 });
 
 // const hashIcon = `
@@ -104,4 +124,7 @@ export default defineConfig({
       // [rehypeAutolinkHeadings, rehypeAutolinkOptions],
     ],
   },
+  // prepare(data, context) {
+  //   console.log(data, context);
+  // },
 });

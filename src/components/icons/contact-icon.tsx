@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-function ContactIcon(props: SVGProps<SVGSVGElement>) {
+function ContactIcon(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ function ContactIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      {...props}
+      {...svgProps}
     >
       <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
       <rect width="18" height="18" x="3" y="4" rx="2" />

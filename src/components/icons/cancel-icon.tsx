@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-function CancelIcon(props: SVGProps<SVGSVGElement>) {
+function CancelIcon(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ function CancelIcon(props: SVGProps<SVGSVGElement>) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      {...props}
+      {...svgProps}
     >
       <circle cx="12" cy="12" r="10" />
       <path d="m15 9-6 6" />

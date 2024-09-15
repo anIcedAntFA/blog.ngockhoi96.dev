@@ -6,7 +6,6 @@ import type {
 } from 'react';
 
 import ArrowUpRightIcon from '@/components/icons/arrow-up-right-icon';
-import type { Pathname } from '@/types/locales';
 
 import type { LinkProps } from '../link';
 import Link from '../link';
@@ -17,7 +16,7 @@ type NavItemProps = PropsWithChildren<
   Partial<{
     variant: 'line' | 'bg' | 'icon';
     color: 'base' | 'info';
-    href: LinkProps<Pathname>['href'];
+    href: LinkProps['href'];
     to: string;
     target: HTMLAttributeAnchorTarget;
     className: ComponentProps<'a'>['className'];

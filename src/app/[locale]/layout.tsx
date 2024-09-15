@@ -19,6 +19,7 @@ import {
   availableLocalesMap,
   defaultLocale,
 } from '@/i18n/locales';
+import { routing } from '@/i18n/routing';
 import LocaleProvider from '@/providers/locale-provider';
 import ThemeProvider from '@/providers/theme-provider';
 import '@/styles/main.css';
@@ -35,12 +36,12 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'home.metadata' });
 
   return {
-    metadataBase: new URL('https://blog.ngockhoi96.dev'),
     title: {
       default: "ngockhoi96's blog",
       template: "%s | ngockhoi96's blog",
     },
     description: t('description'),
+    metadataBase: new URL('https://blog.ngockhoi96.dev'),
     alternates: {
       canonical: '/',
       languages: {
@@ -85,6 +86,10 @@ async function getStarCount(user: string, repo: string): Promise<number> {
     console.error('Failed to fetch star count', error);
     return Promise.resolve(4);
   }
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 async function LocaleLayout({ children }: PropsWithChildren) {

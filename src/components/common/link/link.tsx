@@ -1,12 +1,11 @@
 import { forwardRef, type ForwardedRef } from 'react';
 
-import { Link as LocalizedLink } from '@/i18n/navigation';
-import type { Pathname } from '@/types/locales';
+import { Link as LocalizedLink } from '@/i18n/routing';
 
 import type { LinkProps } from './link.type';
 
-function Link<TPathname extends Pathname>(
-  { children, href, to, ...restProps }: LinkProps<TPathname>,
+function Link(
+  { children, href, to, ...restProps }: LinkProps,
   ref: ForwardedRef<HTMLAnchorElement>,
 ) {
   if (!href || to) {

@@ -1,13 +1,11 @@
 import { notFound } from 'next/navigation';
 import { getRequestConfig } from 'next-intl/server';
 
-// import { Locale } from '@/types/locales';
+import { routing } from './routing';
 
-import { availableLocaleCodes } from './locales';
-
-export default getRequestConfig(async ({ locale }: { locale: unknown }) => {
+export default getRequestConfig(async ({ locale }: { locale: string }) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!availableLocaleCodes.includes(locale as string)) notFound();
+  if (!routing.locales.includes(locale)) notFound();
 
   return {
     messages: await import(`../../messages/${locale}.json`).then(
