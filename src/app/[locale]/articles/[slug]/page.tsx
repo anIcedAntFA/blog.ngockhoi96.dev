@@ -18,17 +18,6 @@ type ArticlesPageProps = {
   };
 };
 
-// async function getDocFromParams(params) {
-//   const slug = params.slug?.join('/') || '';
-//   const doc = allArticles.find((doc) => doc. === slug);
-
-//   if (!doc) {
-//     null;
-//   }
-
-//   return doc;
-// }
-
 function getArticleBySlug(slug: string, locale: string) {
   return allArticles.find(
     (article) => article.slug === slug && article.locale === locale,
@@ -60,11 +49,7 @@ function ArticlesPage({ params: { locale, slug } }: ArticlesPageProps) {
 
   const t = useTranslations('articles.components.tableOfContents');
 
-  if (article == null) {
-    return <div>Post not found</div>;
-  }
-
-  // console.log(post.permalink, post.metadata);
+  if (!article) return <div>Post not found</div>;
 
   return (
     <>

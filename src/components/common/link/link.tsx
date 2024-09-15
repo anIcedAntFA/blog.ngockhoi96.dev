@@ -17,7 +17,7 @@ function Link(
   }
 
   return (
-    <LocalizedLink href={''} {...restProps}>
+    <LocalizedLink href={href} {...restProps}>
       {children}
     </LocalizedLink>
   );
