@@ -8,6 +8,8 @@ import useBoolean from '@/hooks/use-boolean';
 import CustomImage from '../common/custom-image';
 import ImageLightbox from '../common/image-lightbox';
 
+import styles from './mdx.module.css';
+
 type MdxCustomImageProps = NextImageProps & {
   caption?: string;
   showMaximizeBtn?: boolean;
@@ -32,6 +34,7 @@ function MdxCustomImage({
         showZoomInBtn
         data-src={src}
         onZoomInImage={showLightbox.on}
+        className={styles['custom-image']}
         {...customImageProps}
       />
 

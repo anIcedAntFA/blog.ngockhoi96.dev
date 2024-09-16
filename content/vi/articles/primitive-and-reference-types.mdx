@@ -13,13 +13,12 @@ authors:
 ## Primitive types
 
 <Image
-  src="https://files.fullstack.edu.vn/f8-prod/public-images/6603a2aa457a2.png"
+  src="/images/articles/primitive-and-reference-types/image-01.png"
   alt="Image test unsplash"
   sizes="100vw"
   width={0}
   height={0}
   style={{ width: '100%', height: 'auto' }}
-  caption="A single track trail outside of Albuquerque, New Mexico."
 />
 
 ### Primitive types là gì?
@@ -44,13 +43,6 @@ const symbol = Symbol('symbol'); // symbol
 
 ### Cách Primitive types được lưu trữ
 
-<Image
-  src="/images/posts/cover.jpg"
-  alt="Image test cover"
-  width={600}
-  height={400}
-/>
-
 Các giá trị nguyên thủy được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến, không giống như _reference types_
 (chỉ lưu địa chỉ tham chiếu đến nơi chứa dữ liệu thực tế).
 
@@ -63,11 +55,29 @@ let myAge = 24;
 
 Giá trị `"ngockhoi96"` và `24` được lưu trực tiếp tại vị trí bộ nhớ của biến `myName` và `myAge`.
 
+<Image
+  src="/images/articles/primitive-and-reference-types/image-02.png"
+  alt="Image test unsplash"
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
+/>
+
 Tiếp theo, sửa giá trị của biến `myName` thành `"khoikhukho"`:
 
 ```js
 myName = 'khoikhukho';
 ```
+
+<Image
+  src="/images/articles/primitive-and-reference-types/image-03.png"
+  alt="Image test unsplash"
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
+/>
 
 Biến `myName` được sửa thành `"khoikhukho"` và giá trị `"khoikhukho"` được thay thế trực tiếp vào vị trí bộ nhớ của biến.
 
@@ -77,11 +87,29 @@ Tiếp tục tạo ra biến `myNameCopy` và gán giá trị của `myName` cho
 let myNameCopy = myName;
 ```
 
+<Image
+  src="/images/articles/primitive-and-reference-types/image-04.png"
+  alt="Image test unsplash"
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
+/>
+
 Sửa giá trị của `myName` thành `"khoikhukho96"`:
 
 ```js
 myName = 'khoikhukho96';
 ```
+
+<Image
+  src="/images/articles/primitive-and-reference-types/image-05.png"
+  alt="Image test unsplash"
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
+/>
 
 Kết quả, biến `myNameCopy` lưu trữ giá trị `"khoikhukho96"` và biến `myName` vẫn lưu trữ giá trị `"khoikhukho"`:
 
@@ -120,15 +148,16 @@ Sự bất biến của giá trị nguyên thủy giúp đảm bảo tính toàn
 
 ## Reference types
 
-### Reference types là gì?
-
 <Image
-  src="https://images.unsplash.com/photo-1725905507743-30f903ebbf2c?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  src="/images/articles/primitive-and-reference-types/image-06.png"
   alt="Image test unsplash"
-  width={600}
-  height={400}
-  caption="A single track trail outside of Albuquerque, New Mexico."
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
 />
+
+### Reference types là gì?
 
 Kiểu tham chiếu (_Reference types_) trong JavaScript bao gồm các kiểu dữ liệu như `object`, `array`, `function`,
 và các đối tượng khác. Khác với kiểu dữ liệu nguyên thủy, kiểu tham chiếu lưu trữ địa chỉ (_tham chiếu_)
@@ -147,33 +176,69 @@ function sum(a, b) {
 
 Biến `person`, `numbers` và `sum` thực chất chỉ lưu trữ địa chỉ tham chiếu tới giá trị trong bộ nhớ _Heap_, chứ không trực tiếp lưu trữ chúng.
 
+<Image
+  src="/images/articles/primitive-and-reference-types/image-07.png"
+  alt="Image test unsplash"
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
+/>
+
 ### Cách Reference types được lưu trữ
 
-Thí dụ: Tạo object person.
+Thí dụ: Tạo object `bear`.
 
 ```js
-let person = { name: 'Grizz' };
+let bear = { name: 'Grizz' };
 ```
 
-Tạo biến personCopy từ person.
+<Image
+  src="/images/articles/primitive-and-reference-types/image-08.png"
+  alt="Image test unsplash"
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
+/>
+
+Tạo biến `bearCopy` từ `bear`.
 
 ```js
-let personCopy = person;
+let bearCopy = bear;
 ```
 
-Lúc này, cả `person` và `personCopy` đều tham chiếu đến cùng một object trong bộ nhớ _Heap_, nên sửa một biến sẽ thấy sự thay đổi thông qua biến còn lại.
+<Image
+  src="/images/articles/primitive-and-reference-types/image-09.png"
+  alt="Image test unsplash"
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
+/>
+
+Lúc này, cả `bear` và `bearCopy` đều tham chiếu đến cùng một object trong bộ nhớ _Heap_, nên sửa một biến sẽ thấy sự thay đổi thông qua biến còn lại.
 
 Thí dụ:
 
 ```js
-let person = { name: 'Grizz' };
-let personCopy = person;
+let bear = { name: 'Grizz' };
+let bearCopy = bear;
 
-personCopy.name = 'Panda';
+bearCopy.name = 'Panda';
 
-console.log(personCopy.name); // Panda
-console.log(person.name); // Panda
+console.log(bearCopy.name); // Panda
+console.log(bear.name); // Panda
 ```
+
+<Image
+  src="/images/articles/primitive-and-reference-types/image-10.png"
+  alt="Image test unsplash"
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
+/>
 
 ### Ưu điểm khi sử dụng Reference types
 

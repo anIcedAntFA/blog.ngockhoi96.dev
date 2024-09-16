@@ -193,3 +193,7 @@
   width: auto;
   height: auto;
 }
+
+.custom-image {
+  border-radius: var(--br-xlg);
+}
