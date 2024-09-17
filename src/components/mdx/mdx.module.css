@@ -101,16 +101,7 @@
   transition: color 0.2s ease-in-out;
 
   &:hover {
-    color: var(--clr-emerald-800);
-
-    &::after {
-      width: 100%;
-      background-color: var(--clr-emerald-800);
-    }
-  }
-
-  html[data-theme='dark'] &:hover {
-    color: var(--clr-emerald-500);
+    color: var(--clr-link-hover);
   }
 }
 
@@ -134,11 +125,7 @@
   border-radius: var(--br-normal);
   padding: 8px var(--spacing-content);
 
-  background-color: var(--clr-emerald-100);
-
-  html[data-theme='dark'] & {
-    background-color: alpha(var(--clr-emerald-200), 20%);
-  }
+  background-color: var(--clr-blockquote-bg);
 
   & p {
     margin-block: 0;

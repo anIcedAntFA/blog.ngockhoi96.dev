@@ -29,10 +29,10 @@ const articles = defineCollection({
   pattern: '{en,vi}/articles/**/*.mdx', // content files glob pattern
   schema: s
     .object({
+      language: s.enum(['en', 'vi']), // enum type
       title: s.string().max(99), // Zod primitive type
       description: s.string().max(199),
       slug: s.string(), // validate format, unique in posts collection
-      locale: s.enum(['en', 'vi']), // enum type
       date: s.isodate(), // input Date-like string, output ISO Date string.
       // cover: s.image(), // input image relative path, output image object with blurImage.
       cover: s.string().max(99),
@@ -45,12 +45,12 @@ const articles = defineCollection({
     .refine(
       (data) => {
         //* Custom validation to ensure unique slug-language combination
-        const slugLocaleKey = `${data.slug}-${data.locale}`;
+        const slugLocaleKey = `${data.slug}-${data.language}`;
         if (existingSlugs.has(slugLocaleKey)) {
-          return true;
+          return false;
         }
         existingSlugs.add(slugLocaleKey);
-        return false;
+        return true;
       },
       {
         message: 'Slug must be unique per language',
@@ -60,7 +60,7 @@ const articles = defineCollection({
     //* more additional fields (computed fields)
     .transform((data) => ({
       ...data,
-      permalink: `${data.locale}/articles/${data.slug}`,
+      permalink: `${data.language}/articles/${data.slug}`,
     })),
 });
 

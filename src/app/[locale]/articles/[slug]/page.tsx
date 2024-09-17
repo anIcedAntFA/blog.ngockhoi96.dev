@@ -20,7 +20,7 @@ type ArticlesProps = {
 
 function getArticleBySlug(slug: string, locale: string) {
   return allArticles.find(
-    (article) => article.slug === slug && article.locale === locale,
+    (article) => article.slug === slug && article.language === locale,
   );
 }
 
