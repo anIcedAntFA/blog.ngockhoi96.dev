@@ -41,5 +41,14 @@ html[data-theme='light'] {
   /* other */
   --clr-bg-kbd: var(--clr-gray-100);
   --clr-caption: var(--clr-gray-600);
-  --clr-code-bg: var(--clr-emerald-400);
+
+  /* Link */
+  --clr-link-hover: var(--clr-emerald-800);
+
+  /* Code */
+  --clr-code-border: var(--clr-gray-200);
+  --clr-code-bg: var(--clr-gray-100);
+
+  /* Blockquote */
+  --clr-blockquote-bg: var(--clr-emerald-100);
 }

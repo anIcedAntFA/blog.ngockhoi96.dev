@@ -48,7 +48,13 @@ function CodeBlock({
         theme={
           resolvedTheme === themes.DARK
             ? prismThemes.dracula
-            : prismThemes.vsLight
+            : {
+                ...prismThemes.github,
+                plain: {
+                  ...prismThemes.github.plain,
+                  backgroundColor: '#edf2f7',
+                },
+              }
         }
         showLines={showLineNumbers}
       />

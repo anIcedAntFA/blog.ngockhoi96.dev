@@ -1,8 +1,8 @@
 ---
 title: Primitive and Reference Types
-description: Learn about primitive and reference types in JavaScript.
+description: Learn about primitive and reference types with JavaScript.
 slug: primitive-and-reference-types
-locale: en
+language: en
 date: 2024-09-06 10:00
 cover: /images/posts/cover.jpg
 excerpt: In JavaScript, primitive types include:\ string, number, bigint, boolean, symbol, null, and undefined. These are data types whose values contain a single simple value and are not objects.
@@ -24,18 +24,21 @@ authors:
 
 ### What is a primitive type?
 
-Trong JavaScript, các kiểu dữ liệu nguyên thủy (_primitive types_) bao gồm: `string`, `number`,
-`bigint`, `boolean`, `symbol`, `null` và `undefined`. Đây là những kiểu dữ liệu mà giá trị của chúng
-chỉ chứa một giá trị đơn giản và không phải là một đối tượng.
+In JavaScript, primitive types include (_primitive types_) bao gồm: `string`, `number`,
+`bigint`, `boolean`, `symbol`, `null` và `undefined`. These are data types whose values contain a single simple value and are not objects.
 
-**Cú pháp sử dụng**: không cần cú pháp đặc biệt, chỉ cần gán giá trị cho biến.
+**Usage syntax**: no special syntax is needed, just assign a value to a variable.
 
-Ví dụ:
+Example:
 
-```js live=false
-let name = 'John'; // string
-let age = 25; // number
-let isStudent = false; // boolean
+```js
+const name = 'Grizz'; // string
+const age = 27; // number
+const isHuman = false; // boolean
+const car = null; // null
+const job = undefined; // undefined
+const bigNumber = 9007199254740991n; // bigint
+const symbol = Symbol('symbol'); // symbol
 ```
 
 ```ts
@@ -85,7 +88,7 @@ Kiểu tham chiếu (Reference types) trong JavaScript bao gồm các kiểu d�
 
 Ví dụ:
 
-```jsx manual=true
+```jsx
 let person = { name: 'John', age: 25 };
 let numbers = [1, 2, 3, 4, 5];
 

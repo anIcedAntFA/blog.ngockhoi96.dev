@@ -3,8 +3,11 @@
 // import { h } from 'hastscript';
 // import type { Options as RALOptions } from 'rehype-autolink-headings';
 // import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeMdxCodeProps from 'rehype-mdx-code-props';
 import rehypeSlug from 'rehype-slug';
 import { defineCollection, defineConfig, s } from 'velite';
+
+import rehypeHighlight from './rehype-highlight';
 
 // `s` is extended from Zod with some custom schemas,
 // you can also import re-exported `z` from `velite` if you don't need these extension schemas.
@@ -19,17 +22,17 @@ const author = defineCollection({
   }),
 });
 
-const existingSlugs = new Map();
+const existingSlugs = new Set();
 
 const articles = defineCollection({
   name: 'Articles', // collection type name
   pattern: '{en,vi}/articles/**/*.mdx', // content files glob pattern
   schema: s
     .object({
+      language: s.enum(['en', 'vi']), // enum type
       title: s.string().max(99), // Zod primitive type
       description: s.string().max(199),
       slug: s.string(), // validate format, unique in posts collection
-      locale: s.enum(['en', 'vi']), // enum type
       date: s.isodate(), // input Date-like string, output ISO Date string.
       // cover: s.image(), // input image relative path, output image object with blurImage.
       cover: s.string().max(99),
@@ -42,11 +45,11 @@ const articles = defineCollection({
     .refine(
       (data) => {
         //* Custom validation to ensure unique slug-language combination
-        const slugLocaleKey = `${data.slug}-${data.locale}`;
+        const slugLocaleKey = `${data.slug}-${data.language}`;
         if (existingSlugs.has(slugLocaleKey)) {
           return false;
         }
-        existingSlugs.set(slugLocaleKey, true);
+        existingSlugs.add(slugLocaleKey);
         return true;
       },
       {
@@ -57,7 +60,7 @@ const articles = defineCollection({
     //* more additional fields (computed fields)
     .transform((data) => ({
       ...data,
-      permalink: `${data.locale}/articles/${data.slug}`,
+      permalink: `${data.language}/articles/${data.slug}`,
     })),
 });
 
@@ -121,6 +124,8 @@ export default defineConfig({
   mdx: {
     rehypePlugins: [
       rehypeSlug,
+      rehypeHighlight,
+      rehypeMdxCodeProps,
       // [rehypeAutolinkHeadings, rehypeAutolinkOptions],
     ],
   },

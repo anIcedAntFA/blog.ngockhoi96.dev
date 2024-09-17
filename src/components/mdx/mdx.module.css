@@ -87,7 +87,7 @@
 }
 
 .paragraph {
-  margin-block: 16px;
+  margin-block: var(--spacing-content);
 
   font-size: var(--fs-xnormal);
   line-height: 30px;
@@ -98,40 +98,34 @@
 .link {
   font-weight: var(--fw-medium);
   color: var(--clr-primary);
-
   transition: color 0.2s ease-in-out;
 
   &:hover {
-    color: var(--clr-emerald-700);
-  }
-
-  html[data-theme='dark'] &:hover {
-    color: var(--clr-emerald-500);
+    color: var(--clr-link-hover);
   }
 }
 
 .code {
-  border-radius: var(--br-xsmall);
-  padding: 1px 3px;
+  border: 1px solid var(--clr-code-border);
+  border-radius: var(--br-normal);
+  padding: 2px 4px;
 
   font-family: var(--font-code);
+  font-size: var(--fs-normal);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.4px;
   white-space: pre-wrap;
   word-break: keep-all;
 
   background-color: var(--clr-code-bg);
-  color: var(--clr-gray-700);
 }
 
 .blockquote {
   border-left: 4px solid var(--clr-primary);
   border-radius: var(--br-normal);
-  padding: 8px 16px;
+  padding: 8px var(--spacing-content);
 
-  background-color: var(--clr-emerald-100);
-
-  html[data-theme='dark'] & {
-    background-color: alpha(var(--clr-emerald-200), 20%);
-  }
+  background-color: var(--clr-blockquote-bg);
 
   & p {
     margin-block: 0;
@@ -148,7 +142,7 @@
 
 .ul,
 .ol {
-  margin-block: 16px;
+  margin-block: var(--spacing-content);
   padding-inline: 32px;
 
   font-size: var(--fs-xnormal);
@@ -185,4 +179,8 @@
   border-radius: var(--br-large);
   width: auto;
   height: auto;
+}
+
+.custom-image {
+  border-radius: var(--br-xlg);
 }

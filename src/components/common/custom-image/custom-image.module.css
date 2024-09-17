@@ -25,7 +25,6 @@
     display: block;
 
     margin: auto;
-    border-radius: var(--br-large);
     max-width: 100%;
     height: auto;
     object-fit: cover;

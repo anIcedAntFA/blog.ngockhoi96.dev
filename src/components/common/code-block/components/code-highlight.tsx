@@ -19,11 +19,17 @@ type CodeHighlightProps = {
 function CodeHighlight({
   codeString,
   language,
+  theme,
   showLines,
   ...highlightProps
 }: CodeHighlightProps) {
   return (
-    <Highlight code={codeString} language={language} {...highlightProps}>
+    <Highlight
+      code={codeString}
+      language={language}
+      theme={theme}
+      {...highlightProps}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={cx(className, styles.highlight)} style={style}>
           {tokens.map((line, index) => {
