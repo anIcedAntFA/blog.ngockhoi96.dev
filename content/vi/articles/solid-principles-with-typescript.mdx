@@ -1,0 +1,73 @@
+---
+title: Tìm hiểu về các nguyên tắc SOLID với TypeScript
+description: Tìm hiểu về các nguyên tắc SOLID với TypeScript.
+date: 2024-09-16 22:00
+slug: solid-principles-in-typescript
+locale: vi
+cover: /images/posts/cover.jpg
+excerpt: Tìm hiểu về các nguyên tắc SOLID với TypeScript.
+authors:
+  - ngockhoi96
+---
+
+## 1. SOLID là gì?
+
+SOLID là một tập hợp năm nguyên tắc thiết kế phần mềm nhằm giúp các nhà phát triển tạo ra các
+hệ thống phần mềm dễ bảo trì, dễ mở rộng và có tính ổn định. Các nguyên lý này bao gồm:
+_Single Responsibility_, _Open/Closed_, _Liskov Substitution_, _Interface Segregation_ và _Dependency Inversion_.
+
+## 2. Các nguyên lý trong SOLID
+
+### 2.1. Single Responsibility Principle (SRP)
+
+> Một class chỉ nên có một lý do để thay đổi, nghĩa là một class chỉ nên thực hiện một chức năng cụ thể.
+> Khi một class có nhiều trách nhiệm, nó sẽ trở nên khó quản lý hơn, khó kiểm tra lỗi, mở rộng và bảo trì.
+
+```typescript
+class Car {
+  constructor(
+    readonly name: string,
+    readonly make: string,
+    readonly color: string,
+    readonly model: string,
+    readonly year: number,
+    readonly quantity: number,
+    readonly price: number,
+  ) {}
+  setPrice(price: number): boolean {
+    if (price < 0) return false;
+    this.price = price;
+    return true;
+  }
+  increaseQuantity(quantity: number): boolean {
+    if (quantity < 0) return false;
+    this.quantity += quantity;
+    return true;
+  }
+  decreaseQuantity(quantity: number): boolean {
+    if (quantity < 0 || quantity > this.quantity) return false;
+    this.quantity -= quantity;
+    return true;
+  }
+  compare(car: Car): boolean {
+    return (
+      this.name === car.name &&
+      this.make === car.make &&
+      this.color === car.color
+    );
+  }
+  startEngine(): void {
+    console.log(`Starting the engine of ${this.make} ${this.model}.`);
+  }
+  stopEngine(): void {
+    console.log(`Stopping the engine of ${this.make} ${this.model}.`);
+  }
+  saveToDb(): void {
+    console.log(`Saving ${this.make} ${this.model} to the database.`);
+  }
+  calculateInsurance(): number {
+    console.log(`Calculating insurance for ${this.make} ${this.model}.`);
+    return 1000; // Example value
+  }
+}
+```

@@ -23,15 +23,13 @@ authors:
 
 ### Primitive types là gì?
 
-Trong JavaScript, các kiểu dữ liệu nguyên thủy (_primitive types_) bao gồm: `string`, `number`,
-`bigint`, `boolean`, `symbol`, `null` và `undefined`. Đây là những kiểu dữ liệu mà giá trị của chúng
-chỉ chứa một giá trị đơn giản và không phải là một đối tượng.
+Trong JavaScript, các kiểu dữ liệu nguyên thủy (_primitive types_) bao gồm: `string`, `number`, `bigint`, `boolean`, `symbol`, `null` và `undefined`. Đây là những kiểu dữ liệu mà giá trị của chúng chỉ chứa một giá trị đơn giản và không phải là một đối tượng.
 
 **Cú pháp sử dụng**: không cần cú pháp đặc biệt, chỉ cần gán giá trị cho biến.
 
 Thí dụ:
 
-```js filename="awesome.js"
+```js
 const name = 'Grizz'; // string
 const age = 27; // number
 const isHuman = false; // boolean
@@ -43,8 +41,7 @@ const symbol = Symbol('symbol'); // symbol
 
 ### Cách Primitive types được lưu trữ
 
-Các giá trị nguyên thủy được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến, không giống như _reference types_
-(chỉ lưu địa chỉ tham chiếu đến nơi chứa dữ liệu thực tế).
+Các giá trị nguyên thủy được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến, không giống như _reference types_ (chỉ lưu địa chỉ tham chiếu đến nơi chứa dữ liệu thực tế).
 
 Thí dụ: Khi khai báo một biến kiểu nguyên thủy.
 
@@ -159,22 +156,20 @@ Sự bất biến của giá trị nguyên thủy giúp đảm bảo tính toàn
 
 ### Reference types là gì?
 
-Kiểu tham chiếu (_Reference types_) trong JavaScript bao gồm các kiểu dữ liệu như `object`, `array`, `function`,
-và các đối tượng khác. Khác với kiểu dữ liệu nguyên thủy, kiểu tham chiếu lưu trữ địa chỉ (_tham chiếu_)
-của giá trị trong bộ nhớ, thay vì giá trị thực tế.
+Kiểu tham chiếu (_Reference types_) trong JavaScript bao gồm các kiểu dữ liệu như `object`, `array`, `function`, và các đối tượng khác. Khác với kiểu dữ liệu nguyên thủy, kiểu tham chiếu lưu trữ địa chỉ (_tham chiếu_) của giá trị trong bộ nhớ, thay vì giá trị thực tế.
 
 Thí dụ:
 
 ```js
-const person = { name: 'Grizz', age: 8, isHungry: true };
-const numbers = [1, 2, 3, 4, 5];
+const bear = { name: 'Grizz', age: 8, isHungry: true };
+const favoriteFoods = ['pizza', 'honey', 'sandwich'];
 
 function sum(a, b) {
   return a + b;
 }
 ```
 
-Biến `person`, `numbers` và `sum` thực chất chỉ lưu trữ địa chỉ tham chiếu tới giá trị trong bộ nhớ _Heap_, chứ không trực tiếp lưu trữ chúng.
+Biến `bear`, `favoriteFoods` và `sum` thực chất chỉ lưu trữ địa chỉ tham chiếu tới giá trị trong bộ nhớ _Heap_, chứ không trực tiếp lưu trữ chúng.
 
 <Image
   src="/images/articles/primitive-and-reference-types/image-07.png"
@@ -233,6 +228,27 @@ console.log(bear.name); // Panda
 
 <Image
   src="/images/articles/primitive-and-reference-types/image-10.png"
+  alt="Image test unsplash"
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
+/>
+
+Đó chính là lý do tại sao chúng ta cần sử dụng phương thức `Object.assign()` hoặc toán tử `spread` để copy thuộc tính sang một object mới.
+
+Thí dụ:
+
+```js
+let bear = { name: 'Ice bear' };
+let bearCopy = Object.assign({}, bear);
+
+console.log(bearCopy.name); // Ice bear
+console.log(bear.name); // Ice bear
+```
+
+<Image
+  src="/images/articles/primitive-and-reference-types/image-11.png"
   alt="Image test unsplash"
   sizes="100vw"
   width={0}
@@ -332,31 +348,49 @@ _Lưu ý cách này chỉ là sao chép nông ([shallow copy](https://developer.
 Thí dụ:
 
 ```js
-let originalCar = {
+let myCar = {
   brand: 'BMW',
   engine: { type: 'V8' },
 };
-let copyCar = Object.assign({}, originalCar);
+let carCopy = Object.assign({}, myCar);
 
-console.log(copyCar.engine === originalCar.engine); // true
+console.log(carCopy.engine === myCar.engine); // true
 ```
 
-Cách giải quyết khi cần sao chép sâu ([_deep copy_](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)) là sử dụng hàm `structuredClone()` có sẵn trong JavaScript.
+<Image
+  src="/images/articles/primitive-and-reference-types/image-12.png"
+  alt="Image test unsplash"
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
+/>
+
+Cách giải quyết khi cần sao chép sâu ([_deep copy_](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy))
+là sử dụng hàm `structuredClone()` có sẵn trong JavaScript.
 
 Thí dụ:
 
 ```js
-let originalCar = {
+let myCar = {
   brand: 'BMW',
   engine: { type: 'V8' },
 };
-let copyCar = structuredClone(originalCar);
+let carCopy = structuredClone(myCar);
 
-console.log(copyCar.engine === originalCar.engine); // false
+console.log(carCopy.engine === myCar.engine); // false
 ```
 
-Hàm `structuredClone()` sẽ nhận vào một object và trả về một object mới - là sao chép sâu \
-([_deep copy_](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)) của object ban đầu.
+Hàm `structuredClone()` sẽ nhận vào một object và trả về một object mới, là sao chép sâu ([_deep copy_](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)) của object ban đầu.
+
+<Image
+  src="/images/articles/primitive-and-reference-types/image-13.png"
+  alt="Image test unsplash"
+  sizes="100vw"
+  width={0}
+  height={0}
+  style={{ width: '100%', height: 'auto' }}
+/>
 
 I need to highlight these ==very important words==.
 

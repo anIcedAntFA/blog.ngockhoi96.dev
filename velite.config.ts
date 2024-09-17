@@ -7,6 +7,8 @@ import rehypeMdxCodeProps from 'rehype-mdx-code-props';
 import rehypeSlug from 'rehype-slug';
 import { defineCollection, defineConfig, s } from 'velite';
 
+import rehypeHighlight from './rehype-highlight';
+
 // `s` is extended from Zod with some custom schemas,
 // you can also import re-exported `z` from `velite` if you don't need these extension schemas.
 
@@ -122,6 +124,7 @@ export default defineConfig({
   mdx: {
     rehypePlugins: [
       rehypeSlug,
+      rehypeHighlight,
       rehypeMdxCodeProps,
       // [rehypeAutolinkHeadings, rehypeAutolinkOptions],
     ],
