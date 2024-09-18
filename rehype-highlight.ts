@@ -6,7 +6,7 @@ function rehypeHighlight() {
   return (tree: Todo) => {
     visit(tree, 'text', (node, index, parent) => {
       const value = node.value;
-      const regex = /==([^=]+)==/g;
+      const regex = /==(.+)==/g;
       const matches = [...value.matchAll(regex)];
 
       if (matches.length > 0) {

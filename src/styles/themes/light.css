@@ -49,6 +49,9 @@ html[data-theme='light'] {
   --clr-code-border: var(--clr-gray-200);
   --clr-code-bg: var(--clr-gray-100);
 
+  /* Highlight */
+  --clr-highlight-bg: #fef08a;
+
   /* Blockquote */
   --clr-blockquote-bg: var(--clr-emerald-100);
 }

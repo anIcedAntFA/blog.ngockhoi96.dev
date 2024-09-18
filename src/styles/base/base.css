@@ -44,6 +44,8 @@
   --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
   --spacing-content: var(--space-4);
 
   /* colors */
