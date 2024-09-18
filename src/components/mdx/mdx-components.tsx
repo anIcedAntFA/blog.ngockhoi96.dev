@@ -60,8 +60,11 @@ export const htmlComponents = {
   thead: (props: ComponentProps<'thead'>) => (
     <thead className={styles['table-head']} {...props} />
   ),
+  th: (props: ComponentProps<'th'>) => (
+    <th className={styles['table-head-cell']} {...props} />
+  ),
   td: (props: ComponentProps<'td'>) => (
-    <td className={styles['table-data']} {...props} />
+    <td className={styles['table-data-cell']} {...props} />
   ),
   img: MdxImage,
 };

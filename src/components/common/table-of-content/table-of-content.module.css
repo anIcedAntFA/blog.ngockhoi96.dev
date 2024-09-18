@@ -8,7 +8,7 @@ html[data-theme='dark'] .wrapper {
 
 .wrapper {
   position: sticky;
-  top: 60px;
+  top: var(--header-height);
   overflow-y: scroll;
 
   display: flex;
