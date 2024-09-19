@@ -49,6 +49,13 @@ html[data-theme='light'] {
   --clr-code-border: var(--clr-gray-200);
   --clr-code-bg: var(--clr-gray-100);
 
+  /* Highlight */
+  --clr-highlight-bg: var(--clr-yellow-200);
+
   /* Blockquote */
   --clr-blockquote-bg: var(--clr-emerald-100);
+
+  /* Table */
+  --clr-table-head: var(--clr-gray-200);
+  --clr-table-data-cell: var(--clr-gray-300);
 }

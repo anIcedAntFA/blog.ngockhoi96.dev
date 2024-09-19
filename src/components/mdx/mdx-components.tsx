@@ -39,6 +39,9 @@ export const htmlComponents = {
   code: (props: ComponentProps<'code'>) => (
     <code className={styles.code} {...props} />
   ),
+  mark: (props: ComponentProps<'mark'>) => (
+    <mark className={styles.highlight} {...props} />
+  ),
   pre: MdxCodeBlock,
   blockquote: (props: ComponentProps<'blockquote'>) => (
     <blockquote className={styles.blockquote} {...props} />
@@ -51,6 +54,18 @@ export const htmlComponents = {
   ol: (props: ComponentProps<'ol'>) => <ol className={styles.ol} {...props} />,
   hr: (props: ComponentProps<'hr'>) => <hr className={styles.hr} {...props} />,
   br: (props: ComponentProps<'br'>) => <br className={styles.br} {...props} />,
+  table: (props: ComponentProps<'table'>) => (
+    <table className={styles.table} {...props} />
+  ),
+  thead: (props: ComponentProps<'thead'>) => (
+    <thead className={styles['table-head']} {...props} />
+  ),
+  th: (props: ComponentProps<'th'>) => (
+    <th className={styles['table-head-cell']} {...props} />
+  ),
+  td: (props: ComponentProps<'td'>) => (
+    <td className={styles['table-data-cell']} {...props} />
+  ),
   img: MdxImage,
 };
 

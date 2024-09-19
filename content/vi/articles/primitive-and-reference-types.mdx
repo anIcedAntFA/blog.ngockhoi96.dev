@@ -23,7 +23,7 @@ authors:
 
 ### Primitive types là gì?
 
-Trong JavaScript, các kiểu dữ liệu nguyên thủy (_primitive types_) bao gồm: `string`, `number`, `bigint`, `boolean`, `symbol`, `null` và `undefined`. Đây là những kiểu dữ liệu mà giá trị của chúng chỉ chứa một giá trị đơn giản và không phải là một đối tượng.
+Trong JavaScript, các kiểu dữ liệu nguyên thủy (_==primitive types==_) bao gồm: `string`, `number`, `bigint`, `boolean`, `symbol`, `null` và `undefined`. Đây là những kiểu dữ liệu mà giá trị của chúng chỉ chứa một giá trị đơn giản và không phải là một đối tượng.
 
 **Cú pháp sử dụng**: không cần cú pháp đặc biệt, chỉ cần gán giá trị cho biến.
 
@@ -41,7 +41,7 @@ const symbol = Symbol('symbol'); // symbol
 
 ### Cách Primitive types được lưu trữ
 
-Các giá trị nguyên thủy được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến, không giống như _reference types_ (chỉ lưu địa chỉ tham chiếu đến nơi chứa dữ liệu thực tế).
+Các giá trị nguyên thủy được lưu trực tiếp tại vị trí bộ nhớ mà biến chỉ đến, không giống như _==reference types==_ (chỉ lưu địa chỉ tham chiếu đến nơi chứa dữ liệu thực tế).
 
 Thí dụ: Khi khai báo một biến kiểu nguyên thủy.
 
@@ -156,7 +156,7 @@ Sự bất biến của giá trị nguyên thủy giúp đảm bảo tính toàn
 
 ### Reference types là gì?
 
-Kiểu tham chiếu (_Reference types_) trong JavaScript bao gồm các kiểu dữ liệu như `object`, `array`, `function`, và các đối tượng khác. Khác với kiểu dữ liệu nguyên thủy, kiểu tham chiếu lưu trữ địa chỉ (_tham chiếu_) của giá trị trong bộ nhớ, thay vì giá trị thực tế.
+Kiểu tham chiếu (_==Reference types==_) trong JavaScript bao gồm các kiểu dữ liệu như `object`, `array`, `function`, và các đối tượng khác. Khác với kiểu dữ liệu nguyên thủy, kiểu tham chiếu lưu trữ địa chỉ (_tham chiếu_) của giá trị trong bộ nhớ, thay vì giá trị thực tế.
 
 Thí dụ:
 
@@ -169,7 +169,7 @@ function sum(a, b) {
 }
 ```
 
-Biến `bear`, `favoriteFoods` và `sum` thực chất chỉ lưu trữ địa chỉ tham chiếu tới giá trị trong bộ nhớ _Heap_, chứ không trực tiếp lưu trữ chúng.
+Biến `bear`, `favoriteFoods` và `sum` thực chất chỉ lưu trữ địa chỉ tham chiếu tới giá trị trong bộ nhớ _==Heap==_, chứ không trực tiếp lưu trữ chúng.
 
 <Image
   src="/images/articles/primitive-and-reference-types/image-07.png"
@@ -212,7 +212,7 @@ let bearCopy = bear;
   style={{ width: '100%', height: 'auto' }}
 />
 
-Lúc này, cả `bear` và `bearCopy` đều tham chiếu đến cùng một object trong bộ nhớ _Heap_, nên sửa một biến sẽ thấy sự thay đổi thông qua biến còn lại.
+Lúc này, cả `bear` và `bearCopy` đều tham chiếu đến cùng một object trong bộ nhớ _==Heap==_, nên sửa một biến sẽ thấy sự thay đổi thông qua biến còn lại.
 
 Thí dụ:
 
@@ -331,7 +331,19 @@ console.log(JSON.stringify(motorbike1) === JSON.stringify(motorbike2)); // true
 
 Gán một đối tượng cho một biến khác và sửa đổi giá trị trong một biến có thể không ý thức được rằng nó cũng thay đổi giá trị trong biến khác.
 
+```js
+let originalBrand = { name: 'BWM' };
+let copyBrand = originalBrand;
+
+copyBrand.name = 'Audi';
+
+console.log(copyBrand.name); // Audi
+console.log(originalBrand.name); // Audi
+```
+
 **Cách giải quyết**: Sử dụng `Object.assign()` để tạo bản sao mới.
+
+Thí dụ:
 
 ```js
 let originalBrand = { name: 'BWM' };
@@ -340,7 +352,7 @@ let copyBrand = Object.assign({}, originalBrand);
 copyBrand.name = 'Audi';
 
 console.log(copyBrand.name); // Audi
-console.log(originalBrand.name); // BMW
+console.log(originalBrand.name); // BWM
 ```
 
 _Lưu ý cách này chỉ là sao chép nông ([shallow copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)). Nếu có object con bên trong thì nó chỉ sao chép tham chiếu, chứ không tạo ra object mới cho object con đó._
@@ -391,9 +403,3 @@ Hàm `structuredClone()` sẽ nhận vào một object và trả về một obje
   height={0}
   style={{ width: '100%', height: 'auto' }}
 />
-
-I need to highlight these ==very important words==.
-
-I need to highlight these <mark style={{backgroundColor: 'orange'}}>very important words</mark>.
-
-==Text==

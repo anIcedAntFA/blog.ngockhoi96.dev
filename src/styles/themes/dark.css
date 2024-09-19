@@ -48,6 +48,13 @@ html[data-theme='dark'] {
   --clr-code-border: var(--clr-gray-800);
   --clr-code-bg: var(--clr-gray-700);
 
+  /* Highlight */
+  --clr-highlight-bg: var(--clr-yellow-300);
+
   /* Blockquote */
   --clr-blockquote-bg: alpha(var(--clr-emerald-200), 20%);
+
+  /* Table */
+  --clr-table-head: var(--clr-gray-700);
+  --clr-table-data-cell: alpha(var(--clr-gray-300), 20%);
 }
