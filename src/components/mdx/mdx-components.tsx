@@ -1,5 +1,6 @@
 import { type ComponentProps } from 'react';
 
+import { Callout, CalloutIcon } from '../common/callout';
 import NavItem from '../common/nav-item';
 
 import MdxCodeBlock from './mdx-code-block';
@@ -73,4 +74,6 @@ export const htmlComponents = {
 export const mdxComponents = {
   NavItem,
   Image: MdxCustomImage,
+  Callout,
+  CalloutIcon,
 };
