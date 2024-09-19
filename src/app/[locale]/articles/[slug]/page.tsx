@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import { articles as allArticles } from '#site/content';
 import ScrollProgressBar from '@/components/common/scroll-progress-bar';
 import TableOfContent from '@/components/common/table-of-content';
-import Dummy from '@/components/dummy';
 import MDXContent from '@/components/mdx';
 
 import styles from './page.module.css';
@@ -56,7 +55,6 @@ function ArticlesPage({ params: { locale, slug } }: ArticlesProps) {
     <>
       <ScrollProgressBar />
       <main className={styles.wrapper}>
-        <Dummy />
         <article className={styles.content}>
           {article.cover && (
             <Image

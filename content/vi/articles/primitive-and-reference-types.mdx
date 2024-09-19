@@ -331,7 +331,7 @@ console.log(JSON.stringify(motorbike1) === JSON.stringify(motorbike2)); // true
 
 Gán một đối tượng cho một biến khác và sửa đổi giá trị trong một biến có thể không ý thức được rằng nó cũng thay đổi giá trị trong biến khác.
 
-```js
+```js fileName="example.js"
 let originalBrand = { name: 'BWM' };
 let copyBrand = originalBrand;
 
@@ -355,12 +355,12 @@ console.log(copyBrand.name); // Audi
 console.log(originalBrand.name); // BWM
 ```
 
-<Callout>
-  <CalloutIcon />
-  _Lưu ý cách này chỉ là sao chép nông ([shallow copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)).
-  Nếu có object con bên trong thì nó chỉ sao chép tham chiếu, chứ không tạo ra object
+<MdxCallout status="warning">
+  _Lưu ý cách này chỉ là sao chép nông ([shallow
+  copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)). Nếu có
+  object con bên trong thì nó chỉ sao chép tham chiếu, chứ không tạo ra object
   mới cho object con đó._
-</Callout>
+</MdxCallout>
 
 Thí dụ:
 

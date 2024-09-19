@@ -1,5 +1,6 @@
 import cx from 'clsx';
 
+import useCalloutContext from '../callout.hook';
 import styles from '../callout.module.css';
 import type { CalloutTitleProps } from '../callout.type';
 
@@ -8,10 +9,17 @@ function CalloutTitle({
   children,
   ...spanProps
 }: CalloutTitleProps) {
+  const { variant, status } = useCalloutContext();
+
   return (
-    <span className={cx(styles.title, className)} {...spanProps}>
+    <div
+      className={cx(styles.title, className)}
+      data-variant={variant}
+      data-status={status}
+      {...spanProps}
+    >
       {children}
-    </span>
+    </div>
   );
 }
 

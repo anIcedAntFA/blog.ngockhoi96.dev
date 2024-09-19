@@ -216,3 +216,11 @@
   border-top: 1px solid var(--clr-table-data-cell);
   padding: 12px;
 }
+
+.callout {
+  margin-block: var(--space-6);
+}
+
+.callout-title {
+  font-size: var(--fs-xnormal);
+}

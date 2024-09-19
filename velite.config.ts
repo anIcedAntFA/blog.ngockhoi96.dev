@@ -126,6 +126,7 @@ export default defineConfig({
       rehypeSlug,
       rehypeHighlight,
       rehypeMdxCodeProps,
+      // parseMeta,
       // [rehypeAutolinkHeadings, rehypeAutolinkOptions],
     ],
   },

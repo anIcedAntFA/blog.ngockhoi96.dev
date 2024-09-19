@@ -19,6 +19,7 @@ type CodeBlockProps = PropsWithChildren<
     showLanguage: boolean;
     showCopyButton: boolean;
     showLineNumbers: boolean;
+    fileName: string;
   }>
 >;
 
@@ -58,6 +59,7 @@ function CodeBlock({
         }
         showLines={showLineNumbers}
       />
+
       {hasBtnOrLang && (
         <div className={styles['btn-and-lang']}>
           {showCopyButton && <CopyCodeButton code={rawCode} />}

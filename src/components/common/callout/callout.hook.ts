@@ -1,5 +1,3 @@
-'use client';
-
 import { useContext } from 'react';
 
 import { CalloutContext } from './callout.context';

@@ -7,7 +7,7 @@ type CalloutStyleProps = PropsWithChildren<{
 
 export type CalloutProps = ComponentProps<'div'> & Partial<CalloutStyleProps>;
 
-export type CalloutTitleProps = ComponentProps<'span'>;
+export type CalloutTitleProps = ComponentProps<'div'>;
 
 export type CalloutDescriptionProps = ComponentProps<'div'>;
 

@@ -4,6 +4,9 @@
   position: relative;
   overflow: hidden;
 
+  display: flex;
+  flex-direction: column;
+
   margin-block: var(--spacing);
 
   &:hover .copy-code-btn {
@@ -11,7 +14,15 @@
   }
 }
 
-.highlight {
+.file-name {
+  border-top-left-radius: var(--br-large);
+  border-top-right-radius: var(--br-large);
+  padding: 8px;
+
+  background-color: var(--clr-gray-200);
+}
+
+.pre {
   border-radius: var(--br-large);
   padding-block: var(--spacing);
 }
@@ -30,7 +41,7 @@
 
 .btn-and-lang {
   position: absolute;
-  top: 12px;
+  top: 16px;
   right: 8px;
 
   display: flex;
