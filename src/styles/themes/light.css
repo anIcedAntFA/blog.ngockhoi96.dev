@@ -15,10 +15,11 @@ html[data-theme='light'] {
   --clr-success-bg: var(--clr-green-100);
 
   /* warning */
-  --clr-warning-text: var(--clr-orange-700);
-  --clr-warning-close-btn: var(--clr-orange-500);
-  --clr-warning-border: var(--clr-orange-200);
-  --clr-warning-bg: var(--clr-orange-100);
+  --clr-warning-text: var(--clr-yellow-700);
+  --clr-warning-close-btn: var(--clr-yellow-500);
+  --clr-warning-border: var(--clr-yellow-200);
+  --clr-warning-bg: var(--clr-yellow-100);
+  --clr-warning-icon: var(--clr-yellow-500);
 
   /* error */
   --clr-error-text: var(--clr-red-700);

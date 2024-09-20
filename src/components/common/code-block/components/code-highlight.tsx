@@ -31,7 +31,7 @@ function CodeHighlight({
       {...highlightProps}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={cx(className, styles.highlight)} style={style}>
+        <pre className={cx(className, styles.pre)} style={style}>
           {tokens.map((line, index) => {
             const { className, ...lineProps } = getLineProps({ line });
             return (

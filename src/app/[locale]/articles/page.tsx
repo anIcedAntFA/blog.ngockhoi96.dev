@@ -21,6 +21,7 @@ async function ArticlePage() {
         <ArticleFilterByView />
         <ArticleViewLayouts />
       </div>
+
       <ArticleViewList data={posts} isLoading={false} />
     </div>
   );

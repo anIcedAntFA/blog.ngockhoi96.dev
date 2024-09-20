@@ -2,6 +2,7 @@ import { type ComponentProps } from 'react';
 
 import NavItem from '../common/nav-item';
 
+import MdxCallout from './mdx-callout';
 import MdxCodeBlock from './mdx-code-block';
 import MdxCustomImage from './mdx-custom-image';
 import MdxHeading from './mdx-heading';
@@ -73,4 +74,5 @@ export const htmlComponents = {
 export const mdxComponents = {
   NavItem,
   Image: MdxCustomImage,
+  MdxCallout,
 };
