@@ -229,3 +229,13 @@ input[type='search']::-webkit-search-results-decoration {
   background-color: var(--clr-primary);
   color: var(--clr-bg-1);
 }
+
+/* Remove marker */
+details > summary {
+  list-style: none;
+}
+
+details > summary::marker, /* Latest Chrome, Edge, Firefox */
+details > summary::-webkit-details-marker /* Safari */ {
+  display: none;
+}
