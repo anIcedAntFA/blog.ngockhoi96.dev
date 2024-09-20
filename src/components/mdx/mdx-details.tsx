@@ -16,10 +16,10 @@ function MdxDetails({ title, children }: MdxDetailsProps) {
 
   return (
     <Details
-      isOpened={isOpened.value}
       title={title}
+      isOpened={isOpened.value}
       className={styles.details}
-      onExpand={isOpened.toggle}
+      onToggle={isOpened.toggle}
     >
       {children}
     </Details>
