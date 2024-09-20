@@ -35,7 +35,9 @@ function MdxCallout({
             {title}
           </CalloutTitle>
         )}
-        <CalloutDescription>{children}</CalloutDescription>
+        <CalloutDescription className={styles['callout-description']}>
+          {children}
+        </CalloutDescription>
       </Content>
     </Callout>
   );

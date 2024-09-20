@@ -224,3 +224,8 @@
 .callout-title {
   font-size: var(--fs-xnormal);
 }
+
+.callout-description p {
+  margin: 0;
+  color: inherit;
+}

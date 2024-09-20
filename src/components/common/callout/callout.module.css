@@ -136,53 +136,33 @@ html[data-theme='dark'] .wrapper {
 }
 
 .description {
-  p {
-    margin: 0;
-  }
-
   &[data-variant='subtle'][data-status='info'] {
     color: var(--clr-info-text-subtle);
-
-    p {
-      color: var(--clr-info-text-subtle);
-    }
   }
 
   &[data-variant='subtle'][data-status='success'] {
     color: var(--clr-success-text-subtle);
-
-    p {
-      color: var(--clr-success-text-subtle);
-    }
   }
 
   &[data-variant='subtle'][data-status='warning'] {
-    p {
-      color: var(--clr-warning-text-subtle);
-    }
+    color: var(--clr-warning-text-subtle);
   }
 
   &[data-variant='subtle'][data-status='error'] {
-    p {
-      color: var(--clr-error-text-subtle);
-    }
+    color: var(--clr-error-text-subtle);
   }
 
   &[data-variant='solid'] {
     color: var(--clr-text-3);
-
-    p {
-      color: var(--clr-text-3);
-    }
   }
 }
 
 .icon {
-  @mixin flex-center;
+  --size: 28px;
 
-  width: 28px;
-  min-width: 28px;
-  height: 28px;
+  width: var(--size);
+  min-width: var(--size);
+  height: var(--size);
 
   &[data-variant='subtle'][data-status='info'] {
     color: var(--clr-info-icon-subtle);
