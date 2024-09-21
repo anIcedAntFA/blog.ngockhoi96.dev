@@ -19,11 +19,15 @@ type MdxCustomImageProps = NextImageProps & {
 function MdxCustomImage({
   src,
   alt,
+  width,
+  height,
   ...customImageProps
 }: MdxCustomImageProps) {
   const t = useTranslations('components.markdown.mdxCustomImage');
 
   const showLightbox = useBoolean(false);
+
+  const hasWidthHeight = width && height;
 
   return (
     <>
@@ -31,6 +35,12 @@ function MdxCustomImage({
         src={src}
         alt={alt}
         title={t('title')}
+        {...(!hasWidthHeight && {
+          width: 0,
+          height: 0,
+          sizes: '100vw',
+          style: { width: '100%', height: 'auto' },
+        })}
         showZoomInBtn
         data-src={src}
         onZoomInImage={showLightbox.on}

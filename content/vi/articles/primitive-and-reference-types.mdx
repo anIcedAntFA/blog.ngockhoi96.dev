@@ -15,10 +15,6 @@ authors:
 <Image
   src="/images/articles/primitive-and-reference-types/image-01.png"
   alt="Image test unsplash"
-  sizes="100vw"
-  width={0}
-  height={0}
-  style={{ width: '100%', height: 'auto' }}
 />
 
 ### Primitive types là gì?
@@ -55,10 +51,6 @@ Giá trị `"ngockhoi96"` và `24` được lưu trực tiếp tại vị trí b
 <Image
   src="/images/articles/primitive-and-reference-types/image-02.png"
   alt="Image test unsplash"
-  sizes="100vw"
-  width={0}
-  height={0}
-  style={{ width: '100%', height: 'auto' }}
 />
 
 Tiếp theo, sửa giá trị của biến `myName` thành `"khoikhukho"`:
@@ -87,10 +79,6 @@ let myNameCopy = myName;
 <Image
   src="/images/articles/primitive-and-reference-types/image-04.png"
   alt="Image test unsplash"
-  sizes="100vw"
-  width={0}
-  height={0}
-  style={{ width: '100%', height: 'auto' }}
 />
 
 Sửa giá trị của `myName` thành `"khoikhukho96"`:
@@ -102,10 +90,6 @@ myName = 'khoikhukho96';
 <Image
   src="/images/articles/primitive-and-reference-types/image-05.png"
   alt="Image test unsplash"
-  sizes="100vw"
-  width={0}
-  height={0}
-  style={{ width: '100%', height: 'auto' }}
 />
 
 Kết quả, biến `myNameCopy` lưu trữ giá trị `"khoikhukho96"` và biến `myName` vẫn lưu trữ giá trị `"khoikhukho"`:
@@ -130,13 +114,30 @@ console.log(herScore === hisScore); // true
 
 Trong JavaScript, các giá trị nguyên thủy là bất biến ([_immutable_](https://developer.mozilla.org/en-US/docs/Glossary/Immutable)). Điều này có nghĩa là một khi một giá trị nguyên thủy được tạo, giá trị đó không thể thay đổi.
 
-Thí dụ: Không thể sửa được một chuỗi
+Thí dụ: Không thể sửa được một chuỗi.
 
 ```js
 let greeting = 'Hello';
 greeting[1] = 'i';
 
 console.log(greeting); // Hello
+```
+
+<Callout status="info">
+  Các bạn tránh hiểu nhầm việc *giá trị nguyên thủy không thể thay đổi* với việc
+  *biến không thể thay đổi*. Khi bạn gán một giá trị mới cho một biến, biến đó sẽ
+  trỏ đến một vị trí bộ nhớ mới chứa giá trị mới, không phải thay đổi giá trị
+  cũ.
+
+</Callout>
+
+Ở thí dụ dưới đây, giá trị `Hello` là bất biến. Còn việc tạo ra một chuỗi mới `Hi` thì đây là một giá trị nguyên thủy mới và được gán vào biến `greeting` thôi chứ không phải là thay đổi giá trị `Hello` ban đầu.
+
+```js
+let greeting = 'Hello';
+greeting = 'Hi';
+
+console.log(greeting); // Hi
 ```
 
 Sự bất biến của giá trị nguyên thủy giúp đảm bảo tính toàn vẹn của dữ liệu và giúp chúng ta dễ dàng kiểm soát các thay đổi dữ liệu trong chương trình.
@@ -148,10 +149,6 @@ Sự bất biến của giá trị nguyên thủy giúp đảm bảo tính toàn
 <Image
   src="/images/articles/primitive-and-reference-types/image-06.png"
   alt="Image test unsplash"
-  sizes="100vw"
-  width={0}
-  height={0}
-  style={{ width: '100%', height: 'auto' }}
 />
 
 ### Reference types là gì?
@@ -174,10 +171,6 @@ Biến `bear`, `favoriteFoods` và `sum` thực chất chỉ lưu trữ địa c
 <Image
   src="/images/articles/primitive-and-reference-types/image-07.png"
   alt="Image test unsplash"
-  sizes="100vw"
-  width={0}
-  height={0}
-  style={{ width: '100%', height: 'auto' }}
 />
 
 ### Cách Reference types được lưu trữ
@@ -191,10 +184,6 @@ let bear = { name: 'Grizz' };
 <Image
   src="/images/articles/primitive-and-reference-types/image-08.png"
   alt="Image test unsplash"
-  sizes="100vw"
-  width={0}
-  height={0}
-  style={{ width: '100%', height: 'auto' }}
 />
 
 Tạo biến `bearCopy` từ `bear`.
@@ -206,10 +195,6 @@ let bearCopy = bear;
 <Image
   src="/images/articles/primitive-and-reference-types/image-09.png"
   alt="Image test unsplash"
-  sizes="100vw"
-  width={0}
-  height={0}
-  style={{ width: '100%', height: 'auto' }}
 />
 
 Lúc này, cả `bear` và `bearCopy` đều tham chiếu đến cùng một object trong bộ nhớ _==Heap==_, nên sửa một biến sẽ thấy sự thay đổi thông qua biến còn lại.
@@ -229,10 +214,6 @@ console.log(bear.name); // Panda
 <Image
   src="/images/articles/primitive-and-reference-types/image-10.png"
   alt="Image test unsplash"
-  sizes="100vw"
-  width={0}
-  height={0}
-  style={{ width: '100%', height: 'auto' }}
 />
 
 Đó chính là lý do tại sao chúng ta cần sử dụng phương thức `Object.assign()` hoặc toán tử `spread` để copy thuộc tính sang một object mới.
@@ -250,10 +231,6 @@ console.log(bear.name); // Ice bear
 <Image
   src="/images/articles/primitive-and-reference-types/image-11.png"
   alt="Image test unsplash"
-  sizes="100vw"
-  width={0}
-  height={0}
-  style={{ width: '100%', height: 'auto' }}
 />
 
 ### Ưu điểm khi sử dụng Reference types
@@ -377,10 +354,6 @@ console.log(carCopy.engine === myCar.engine); // true
 <Image
   src="/images/articles/primitive-and-reference-types/image-12.png"
   alt="Image test unsplash"
-  sizes="100vw"
-  width={0}
-  height={0}
-  style={{ width: '100%', height: 'auto' }}
 />
 
 <Details title="What is Shallow copy?">
@@ -410,10 +383,6 @@ Hàm `structuredClone()` sẽ nhận vào một object và trả về một obje
 <Image
   src="/images/articles/primitive-and-reference-types/image-13.png"
   alt="Image test unsplash"
-  sizes="100vw"
-  width={0}
-  height={0}
-  style={{ width: '100%', height: 'auto' }}
 />
 
 <Details title="What is Deep copy?">

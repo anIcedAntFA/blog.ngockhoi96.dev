@@ -35,7 +35,7 @@ html[data-theme='light'] {
 
   /* background */
   --clr-bg-1: var(--clr-ghost-white);
-  --clr-bg-2: var(--clr-alice-blue);
+  --clr-bg-2: var(--clr-snow);
   --clr-bg-3: var(--clr-off-white);
   --clr-bg-4: var(--clr-ivory);
 
@@ -44,11 +44,11 @@ html[data-theme='light'] {
   --clr-caption: var(--clr-gray-600);
 
   /* Link */
-  --clr-link-hover: var(--clr-emerald-800);
+  --clr-link-hover: var(--clr-emerald-700);
 
   /* Code */
-  --clr-code-border: var(--clr-gray-200);
-  --clr-code-bg: var(--clr-gray-100);
+  --clr-code-border: var(--clr-gray-300);
+  --clr-code-bg: var(--clr-gray-200);
 
   /* Highlight */
   --clr-highlight-bg: var(--clr-yellow-200);
