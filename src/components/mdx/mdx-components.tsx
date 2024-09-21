@@ -8,6 +8,7 @@ import MdxCustomImage from './mdx-custom-image';
 import MdxDetails from './mdx-details';
 import MdxHeading from './mdx-heading';
 import MdxImage from './mdx-image';
+import MdxLink from './mdx-link';
 import styles from './mdx.module.css';
 
 //* A list of wired HTML elements into custom React Components
@@ -35,9 +36,7 @@ export const htmlComponents = {
   p: (props: ComponentProps<'p'>) => (
     <p className={styles.paragraph} {...props} />
   ),
-  a: (props: ComponentProps<'a'>) => (
-    <a aria-label="link" className={styles.link} {...props} />
-  ),
+  a: MdxLink,
   code: (props: ComponentProps<'code'>) => (
     <code className={styles.code} {...props} />
   ),

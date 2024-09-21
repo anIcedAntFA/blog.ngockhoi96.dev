@@ -42,10 +42,10 @@ html[data-theme='dark'] {
   --clr-caption: var(--clr-gray-400);
 
   /* Link */
-  --clr-link-hover: var(--clr-emerald-500);
+  --clr-link-hover: var(--clr-emerald-400);
 
   /* Code */
-  --clr-code-border: var(--clr-gray-800);
+  --clr-code-border: var(--clr-gray-600);
   --clr-code-bg: var(--clr-gray-700);
 
   /* Highlight */

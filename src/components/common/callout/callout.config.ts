@@ -5,7 +5,7 @@ import WarningIcon from '@/components/icons/warning-icon';
 
 export const statusWithIcons = {
   info: InfoIcon,
-  warning: WarningIcon,
   success: SuccessIcon,
+  warning: WarningIcon,
   error: DangerIcon,
 };
