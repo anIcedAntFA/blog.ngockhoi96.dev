@@ -355,12 +355,12 @@ console.log(copyBrand.name); // Audi
 console.log(originalBrand.name); // BWM
 ```
 
-<MdxCallout status="warning">
+<Callout status="warning">
   _Lưu ý cách này chỉ là sao chép nông ([shallow
   copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)). Nếu có
   object con bên trong thì nó chỉ sao chép tham chiếu, chứ không tạo ra object
   mới cho object con đó._
-</MdxCallout>
+</Callout>
 
 Thí dụ:
 
@@ -382,6 +382,13 @@ console.log(carCopy.engine === myCar.engine); // true
   height={0}
   style={{ width: '100%', height: 'auto' }}
 />
+
+<Details title="What is Shallow copy?">
+ `next-intl` uses [`cache()`](https://react.dev/reference/react/cache) to create a mutable store that holds the current locale. By calling `unstable_setRequestLocale`, the current locale will be written to the store, making it available to all APIs that require the locale.
+
+Note that the store is scoped to a request and therefore doesn't affect other requests that might be handled in parallel while a given request resolves asynchronously.
+
+</Details>
 
 Cách giải quyết khi cần sao chép sâu ([_deep copy_](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy))
 là sử dụng hàm `structuredClone()` có sẵn trong JavaScript.
@@ -408,3 +415,10 @@ Hàm `structuredClone()` sẽ nhận vào một object và trả về một obje
   height={0}
   style={{ width: '100%', height: 'auto' }}
 />
+
+<Details title="What is Deep copy?">
+`next-intl` uses [`cache()`](https://react.dev/reference/react/cache) to create a mutable store that holds the current locale. By calling `unstable_setRequestLocale`, the current locale will be written to the store, making it available to all APIs that require the locale.
+
+Note that the store is scoped to a request and therefore doesn't affect other requests that might be handled in parallel while a given request resolves asynchronously.
+
+</Details>

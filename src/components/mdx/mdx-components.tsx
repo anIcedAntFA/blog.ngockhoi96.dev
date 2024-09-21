@@ -5,6 +5,7 @@ import NavItem from '../common/nav-item';
 import MdxCallout from './mdx-callout';
 import MdxCodeBlock from './mdx-code-block';
 import MdxCustomImage from './mdx-custom-image';
+import MdxDetails from './mdx-details';
 import MdxHeading from './mdx-heading';
 import MdxImage from './mdx-image';
 import styles from './mdx.module.css';
@@ -74,5 +75,6 @@ export const htmlComponents = {
 export const mdxComponents = {
   NavItem,
   Image: MdxCustomImage,
-  MdxCallout,
+  Callout: MdxCallout,
+  Details: MdxDetails,
 };

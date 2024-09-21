@@ -90,7 +90,7 @@
   margin-block: var(--space-4);
 
   font-size: var(--fs-xnormal);
-  line-height: 30px;
+  line-height: 32px;
 
   color: var(--clr-text-content);
 }
@@ -228,4 +228,13 @@
 .callout-description p {
   margin: 0;
   color: inherit;
+}
+
+.details {
+  margin-block: var(--space-6);
+
+  & > summary {
+    font-size: var(--fs-xnormal);
+    color: var(--clr-text-content);
+  }
 }

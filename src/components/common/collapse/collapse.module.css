@@ -1,0 +1,16 @@
+.root {
+  transform: translateZ(0);
+  overflow: hidden;
+}
+
+.inner {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.inner-open {
+  opacity: 1;
+}
+
+.inner-closed {
+  opacity: 0;
+}
