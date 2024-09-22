@@ -1,56 +1,47 @@
 'use client';
 
+import cx from 'clsx';
 import { useTheme } from 'next-themes';
 import { themes as prismThemes } from 'prism-react-renderer';
-import type { PropsWithChildren } from 'react';
 import { isValidElement } from 'react';
 
 import { themes } from '@/configs/themes';
 
 import { Tag, TagLabel } from '../../tag';
+import { getLanguageFromClassName } from '../code-block.helper';
 import styles from '../code-block.module.css';
+import type { childrenProps, CodeBlockProps } from '../code-block.type';
 
 import CodeHighlight from './code-highlight';
 import CopyCodeButton from './copy-code-button';
-
-type CodeBlockProps = PropsWithChildren<
-  Partial<{
-    language: string;
-    showLanguage: boolean;
-    showCopyButton: boolean;
-    showLineNumbers: boolean;
-    fileName: string;
-  }>
->;
 
 function CodeBlock({
   language: langProp,
   showLanguage = false,
   showCopyButton = false,
   showLineNumbers = false,
+  className: classWrapper,
   children,
 }: CodeBlockProps) {
   const { resolvedTheme } = useTheme();
 
   if (!isValidElement(children)) return null;
 
-  const { className, children: content } = children.props;
+  const { className, children: content }: childrenProps = children.props;
 
-  const language = className.replace(/language-/, '');
+  const language = getLanguageFromClassName(className);
   const rawCode = content.trim();
+  const codeTheme =
+    resolvedTheme === themes.DARK ? prismThemes.dracula : prismThemes.vsLight;
 
   const hasBtnOrLang = showCopyButton || showLanguage;
 
   return (
-    <div className={styles.wrapper}>
+    <div className={cx(styles.wrapper, classWrapper)}>
       <CodeHighlight
         codeString={rawCode}
         language={langProp || language}
-        theme={
-          resolvedTheme === themes.DARK
-            ? prismThemes.dracula
-            : prismThemes.vsLight
-        }
+        theme={codeTheme}
         showLines={showLineNumbers}
       />
 

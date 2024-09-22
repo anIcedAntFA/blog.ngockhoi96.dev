@@ -1,20 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import cx from 'clsx';
-import {
-  Highlight,
-  type Language,
-  type PrismTheme,
-} from 'prism-react-renderer';
+import { Highlight } from 'prism-react-renderer';
 
 import styles from '../code-block.module.css';
-
-type CodeHighlightProps = {
-  codeString: string;
-  language: Language;
-  theme: PrismTheme;
-  metaString?: string;
-  showLines?: boolean;
-};
+import type { CodeHighlightProps } from '../code-block.type';
 
 function CodeHighlight({
   codeString,
@@ -43,8 +32,8 @@ function CodeHighlight({
                 {showLines && (
                   <span className={styles['line-index']}>{index + 1}</span>
                 )}
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token })} />
+                {line.map((token, index) => (
+                  <span key={index} {...getTokenProps({ token })} />
                 ))}
               </div>
             );
