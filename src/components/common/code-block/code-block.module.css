@@ -7,8 +7,6 @@
   display: flex;
   flex-direction: column;
 
-  margin-block: var(--spacing);
-
   &:hover .copy-code-btn {
     opacity: 1;
   }
@@ -25,6 +23,9 @@
 .pre {
   border-radius: var(--br-large);
   padding-block: var(--spacing);
+
+  font-family: var(--font-code);
+  font-size: var(--fs-small);
 }
 
 .token-line {
@@ -32,10 +33,10 @@
 }
 
 .line-index {
-  font-size: var(--fs-small);
+  color: var(--clr-base);
 
   & + span {
-    margin-left: 8px;
+    margin-left: var(--space-4);
   }
 }
 

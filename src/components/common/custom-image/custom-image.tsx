@@ -1,5 +1,6 @@
 'use client';
 
+import cx from 'clsx';
 import type { ImageProps } from 'next/image';
 import NextImage from 'next/image';
 import { useTranslations } from 'next-intl';
@@ -14,6 +15,7 @@ import styles from './custom-image.module.css';
 export type CustomImageProps = ImageProps & {
   caption?: string;
   showZoomInBtn?: boolean;
+  classWrapper?: string;
   onZoomInImage?: VoidFunction;
 };
 
@@ -21,8 +23,9 @@ function CustomImage({
   src: url,
   alt,
   caption = '',
-  onZoomInImage,
   showZoomInBtn = false,
+  classWrapper,
+  onZoomInImage,
   ...imageProps
 }: CustomImageProps) {
   const t = useTranslations('components.common.customImage');
@@ -56,7 +59,7 @@ function CustomImage({
   );
 
   return (
-    <div className={styles.wrapper}>
+    <div className={cx(styles.wrapper, classWrapper)}>
       {caption ? (
         <figure className={styles.figure}>
           {renderImage()}

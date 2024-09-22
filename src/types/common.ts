@@ -5,6 +5,8 @@ export type Todo = any;
 
 export type Nullable<T> = T | null;
 
+export type Either<L, R> = L | R;
+
 export type KeyType<T> = keyof T;
 
 export type ValueType<T> = T[keyof T];
@@ -24,11 +26,11 @@ export type EmptyObject = Record<PropertyKey, never>;
 
 export type Primitive = string | number | boolean | null | undefined;
 
-export type BaseValue = string | number;
+export type BaseValue = Either<string, number>;
 
 export type BaseOption = {
   label: string;
   value: BaseValue;
 };
 
-export type ImageUrl = string | ImageProps['src'];
+export type ImageUrl = Either<string, ImageProps['src']>;

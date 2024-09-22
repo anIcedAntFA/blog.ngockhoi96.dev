@@ -9,13 +9,13 @@ function Kbd({
   color = colors.BASE,
   className,
   children,
-  ...restProps
+  ...kbdProps
 }: KbdProps) {
   return (
     <kbd
       data-color={color}
       className={cx(styles.root, className)}
-      {...restProps}
+      {...kbdProps}
     >
       {children}
     </kbd>

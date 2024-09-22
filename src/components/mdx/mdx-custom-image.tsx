@@ -44,6 +44,7 @@ function MdxCustomImage({
         showZoomInBtn
         data-src={src}
         onZoomInImage={showLightbox.on}
+        classWrapper={styles['custom-image-wrapper']}
         className={styles['custom-image']}
         {...customImageProps}
       />

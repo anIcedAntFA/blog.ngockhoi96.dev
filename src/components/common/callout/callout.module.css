@@ -66,7 +66,7 @@ html[data-theme='dark'] .wrapper {
   padding: 12px;
 
   &[data-variant='subtle'] {
-    border: 2px solid;
+    border: 1px solid;
   }
 
   &[data-variant='subtle'][data-status='info'] {

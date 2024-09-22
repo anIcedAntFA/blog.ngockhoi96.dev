@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 
-function DangerIcon(svgProps: SVGProps<SVGSVGElement>) {
+function ErrorIcon(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,4 +17,4 @@ function DangerIcon(svgProps: SVGProps<SVGSVGElement>) {
   );
 }
 
-export default DangerIcon;
+export default ErrorIcon;

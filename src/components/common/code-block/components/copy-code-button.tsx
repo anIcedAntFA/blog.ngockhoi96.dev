@@ -7,10 +7,7 @@ import useCopyToClipboard from '@/hooks/use-copy-to-clipboard';
 import Button from '../../button';
 import { COPIED_TIMEOUT } from '../code-block.config';
 import styles from '../code-block.module.css';
-
-type CopyCodeButtonProps = {
-  code: string;
-};
+import type { CopyCodeButtonProps } from '../code-block.type';
 
 function CopyCodeButton({ code }: CopyCodeButtonProps) {
   const t = useTranslations('components.common.codeBlock.copyCodeButton');
