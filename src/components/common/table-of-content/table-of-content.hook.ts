@@ -22,13 +22,13 @@ function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
     const currentId = itemIds.find((id, index) => {
       const heading = document.getElementById(id);
       invariant(heading, `Element with id ${id} not found`);
-      const nextHeading = document.getElementById(itemIds[index + 1]);
-      if (!nextHeading) return;
-
       const rect = heading.getBoundingClientRect();
       const headingRectTop = rect.top;
-      const nextRect = nextHeading.getBoundingClientRect();
-      const consecutiveHeadingsSpacing = nextRect.top - rect.bottom;
+
+      const nextHeading = document.getElementById(itemIds[index + 1]);
+      const nextRect = nextHeading?.getBoundingClientRect();
+      const consecutiveHeadingsSpacing = (nextRect?.top ?? 0) - rect.bottom;
+
       //* Check if the element is scrolled down
       const hasScrolledDown = scrollPosition > 0;
       //* Check if the element is scrolled past the top of the viewport
@@ -39,11 +39,12 @@ function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
       const isInViewport =
         Math.abs(headingRectTop) + HEADER_HEIGHT + offsetTop <=
         consecutiveHeadingsSpacing;
+      const isLastItemId = index === itemIds.length - 1;
 
       return (
         hasScrolledDown &&
         hasScrolledPastTop &&
-        (isBelowViewportTop || isInViewport)
+        (isBelowViewportTop || isLastItemId || isInViewport)
       );
     });
 
