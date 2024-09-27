@@ -79,10 +79,10 @@ export const Variants: Story = {
   },
   render: (args) => (
     <Flex spacing={24}>
-      <IconButton {...args} variant="contained" label="turn left">
+      <IconButton {...args} variant='contained' label='turn left'>
         <ArrowLeftIcon />
       </IconButton>
-      <IconButton {...args} variant="outlined" label="turn right">
+      <IconButton {...args} variant='outlined' label='turn right'>
         <ArrowRightIcon />
       </IconButton>
     </Flex>
@@ -96,13 +96,13 @@ export const Sizes: Story = {
   },
   render: (args) => (
     <Flex spacing={24}>
-      <IconButton {...args} size="small" label="go up">
+      <IconButton {...args} size='small' label='go up'>
         <ArrowUpIcon />
       </IconButton>
-      <IconButton {...args} size="medium" label="go up">
+      <IconButton {...args} size='medium' label='go up'>
         <ArrowUpIcon />
       </IconButton>
-      <IconButton {...args} size="large" label="go up">
+      <IconButton {...args} size='large' label='go up'>
         <ArrowUpIcon />
       </IconButton>
     </Flex>
@@ -116,10 +116,10 @@ export const Colors: Story = {
   },
   render: (args) => (
     <Flex spacing={24}>
-      <IconButton {...args} color="primary" label="go up">
+      <IconButton {...args} color='primary' label='go up'>
         <ArrowUpIcon />
       </IconButton>
-      <IconButton {...args} color="base" label="go up">
+      <IconButton {...args} color='base' label='go up'>
         <ArrowUpIcon />
       </IconButton>
     </Flex>
@@ -134,10 +134,10 @@ export const Rounded: Story = {
   },
   render: (args) => (
     <Flex spacing={24}>
-      <IconButton {...args} label="go up">
+      <IconButton {...args} label='go up'>
         <ArrowUpIcon />
       </IconButton>
-      <IconButton {...args} variant="outlined" label="go up">
+      <IconButton {...args} variant='outlined' label='go up'>
         <ArrowUpIcon />
       </IconButton>
     </Flex>
@@ -152,10 +152,10 @@ export const Disabled: Story = {
   },
   render: (args) => (
     <Flex spacing={24}>
-      <IconButton {...args} label="up">
+      <IconButton {...args} label='up'>
         <ArrowUpIcon />
       </IconButton>
-      <IconButton {...args} variant="outlined" label="up">
+      <IconButton {...args} variant='outlined' label='up'>
         <ArrowUpIcon />
       </IconButton>
     </Flex>

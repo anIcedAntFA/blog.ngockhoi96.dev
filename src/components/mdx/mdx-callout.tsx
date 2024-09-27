@@ -1,5 +1,6 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import { Fragment } from 'react';
 
 import {
@@ -14,20 +15,27 @@ import styles from './mdx.module.css';
 type MdxCalloutProps = {
   variant?: 'subtle' | 'solid';
   status?: 'info' | 'warning' | 'error' | 'success';
+  icon?: ReactNode;
   title?: string;
-  children: string;
+  children: ReactNode;
 };
 
 function MdxCallout({
   variant = 'subtle',
   status = 'info',
+  icon,
   title,
   children,
 }: MdxCalloutProps) {
   const Content = title ? 'div' : Fragment;
 
   return (
-    <Callout variant={variant} status={status} className={styles.callout}>
+    <Callout
+      variant={variant}
+      status={status}
+      icon={icon}
+      className={styles.callout}
+    >
       <CalloutIcon />
       <Content>
         {title && (

@@ -7,7 +7,7 @@ type MdxInlinedCodeProps = ComponentProps<'code'> & {
 };
 
 function MdxInlinedCode(codeProps: MdxInlinedCodeProps) {
-  return <Code variant="surface" size="medium" color="base" {...codeProps} />;
+  return <Code variant='surface' size='medium' color='base' {...codeProps} />;
 }
 
 export default MdxInlinedCode;

@@ -1,8 +1,9 @@
-import type { ComponentProps, PropsWithChildren } from 'react';
+import type { ComponentProps, PropsWithChildren, ReactNode } from 'react';
 
 type CalloutStyleProps = PropsWithChildren<{
   variant: 'subtle' | 'solid';
   status: 'info' | 'warning' | 'error' | 'success';
+  icon: ReactNode;
 }>;
 
 export type CalloutProps = ComponentProps<'div'> & Partial<CalloutStyleProps>;

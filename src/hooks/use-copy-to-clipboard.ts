@@ -8,7 +8,7 @@ type CopiedValue = string | null;
 
 type CopyText = (text: string) => Promise<void>;
 
-function useCopyToClipboard(timeout: number = 2000) {
+function useCopyToClipboard(timeout = 2000) {
   const [copiedText, setCopiedText] = useState<CopiedValue>(null);
 
   const {

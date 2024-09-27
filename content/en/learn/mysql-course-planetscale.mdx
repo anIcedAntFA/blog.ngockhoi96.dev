@@ -1,0 +1,137 @@
+---
+title: Learn MySQL for Developers by PlanetScale Course
+description: Learn MySQL with PlanetScale Course
+slug: mysql-course-planetscale
+language: en
+date: 2024-09-06 10:00
+cover: /images/posts/cover.jpg
+excerpt: Learn MySQL with PlanetScale Course
+authors:
+  - ngockhoi96
+---
+
+## 1. Schema
+
+### 1.2 Integers
+
+#### Ranges for each data type
+
+| Type      | Storage (Bytes) | Minium Signed | Maximum Signed | Minimum Unsigned | Maximum Unsigned |
+| --------- | --------------- | ------------- | -------------- | ---------------- | ---------------- |
+| TINYINT   | 1               | -128          | 127            | 0                | 255              |
+| SMALLINT  | 2               | -32768        | 32767          | 0                | 65535            |
+| MEDIUMINT | 3               | -8388608      | 8388607        | 0                | 16777215         |
+| INT       | 4               | -2147483648   | 2147483647     | 0                | 4294967295       |
+| BIGINT    | 8               | -2^63         | 2^63           | 0                | 2^64 - 1         |
+
+#### Understanding negative numbers
+
+In databases, negative numbers are supported by dedicating one of the bits to the sign (either positive or negative), with the remaining bits reserved for the value. For example, a `TINYINT` with negative numbers enabled has one bit dedicated to the sign and seven bits for the value, which means it can store values from -128 to 127.
+
+#### Defining the number of pages column
+
+For our books table, we'll be defining the number of pages column, which we expect will never exceed 65,000 pages. Given this, we don't need to use the `INT` data type, which can hold up to 4.2 billion values. Instead, we can use the `SMALLINT` data type, which occupies two bytes and can store values from 0 to 65,535.
+
+However, we also need to specify that negative numbers aren't supported for this column. We can do this by adding the `UNSIGNED` keyword, which tells MySQL that we're not interested in negative numbers.
+
+```sql
+CREATE TABLE `books` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+
+  `num_pages` SMALLINT UNSIGNED NOT NULL,
+)
+```
+
+### 1.3 Decimals
+
+#### The four types of decimal data types
+
+1. `DECIMAL` - a fixed-precision data type that stores exact values.
+2. `NUMERIC` - an alias for DECIMAL, the two are the same thing in MySQL.
+3. `FLOAT` - a floating-point data type that stores approximate values.
+4. `DOUBLE` - a floating-point data type that stores larger and more precise values than FLOAT.
+
+#### When to use decimal
+
+If you need to store values that require absolute precision, such as currency or other financial data, you should use the `DECIMAL` data type. With `DECIMAL`, you can specify the maximum number of digits and how many digits should occur after the decimal point.
+
+For example, suppose you want to store a maximum of 10 digits, with two digits after the decimal, the syntax would be:
+
+```sql
+DECIMAL(10,2)
+```
+
+The first argument specifies the maximum number of digits, while the second argument specifies how many should appear after the decimal. The number of digits before the decimal is determined by the first value subtracted by the second.
+
+#### When to use float or double
+
+If you don't require precise decimal values, you can use either `FLOAT` or `DOUBLE`. Both of these data types store approximate values, but `DOUBLE` can store larger and more precise values than `FLOAT`.
+
+If you're using a data type for scientific calculations, where relative precision is more important than absolute precision, you might also consider using `FLOAT` or `DOUBLE`.
+
+#### Example
+
+Let's see how these data types work in action. We'll create a table called decimals and insert data into two columns D1 and D2. Both columns will be defined as DOUBLE data types.
+
+```sql
+CREATE TABLE decimals (
+  n INT,
+  d1 DOUBLE,
+  d2 DOUBLE
+);
+```
+
+Then we'll insert some data into the table:
+
+```sql
+INSERT INTO decimals
+VALUES
+  (1, 100.40, 20.40),
+  (1, -80.00, 0.00)
+```
+
+If we run a SELECT query to retrieve all of the data in the table:
+
+```sql
+SELECT * FROM decimals
+```
+
+We should see the following output:
+
+| n   | d1    | d2   |
+| --- | ----- | ---- |
+| 1   | 100.4 | 20.4 |
+| 1   | -80   | 0    |
+
+Now, if we try to add the values in columns `D1` and `D2`, we might expect the result to be 40.8, but that's not what we get:
+
+```sql
+SELECT sum(d1), sum(d2)
+FROM decimals
+GROUP BY n;
+```
+
+| sum(d1)         | sum(d2) |
+| --------------- | ------- |
+| 20.400000000006 | 20.4    |
+
+We can see that the sums are close to the expected result, but not exactly the same, and that's because DOUBLE is an approximation of a value, not an exact one.
+
+### 1.4 Strings
+
+### 1.5 Binary strings
+
+### 1.6 Long strings
+
+### 1.7 Enums
+
+### 1.8 Dates
+
+### 1.9 JSON
+
+### 1.10 Unexpected data types
+
+### 1.11 Generated columns
+
+## Indexes

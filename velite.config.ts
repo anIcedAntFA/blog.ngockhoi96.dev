@@ -21,9 +21,7 @@ const author = defineCollection({
     slug: s.path(),
   }),
 });
-
-const existingSlugs = new Set();
-
+// const existingSlugs = new Set();
 const articles = defineCollection({
   name: 'Articles', // collection type name
   pattern: '{en,vi}/articles/**/*.mdx', // content files glob pattern
@@ -32,7 +30,21 @@ const articles = defineCollection({
       language: s.enum(['en', 'vi']), // enum type
       title: s.string().max(99), // Zod primitive type
       description: s.string().max(199),
-      slug: s.string(), // validate format, unique in posts collection
+      slug: s.string(),
+      //     .superRefine((data, ctx) => {
+      //     //* Custom validation to ensure unique slug-language combination
+      //     console.log({ data, ctx: ctx.meta.data.data });
+      //     const currentLanguage = ctx.meta.data.data.language;
+      //     const slugLocaleKey = `${data}-${currentLanguage}`;
+      //     if (existingSlugs.has(slugLocaleKey)) {
+      //       return ctx.addIssue({
+      //         code: s.ZodIssueCode.custom,
+      //         message: 'Slug must be unique per language',
+      //       });
+      //     }
+      //     existingSlugs.add(slugLocaleKey);
+      //   }
+      // ),
       date: s.isodate(), // input Date-like string, output ISO Date string.
       // cover: s.image(), // input image relative path, output image object with blurImage.
       cover: s.string().max(99),
@@ -42,21 +54,7 @@ const articles = defineCollection({
       body: s.mdx(), // transform mdx to html
       excerpt: s.excerpt(),
     })
-    .refine(
-      (data) => {
-        //* Custom validation to ensure unique slug-language combination
-        const slugLocaleKey = `${data.slug}-${data.language}`;
-        if (existingSlugs.has(slugLocaleKey)) {
-          return false;
-        }
-        existingSlugs.add(slugLocaleKey);
-        return true;
-      },
-      {
-        message: 'Slug must be unique per language',
-        path: ['slug'],
-      },
-    )
+
     //* more additional fields (computed fields)
     .transform((data) => ({
       ...data,
@@ -130,7 +128,4 @@ export default defineConfig({
       // [rehypeAutolinkHeadings, rehypeAutolinkOptions],
     ],
   },
-  // prepare(data, context) {
-  //   console.log(data, context);
-  // },
 });

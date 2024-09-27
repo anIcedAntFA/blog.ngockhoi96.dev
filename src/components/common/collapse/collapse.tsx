@@ -28,9 +28,9 @@ const variants = {
 
 function Collapse({
   children,
-  className,
   isOpened,
   orientation = orientations.VERTICAL,
+  className,
 }: CollapseProps): ReactElement {
   return (
     <motion.div

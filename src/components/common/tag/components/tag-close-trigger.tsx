@@ -22,12 +22,12 @@ function TagCloseTrigger({
 
   return (
     <button
-      type="button"
-      aria-label="close"
+      type='button'
+      aria-label='close'
       data-variant={variant}
       data-size={size}
       data-color={color}
-      data-testid="tag-close-trigger"
+      data-testid='tag-close-trigger'
       className={cx(styles['close-trigger'], className)}
       onClick={handleClick}
       {...buttonProps}

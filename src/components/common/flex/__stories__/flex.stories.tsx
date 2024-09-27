@@ -85,7 +85,7 @@ export const Horizontal: Story = {
 export const Vertical: Story = {
   args: {},
   render: () => (
-    <Flex direction="column" spacing={12}>
+    <Flex direction='column' spacing={12}>
       <DecorativeBox>Flex</DecorativeBox>
       <DecorativeBox>Flex</DecorativeBox>
       <DecorativeBox>Flex</DecorativeBox>
@@ -97,8 +97,8 @@ export const Center: Story = {
   args: {},
   render: () => (
     <Flex
-      justify="center"
-      align="center"
+      justify='center'
+      align='center'
       spacing={8}
       style={{ width: 800, backgroundColor: 'orange' }}
     >
@@ -112,7 +112,7 @@ export const Center: Story = {
 export const Wrap: Story = {
   args: {},
   render: () => (
-    <Flex wrap="wrap" spacing={8} style={{ width: 400 }}>
+    <Flex wrap='wrap' spacing={8} style={{ width: 400 }}>
       <DecorativeBox>Flex</DecorativeBox>
       <DecorativeBox>Flex</DecorativeBox>
       <DecorativeBox>Flex</DecorativeBox>

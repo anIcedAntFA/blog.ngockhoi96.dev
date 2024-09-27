@@ -38,8 +38,8 @@ function LanguageSelector() {
   return (
     <Menu
       opened={showLanguageDropdown.value}
-      placement="bottom-end"
-      color="primary"
+      placement='bottom-end'
+      color='primary'
       offset={12}
       hasClosedOnSelect={false}
       onOpen={showLanguageDropdown.on}

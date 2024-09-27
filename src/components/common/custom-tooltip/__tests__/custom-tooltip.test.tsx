@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import type { UserEvent } from '@testing-library/user-event';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import CustomTooltip from '../custom-tooltip';
@@ -11,7 +11,7 @@ describe('CustomTooltip', () => {
 
   beforeEach(() => {
     render(
-      <CustomTooltip label="Tooltip" hasArrow>
+      <CustomTooltip label='Tooltip' hasArrow>
         Hover me
       </CustomTooltip>,
     );

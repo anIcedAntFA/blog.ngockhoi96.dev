@@ -1,6 +1,6 @@
 import { render, screen, waitFor, within } from '@testing-library/react';
 import type { UserEvent } from '@testing-library/user-event';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import type { ElementRef } from 'react';
 import { useRef } from 'react';
 import type { Mock } from 'vitest';
@@ -24,7 +24,7 @@ const RenderedDialog = (dialogProps: DialogProps) => {
         <DialogHeader>
           <h4>MK Blog Login</h4>
         </DialogHeader>
-        <DialogCloseTrigger label="close" />
+        <DialogCloseTrigger label='close' />
         <DialogBody>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam
           quibusdam quaerat quasi dolorum laboriosam facilis debitis quidem
@@ -112,7 +112,7 @@ describe('Dialog', () => {
 
       return (
         <>
-          <button type="button" onClick={openedDialog.on}>
+          <button type='button' onClick={openedDialog.on}>
             open dialog
           </button>
           <Dialog
@@ -125,7 +125,7 @@ describe('Dialog', () => {
               <DialogBody>
                 <input />
                 <input />
-                <input ref={inputRef} type="text" data-testid="input" />
+                <input ref={inputRef} type='text' data-testid='input' />
               </DialogBody>
             </DialogContent>
           </Dialog>
@@ -148,8 +148,8 @@ describe('Dialog', () => {
         <>
           <button
             ref={btnRef}
-            type="button"
-            aria-label="open dialog"
+            type='button'
+            aria-label='open dialog'
             onClick={openedDialog.on}
           >
             open dialog

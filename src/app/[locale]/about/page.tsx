@@ -29,7 +29,7 @@ async function AboutPage() {
     <div>
       <div>
         <h1>About</h1>
-        <Link href="/">Home</Link>
+        <Link href='/'>Home</Link>
 
         <pre>{result.title}</pre>
       </div>

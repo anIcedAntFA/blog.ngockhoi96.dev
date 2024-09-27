@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { NextIntlClientProvider } from 'next-intl';
 import type { PropsWithChildren } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -21,7 +21,7 @@ const renderComponent = (prop?: ScrollToTopButtonProps) => {
   const Wrapper = ({ children }: PropsWithChildren) => {
     return (
       <NextIntlClientProvider
-        locale="en"
+        locale='en'
         messages={{
           components: {
             common: {

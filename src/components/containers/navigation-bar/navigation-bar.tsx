@@ -49,7 +49,7 @@ function NavigationBar({ starCount }: NavigationBarProps) {
   return (
     <motion.header
       ref={headerRef}
-      id="app-header"
+      id='app-header'
       variants={{
         visible: { y: 0 },
         hidden: { y: '-100%' },
@@ -62,11 +62,11 @@ function NavigationBar({ starCount }: NavigationBarProps) {
       <h3 className={styles.logo}>ngockhoi96</h3>
 
       <nav
-        id="main nav"
-        aria-labelledby="main-menu-content"
+        id='main nav'
+        aria-labelledby='main-menu-content'
         className={styles.nav}
       >
-        <ul id="main-menu-content" className={styles.list}>
+        <ul id='main-menu-content' className={styles.list}>
           {navigationList(tNavigationList).map((navItem) => (
             <li key={navItem.id} className={styles.item}>
               <NavigationItem {...navItem} />
@@ -81,10 +81,10 @@ function NavigationBar({ starCount }: NavigationBarProps) {
         <LanguageSelector />
 
         <Divider
-          orientation="vertical"
-          thickness="medium"
-          color="primary"
-          height="40px"
+          orientation='vertical'
+          thickness='medium'
+          color='primary'
+          height='40px'
         />
 
         <Button
@@ -101,7 +101,7 @@ function NavigationBar({ starCount }: NavigationBarProps) {
         </Button>
 
         <GithubStarButton
-          href="https://github.com/anIcedAntFA/blog.ngockhoi96.dev"
+          href='https://github.com/anIcedAntFA/blog.ngockhoi96.dev'
           count={starCount}
         />
       </Flex>

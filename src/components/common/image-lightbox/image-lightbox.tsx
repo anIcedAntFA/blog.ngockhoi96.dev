@@ -70,7 +70,7 @@ function ImageLightbox({
             src={imageUrls[currentIndex]}
             alt={imageAlts[currentIndex]}
             title={t('previewImage.title')}
-            sizes="100vw"
+            sizes='100vw'
             width={0}
             height={0}
             onClick={onCloseModal}
@@ -99,7 +99,7 @@ function ImageLightbox({
         {showDownloadBtn && (
           <div className={styles['download-btn']}>
             <IconButton
-              size="large"
+              size='large'
               label={t('downloadButton.label')}
               title={t('downloadButton.title')}
               onClick={() =>
@@ -118,7 +118,7 @@ function ImageLightbox({
         {showCloseBtn && (
           <div className={styles['close-btn']}>
             <IconButton
-              size="large"
+              size='large'
               label={t('closeButton.label')}
               title={t('closeButton.title')}
               onClick={onCloseModal}
@@ -130,14 +130,14 @@ function ImageLightbox({
 
         {currentIndex > 0 && (
           <NavigationButton
-            type="prev"
+            type='prev'
             onNavigate={() => setCurrentIndex(currentIndex - 1)}
           />
         )}
 
         {currentIndex < imageList.length - 1 && (
           <NavigationButton
-            type="next"
+            type='next'
             onNavigate={() => setCurrentIndex(currentIndex + 1)}
           />
         )}

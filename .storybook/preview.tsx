@@ -22,8 +22,8 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <NextIntlClientProvider
-        locale="en"
-        timeZone="UTC"
+        locale='en'
+        timeZone='UTC'
         messages={englishLocale}
       >
         <Story />

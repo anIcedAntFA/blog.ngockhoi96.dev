@@ -12,7 +12,7 @@ function TagLabel({ className, children, ...spanProps }: TagLabelProps) {
       data-variant={variant}
       data-size={size}
       data-color={color}
-      data-testid="tag-label"
+      data-testid='tag-label'
       className={cx(styles.label, className)}
       {...spanProps}
     >

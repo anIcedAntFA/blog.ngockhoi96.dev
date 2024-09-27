@@ -15,10 +15,10 @@ import styles from './mdx.module.css';
 
 //* A list of wired HTML elements into custom React Components
 export const htmlComponents = {
-  h1: (props: ComponentProps<'h1'>) => <MdxHeading as="h1" {...props} />,
-  h2: (props: ComponentProps<'h2'>) => <MdxHeading as="h2" {...props} />,
-  h3: (props: ComponentProps<'h3'>) => <MdxHeading as="h3" {...props} />,
-  h4: (props: ComponentProps<'h4'>) => <MdxHeading as="h4" {...props} />,
+  h1: (props: ComponentProps<'h1'>) => <MdxHeading as='h1' {...props} />,
+  h2: (props: ComponentProps<'h2'>) => <MdxHeading as='h2' {...props} />,
+  h3: (props: ComponentProps<'h3'>) => <MdxHeading as='h3' {...props} />,
+  h4: (props: ComponentProps<'h4'>) => <MdxHeading as='h4' {...props} />,
   p: (props: ComponentProps<'p'>) => (
     <p className={styles.paragraph} {...props} />
   ),

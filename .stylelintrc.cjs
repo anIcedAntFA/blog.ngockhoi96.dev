@@ -1,8 +1,6 @@
-export default {
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-config-property-sort-order-smacss',
-  ],
+/** @type {import('stylelint').Config} */
+module.exports = {
+  extends: ['stylelint-config-standard', '@stylistic/stylelint-plugin'],
   plugins: ['stylelint-order'],
   rules: {
     'import-notation': 'string',

@@ -86,7 +86,7 @@ const BasicDialog = () => {
           <DialogHeader>
             <h4>MK Blog Login</h4>
           </DialogHeader>
-          <DialogCloseTrigger label="close" />
+          <DialogCloseTrigger label='close' />
           <DialogBody>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam
             quibusdam quaerat quasi dolorum laboriosam facilis debitis quidem

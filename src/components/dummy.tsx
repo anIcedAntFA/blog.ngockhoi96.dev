@@ -12,12 +12,12 @@ function Dummy() {
   return (
     <Flex
       spacing={36}
-      align="center"
-      justify="center"
-      wrap="wrap"
+      align='center'
+      justify='center'
+      wrap='wrap'
       style={{ marginBlock: '48px' }}
     >
-      <Callout variant="subtle" status="warning">
+      <Callout variant='subtle' status='warning'>
         <CalloutIcon />
         <div>
           <CalloutTitle>Shallow copy</CalloutTitle>
@@ -32,7 +32,7 @@ function Dummy() {
         </div>
       </Callout>
 
-      <Callout variant="solid" status="warning">
+      <Callout variant='solid' status='warning'>
         <CalloutIcon />
         <div>
           <CalloutTitle>Shallow copy</CalloutTitle>

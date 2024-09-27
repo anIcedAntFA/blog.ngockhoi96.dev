@@ -160,9 +160,13 @@ html[data-theme='dark'] .wrapper {
 .icon {
   --size: 28px;
 
+  @mixin flex-center;
+
   width: var(--size);
   min-width: var(--size);
   height: var(--size);
+
+  font-size: var(--fs-large);
 
   &[data-variant='subtle'][data-status='info'] {
     color: var(--clr-info-icon-subtle);

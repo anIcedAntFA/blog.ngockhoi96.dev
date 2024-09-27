@@ -40,9 +40,9 @@ function CustomImage({
           {...imageProps}
         />
         {showZoomInBtn && (
-          <CustomTooltip label={t('tooltipLabel')} placement="right" hasArrow>
+          <CustomTooltip label={t('tooltipLabel')} placement='right' hasArrow>
             <button
-              type="button"
+              type='button'
               aria-label={t('ariaLabel')}
               className={styles['maximize-btn']}
               onClick={onZoomInImage}

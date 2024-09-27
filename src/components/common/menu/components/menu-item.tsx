@@ -41,8 +41,8 @@ function MenuItem({
   return (
     <motion.button
       id={id}
-      type="button"
-      role="menuitem"
+      type='button'
+      role='menuitem'
       tabIndex={isFocused ? 0 : -1}
       data-color={color}
       data-focused={isFocused}

@@ -33,7 +33,7 @@ function TabPanel({
         <div
           id={generateTabPanelId(id, currentValue)}
           hidden={!isActiveTab}
-          role="tabpanel"
+          role='tabpanel'
           aria-labelledby={generateTabId(id, currentValue)}
           tabIndex={0}
           data-active={isActiveTab}

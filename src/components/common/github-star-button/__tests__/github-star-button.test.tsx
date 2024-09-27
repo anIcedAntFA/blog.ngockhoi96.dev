@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { NextIntlClientProvider } from 'next-intl';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { act } from 'react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import GithubStarButton from '../github-star-button';
 
@@ -12,7 +13,7 @@ describe('GithubStarButton', () => {
   beforeEach(() => {
     render(
       <NextIntlClientProvider
-        locale="en"
+        locale='en'
         messages={{
           components: {
             common: {
@@ -28,6 +29,10 @@ describe('GithubStarButton', () => {
         <GithubStarButton href={href} count={count} />
       </NextIntlClientProvider>,
     );
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
   it('should render the star button with correct attributes', () => {
@@ -48,9 +53,12 @@ describe('GithubStarButton', () => {
     const link = screen.getByRole('link');
 
     const user = userEvent.setup();
-    await user.hover(link);
 
-    const tooltip = screen.getByRole('tooltip');
+    act(() => {
+      user.hover(link);
+    });
+
+    const tooltip = await screen.findByRole('tooltip');
     expect(tooltip).toHaveTextContent('Star this project on GitHub');
   });
 });

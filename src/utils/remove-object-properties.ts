@@ -27,7 +27,7 @@ import type { Todo } from '@/types/common';
 
 export function removeObjectProperties<
   Obj extends Record<string, Todo>,
-  Key extends Array<keyof Obj>,
+  Key extends (keyof Obj)[],
 >(object: Obj, keys: Key): Omit<Obj, Key[number]> {
   if (
     //* check if object is empty

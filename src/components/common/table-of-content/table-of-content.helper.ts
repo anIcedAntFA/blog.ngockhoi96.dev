@@ -10,8 +10,8 @@ export function getIdFromUrl(url: string): string {
 //* Get all item ids from the table of content
 export function getItemIds(
   tocEntries: TocEntry[],
-  maxDepth: number = Infinity,
-  currentDepth: number = 1,
+  maxDepth = Infinity,
+  currentDepth = 1,
 ): string[] {
   if (currentDepth > maxDepth) return [];
 

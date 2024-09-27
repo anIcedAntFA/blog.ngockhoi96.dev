@@ -190,14 +190,14 @@ function MenuList({
   };
 
   return (
-    <AnimatePresence mode="sync">
+    <AnimatePresence mode='sync'>
       {isOpened && (
         <motion.ul
           ref={listRef}
           id={listId}
           tabIndex={-1}
-          role="menu"
-          aria-orientation="vertical"
+          role='menu'
+          aria-orientation='vertical'
           data-placement={placement}
           data-color={color}
           className={cx(styles.list, className)}

@@ -34,7 +34,7 @@ function NavigationButton({ type, onNavigate }: NavigationButtonProps) {
 
   return (
     <button
-      type="button"
+      type='button'
       title={title}
       aria-label={ariaLabel}
       className={btnStyles}

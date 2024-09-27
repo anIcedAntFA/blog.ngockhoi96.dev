@@ -12,7 +12,7 @@ function TagIcon({ className, children, ...spanProps }: TagIconProps) {
       data-variant={variant}
       data-size={size}
       data-color={color}
-      data-testid="tag-icon"
+      data-testid='tag-icon'
       className={cx(styles.icon, className)}
       {...spanProps}
     >

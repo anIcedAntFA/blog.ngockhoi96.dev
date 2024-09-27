@@ -23,10 +23,10 @@ function MenuTrigger({
     <button
       ref={triggerRef}
       id={triggerId}
-      type="button"
-      aria-label="Options"
+      type='button'
+      aria-label='Options'
       aria-expanded={isOpened}
-      aria-haspopup="menu"
+      aria-haspopup='menu'
       aria-controls={listId}
       data-color={color}
       data-active={isOpened}

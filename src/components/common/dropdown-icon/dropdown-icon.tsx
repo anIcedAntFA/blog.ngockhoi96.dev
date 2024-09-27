@@ -15,19 +15,19 @@ function DropdownIcon({
     return (
       <span
         data-active={active}
-        data-testid="dropdown-icon"
+        data-testid='dropdown-icon'
         className={cx(styles.rotate, className)}
       >
-        <ChevronDownIcon data-testid="chevron-down-icon" />
+        <ChevronDownIcon data-testid='chevron-down-icon' />
       </span>
     );
   }
 
   return (
     <span
-      aria-hidden="true"
+      aria-hidden='true'
       data-active={active}
-      data-testid="dropdown-icon"
+      data-testid='dropdown-icon'
       className={cx(styles.close, className)}
     />
   );

@@ -22,7 +22,7 @@ function CopyCodeButton({ code }: CopyCodeButtonProps) {
   return (
     <div className={styles['copy-code-btn']}>
       <Button
-        size="small"
+        size='small'
         icon={{
           position: 'left',
           children: hasCopied ? <CheckIcon /> : <CopyIcon />,

@@ -33,11 +33,11 @@ function Pagination({
   const lastPage = pageRange[pageRange.length - 1];
 
   return (
-    <nav aria-label="pagination" className={styles.root}>
+    <nav aria-label='pagination' className={styles.root}>
       <Button
-        aria-label="previous page"
+        aria-label='previous page'
         color={color}
-        variant="text"
+        variant='text'
         icon={{
           position: 'left',
           children: <ArrowLeftIcon />,
@@ -67,9 +67,9 @@ function Pagination({
       </ol>
 
       <Button
-        aria-label="next page"
+        aria-label='next page'
         color={color}
-        variant="text"
+        variant='text'
         icon={{
           position: 'right',
           children: <ArrowRightIcon />,

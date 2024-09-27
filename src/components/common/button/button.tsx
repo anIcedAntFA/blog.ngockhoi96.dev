@@ -38,7 +38,7 @@ function Button(
       data-size={size}
       data-color={color}
       data-uppercase={uppercase || undefined}
-      data-testid="button-label"
+      data-testid='button-label'
       className={styles.title}
     >
       {loading?.text || children}
@@ -100,9 +100,9 @@ function Button(
       className={cx(styles.root, className)}
       {...restProps}
     >
-      <ButtonIcon position="left" />
+      <ButtonIcon position='left' />
       <ButtonLabel />
-      <ButtonIcon position="right" />
+      <ButtonIcon position='right' />
     </button>
   );
 }
