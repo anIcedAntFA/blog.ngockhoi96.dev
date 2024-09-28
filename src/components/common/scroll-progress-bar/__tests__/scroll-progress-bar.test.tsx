@@ -26,7 +26,7 @@ const renderComponent = () => {
   const Wrapper = ({ children }: PropsWithChildren) => {
     return (
       <NextIntlClientProvider
-        locale="en"
+        locale='en'
         messages={{
           components: {
             common: {

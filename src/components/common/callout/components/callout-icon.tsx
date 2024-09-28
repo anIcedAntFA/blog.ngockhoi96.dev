@@ -6,7 +6,7 @@ import styles from '../callout.module.css';
 import type { CalloutIconProps } from '../callout.type';
 
 function CalloutIcon(props: CalloutIconProps) {
-  const { variant, status } = useCalloutContext();
+  const { variant, status, icon } = useCalloutContext();
 
   const Icon =
     typeof status === 'string' && statusWithIcons[status]
@@ -20,7 +20,7 @@ function CalloutIcon(props: CalloutIconProps) {
       data-status={status}
       {...props}
     >
-      {<Icon />}
+      {icon ? icon : <Icon />}
     </span>
   );
 }

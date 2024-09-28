@@ -9,11 +9,13 @@ html[data-theme='dark'] .wrapper {
 }
 
 .wrapper {
-  border: 1px solid var(--clr-border-wrapper);
-  border-radius: var(--br-large);
   padding: var(--space-2);
 
+  border: 1px solid var(--clr-border-wrapper);
+  border-radius: var(--br-large);
+
   background-color: var(--clr-bg-2);
+
   box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
 }
 
@@ -21,8 +23,9 @@ html[data-theme='dark'] .wrapper {
   display: flex;
   align-items: center;
 
-  border-radius: var(--br-medium);
   padding: var(--space-1);
+
+  border-radius: var(--br-medium);
 
   cursor: pointer;
 

@@ -8,13 +8,14 @@ html[data-theme='dark'] .root {
 
 .root {
   display: flex;
-  align-items: center;
   gap: 8px;
+  align-items: center;
+
+  height: 40px;
+  padding: 8px;
 
   border: 2px solid var(--clr-primary);
   border-radius: var(--br-medium);
-  height: 40px;
-  padding: 8px;
 
   box-shadow: 2px 2px 4px 1px alpha(var(--clr-primary), 10%);
 
@@ -35,18 +36,19 @@ html[data-theme='dark'] .root {
 }
 
 .icon {
-  @mixin flex-center;
-
   width: 20px;
   height: 20px;
 
   color: var(--clr-icon);
+
+  @mixin flex-center;
 }
 
 .star,
 .count {
-  font-weight: var(--fw-bold);
   color: var(--clr-text-2);
+  font-weight: var(--fw-bold);
+
   transition: color 0.3s ease-in-out;
 }
 

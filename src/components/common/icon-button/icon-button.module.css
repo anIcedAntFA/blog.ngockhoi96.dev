@@ -33,8 +33,6 @@ html[data-theme='dark'] {
 .root {
   position: relative;
 
-  @mixin flex-center;
-
   width: 100%;
 
   cursor: pointer;
@@ -44,14 +42,17 @@ html[data-theme='dark'] {
     color 0.3s ease-in-out,
     transform 0.3s ease-in-out;
 
+  @mixin flex-center;
+
   &[data-variant='contained'] {
     &::before {
-      content: '';
       position: absolute;
       top: 0;
       bottom: 0;
+      content: '';
 
       width: 100%;
+
       border-radius: 8px;
 
       opacity: 0;
@@ -81,9 +82,9 @@ html[data-theme='dark'] {
     }
 
     &:active:not(:disabled) {
-      transform: scale(0.9);
-
       background-color: var(--clr-bg-btn-contained-active);
+
+      transform: scale(0.9);
     }
 
     &:disabled {
@@ -93,7 +94,22 @@ html[data-theme='dark'] {
 
   &[data-variant='outlined'] {
     border: 1.6px solid;
+
     background-color: transparent;
+
+    &:hover:not(:disabled) {
+      background-color: var(--clr-bg-btn-outlined-hover);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--clr-bg-btn-outlined-active);
+
+      transform: scale(0.9);
+    }
+
+    &:disabled {
+      @mixin disabled;
+    }
 
     &[data-color='base'] {
       color: var(--clr-base);
@@ -102,40 +118,30 @@ html[data-theme='dark'] {
     &[data-color='primary'] {
       color: var(--clr-primary);
     }
-
-    &:hover:not(:disabled) {
-      background-color: var(--clr-bg-btn-outlined-hover);
-    }
-
-    &:active:not(:disabled) {
-      transform: scale(0.9);
-      background-color: var(--clr-bg-btn-outlined-active);
-    }
-
-    &:disabled {
-      @mixin disabled;
-    }
   }
 
   &[data-size='small'] {
     width: 20px;
     height: 20px;
-    border-radius: var(--br-normal);
     padding: 2px;
+
+    border-radius: var(--br-normal);
   }
 
   &[data-size='medium'] {
     width: 28px;
     height: 28px;
-    border-radius: var(--br-medium);
     padding: 4px;
+
+    border-radius: var(--br-medium);
   }
 
   &[data-size='large'] {
     width: 40px;
     height: 40px;
-    border-radius: var(--br-large);
     padding: 6px;
+
+    border-radius: var(--br-large);
   }
 
   &[data-color='primary'] {
@@ -151,8 +157,10 @@ html[data-theme='dark'] {
   }
 
   &.is-disabled {
-    opacity: 0.6;
     box-shadow: none !important;
+
+    opacity: 0.6;
+
     pointer-events: none;
   }
 }

@@ -1,21 +1,27 @@
 .root {
   position: relative;
+
   display: inline-block;
+
   width: 72px;
   height: 40px;
 }
 
 .sky {
   position: relative;
+
   display: inline-block;
-  overflow: hidden;
 
   width: 100%;
   height: 100%;
+
   border-radius: 9999px;
 
   background-color: #0ea5e9;
+
   cursor: pointer;
+
+  overflow: hidden;
 
   transition: 0.4s ease-in-out;
   transition-property: transform, background-color, box-shadow;
@@ -25,13 +31,20 @@
   position: absolute;
   top: 50%;
   left: 12px;
-  transform: translateY(-50%);
+
   display: inline-block;
+
   width: 20px;
   height: 20px;
+
   border-radius: 50%;
+
   background-color: #fde047;
+
   box-shadow: 0 0 8px rgb(255 255 8 / 50%);
+
+  transform: translateY(-50%);
+
   transition:
     transform 0.6s cubic-bezier(0.22, 0.68, 0, 1.71),
     background-color 0.3s ease-in-out 0.03s,
@@ -44,10 +57,13 @@
 
     width: 28px;
     height: 1.4px;
-    transform: translate(-50%, -50%);
 
     background-color: #fde047;
+
     box-shadow: 0 0 4px rgb(255 255 8 / 50%);
+
+    transform: translate(-50%, -50%);
+
     transition: transform 0.3s ease-in-out;
 
     &:nth-child(1) {
@@ -88,35 +104,43 @@
   position: absolute;
   top: -48px;
   left: -54px;
+
   width: 220px;
   height: 120px;
+
   background-color: #0ea5e9;
 
   transform: scale(0.08);
+
   transition: transform 0.3s cubic-bezier(0.25, 0.75, 0.5, 1.25) 0.1s;
 
   & > div {
     position: absolute;
-    background-color: var(--clr-snow);
-    border-radius: 50px;
     z-index: 0;
+
+    border-radius: 50px;
+
+    background-color: var(--clr-snow);
 
     &:nth-child(1) {
       top: 50px;
+      z-index: 1;
+
       width: 100%;
       height: 75px;
-      z-index: 1;
     }
 
     &:nth-child(2) {
-      left: 15%;
       top: 15px;
+      left: 15%;
+
       width: 100px;
       height: 100px;
     }
 
     &:nth-child(3) {
       right: 15%;
+
       width: 100px;
       height: 100px;
     }
@@ -127,35 +151,43 @@
   position: absolute;
   top: -36px;
   left: -50px;
+
   width: 218px;
   height: 125px;
+
   background-color: #0ea5e9;
 
   transform: scale(0.07);
+
   transition: transform 0.3s cubic-bezier(0.25, 0.75, 0.5, 1.25);
 
   & > div {
     position: absolute;
-    background-color: var(--clr-snow);
-    border-radius: 50px;
     z-index: 0;
+
+    border-radius: 50px;
+
+    background-color: var(--clr-snow);
 
     &:nth-child(1) {
       top: 50px;
+      z-index: 1;
+
       width: 100%;
       height: 75px;
-      z-index: 1;
     }
 
     &:nth-child(2) {
-      left: 15%;
       top: 15px;
+      left: 15%;
+
       width: 100px;
       height: 100px;
     }
 
     &:nth-child(3) {
       right: 15%;
+
       width: 100px;
       height: 100px;
     }
@@ -164,16 +196,21 @@
 
 .star {
   position: absolute;
+
   border-radius: 50%;
+
   background-color: var(--clr-snow);
+
   opacity: 0;
 }
 
 .star-01 {
   top: 8px;
   left: 28px;
+
   width: 7px;
   height: 7px;
+
   clip-path: polygon(
     50% 0%,
     61% 35%,
@@ -186,6 +223,7 @@
     2% 35%,
     39% 35%
   );
+
   transition:
     background-color 0.3s ease-in-out,
     transform 0.8s ease-in-out,
@@ -195,8 +233,10 @@
 .star-02 {
   top: 22px;
   left: 10px;
+
   width: 5px;
   height: 5px;
+
   clip-path: polygon(
     50% 0%,
     61% 35%,
@@ -209,6 +249,7 @@
     2% 35%,
     39% 35%
   );
+
   transition:
     background-color 0.3s ease-in-out,
     transform 0.8s ease-in-out,
@@ -218,8 +259,10 @@
 .star-03 {
   top: 42px;
   left: 24px;
+
   width: 13px;
   height: 12px;
+
   clip-path: polygon(
     50% 0%,
     66% 27%,
@@ -232,6 +275,7 @@
     2% 35%,
     33% 27%
   );
+
   transition:
     background-color 0.3s ease-in-out,
     transform 0.4s cubic-bezier(0.22, 0.68, 0, 1.71),
@@ -241,8 +285,10 @@
 .star-04 {
   top: 0;
   left: -4px;
+
   width: 9px;
   height: 8px;
+
   clip-path: polygon(
     50% 0%,
     66% 27%,
@@ -255,6 +301,7 @@
     2% 35%,
     33% 27%
   );
+
   transition:
     background-color 0.3s ease-in-out,
     transform 0.3s cubic-bezier(0.22, 0.68, 0, 1.71),
@@ -269,9 +316,11 @@
   }
 
   & .sun {
-    transform: translate(28px, -50%) scale(1.2);
-    box-shadow: inset -12px -6px 0 -3px #fde047;
     background-color: transparent;
+
+    box-shadow: inset -12px -6px 0 -3px #fde047;
+
+    transform: translate(28px, -50%) scale(1.2);
   }
 
   & .cloud-01 {
@@ -284,16 +333,19 @@
 
   & .bird-01 {
     transform: translate(-22px, -30px);
+
     transition: transform 2s cubic-bezier(0.22, 0.68, 0, 1.71);
   }
 
   & .bird-02 {
     transform: translate(26px, -40px);
+
     transition: transform 1.8s cubic-bezier(0.22, 0.68, 0, 1.71);
   }
 
   & .star {
     scale: 1;
+
     opacity: 1;
   }
 

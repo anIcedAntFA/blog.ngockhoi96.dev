@@ -8,7 +8,7 @@ import Link from '../link';
 
 describe('Link', () => {
   it('should render link with external link', () => {
-    render(<Link to="https://google.com">Click me</Link>);
+    render(<Link to='https://google.com'>Click me</Link>);
 
     const link = screen.getByRole('link');
 
@@ -17,8 +17,8 @@ describe('Link', () => {
 
   it('should render link with href starting with `/about`', () => {
     render(
-      <NextIntlClientProvider locale="en">
-        <Link href="/about">Click me</Link>
+      <NextIntlClientProvider locale='en'>
+        <Link href='/about'>Click me</Link>
       </NextIntlClientProvider>,
     );
 
@@ -29,8 +29,8 @@ describe('Link', () => {
 
   it('should render a link button with href starting with `/about`', () => {
     render(
-      <NextIntlClientProvider locale="en">
-        <Link href="/about" passHref legacyBehavior>
+      <NextIntlClientProvider locale='en'>
+        <Link href='/about' passHref legacyBehavior>
           <Button>click me</Button>
         </Link>
       </NextIntlClientProvider>,

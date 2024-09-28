@@ -2,6 +2,7 @@
 
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
+import { configDefaults } from 'vitest/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,22 +10,34 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    include: ['**/*test.{ts,tsx}'],
+    include: ['**/*.test.{ts,tsx}'],
+    exclude: [
+      ...configDefaults.exclude,
+      '**/coverage/**',
+      '**/dist/**',
+      '**/e2e/**',
+      '**/.{idea,git,cache,output,temp}/**',
+    ],
     setupFiles: ['./vitest.setup.ts'],
     css: true,
-    reporters: ['verbose'],
+    reporters: ['junit', 'default'],
     outputFile: {
       junit: './vitest-report.xml',
     },
     coverage: {
-      reporter: ['text', 'json', 'html'],
-      include: ['src/**/*'],
-      exclude: [],
+      enabled: true,
+      provider: 'v8',
+      reporter: ['json-summary', 'text'],
     },
   },
   resolve: {
     alias: {
       '@': '/src',
+    },
+  },
+  css: {
+    modules: {
+      localsConvention: 'dashes',
     },
   },
 });

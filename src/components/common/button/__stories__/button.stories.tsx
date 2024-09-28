@@ -100,16 +100,16 @@ export const Variant: Story = {
   args: removeObjectProperties(defaultArgs, ['variant']),
   render: (args) => (
     <Flex spacing={24}>
-      <Button variant="contained" {...args}>
+      <Button variant='contained' {...args}>
         Contained
       </Button>
-      <Button variant="outlined" {...args}>
+      <Button variant='outlined' {...args}>
         Outlined
       </Button>
-      <Button variant="text" {...args}>
+      <Button variant='text' {...args}>
         Text
       </Button>
-      <Button variant="link" {...args}>
+      <Button variant='link' {...args}>
         Link
       </Button>
     </Flex>
@@ -121,13 +121,13 @@ export const Size: Story = {
   args: removeObjectProperties(defaultArgs, ['size']),
   render: (args) => (
     <Flex spacing={24}>
-      <Button size="small" {...args}>
+      <Button size='small' {...args}>
         Small
       </Button>
-      <Button size="medium" {...args}>
+      <Button size='medium' {...args}>
         Medium
       </Button>
-      <Button size="large" {...args}>
+      <Button size='large' {...args}>
         Large
       </Button>
     </Flex>
@@ -139,10 +139,10 @@ export const Color: Story = {
   args: removeObjectProperties(defaultArgs, ['color']),
   render: (args) => (
     <Flex spacing={24}>
-      <Button color="primary" {...args}>
+      <Button color='primary' {...args}>
         Primary
       </Button>
-      <Button color="base" {...args}>
+      <Button color='base' {...args}>
         Base
       </Button>
     </Flex>
@@ -182,13 +182,13 @@ export const Disabled: Story = {
   render: (args) => (
     <Flex spacing={24}>
       <Button {...args}>Disabled</Button>
-      <Button {...args} variant="outlined">
+      <Button {...args} variant='outlined'>
         Disabled
       </Button>
-      <Button {...args} variant="text">
+      <Button {...args} variant='text'>
         Disabled
       </Button>
-      <Button {...args} variant="link">
+      <Button {...args} variant='link'>
         Disabled
       </Button>
     </Flex>
@@ -283,7 +283,7 @@ export const Loading: Story = {
         loading={{
           enabled: true,
           position: 'left',
-          icon: <ArrowUpIcon data-testid="custom-loading-icon-left" />,
+          icon: <ArrowUpIcon data-testid='custom-loading-icon-left' />,
         }}
         {...args}
       >

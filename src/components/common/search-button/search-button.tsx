@@ -38,7 +38,7 @@ function SearchButton() {
     <>
       <button
         ref={searchBtnRef}
-        type="button"
+        type='button'
         aria-label={t('placeholder')}
         data-active={openSearchBox.value}
         className={styles.root}
@@ -49,10 +49,10 @@ function SearchButton() {
         </span>
         <Flex className={styles['text-and-kbd']}>
           <p className={styles.text}>{t('placeholder')}</p>
-          <Flex align="center" spacing={4}>
+          <Flex align='center' spacing={4}>
             <VisuallyHidden>{t('press')}</VisuallyHidden>
             <Kbd>
-              <abbr title="Control">Ctrl</abbr>
+              <abbr title='Control'>Ctrl</abbr>
             </Kbd>
             <VisuallyHidden>{t('and')}</VisuallyHidden>
             <Kbd>K</Kbd>

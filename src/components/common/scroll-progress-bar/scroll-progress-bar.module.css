@@ -1,12 +1,13 @@
 .root {
   position: fixed;
-  z-index: var(--z-index-9);
   top: 0;
   left: 0;
+  z-index: var(--z-index-9);
 
-  height: 4px;
   width: 100vw;
+  height: 4px;
 
   transform-origin: 0%;
+
   transition: top 0.3s ease-in-out;
 }

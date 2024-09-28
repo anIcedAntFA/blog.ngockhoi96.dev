@@ -47,17 +47,17 @@ function ScrollToTopButton({
   return (
     <AnimatePresence>
       {isVisible.value && (
-        <CustomTooltip label={t('tooltipLabel')} placement="auto" hasArrow>
+        <CustomTooltip label={t('tooltipLabel')} placement='auto' hasArrow>
           <motion.button
             ref={btnRef}
-            type="button"
+            type='button'
             aria-label={t('ariaLabel')}
             tabIndex={0}
             className={styles.root}
             variants={motionVariant}
-            initial="initial"
-            animate="animate"
-            exit="exit"
+            initial='initial'
+            animate='animate'
+            exit='exit'
             transition={{ ease: 'easeInOut' }}
             onClick={handleScrollToTop}
             {...buttonProps}

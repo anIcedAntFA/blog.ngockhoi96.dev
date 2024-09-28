@@ -2,8 +2,7 @@
 
 import cx from 'clsx';
 import type { MotionProps } from 'framer-motion';
-import type { KeyboardEvent, MouseEvent } from 'react';
-import { type ComponentProps } from 'react';
+import type { KeyboardEvent, MouseEvent, ComponentProps } from 'react';
 
 import ChevronRightIcon from '@/components/icons/chervon-right-icon';
 import useDelayedState from '@/hooks/use-delayed-state';
@@ -52,7 +51,7 @@ function Details({
       data-expanded={isOpened}
     >
       <summary
-        role="button"
+        role='button'
         tabIndex={0}
         className={styles.summary}
         onClick={handleClick}

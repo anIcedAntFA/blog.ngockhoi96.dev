@@ -37,8 +37,8 @@ function TabTrigger({
   return (
     <button
       id={generateTabId(id, currentValue)}
-      type="button"
-      role="tab"
+      type='button'
+      role='tab'
       tabIndex={isActive ? 0 : -1}
       aria-selected={isActive}
       aria-disabled={disabled}

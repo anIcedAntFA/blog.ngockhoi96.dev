@@ -19,7 +19,7 @@ function useDelayedState(
     }
 
     return () => {
-      if (!timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, [condition, timeout]);
 

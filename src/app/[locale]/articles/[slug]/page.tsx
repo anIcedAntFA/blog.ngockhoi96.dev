@@ -63,14 +63,14 @@ function ArticlesPage({ params: { locale, slug } }: ArticlesProps) {
               width={626}
               height={348}
               quality={80}
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
+              placeholder='blur'
+              blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII='
             />
           )}
 
           <h1 className={styles.heading}>{article.title}</h1>
 
-          <p className="mt-0 text-xl text-slate-700 dark:text-slate-200">
+          <p className='mt-0 text-xl text-slate-700 dark:text-slate-200'>
             {article.description}
           </p>
 
@@ -80,7 +80,7 @@ function ArticlesPage({ params: { locale, slug } }: ArticlesProps) {
           <TableOfContent
             title={t('title')}
             toc={article.toc}
-            id="toc-in-this-article"
+            id='toc-in-this-article'
           />
         </div>
       </main>

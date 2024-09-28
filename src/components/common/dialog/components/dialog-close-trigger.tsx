@@ -21,7 +21,7 @@ function DialogCloseTrigger({
     <IconButton
       className={cx(styles['close-btn'], className)}
       {...passProps}
-      label="close dialog"
+      label='close dialog'
       onClick={callAllHandlers(onClose, onClick)}
     >
       <CloseIcon />

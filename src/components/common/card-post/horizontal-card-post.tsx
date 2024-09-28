@@ -24,18 +24,18 @@ function HorizontalCardPost({ data, ...cardProps }: CardPostProps) {
 
   return (
     <Card
-      data-orientation="horizontal"
+      data-orientation='horizontal'
       className={styles.wrapper}
       {...cardProps}
     >
       <Link
-        href="/articles"
-        data-orientation="horizontal"
+        href='/articles'
+        data-orientation='horizontal'
         className={styles['thumbnail-wrapper']}
       >
         <Image
           src={thumbnail}
-          alt="thumbnail"
+          alt='thumbnail'
           width={208}
           height={208}
           className={styles.thumbnail}
@@ -44,17 +44,17 @@ function HorizontalCardPost({ data, ...cardProps }: CardPostProps) {
       </Link>
       <div className={styles.content}>
         <CardHeader className={styles.header}>
-          <Link href="/about" className={styles.avatar}>
-            <Image src={avatar} alt="avatar" width={36} height={36} />
+          <Link href='/about' className={styles.avatar}>
+            <Image src={avatar} alt='avatar' width={36} height={36} />
           </Link>
-          <Link href="/about" className={styles.author}>
+          <Link href='/about' className={styles.author}>
             <p>{author}</p>
           </Link>
           <time className={styles['modified-date']}>{modifiedDate}</time>
           <small className={styles['reading-time']}>{readingTime}</small>
         </CardHeader>
         <CardBody className={styles.body}>
-          <Link href="/articles" className={styles.heading}>
+          <Link href='/articles' className={styles.heading}>
             <h5>{title}</h5>
           </Link>
           <p className={styles.description}>{description}</p>
@@ -64,7 +64,7 @@ function HorizontalCardPost({ data, ...cardProps }: CardPostProps) {
             {tags.map((tag) => (
               <li key={tag}>
                 <Tag
-                  variant="text"
+                  variant='text'
                   onClick={() => console.log(`go to ${tag} posts`)}
                 >
                   <TagLabel>#{tag}</TagLabel>

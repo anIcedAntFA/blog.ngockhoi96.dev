@@ -15,7 +15,7 @@ function MdxImage({ alt, ...nextImageProps }: MdxImageProps) {
       alt={alt}
       width={0}
       height={0}
-      sizes="100vw"
+      sizes='100vw'
       className={styles.image}
     />
   );

@@ -125,8 +125,8 @@ export const Default: Story = {
           consectetur illum sunt!
         </p>
         <Image
-          src="/images/login-cover.jpg"
-          alt="Placeholder"
+          src='/images/login-cover.jpg'
+          alt='Placeholder'
           width={600}
           height={400}
         />
@@ -144,7 +144,7 @@ export const Default: Story = {
           tenetur aperiam explicabo dolorem nostrum molestiae, dolor in. Earum
           consectetur illum sunt!
         </p>
-        <h2 id="getting-started">Getting Started</h2>
+        <h2 id='getting-started'>Getting Started</h2>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis porro quae
         deleniti culpa, reiciendis ducimus, voluptatum maiores suscipit tenetur
         aperiam explicabo dolorem nostrum molestiae, dolor in. Earum consectetur
@@ -157,7 +157,7 @@ export const Default: Story = {
         voluptatum maiores suscipit tenetur aperiam explicabo dolorem nostrum
         molestiae, dolor in. Earum consectetur illum sunt!
         <section>
-          <h3 id="installation">Installation</h3>
+          <h3 id='installation'>Installation</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis porro
             quae deleniti culpa, reiciendis ducimus, voluptatum maiores suscipit
@@ -174,7 +174,7 @@ export const Default: Story = {
           </p>
         </section>
         <section>
-          <h3 id="usage">Usage</h3>
+          <h3 id='usage'>Usage</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis porro
             quae deleniti culpa, reiciendis ducimus, voluptatum maiores suscipit
@@ -205,7 +205,7 @@ export const Default: Story = {
           </p>
         </section>
         <section>
-          <h2 id="components">Components</h2>
+          <h2 id='components'>Components</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis porro
             quae deleniti culpa, reiciendis ducimus, voluptatum maiores suscipit
@@ -250,8 +250,8 @@ export const Default: Story = {
           </p>
 
           <div>
-            <h3 id="button">
-              <a href="#button">Button</a>
+            <h3 id='button'>
+              <a href='#button'>Button</a>
             </h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
@@ -286,8 +286,8 @@ export const Default: Story = {
           </div>
 
           <div>
-            <h3 id="input">
-              <a href="#input">Input</a>
+            <h3 id='input'>
+              <a href='#input'>Input</a>
             </h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis

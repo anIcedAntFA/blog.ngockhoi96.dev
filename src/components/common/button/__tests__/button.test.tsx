@@ -1,5 +1,5 @@
 import { render, screen, within } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
 import ArrowUpIcon from '@/components/icons/arrow-up-icon';
@@ -80,7 +80,7 @@ describe('Button', () => {
         loading={{
           enabled: true,
           position: 'left',
-          icon: <ArrowUpIcon data-testid="custom-loading-icon-left" />,
+          icon: <ArrowUpIcon data-testid='custom-loading-icon-left' />,
         }}
       >
         Click me

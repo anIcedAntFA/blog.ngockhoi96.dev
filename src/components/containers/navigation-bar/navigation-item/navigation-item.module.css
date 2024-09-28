@@ -1,26 +1,30 @@
 .wrapper {
   position: relative;
-  overflow: hidden;
 
-  @mixin flex-center;
   gap: 8px;
+
+  padding: 8px 12px;
 
   border: 2px solid transparent;
   border-radius: var(--br-medium);
-  padding: 8px 12px;
 
   cursor: pointer;
+
+  overflow: hidden;
+
   user-select: none;
 
   transition:
     border-color 0.3s ease-in-out,
     background-color 0.3s ease-in-out;
 
+  @mixin flex-center;
+
   &::before,
   &::after {
-    content: '';
     position: absolute;
     bottom: 0;
+    content: '';
   }
 
   &::before {
@@ -28,10 +32,12 @@
 
     width: 100%;
     height: 0;
+
     border-radius: var(--br-medium);
 
-    opacity: 0;
     background-color: alpha(var(--clr-primary), 10%);
+
+    opacity: 0;
 
     transition:
       height 0.3s ease-in-out,
@@ -41,6 +47,7 @@
   &::after {
     width: 0;
     height: 2px;
+
     border-radius: var(--br-small);
 
     background-color: var(--text-color);
@@ -51,16 +58,31 @@
       opacity 0.3s ease-in-out;
   }
 
+  &:hover:not(.active) {
+    &::after {
+      width: calc(100% - 12px);
+
+      background-color: var(--clr-primary);
+    }
+
+    & .dropdown-icon {
+      color: var(--clr-primary);
+    }
+  }
+
   &.active {
     &::before {
       height: 100%;
+
       opacity: 1;
     }
 
     &::after {
-      transition-delay: 0.2s;
       background-color: transparent;
+
       opacity: 0;
+
+      transition-delay: 0.2s;
     }
 
     .title {
@@ -70,6 +92,7 @@
 
   &.opened {
     border-color: var(--clr-primary);
+
     transition: border-color 0.3s ease-in-out 0.2s;
 
     &::before {
@@ -83,21 +106,11 @@
       color: var(--clr-primary);
     }
   }
-
-  &:hover:not(.active) {
-    &::after {
-      width: calc(100% - 12px);
-      background-color: var(--clr-primary);
-    }
-
-    & .dropdown-icon {
-      color: var(--clr-primary);
-    }
-  }
 }
 
 .title {
   font-weight: var(--fw-medium);
+
   transition: color 0.3s ease-in-out;
 }
 
@@ -109,10 +122,10 @@
 }
 
 .shiny-glass {
-  content: '';
   position: absolute;
   top: 0;
   left: -100%;
+  content: '';
 
   width: 80%;
   height: 100%;
@@ -122,8 +135,10 @@
     transparent,
     alpha(var(--clr-snow), 60%) transparent
   );
+
   transform: skew(45deg);
 
-  @mixin shiny-glass;
   animation: shiny-glass 4s ease-in-out infinite 4s;
+
+  @mixin shiny-glass;
 }

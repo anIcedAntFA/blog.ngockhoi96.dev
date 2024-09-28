@@ -17,7 +17,7 @@ describe('DropdownIcon', () => {
   });
 
   it('should render a dropdown icon with type `close`', () => {
-    render(<DropdownIcon type="close" />);
+    render(<DropdownIcon type='close' />);
 
     const dropdownIcon = screen.getByTestId('dropdown-icon');
 

@@ -64,7 +64,7 @@ function NavigationItem({ type, title, href, icon }: NavigationItemProps) {
       <span className={styles.icon}>{icon}</span>
       <span className={styles.title}>{title}</span>
       <DropdownIcon
-        type="close"
+        type='close'
         active={openMenu.value}
         className={styles['dropdown-icon']}
       />

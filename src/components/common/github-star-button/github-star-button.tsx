@@ -17,22 +17,22 @@ function GithubStarButton({ href, count }: GithubStarButtonProps) {
     <CustomTooltip label={t('tooltipLabel')} hasArrow>
       <Link
         href={href}
-        target="_blank"
-        rel="noopener"
+        target='_blank'
+        rel='noopener'
         aria-label={t('ariaLabel')}
         className={styles.root}
       >
-        <Flex align="center" spacing="8px">
+        <Flex align='center' spacing='8px'>
           <span className={styles.icon}>
             <StarIcon />
           </span>
           <span className={styles.star}>{t('label')}</span>
         </Flex>
         <Divider
-          orientation="vertical"
-          thickness="medium"
-          color="primary"
-          height="40px"
+          orientation='vertical'
+          thickness='medium'
+          color='primary'
+          height='40px'
         />
         <span className={styles.count}>{count}</span>
       </Link>

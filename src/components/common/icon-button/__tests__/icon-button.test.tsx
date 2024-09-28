@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
 import ArrowLeftIcon from '@/components/icons/arrow-left-icon';
@@ -9,7 +9,7 @@ import IconButton from '../icon-button';
 describe('IconButton', () => {
   it('should render correctly, including the corresponding ARIA attributes', () => {
     render(
-      <IconButton id="search icon button" label="search">
+      <IconButton id='search icon button' label='search'>
         <span>🔍</span>
       </IconButton>,
     );
@@ -31,7 +31,7 @@ describe('IconButton', () => {
     const user = userEvent.setup();
 
     render(
-      <IconButton label="email" onClick={onClick}>
+      <IconButton label='email' onClick={onClick}>
         <ArrowLeftIcon />
       </IconButton>,
     );

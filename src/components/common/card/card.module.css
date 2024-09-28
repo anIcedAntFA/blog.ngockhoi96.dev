@@ -1,8 +1,9 @@
 .root {
   position: relative;
-  overflow: hidden;
 
   display: flex;
+
+  overflow: hidden;
 
   &[data-orientation='vertical'] {
     flex-direction: column;

@@ -45,7 +45,7 @@ export const WithColor: Story = {
   render: (args) => (
     <Flex spacing={24}>
       <Kbd {...args}>Enter</Kbd>
-      <Kbd {...args} color="primary" />
+      <Kbd {...args} color='primary' />
     </Flex>
   ),
 };
@@ -57,7 +57,7 @@ export const Multiple: Story = {
   render: (args) => (
     <Flex spacing={8}>
       <Kbd {...args}>
-        <abbr title="control">Cmd</abbr>
+        <abbr title='control'>Cmd</abbr>
       </Kbd>
       <p>+</p>
       <Kbd {...args}>K</Kbd>

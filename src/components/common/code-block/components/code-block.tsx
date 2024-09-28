@@ -49,7 +49,7 @@ function CodeBlock({
         <div className={styles['btn-and-lang']}>
           {showCopyButton && <CopyCodeButton code={rawCode} />}
           {showLanguage && (
-            <Tag variant="text">
+            <Tag variant='text'>
               <TagLabel>{language}</TagLabel>
             </Tag>
           )}

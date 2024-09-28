@@ -15,7 +15,7 @@ describe('Ellipsis', () => {
   });
 
   it('should render ellipsis width primary color', () => {
-    render(<Ellipsis color="primary" />);
+    render(<Ellipsis color='primary' />);
 
     const ellipsis = screen.getByText(ELLIPSIS);
 

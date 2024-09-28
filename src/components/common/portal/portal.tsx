@@ -8,7 +8,7 @@ function Portal({ container, children }: PortalProps) {
   }
 
   return createPortal(
-    <div id="app-portal" data-testid="app-portal">
+    <div id='app-portal' data-testid='app-portal'>
       {children}
     </div>,
     document.body,

@@ -26,7 +26,7 @@ export const Default: Story = {
 export const WithSearch: Story = {
   args: {},
   render: () => (
-    <Flex align="center" spacing={4}>
+    <Flex align='center' spacing={4}>
       <VisuallyHidden>Press</VisuallyHidden>
       <Kbd>Ctrl</Kbd>
       <VisuallyHidden>and</VisuallyHidden>

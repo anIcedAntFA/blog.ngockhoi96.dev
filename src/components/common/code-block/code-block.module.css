@@ -2,10 +2,11 @@
   --spacing: 16px;
 
   position: relative;
-  overflow: hidden;
 
   display: flex;
   flex-direction: column;
+
+  overflow: hidden;
 
   &:hover .copy-code-btn {
     opacity: 1;
@@ -13,19 +14,21 @@
 }
 
 .file-name {
+  padding: 8px;
+
   border-top-left-radius: var(--br-large);
   border-top-right-radius: var(--br-large);
-  padding: 8px;
 
   background-color: var(--clr-gray-200);
 }
 
 .pre {
-  border-radius: var(--br-large);
   padding-block: var(--spacing);
 
-  font-family: var(--font-code);
   font-size: var(--fs-small);
+  font-family: var(--font-code);
+
+  border-radius: var(--br-large);
 }
 
 .token-line {
@@ -46,8 +49,8 @@
   right: 8px;
 
   display: flex;
-  align-items: center;
   gap: 4px;
+  align-items: center;
 }
 
 .copy-code-btn {

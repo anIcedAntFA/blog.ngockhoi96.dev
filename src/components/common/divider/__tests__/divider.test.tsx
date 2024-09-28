@@ -20,11 +20,11 @@ describe('Divider', () => {
   it('should render with custom props', () => {
     render(
       <Divider
-        orientation="vertical"
-        variant="dotted"
-        thickness="thick"
-        color="primary"
-        height="40px"
+        orientation='vertical'
+        variant='dotted'
+        thickness='thick'
+        color='primary'
+        height='40px'
       />,
     );
     const divider = screen.getByRole('separator');

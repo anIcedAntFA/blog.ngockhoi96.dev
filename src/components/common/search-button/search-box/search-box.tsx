@@ -63,7 +63,7 @@ function SearchBox({
       <DialogContent>
         <DialogHeader>
           <form className={styles['search-form']}>
-            <label htmlFor="search">
+            <label htmlFor='search'>
               <span className={styles['search-icon']}>
                 <SearchIcon />
               </span>
@@ -71,8 +71,8 @@ function SearchBox({
             </label>
             <input
               ref={inputRef}
-              id="search"
-              type="search"
+              id='search'
+              type='search'
               placeholder={t('placeholder')}
               value={searchText}
               className={styles.input}
@@ -80,7 +80,7 @@ function SearchBox({
             />
             {!!searchText && (
               <IconButton
-                size="small"
+                size='small'
                 label={t('clearButtonLabel')}
                 onClick={handleClearSearchText}
               >
@@ -91,7 +91,7 @@ function SearchBox({
         </DialogHeader>
         <DialogCloseTrigger
           label={t('dialogCloseTriggerLabel')}
-          color="primary"
+          color='primary'
         />
         <Divider className={styles.divider} />
         <DialogBody>
@@ -108,29 +108,29 @@ function SearchBox({
         <Divider className={styles.divider} />
         <DialogFooter className={styles.footer}>
           <Flex spacing={16}>
-            <Flex align="center" spacing={8}>
+            <Flex align='center' spacing={8}>
               <VisuallyHidden>Press</VisuallyHidden>
-              <Kbd color="primary">
-                <abbr title="Enter">↵</abbr>
+              <Kbd color='primary'>
+                <abbr title='Enter'>↵</abbr>
               </Kbd>
               <p>{t('toSelect')}</p>
             </Flex>
 
-            <Flex align="center" spacing={8}>
+            <Flex align='center' spacing={8}>
               <VisuallyHidden>{t('press')}</VisuallyHidden>
-              <Kbd color="primary">
-                <abbr title="Down">↓</abbr>
+              <Kbd color='primary'>
+                <abbr title='Down'>↓</abbr>
               </Kbd>
-              <Kbd color="primary">
-                <abbr title="Up">↑</abbr>
+              <Kbd color='primary'>
+                <abbr title='Up'>↑</abbr>
               </Kbd>
               <p>{t('toNavigate')}</p>
             </Flex>
 
-            <Flex align="center" spacing={8}>
+            <Flex align='center' spacing={8}>
               <VisuallyHidden>Press</VisuallyHidden>
-              <Kbd color="primary">
-                <abbr title="Escape">Esc</abbr>
+              <Kbd color='primary'>
+                <abbr title='Escape'>Esc</abbr>
               </Kbd>
               <p>{t('toClose')}</p>
             </Flex>

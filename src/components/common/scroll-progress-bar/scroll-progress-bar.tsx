@@ -73,7 +73,7 @@ function ScrollProgressBar() {
 
   return (
     <motion.div
-      role="progressbar"
+      role='progressbar'
       aria-label={t('ariaLabel')}
       className={styles.root}
       style={{

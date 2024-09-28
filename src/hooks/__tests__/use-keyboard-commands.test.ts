@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 import type { UserEvent } from '@testing-library/user-event';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import type { Mock } from 'vitest';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 

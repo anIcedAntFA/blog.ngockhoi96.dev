@@ -18,13 +18,13 @@ function Footer() {
     <footer className={styles.wrapper}>
       <div className={styles['github-info']}>
         <p>{t('githubInfo.infoText')}</p>
-        <NavItem color="info" to={PERSONAL_GITHUB_REPO_URL} target="_blank">
+        <NavItem color='info' to={PERSONAL_GITHUB_REPO_URL} target='_blank'>
           {t('githubInfo.linkText')}
         </NavItem>
       </div>
       <div className={styles['email-info']}>
         <p>{t('emailInfo.infoText')}</p>
-        <NavItem variant="bg" color="info" to={`mailto:${PERSONAL_EMAIL}`}>
+        <NavItem variant='bg' color='info' to={`mailto:${PERSONAL_EMAIL}`}>
           {PERSONAL_EMAIL}
         </NavItem>
       </div>
@@ -33,10 +33,10 @@ function Footer() {
           <li key={item.id}>
             <CustomTooltip label={item.alt} hasArrow>
               <NavItem
-                variant="icon"
+                variant='icon'
                 to={item.link}
                 aria-label={item.alt}
-                target="_blank"
+                target='_blank'
               >
                 {footerSocialIcons[item.icon]}
               </NavItem>

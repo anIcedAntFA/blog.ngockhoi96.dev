@@ -78,7 +78,7 @@ function TabList({ className, children, ...passProps }: TabListProps) {
   return (
     <div
       ref={tabListRef}
-      role="tablist"
+      role='tablist'
       aria-orientation={
         orientation === orientations.VERTICAL ? 'vertical' : 'horizontal'
       }

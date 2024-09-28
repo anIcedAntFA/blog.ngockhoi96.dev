@@ -9,17 +9,19 @@ html[data-theme='dark'] .wrapper {
 .wrapper {
   position: sticky;
   top: var(--header-height);
-  overflow-y: scroll;
 
   display: flex;
   flex-direction: column;
 
   width: 280px;
   height: calc(100vh - var(--space-4));
+
+  overflow-y: scroll;
 }
 
 .aside {
   display: block;
+
   height: fit-content;
   padding-top: var(--space-6);
 }
@@ -28,15 +30,15 @@ html[data-theme='dark'] .wrapper {
   position: relative;
 
   margin-bottom: var(--space-6);
-  padding-left: var(--space-2);
   padding-right: var(--space-2);
+  padding-left: var(--space-2);
 }
 
 .heading {
   margin-bottom: var(--space-2);
 
-  font-size: var(--fs-normal);
   font-weight: var(--fw-medium);
+  font-size: var(--fs-normal);
   letter-spacing: 1.4px;
 }
 
@@ -44,9 +46,10 @@ html[data-theme='dark'] .wrapper {
   position: absolute;
   left: 0;
 
-  border-radius: var(--br-normal);
   width: 3px;
   height: 32px;
+
+  border-radius: var(--br-normal);
 
   background-color: var(--clr-primary);
 }
@@ -66,9 +69,9 @@ html[data-theme='dark'] .wrapper {
 
   font-size: var(--fs-small);
 
-  @mixin line-clamp 1;
-
   transition: color 0.2s ease-in-out;
+
+  @mixin line-clamp 1;
 
   .bg-indicator {
     position: absolute;
@@ -77,8 +80,9 @@ html[data-theme='dark'] .wrapper {
     z-index: -1;
 
     height: 100%;
-    border-bottom-right-radius: var(--br-normal);
+
     border-top-right-radius: var(--br-normal);
+    border-bottom-right-radius: var(--br-normal);
 
     background-color: var(--clr-bg-item-active);
   }

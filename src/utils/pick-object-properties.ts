@@ -2,7 +2,7 @@ import type { Todo } from '@/types/common';
 
 export function pickObjectProperties<
   Obj extends Record<string, Todo>,
-  Key extends Array<string>,
+  Key extends string[],
 >(object: Obj, keys: Key): Obj {
   const result: Obj = {} as Obj;
 

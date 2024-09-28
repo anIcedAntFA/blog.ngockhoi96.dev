@@ -13,7 +13,7 @@ function PaginationItem({
   return (
     <li key={pageNumber} aria-setsize={totalPages} aria-posinset={pageNumber}>
       <Button
-        variant="text"
+        variant='text'
         color={color}
         aria-label={
           isSelected ? `page ${pageNumber}` : `go to page ${pageNumber}`

@@ -27,7 +27,7 @@ function TableOfContent({ title, toc, id }: TableOfContentProps) {
   const passedIds = getPassedIds(itemIds, activeId);
 
   return (
-    <div className={styles.wrapper} data-id="toc-wrapper">
+    <div className={styles.wrapper} data-id='toc-wrapper'>
       <aside className={styles.aside}>
         <nav aria-labelledby={id || `toc-${internalId}`}>
           <section className={styles.section}>

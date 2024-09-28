@@ -15,9 +15,9 @@ html[data-theme='dark'] {
 }
 
 .root {
-  font-family: var(--font-code);
-  font-size: var(--fs-normal);
   font-weight: var(--fw-medium);
+  font-size: var(--fs-normal);
+  font-family: var(--font-code);
   white-space: pre-wrap;
   word-break: keep-all;
 
@@ -37,24 +37,31 @@ html[data-theme='dark'] {
 
   &[data-variant='surface'] {
     border: 1px solid var(--clr-border);
+
     background-color: var(--clr-bg);
   }
 
   &[data-size='small'] {
-    border-radius: var(--br-small);
     padding-inline: 1px 2px;
+
     font-size: var(--fs-small);
+
+    border-radius: var(--br-small);
   }
 
   &[data-size='medium'] {
-    border-radius: var(--br-normal);
     padding: 1px 3px;
+
     font-size: var(--fs-normal);
+
+    border-radius: var(--br-normal);
   }
 
   &[data-size='large'] {
-    border-radius: var(--br-normal);
     padding-inline: 1px 4px;
+
     font-size: var(--fs-xlarge);
+
+    border-radius: var(--br-normal);
   }
 }

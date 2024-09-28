@@ -48,13 +48,13 @@ export const Variant: Story = {
   name: 'Tag with variants',
   render: (args) => (
     <Flex spacing={24}>
-      <Tag variant="solid" {...args}>
+      <Tag variant='solid' {...args}>
         <TagLabel>#typescript</TagLabel>
       </Tag>
-      <Tag variant="outlined" {...args}>
+      <Tag variant='outlined' {...args}>
         <TagLabel>#golang</TagLabel>
       </Tag>
-      <Tag variant="subtle" {...args}>
+      <Tag variant='subtle' {...args}>
         <TagLabel>#reactjs</TagLabel>
       </Tag>
     </Flex>
@@ -65,13 +65,13 @@ export const Size: Story = {
   name: 'Tag with sizes',
   render: (args) => (
     <Flex spacing={24}>
-      <Tag size="small" {...args}>
+      <Tag size='small' {...args}>
         <TagLabel>#markdown</TagLabel>
       </Tag>
-      <Tag size="medium" {...args}>
+      <Tag size='medium' {...args}>
         <TagLabel>#vanilla</TagLabel>
       </Tag>
-      <Tag size="large" {...args}>
+      <Tag size='large' {...args}>
         <TagLabel>#vuejs</TagLabel>
       </Tag>
     </Flex>
@@ -82,10 +82,10 @@ export const Color: Story = {
   name: 'Tag with colors',
   render: (args) => (
     <Flex spacing={24}>
-      <Tag color="primary" {...args}>
+      <Tag color='primary' {...args}>
         <TagLabel>#javascript</TagLabel>
       </Tag>
-      <Tag color="base" {...args}>
+      <Tag color='base' {...args}>
         <TagLabel>#github</TagLabel>
       </Tag>
     </Flex>

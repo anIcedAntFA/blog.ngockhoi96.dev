@@ -1,13 +1,21 @@
-export default {
+const {
+  propertyOrdering,
+  selectorOrdering,
+} = require('stylelint-semantic-groups');
+
+/** @type {import('stylelint').Config} */
+module.exports = {
   extends: [
     'stylelint-config-standard',
-    'stylelint-config-property-sort-order-smacss',
+    'stylelint-config-css-modules',
+    '@stylistic/stylelint-plugin',
   ],
   plugins: ['stylelint-order'],
   rules: {
+    'order/order': selectorOrdering,
+    'order/properties-order': propertyOrdering,
     'import-notation': 'string',
     'declaration-empty-line-before': null,
-    'order/properties-order': null,
     'no-descending-specificity': null,
     'at-rule-no-unknown': [
       true,

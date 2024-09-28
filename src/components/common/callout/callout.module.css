@@ -62,8 +62,9 @@ html[data-theme='dark'] .wrapper {
   display: flex;
   gap: 12px;
 
-  border-radius: var(--br-large);
   padding: 12px;
+
+  border-radius: var(--br-large);
 
   &[data-variant='subtle'] {
     border: 1px solid;
@@ -71,6 +72,7 @@ html[data-theme='dark'] .wrapper {
 
   &[data-variant='subtle'][data-status='info'] {
     border-color: var(--clr-info-border-subtle);
+
     background-color: var(--clr-info-bg-subtle);
   }
 
@@ -80,6 +82,7 @@ html[data-theme='dark'] .wrapper {
 
   &[data-variant='subtle'][data-status='success'] {
     border-color: var(--clr-success-border-subtle);
+
     background-color: var(--clr-success-bg-subtle);
   }
 
@@ -89,6 +92,7 @@ html[data-theme='dark'] .wrapper {
 
   &[data-variant='subtle'][data-status='warning'] {
     border-color: var(--clr-warning-border-subtle);
+
     background-color: var(--clr-warning-bg-subtle);
   }
 
@@ -98,6 +102,7 @@ html[data-theme='dark'] .wrapper {
 
   &[data-variant='subtle'][data-status='error'] {
     border-color: var(--clr-error-border-subtle);
+
     background-color: var(--clr-error-bg-subtle);
   }
 
@@ -161,8 +166,12 @@ html[data-theme='dark'] .wrapper {
   --size: 28px;
 
   width: var(--size);
-  min-width: var(--size);
   height: var(--size);
+  min-width: var(--size);
+
+  font-size: var(--fs-large);
+
+  @mixin flex-center;
 
   &[data-variant='subtle'][data-status='info'] {
     color: var(--clr-info-icon-subtle);

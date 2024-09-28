@@ -11,12 +11,12 @@ import type { BackdropProps } from './backdrop.type';
 function Backdrop({ className, children, ...restProps }: BackdropProps) {
   return (
     <motion.div
-      aria-hidden="true"
+      aria-hidden='true'
       variants={motionVariants[motionPresets.BLUR]}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      data-testid="backdrop"
+      initial='initial'
+      animate='animate'
+      exit='exit'
+      data-testid='backdrop'
       className={cx(styles.root, className)}
       {...restProps}
     >

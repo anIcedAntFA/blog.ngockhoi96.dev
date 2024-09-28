@@ -4,7 +4,7 @@ import invariant from 'tiny-invariant';
 import { HEADER_HEIGHT } from '@/configs/constants';
 import { getDocumentHeight } from '@/utils/get-document-height';
 
-function useActiveItemId(itemIds: string[], offsetTop: number = 0) {
+function useActiveItemId(itemIds: string[], offsetTop = 0) {
   const [activeId, setActiveId] = useState<string>('');
 
   const handleScroll = useCallback(() => {

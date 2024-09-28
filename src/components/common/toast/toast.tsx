@@ -17,7 +17,7 @@ function Toaster(toasterProps: ToasterProps) {
 
   return (
     <RootToaster
-      position="bottom-right"
+      position='bottom-right'
       gap={16}
       duration={4000}
       visibleToasts={8}

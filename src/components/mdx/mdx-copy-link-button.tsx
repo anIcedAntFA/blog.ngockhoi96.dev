@@ -43,7 +43,7 @@ const MdxCopyLinkButton = ({ size, headingId }: MdxCopyLinkButtonProps) => {
   };
 
   return (
-    <CustomTooltip label={t('tooltipLabel')} placement="right" hasArrow>
+    <CustomTooltip label={t('tooltipLabel')} placement='right' hasArrow>
       <span className={styles['copy-link-btn']}>
         <IconButton
           aria-label={t('ariaLabel')}

@@ -57,12 +57,12 @@ function DialogContent({
       ref={contentRef}
       id={dialogId}
       variants={motionVariants[motionPreset || 'drop-in']}
-      initial="initial"
-      animate="animate"
-      exit="exit"
+      initial='initial'
+      animate='animate'
+      exit='exit'
       data-scroll-behavior={scrollBehavior}
-      role="dialog"
-      aria-modal="true"
+      role='dialog'
+      aria-modal='true'
       aria-labelledby={headerId}
       aria-describedby={bodyId}
       className={cx(styles.content, className)}
