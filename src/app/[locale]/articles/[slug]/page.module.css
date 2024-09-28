@@ -8,8 +8,8 @@
 }
 
 .heading {
-  font-family: var(--font-heading);
-  font-size: var(--fs-3xl);
   font-weight: var(--fw-xbold);
+  font-size: var(--fs-3xl);
+  font-family: var(--font-heading);
   line-height: 1.32;
 }

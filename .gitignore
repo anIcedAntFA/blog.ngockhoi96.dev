@@ -44,3 +44,5 @@ next-env.d.ts
 public/static
 
 .turbo
+
+vitest-report.xml

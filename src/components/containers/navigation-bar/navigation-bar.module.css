@@ -4,11 +4,11 @@
   z-index: var(--z-index-8);
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 
-  max-width: 100%;
   height: var(--header-height);
+  max-width: 100%;
   padding: var(--space-2) var(--space-6);
 
   background-color: var(--clr-bg);
@@ -17,6 +17,7 @@
 
   &.blur {
     box-shadow: 0 1px 6px 0 alpha(var(--clr-base), 20%);
+
     backdrop-filter: blur(20px);
   }
 }
@@ -28,6 +29,7 @@
 .nav {
   position: absolute;
   left: 50%;
+
   transform: translateX(-50%);
 }
 

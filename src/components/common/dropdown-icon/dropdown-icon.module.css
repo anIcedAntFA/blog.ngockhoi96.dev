@@ -1,37 +1,41 @@
 .rotate {
-  @mixin flex-center;
-
   color: currentcolor;
 
   transition:
     color 0.3s ease-in-out,
     transform 0.3s ease-in-out;
 
+  @mixin flex-center;
+
   &[data-active='true'] {
     color: var(--clr-primary);
+
     transform: rotate(180deg);
   }
 }
 
 .close {
   display: inline-block;
+
   width: 16px;
 
   transition: color 0.3s ease-in-out;
 
   &::before,
   &::after {
-    content: '';
     position: absolute;
     top: 48%;
     right: 12px;
+    content: '';
 
     width: 16px;
     height: 2px;
+
     border-radius: 4px;
 
-    transform-origin: center;
     background-color: currentcolor;
+
+    transform-origin: center;
 
     transition:
       transform 0.3s ease-in-out,

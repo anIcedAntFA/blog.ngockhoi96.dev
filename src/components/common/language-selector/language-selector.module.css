@@ -1,18 +1,19 @@
 .toggle-btn {
-  overflow: hidden;
-
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 
   width: 72px;
   height: 40px;
-  border-radius: 9999px;
   padding: 8px 10px;
+
+  border-radius: 9999px;
 
   background-color: var(--clr-primary);
 
   cursor: pointer;
+
+  overflow: hidden;
 
   transition: background-color 0.3s ease-in-out;
 }
@@ -22,13 +23,12 @@
 }
 
 .trigger-label {
+  padding-right: 4px;
   padding-left: 6px;
 
+  color: var(--clr-text-3);
   font-weight: var(--fw-semibold);
   text-transform: uppercase;
-  color: var(--clr-text-3);
 
   transition: color 0.3s ease-in-out;
-
-  padding-right: 4px;
 }

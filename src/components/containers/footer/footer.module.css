@@ -1,17 +1,19 @@
 .wrapper {
-  @mixin flex-center;
   flex-direction: column;
   gap: 4px;
 
-  border-top: 1px solid var(--clr-base);
   padding: 32px 16px;
+
+  border-top: 1px solid var(--clr-base);
+
+  @mixin flex-center;
 }
 
 .github-info,
 .email-info {
   display: flex;
-  align-items: center;
   gap: 4px;
+  align-items: center;
 
   p {
     color: var(--clr-base);
@@ -27,7 +29,7 @@
 }
 
 .copyright {
+  color: var(--clr-base);
   font-weight: var(--fw-medium);
   font-size: var(--fs-small);
-  color: var(--clr-base);
 }

@@ -1,5 +1,6 @@
 .root {
   transform: translateZ(0);
+
   overflow: hidden;
 }
 

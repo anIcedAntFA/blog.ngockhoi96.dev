@@ -1,16 +1,19 @@
 .root {
   position: relative;
-  overflow: hidden;
 
   height: 52px;
 
+  overflow: hidden;
+
   &[data-orientation='vertical'] {
     display: flex;
+
     height: 300px;
   }
 
   &[data-variant='solid'] {
     border-radius: var(--br-large);
+
     background-color: alpha(var(--clr-gray-400), 10%);
   }
 }
@@ -27,8 +30,8 @@
     }
 
     &[data-variant='solid'] {
-      padding-left: 8px;
       padding-right: 8px;
+      padding-left: 8px;
     }
   }
 
@@ -49,74 +52,28 @@
 }
 
 .trigger {
-  flex-grow: 1;
-
   position: relative;
   z-index: 3;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-grow: 1;
   gap: 8px;
+  justify-content: center;
+  align-items: center;
 
+  color: var(--clr-base);
   font-weight: var(--fw-semibold);
   letter-spacing: 1px;
 
-  cursor: pointer;
   background-color: transparent;
-  color: var(--clr-base);
+
+  cursor: pointer;
 
   transition: color 0.3s ease-in-out;
 
-  &[data-orientation='horizontal'] {
-    padding: 8px 12px;
-
-    &[data-variant='line'] {
-      &::before {
-        bottom: 0;
-
-        width: 100%;
-        height: 0;
-        border-top-left-radius: var(--br-medium);
-        border-top-right-radius: var(--br-medium);
-
-        transition: height 0.3s ease-in-out;
-      }
-
-      &[data-active='true']::before {
-        height: 100%;
-      }
-    }
-  }
-
-  &[data-orientation='vertical'] {
-    padding: 8px 20px;
-
-    &[data-variant='line'] {
-      &::before {
-        right: 0;
-
-        width: 0;
-        height: 100%;
-        border-top-left-radius: var(--br-medium);
-        border-bottom-left-radius: var(--br-medium);
-
-        transition: width 0.3s ease-in-out;
-      }
-
-      &[data-active='true']::before {
-        width: 100%;
-      }
-    }
-  }
-
-  &[data-active='true'] {
-    color: var(--clr-primary);
-  }
-
   &::before {
-    content: '';
     position: absolute;
+    content: '';
 
     width: 100%;
     height: 0;
@@ -138,6 +95,54 @@
     @mixin disabled;
   }
 
+  &[data-orientation='horizontal'] {
+    padding: 8px 12px;
+
+    &[data-variant='line'] {
+      &::before {
+        bottom: 0;
+
+        width: 100%;
+        height: 0;
+
+        border-top-left-radius: var(--br-medium);
+        border-top-right-radius: var(--br-medium);
+
+        transition: height 0.3s ease-in-out;
+      }
+
+      &[data-active='true']::before {
+        height: 100%;
+      }
+    }
+  }
+
+  &[data-orientation='vertical'] {
+    padding: 8px 20px;
+
+    &[data-variant='line'] {
+      &::before {
+        right: 0;
+
+        width: 0;
+        height: 100%;
+
+        border-top-left-radius: var(--br-medium);
+        border-bottom-left-radius: var(--br-medium);
+
+        transition: width 0.3s ease-in-out;
+      }
+
+      &[data-active='true']::before {
+        width: 100%;
+      }
+    }
+  }
+
+  &[data-active='true'] {
+    color: var(--clr-primary);
+  }
+
   &:where(
       &[data-orientation='horizontal'],
       &[data-orientation='vertical']
@@ -156,17 +161,19 @@
 
   &[data-orientation='horizontal'] {
     &[data-variant='line'] {
-      margin-top: -3px;
       height: 3px;
+      margin-top: -3px;
     }
 
     &[data-variant='solid'] {
       top: 6px;
 
       height: calc(100% - 14px);
+
       border-radius: var(--br-medium);
 
       background-color: alpha(var(--clr-primary), 10%);
+
       box-shadow:
         1px 1px 1px 0 alpha(var(--clr-primary), 10%),
         1px 1px 1px 0 alpha(var(--clr-primary), 5%);
@@ -175,16 +182,18 @@
 
   &[data-orientation='vertical'] {
     &[data-variant='line'] {
-      margin-left: -3px;
       width: 3px;
+      margin-left: -3px;
     }
 
     &[data-variant='solid'] {
-      margin-left: 8px;
       margin-right: 8px;
+      margin-left: 8px;
+
       border-radius: var(--br-medium);
 
       background-color: alpha(var(--clr-primary), 10%);
+
       box-shadow:
         1px 1px 1px 0 alpha(var(--clr-primary), 10%),
         1px 1px 1px 0 alpha(var(--clr-primary), 5%);
@@ -197,11 +206,11 @@
 }
 
 .tab-panel {
-  overflow: auto;
-
   display: none;
 
   padding: 24px 32px 32px;
+
+  overflow: auto;
 
   &[data-active='true'] {
     display: block;

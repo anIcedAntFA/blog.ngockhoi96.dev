@@ -5,6 +5,10 @@
 .trigger {
   display: flex;
 
+  &:focus {
+    outline-offset: 2px;
+  }
+
   &[data-color='base'] {
     &:focus {
       outline: 2px solid alpha(var(--clr-base), 60%);
@@ -16,10 +20,6 @@
       outline: 2px solid alpha(var(--clr-primary), 60%);
     }
   }
-
-  &:focus {
-    outline-offset: 2px;
-  }
 }
 
 .list-wrapper {
@@ -28,18 +28,21 @@
 
 .list {
   position: absolute;
-  overflow: hidden;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  border: 1px solid transparent;
-  border-radius: var(--br-large);
   padding: 8px;
 
+  border: 1px solid transparent;
+  border-radius: var(--br-large);
+
   background-color: var(--bg-1);
+
   backdrop-filter: blur(20px);
+
+  overflow: hidden;
 
   &[data-color='base'] {
     box-shadow:
@@ -71,10 +74,12 @@
   align-items: center;
 
   width: 100%;
-  border-radius: var(--br-medium);
   padding: 8px 12px;
 
+  border-radius: var(--br-medium);
+
   background-color: transparent;
+
   cursor: pointer;
 
   transition:
@@ -120,8 +125,8 @@
 .label {
   margin-left: 16px;
 
-  letter-spacing: 0.4px;
   color: var(--clr-text-1);
+  letter-spacing: 0.4px;
 
   transition:
     color 0.3s ease-in-out,

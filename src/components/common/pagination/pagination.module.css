@@ -32,6 +32,8 @@
   height: 40px;
   padding: 4px;
 
+  user-select: none;
+
   &[data-color='base'] {
     color: var(--clr-base);
   }
@@ -39,6 +41,4 @@
   &[data-color='primary'] {
     color: var(--clr-primary);
   }
-
-  user-select: none;
 }

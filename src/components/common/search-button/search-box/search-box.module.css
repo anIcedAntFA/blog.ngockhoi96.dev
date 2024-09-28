@@ -11,23 +11,27 @@
 }
 
 .search-icon {
-  @mixin flex-center;
-
   width: 24px;
   height: 24px;
 
   color: var(--clr-primary);
+
+  @mixin flex-center;
 }
 
 .input {
-  outline: none;
-  border: none;
   width: 100%;
   padding-left: 16px;
 
-  appearance: none;
-  background-color: transparent;
   color: var(--clr-text-content);
+
+  border: none;
+
+  background-color: transparent;
+
+  outline: none;
+
+  appearance: none;
   caret-color: var(--clr-primary);
 
   &::placeholder {
@@ -39,13 +43,14 @@
   justify-content: flex-start;
 
   p {
-    font-size: var(--fs-small);
     color: var(--clr-caption);
+    font-size: var(--fs-small);
   }
 }
 
 .divider {
   display: flex;
-  margin: auto;
+
   width: calc(100% - 48px);
+  margin: auto;
 }

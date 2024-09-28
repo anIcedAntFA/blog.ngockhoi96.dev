@@ -27,6 +27,7 @@
     "clsx",
     "data-testid",
     "Lightbox",
+    "lockb",
     "rehype",
     "stylelint",
     "velite"
@@ -39,7 +40,7 @@
   "stylelint.config": null,
   "stylelint.reportNeedlessDisables": true,
 
-  "[scss]": {
+  "[css]": {
     "editor.defaultFormatter": "stylelint.vscode-stylelint",
     "editor.formatOnSave": true
   },

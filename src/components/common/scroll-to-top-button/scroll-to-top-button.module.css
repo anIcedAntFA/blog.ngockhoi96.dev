@@ -5,30 +5,38 @@
 
   /* Effected when btn is scrolled in viewport without footer */
   bottom: var(--spacing);
-  overflow: hidden;
   z-index: var(--z-index-8);
 
-  @mixin flex-center;
+  width: 48px;
+  height: 48px;
+  margin-right: var(--spacing);
 
   /* Effected when btn is scrolled down and footer appear in viewport */
   margin-bottom: var(--spacing);
-  margin-right: var(--spacing);
-  width: 48px;
-  height: 48px;
+
   border: 2px solid var(--clr-primary);
   border-radius: var(--br-circle);
 
-  user-select: none;
-  cursor: pointer;
   background-color: var(--clr-bg-1);
+
   box-shadow: 4px 4px 8px 1px alpha(var(--clr-primary), 10%);
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  user-select: none;
+
   transition: background-color 0.3s ease-in-out;
+
+  @mixin flex-center;
 
   &:hover {
     background-color: var(--clr-primary);
 
     .icon {
       color: var(--clr-bg-3);
+
       animation: go-to-top-icon 0.8s cubic-bezier(0.57, 0.21, 0.69, 1.25);
     }
   }
@@ -45,27 +53,27 @@
 
 @keyframes go-to-top-icon {
   0% {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
   }
 
   30% {
-    transform: translateY(-100%);
     opacity: 0.5;
+    transform: translateY(-100%);
   }
 
   40% {
-    transform: translateY(-100%);
     opacity: 0;
+    transform: translateY(-100%);
   }
 
   50% {
-    transform: translateY(100%);
     opacity: 0;
+    transform: translateY(100%);
   }
 
   80% {
-    transform: translateY(-50%);
     opacity: 0.5;
+    transform: translateY(-50%);
   }
 }

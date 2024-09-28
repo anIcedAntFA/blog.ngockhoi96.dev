@@ -12,18 +12,20 @@ html[data-theme='dark'] .root {
   display: flex;
   align-items: center;
 
-  border: 2px solid transparent;
-  border-radius: var(--br-medium);
-  height: 40px;
   width: 280px;
+  height: 40px;
+  padding-inline: 12px 12px;
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-inline: 12px 12px;
+
+  border: 2px solid transparent;
+  border-radius: var(--br-medium);
+
+  background-color: var(--clr-bg-search);
 
   box-shadow:
     0 1px 3px 0 rgb(0 0 0 / 10%),
     0 1px 2px 0 rgb(0 0 0 / 6%);
-  background-color: var(--clr-bg-search);
 
   cursor: pointer;
 
@@ -31,10 +33,6 @@ html[data-theme='dark'] .root {
     border-color 0.2s ease-in-out,
     box-shadow 0.2s ease-in-out,
     background-color 0.2s ease-in-out;
-
-  &[data-active='true'] {
-    border-color: var(--clr-primary);
-  }
 
   &:hover {
     box-shadow:
@@ -54,22 +52,26 @@ html[data-theme='dark'] .root {
     outline: 2px solid alpha(var(--clr-primary), 60%);
     outline-offset: 2px;
   }
+
+  &[data-active='true'] {
+    border-color: var(--clr-primary);
+  }
 }
 
 .icon {
-  @mixin flex-center;
-
   width: 24px;
   height: 24px;
 
   color: var(--clr-text-2);
 
   transition: color 0.2s ease-in-out;
+
+  @mixin flex-center;
 }
 
 .text-and-kbd {
-  margin-left: 8px;
   width: 100%;
+  margin-left: 8px;
 
   kbd {
     transition: color 0.2s ease-in-out;
@@ -79,10 +81,9 @@ html[data-theme='dark'] .root {
 .text {
   flex: 1;
 
-  text-align: left;
-  font-weight: var(--fw-medium);
-
   color: var(--clr-text-2);
+  font-weight: var(--fw-medium);
+  text-align: left;
 
   transition: color 0.2s ease-in-out;
 }
