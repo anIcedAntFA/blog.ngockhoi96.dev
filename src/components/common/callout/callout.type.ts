@@ -4,6 +4,8 @@ type CalloutStyleProps = PropsWithChildren<{
   variant: 'subtle' | 'solid';
   status: 'info' | 'warning' | 'error' | 'success';
   icon: ReactNode;
+  emoji: string;
+  code: string;
 }>;
 
 export type CalloutProps = ComponentProps<'div'> & Partial<CalloutStyleProps>;
