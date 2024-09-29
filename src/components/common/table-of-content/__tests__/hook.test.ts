@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
 import { it, expect, describe, vi, beforeEach, afterEach } from 'vitest';
 
-import useActiveItemId from '../table-of-content.hook';
+import useActiveItemId from '../toc.hook';
 
 const mocks = vi.hoisted(() => {
   return {

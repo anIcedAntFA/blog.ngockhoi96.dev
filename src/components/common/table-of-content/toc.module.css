@@ -7,29 +7,26 @@ html[data-theme='dark'] .wrapper {
 }
 
 .wrapper {
-  position: sticky;
-  top: var(--header-height);
-
   display: flex;
   flex-direction: column;
 
   width: 280px;
-  height: calc(100vh - var(--space-4));
+  max-height: 600px;
 
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .aside {
   display: block;
 
   height: fit-content;
-  padding-top: var(--space-6);
+  padding-top: var(--space-4);
 }
 
 .section {
   position: relative;
 
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   padding-right: var(--space-2);
   padding-left: var(--space-2);
 }
@@ -125,5 +122,58 @@ html[data-theme='dark'] .wrapper {
 
   &:not([aria-current='true']):hover {
     color: var(--clr-primary);
+  }
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+
+  padding: var(--space-3) var(--space-2);
+}
+
+.progress-bar-item {
+  --line-width: var(--space-5);
+
+  height: 2px;
+
+  border-radius: var(--br-small);
+
+  background-color: var(--clr-base);
+
+  transition:
+    height 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+
+  &[data-active='true'] {
+    height: 4px;
+
+    background-color: var(--clr-primary);
+  }
+
+  &[data-depth='1'] {
+    width: var(--line-width);
+  }
+
+  &[data-depth='2'] {
+    width: calc(var(--line-width) - var(--space-1));
+  }
+
+  &[data-depth='3'] {
+    width: calc(var(--line-width) - var(--space-2));
+  }
+
+  &[data-depth='4'] {
+    width: calc(var(--line-width) - var(--space-3));
+  }
+
+  &[data-depth='5'] {
+    width: calc(var(--line-width) - var(--space-4));
+  }
+
+  &[data-depth='6'] {
+    width: calc(var(--line-width) - var(--space-4));
   }
 }

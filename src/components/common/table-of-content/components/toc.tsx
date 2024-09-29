@@ -3,21 +3,17 @@
 import { motion } from 'framer-motion';
 import { useId } from 'react';
 
-import {
-  DEFAULT_OFFSET_TOP,
-  ITEM_HEIGHT,
-  MAX_DEPTH,
-} from '../table-of-content.config';
+import { DEFAULT_OFFSET_TOP, ITEM_HEIGHT, MAX_DEPTH } from '../toc.config';
 import {
   getItemIds,
   getMotionAnimateMarker,
   getPassedIds,
-} from '../table-of-content.helper';
-import useActiveItemId from '../table-of-content.hook';
-import styles from '../table-of-content.module.css';
-import type { TableOfContentProps } from '../table-of-content.type';
+} from '../toc.helper';
+import useActiveItemId from '../toc.hook';
+import styles from '../toc.module.css';
+import type { TableOfContentProps } from '../toc.type';
 
-import TableOfContentList from './table-of-content-list';
+import TableOfContentList from './toc-list';
 
 function TableOfContent({ title, toc, id }: TableOfContentProps) {
   const internalId = useId();

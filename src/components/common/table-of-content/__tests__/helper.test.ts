@@ -1,11 +1,7 @@
 import { it, expect, describe } from 'vitest';
 
-import {
-  getIdFromUrl,
-  getItemIds,
-  getPassedIds,
-} from '../table-of-content.helper';
-import type { TocEntry } from '../table-of-content.type';
+import { getIdFromUrl, getItemIds, getPassedIds } from '../toc.helper';
+import type { TocEntry } from '../toc.type';
 
 const tocEntries: TocEntry[] = [
   {

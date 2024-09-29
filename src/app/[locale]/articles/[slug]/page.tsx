@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
 
 import { articles as allArticles } from '#site/content';
 import ScrollProgressBar from '@/components/common/scroll-progress-bar';
-import TableOfContent from '@/components/common/table-of-content';
 import MDXContent from '@/components/mdx';
+
+import ArticleToc from '../_components/article-toc';
 
 import styles from './page.module.css';
 
@@ -47,8 +47,6 @@ export async function generateMetadata({
 function ArticlesPage({ params: { locale, slug } }: ArticlesProps) {
   const article = getArticleBySlug(slug, locale);
 
-  const t = useTranslations('articles.components.tableOfContents');
-
   if (!article) return <div>Article not found</div>;
 
   return (
@@ -76,13 +74,7 @@ function ArticlesPage({ params: { locale, slug } }: ArticlesProps) {
 
           <MDXContent code={article.body} />
         </article>
-        <div>
-          <TableOfContent
-            title={t('title')}
-            toc={article.toc}
-            id='toc-in-this-article'
-          />
-        </div>
+        <ArticleToc toc={article.toc} />
       </main>
     </>
   );

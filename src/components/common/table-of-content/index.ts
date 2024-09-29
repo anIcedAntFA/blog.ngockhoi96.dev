@@ -1,1 +1,1 @@
-export { default } from './components/table-of-content';
+export { default } from './components/toc';
