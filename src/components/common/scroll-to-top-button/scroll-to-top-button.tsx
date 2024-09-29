@@ -2,8 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import type { ElementRef } from 'react';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 import ArrowUpIcon from '@/components/icons/arrow-up-icon';
 import useBoolean from '@/hooks/use-boolean';
@@ -20,8 +19,6 @@ function ScrollToTopButton({
   isSmooth = true,
   ...buttonProps
 }: ScrollToTopButtonProps) {
-  const btnRef = useRef<ElementRef<'button'>>(null);
-
   const t = useTranslations('components.common.scrollToTopButton');
 
   const isVisible = useBoolean(false);
@@ -49,7 +46,6 @@ function ScrollToTopButton({
       {isVisible.value && (
         <CustomTooltip label={t('tooltipLabel')} placement='auto' hasArrow>
           <motion.button
-            ref={btnRef}
             type='button'
             aria-label={t('ariaLabel')}
             tabIndex={0}

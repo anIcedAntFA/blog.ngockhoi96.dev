@@ -13,9 +13,9 @@ authors:
 ## Primitive types
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-01.png"
-  alt="Image test unsplash"
-  caption="Hinh 1: Primitive types trong JavaScript"
+  src='/images/articles/primitive-and-reference-types/image-01.png'
+  alt='Image test unsplash'
+  caption='Hinh 1: Primitive types trong JavaScript'
 />
 
 ### Primitive types là gì?
@@ -50,9 +50,9 @@ let myAge = 24;
 Giá trị `"ngockhoi96"` và `24` được lưu trực tiếp tại vị trí bộ nhớ của biến `myName` và `myAge`.
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-02.png"
-  alt="Image test unsplash"
-  caption="Hinh 2: Lưu trữ giá trị nguyên thủy trong bộ nhớ"
+  src='/images/articles/primitive-and-reference-types/image-02.png'
+  alt='Image test unsplash'
+  caption='Hinh 2: Lưu trữ giá trị nguyên thủy trong bộ nhớ'
 />
 
 Tiếp theo, sửa giá trị của biến `myName` thành `"khoikhukho"`:
@@ -62,9 +62,9 @@ myName = 'khoikhukho';
 ```
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-03.png"
-  alt="Image test unsplash"
-  caption="Hinh 3: Sửa giá trị của biến nguyên thủy"
+  src='/images/articles/primitive-and-reference-types/image-03.png'
+  alt='Image test unsplash'
+  caption='Hinh 3: Sửa giá trị của biến nguyên thủy'
 />
 
 Biến `myName` được sửa thành `"khoikhukho"` và giá trị `"khoikhukho"` được thay thế trực tiếp vào vị trí bộ nhớ của biến.
@@ -76,9 +76,9 @@ let myNameCopy = myName;
 ```
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-04.png"
-  alt="Image test unsplash"
-  caption="Hinh 4: Gán giá trị của biến nguyên thủy cho biến khác"
+  src='/images/articles/primitive-and-reference-types/image-04.png'
+  alt='Image test unsplash'
+  caption='Hinh 4: Gán giá trị của biến nguyên thủy cho biến khác'
 />
 
 Sửa giá trị của `myName` thành `"khoikhukho96"`:
@@ -88,9 +88,9 @@ myName = 'khoikhukho96';
 ```
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-05.png"
-  alt="Image test unsplash"
-  caption="Hinh 5: Sửa giá trị của biến nguyên thủy"
+  src='/images/articles/primitive-and-reference-types/image-05.png'
+  alt='Image test unsplash'
+  caption='Hinh 5: Sửa giá trị của biến nguyên thủy'
 />
 
 Kết quả, biến `myNameCopy` lưu trữ giá trị `"khoikhukho96"` và biến `myName` vẫn lưu trữ giá trị `"khoikhukho"`:
@@ -148,8 +148,8 @@ Sự bất biến của giá trị nguyên thủy giúp đảm bảo tính toàn
 ## Reference types
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-06.png"
-  alt="Image test unsplash"
+  src='/images/articles/primitive-and-reference-types/image-06.png'
+  alt='Image test unsplash'
 />
 
 ### Reference types là gì?
@@ -170,8 +170,8 @@ function sum(a, b) {
 Biến `bear`, `favoriteFoods` và `sum` thực chất chỉ lưu trữ địa chỉ tham chiếu tới giá trị trong bộ nhớ _==Heap==_, chứ không trực tiếp lưu trữ chúng.
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-07.png"
-  alt="Image test unsplash"
+  src='/images/articles/primitive-and-reference-types/image-07.png'
+  alt='Image test unsplash'
 />
 
 ### Cách Reference types được lưu trữ
@@ -183,8 +183,8 @@ let bear = { name: 'Grizz' };
 ```
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-08.png"
-  alt="Image test unsplash"
+  src='/images/articles/primitive-and-reference-types/image-08.png'
+  alt='Image test unsplash'
 />
 
 Tạo biến `bearCopy` từ `bear`.
@@ -194,8 +194,8 @@ let bearCopy = bear;
 ```
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-09.png"
-  alt="Image test unsplash"
+  src='/images/articles/primitive-and-reference-types/image-09.png'
+  alt='Image test unsplash'
 />
 
 Lúc này, cả `bear` và `bearCopy` đều tham chiếu đến cùng một object trong bộ nhớ _==Heap==_, nên sửa một biến sẽ thấy sự thay đổi thông qua biến còn lại.
@@ -213,8 +213,8 @@ console.log(bear.name); // Panda
 ```
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-10.png"
-  alt="Image test unsplash"
+  src='/images/articles/primitive-and-reference-types/image-10.png'
+  alt='Image test unsplash'
 />
 
 Đó chính là lý do tại sao chúng ta cần sử dụng phương thức `Object.assign()` hoặc toán tử `spread` để copy thuộc tính sang một object mới.
@@ -230,8 +230,8 @@ console.log(bear.name); // Ice bear
 ```
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-11.png"
-  alt="Image test unsplash"
+  src='/images/articles/primitive-and-reference-types/image-11.png'
+  alt='Image test unsplash'
 />
 
 ### Ưu điểm khi sử dụng Reference types
@@ -333,7 +333,7 @@ console.log(copyBrand.name); // Audi
 console.log(originalBrand.name); // BWM
 ```
 
-<Callout status="warning">
+<Callout status='warning'>
   _Lưu ý cách này chỉ là sao chép nông ([shallow
   copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)). Nếu có
   object con bên trong thì nó chỉ sao chép tham chiếu, chứ không tạo ra object
@@ -353,8 +353,8 @@ console.log(carCopy.engine === myCar.engine); // true
 ```
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-12.png"
-  alt="Image test unsplash"
+  src='/images/articles/primitive-and-reference-types/image-12.png'
+  alt='Image test unsplash'
 />
 
 <Details title="What is Shallow copy?">
@@ -382,8 +382,8 @@ console.log(carCopy.engine === myCar.engine); // false
 Hàm `structuredClone()` sẽ nhận vào một object và trả về một object mới, là sao chép sâu ([_deep copy_](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy)) của object ban đầu.
 
 <Image
-  src="/images/articles/primitive-and-reference-types/image-13.png"
-  alt="Image test unsplash"
+  src='/images/articles/primitive-and-reference-types/image-13.png'
+  alt='Image test unsplash'
 />
 
 <Details title="What is Deep copy?">

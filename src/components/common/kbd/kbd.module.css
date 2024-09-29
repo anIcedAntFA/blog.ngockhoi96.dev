@@ -9,7 +9,7 @@ html[data-theme='dark'] .root {
 }
 
 .root {
-  padding-inline: 0.4em 0.4em;
+  padding-inline: var(--space-1);
 
   font-weight: var(--fw-bold);
   font-size: var(--fs-small);

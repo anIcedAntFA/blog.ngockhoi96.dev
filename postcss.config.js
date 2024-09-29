@@ -22,6 +22,7 @@ module.exports = {
     },
     'postcss-import': {},
     'postcss-nested': {},
+    'postcss-calc': {},
     'postcss-functions': {
       functions: {
         alpha,

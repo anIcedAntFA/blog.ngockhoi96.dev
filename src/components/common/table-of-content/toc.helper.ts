@@ -1,6 +1,6 @@
 import { equal } from '@/utils/equal';
 
-import type { TocEntry } from './table-of-content.type';
+import type { TocEntry } from './toc.type';
 
 export function getIdFromUrl(url: string): string {
   return url.split('#')[1];
@@ -21,6 +21,25 @@ export function getItemIds(
     const nextItemIds = getItemIds(items, maxDepth, currentDepth + 1);
 
     return [itemId, ...(hasItems ? nextItemIds : [])];
+  });
+}
+
+export function getItemIdsWithDepth(
+  tocEntries: TocEntry[],
+  maxDepth = Infinity,
+  currentDepth = 1,
+): { id: string; depth: number }[] {
+  if (currentDepth > maxDepth) return [];
+
+  return tocEntries.flatMap(({ items, url }) => {
+    const itemId = getIdFromUrl(url);
+    const hasItems = items && items.length > 0;
+    const nextItemIds = getItemIdsWithDepth(items, maxDepth, currentDepth + 1);
+
+    return [
+      { id: itemId, depth: currentDepth },
+      ...(hasItems ? nextItemIds : []),
+    ];
   });
 }
 
