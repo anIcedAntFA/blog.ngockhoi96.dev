@@ -7,6 +7,8 @@ html[data-theme='dark'] .wrapper {
 }
 
 .wrapper {
+  --item-height: 32px;
+
   display: flex;
   flex-direction: column;
 
@@ -44,7 +46,7 @@ html[data-theme='dark'] .wrapper {
   left: 0;
 
   width: 3px;
-  height: 32px;
+  height: var(--item-height);
 
   border-radius: var(--br-normal);
 
@@ -62,6 +64,7 @@ html[data-theme='dark'] .wrapper {
   display: inline-block;
 
   width: 100%;
+  height: var(--item-height);
   padding: var(--space-1);
 
   font-size: var(--fs-small);

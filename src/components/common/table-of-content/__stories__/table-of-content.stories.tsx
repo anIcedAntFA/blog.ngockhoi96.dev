@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import TableOfContent from '../../table-of-content';
 import Image from 'next/image';
+import TableOfContent from '../components/toc';
 
 const meta = {
   title: 'Common/TableOfContent',

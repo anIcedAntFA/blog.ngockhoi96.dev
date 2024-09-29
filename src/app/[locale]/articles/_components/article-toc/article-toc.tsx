@@ -6,8 +6,10 @@ import type { ElementRef } from 'react';
 import { useRef } from 'react';
 
 import Portal from '@/components/common/portal';
-import TableOfContent from '@/components/common/table-of-content';
-import TocProgressBar from '@/components/common/table-of-content/components/toc-progress-bar';
+import {
+  TableOfContent,
+  TocProgressBar,
+} from '@/components/common/table-of-content';
 import useBoolean from '@/hooks/use-boolean';
 import useOutsideClick from '@/hooks/use-outside-click';
 
@@ -22,6 +24,9 @@ type TocEntry = {
 type ArticleTocProps = {
   toc: TocEntry[];
 };
+
+const EDGE_RIGHT = 24;
+const GAP = 8;
 
 function ArticleToc({ toc }: ArticleTocProps) {
   const btnRef = useRef<ElementRef<'button'>>(null);
@@ -57,13 +62,14 @@ function ArticleToc({ toc }: ArticleTocProps) {
           <Portal>
             <motion.div
               ref={tocWrapperRef}
-              initial={{ opacity: 0, scale: 0.5, translateY: '-50%' }}
-              animate={{ opacity: 1, scale: 1, translateY: '-50%' }}
-              exit={{ opacity: 0, scale: 0, translateY: '-50%' }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
               className={styles.wrapper}
               style={{
                 top: '50%',
-                right: `calc(${btnRef.current?.getBoundingClientRect().width}px + 24px)`,
+                right: `calc(${btnRef.current?.getBoundingClientRect().width}px + ${EDGE_RIGHT}px + ${GAP}px)`,
+                translateY: '-50%',
               }}
             >
               <TableOfContent

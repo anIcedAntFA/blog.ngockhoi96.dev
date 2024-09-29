@@ -11,11 +11,11 @@ import {
 } from '../toc.helper';
 import useActiveItemId from '../toc.hook';
 import styles from '../toc.module.css';
-import type { TableOfContentProps } from '../toc.type';
+import type { TocProps } from '../toc.type';
 
 import TableOfContentList from './toc-list';
 
-function TableOfContent({ title, toc, id }: TableOfContentProps) {
+function TableOfContent({ title, toc, id }: TocProps) {
   const internalId = useId();
 
   const itemIds = getItemIds(toc, MAX_DEPTH);

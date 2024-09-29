@@ -6,14 +6,14 @@ import { equal } from '@/utils/equal';
 import { MAX_DEPTH } from '../toc.config';
 import { getMotionAnimateBgIndicator, getIdFromUrl } from '../toc.helper';
 import styles from '../toc.module.css';
-import type { TableOfContentListProps } from '../toc.type';
+import type { TocListProps } from '../toc.type';
 
 function TableOfContentList({
   data,
   depth,
   activeId,
   passedIds,
-}: TableOfContentListProps) {
+}: TocListProps) {
   return (
     <ul className={styles.list}>
       {data.map(({ items, title, url }) => {

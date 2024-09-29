@@ -4,11 +4,7 @@ import { DEFAULT_OFFSET_TOP, MAX_DEPTH } from '../toc.config';
 import { getItemIdsWithDepth } from '../toc.helper';
 import useActiveItemId from '../toc.hook';
 import styles from '../toc.module.css';
-import type { TocEntry } from '../toc.type';
-
-type TocProgressBarProps = {
-  toc: TocEntry[];
-};
+import type { TocProgressBarProps } from '../toc.type';
 
 function TocProgressBar({ toc }: TocProgressBarProps) {
   const itemIdsWithDepth = getItemIdsWithDepth(toc, MAX_DEPTH);

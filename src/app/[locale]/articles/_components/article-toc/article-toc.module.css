@@ -1,7 +1,7 @@
 .progress-bar-btn {
   position: fixed;
   top: 50%;
-  right: 8px;
+  right: var(--space-5);
 
   border: none;
   border-radius: var(--br-medium);

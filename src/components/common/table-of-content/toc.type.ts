@@ -4,15 +4,19 @@ export type TocEntry = {
   url: string;
 };
 
-export type TableOfContentProps = {
+export type TocProps = {
   title: string;
   toc: TocEntry[];
   id?: string;
 };
 
-export type TableOfContentListProps = {
+export type TocListProps = {
   data: TocEntry[];
   depth: number;
   activeId: string | null;
   passedIds: string[];
+};
+
+export type TocProgressBarProps = {
+  toc: TocEntry[];
 };
