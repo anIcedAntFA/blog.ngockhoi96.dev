@@ -20,6 +20,7 @@ import type { MenuDirection, MenuListProps } from '../menu.type';
 
 function MenuList({
   className,
+  style,
   onKeyDown,
   children,
   ...ulProps
@@ -184,9 +185,16 @@ function MenuList({
   };
 
   //TODO: Add more transform styles for other placements
-  const transformStyles: Partial<Record<Placement, string>> = {
-    [placements.BOTTOM_START]: `translate(0, ${offset}px)`,
-    [placements.BOTTOM_END]: `translate(0, ${offset}px)`,
+  // const transformStyles: Partial<Record<Placement, string>> = {
+  //   [placements.BOTTOM_START]: `translate(0, ${offset}px)`,
+  //   [placements.BOTTOM_END]: `translate(0, ${offset}px)`,
+  // };
+
+  const styleWithPlacements: Partial<Record<Placement, object>> = {
+    [placements.BOTTOM_END]: {
+      top: `calc(100% + ${offset}px)`,
+      right: 0,
+    },
   };
 
   return (
@@ -202,7 +210,9 @@ function MenuList({
           data-color={color}
           className={cx(styles.list, className)}
           style={{
-            transform: transformStyles[placement!],
+            // transform: transformStyles[placement!],
+            ...styleWithPlacements[placement!],
+            ...style,
           }}
           onKeyDown={callAllHandlers(onKeyDown, handleKeyDown)}
           {...ulProps}

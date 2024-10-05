@@ -22,6 +22,7 @@ function IconButton(
     rounded = false,
     isActive = false,
     disabled = false,
+    as,
     className,
     children,
     ...passProps
@@ -30,8 +31,10 @@ function IconButton(
 ) {
   const internalID = useId();
 
+  const As = as || 'button';
+
   return (
-    <button
+    <As
       ref={ref}
       id={id || `icon-button-${internalID}`}
       type={type}
@@ -47,7 +50,7 @@ function IconButton(
       {...passProps}
     >
       {children}
-    </button>
+    </As>
   );
 }
 

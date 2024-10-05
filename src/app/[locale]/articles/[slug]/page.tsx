@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 
-import { articles as allArticles } from '#site/content';
+import { articles as allArticles, author as allAuthors } from '#site/content';
 import ScrollProgressBar from '@/components/common/scroll-progress-bar';
 import MDXContent from '@/components/mdx';
 
+import ArticleHeader from '../_components/article-header';
 import ArticleToc from '../_components/article-toc';
 
 import styles from './page.module.css';
@@ -49,28 +49,24 @@ function ArticlesPage({ params: { locale, slug } }: ArticlesProps) {
 
   if (!article) return <div>Article not found</div>;
 
+  const authors = article.authors
+    .map((author) =>
+      allAuthors.find(({ slug }) => slug === `authors/${author}`),
+    )
+    .filter((item) => item !== undefined);
+
   return (
     <>
       <ScrollProgressBar />
       <main className={styles.wrapper}>
         <article className={styles.content}>
-          {article.cover && (
-            <Image
-              src={article.cover}
-              alt={article.title}
-              width={626}
-              height={348}
-              quality={80}
-              placeholder='blur'
-              blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII='
-            />
-          )}
-
-          <h1 className={styles.heading}>{article.title}</h1>
-
-          <p className='mt-0 text-xl text-slate-700 dark:text-slate-200'>
-            {article.description}
-          </p>
+          <ArticleHeader
+            heading={article.title}
+            authors={authors}
+            modifiedDate={new Date(article.date).toDateString()}
+            readingTime={`${article.metadata.readingTime} min read`}
+            wordCount={article.metadata.wordCount}
+          />
 
           <MDXContent code={article.body} />
         </article>

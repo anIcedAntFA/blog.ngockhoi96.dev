@@ -39,6 +39,8 @@ export const viewLayouts = {
 export const colors = {
   BASE: 'base',
   PRIMARY: 'primary',
+  WARNING: 'warning',
+  ERROR: 'error',
 } as const;
 
 export const keyboardCommands = {

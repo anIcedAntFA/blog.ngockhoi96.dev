@@ -9,7 +9,8 @@
   // Runs Prettier, then ESLint
   "editor.codeActionsOnSave": {
     "source.formatDocument": "always",
-    "source.fixAll.eslint": "always"
+    "source.fixAll.eslint": "always",
+    "source.fixAll.stylelint": "always"
   },
 
   "files.insertFinalNewline": true,
@@ -30,6 +31,7 @@
     "gitmojis",
     "Lightbox",
     "lockb",
+    "ngockhoi",
     "rehype",
     "stylelint",
     "velite"

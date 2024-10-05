@@ -1,6 +1,8 @@
 .wrapper {
   display: flex;
   justify-content: center;
+
+  margin-top: 24px;
 }
 
 .content {
@@ -12,4 +14,12 @@
   font-size: var(--fs-3xl);
   font-family: var(--font-heading);
   line-height: 1.32;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 16px;
 }
