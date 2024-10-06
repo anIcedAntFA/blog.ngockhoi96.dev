@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import { articles as allArticles, author as allAuthors } from '#site/content';
 import ScrollProgressBar from '@/components/common/scroll-progress-bar';
+import { Tag, TagLabel } from '@/components/common/tag';
 import MDXContent from '@/components/mdx';
 
 import ArticleHeader from '../_components/article-header';
@@ -67,6 +68,20 @@ function ArticlesPage({ params: { locale, slug } }: ArticlesProps) {
             readingTime={`${article.metadata.readingTime} min read`}
             wordCount={article.metadata.wordCount}
           />
+
+          <div className={styles['tag-list']}>
+            <Tag variant='outlined' color='primary'>
+              <TagLabel>#Javascript</TagLabel>
+            </Tag>
+
+            <Tag variant='outlined' color='primary'>
+              <TagLabel>#coding</TagLabel>
+            </Tag>
+
+            <Tag variant='outlined' color='primary'>
+              <TagLabel>#studying</TagLabel>
+            </Tag>
+          </div>
 
           <MDXContent code={article.body} />
         </article>

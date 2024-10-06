@@ -7,7 +7,7 @@
 
 .back-btn {
   position: absolute;
-  top: 48px;
+  top: 36px;
   left: -220px;
 
   justify-self: flex-start;
@@ -58,8 +58,6 @@
 
 .nickname {
   grid-area: nickname;
-
-  padding: 0 0 2px;
 
   font-size: var(--fs-small);
 }
@@ -136,19 +134,19 @@
   gap: 8px;
 }
 
-.like {
+.like-icon {
   fill: none;
 
   &[data-active='true'] {
-    fill: #dc2626;
+    fill: var(--clr-red-600);
 
     html[data-theme='dark'] & {
-      fill: #f87171;
+      fill: var(--clr-red-400);
     }
   }
 }
 
-.save {
+.save-icon {
   fill: none;
 
   &[data-active='true'] {

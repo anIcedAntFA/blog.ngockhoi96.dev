@@ -46,7 +46,7 @@ function ArticleShareButton() {
           aria-label='Share this article'
           onClick={showShareOptions.toggle}
         >
-          <CustomTooltip label='Share'>
+          <CustomTooltip label='Share' hasArrow>
             <IconButton as='span' color='base' rounded>
               <ShareIcon />
             </IconButton>

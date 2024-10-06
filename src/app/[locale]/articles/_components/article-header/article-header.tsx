@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Button from '@/components/common/button';
 import CustomTooltip from '@/components/common/custom-tooltip';
 import IconButton from '@/components/common/icon-button';
-import { Tag, TagLabel } from '@/components/common/tag';
 import ArrowLeftIcon from '@/components/icons/arrow-left-icon';
 import BookmarkIcon from '@/components/icons/bookmark-icon';
 import CalendarIcon from '@/components/icons/calendar-icon';
@@ -122,7 +121,10 @@ function ArticleHeader({
               icon={{
                 position: 'left',
                 children: (
-                  <HeartIcon className={styles.like} data-active={like.value} />
+                  <HeartIcon
+                    className={styles['like-icon']}
+                    data-active={like.value}
+                  />
                 ),
               }}
               onClick={like.toggle}
@@ -157,44 +159,15 @@ function ArticleHeader({
               rounded
               onClick={save.toggle}
             >
-              <BookmarkIcon className={styles.save} data-active={save.value} />
+              <BookmarkIcon
+                className={styles['save-icon']}
+                data-active={save.value}
+              />
             </IconButton>
           </CustomTooltip>
 
           <ArticleShareButton />
         </div>
-      </div>
-
-      <div className={styles['tag-list']}>
-        <Tag
-          variant='outlined'
-          color='primary'
-          onClick={() => {
-            console.log('first');
-          }}
-        >
-          <TagLabel>#Javascript</TagLabel>
-        </Tag>
-
-        <Tag
-          variant='outlined'
-          color='primary'
-          onClick={() => {
-            console.log('first');
-          }}
-        >
-          <TagLabel>#coding</TagLabel>
-        </Tag>
-
-        <Tag
-          variant='outlined'
-          color='primary'
-          onClick={() => {
-            console.log('first');
-          }}
-        >
-          <TagLabel>#studying</TagLabel>
-        </Tag>
       </div>
     </div>
   );
