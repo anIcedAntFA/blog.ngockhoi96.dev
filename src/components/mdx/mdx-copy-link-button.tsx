@@ -48,6 +48,7 @@ const MdxCopyLinkButton = ({ size, headingId }: MdxCopyLinkButtonProps) => {
         <IconButton
           aria-label={t('ariaLabel')}
           size={size}
+          color='primary'
           onClick={handleCopyUrl}
         >
           <LinkIcon />

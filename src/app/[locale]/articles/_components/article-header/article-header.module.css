@@ -1,0 +1,167 @@
+.wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.back-btn {
+  position: absolute;
+  top: 36px;
+  left: -220px;
+
+  justify-self: flex-start;
+}
+
+.heading {
+  margin-top: 24px;
+
+  font-weight: var(--fw-xbold);
+  font-size: var(--fs-3xl);
+  font-family: var(--font-heading);
+  line-height: 1.32;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 16px;
+}
+
+.author {
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-template-areas:
+    'avatar name'
+    'avatar nickname';
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 3fr;
+  gap: 4px 16px;
+  justify-content: center;
+}
+
+.avatar {
+  grid-area: avatar;
+
+  display: flex;
+  align-items: center;
+  align-self: center;
+
+  border-radius: var(--br-circle);
+}
+
+.name {
+  grid-area: name;
+}
+
+.nickname {
+  grid-area: nickname;
+
+  font-size: var(--fs-small);
+}
+
+.post-info {
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-template-areas:
+    'date date'
+    'time words';
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.modified-date {
+  grid-area: date;
+
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  font-size: var(--fs-small);
+}
+
+.reading-time {
+  grid-area: time;
+
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  font-size: var(--fs-small);
+}
+
+.icon {
+  display: flex;
+
+  width: 18px;
+  height: 18px;
+}
+
+.word-count {
+  grid-area: words;
+
+  display: flex;
+  gap: 8px;
+  justify-self: flex-end;
+  align-items: center;
+
+  font-size: var(--fs-small);
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 20px;
+  padding-block: 8px;
+
+  border-top: 1px solid var(--clr-gray-300);
+  border-bottom: 1px solid var(--clr-gray-300);
+
+  html[data-theme='dark'] & {
+    border-top-color: var(--clr-gray-600);
+    border-bottom-color: var(--clr-gray-600);
+  }
+}
+
+.action-group {
+  display: flex;
+  gap: 8px;
+}
+
+.like-icon {
+  fill: none;
+
+  &[data-active='true'] {
+    fill: var(--clr-red-600);
+
+    html[data-theme='dark'] & {
+      fill: var(--clr-red-400);
+    }
+  }
+}
+
+.save-icon {
+  fill: none;
+
+  &[data-active='true'] {
+    fill: var(--clr-yellow-500);
+
+    html[data-theme='dark'] & {
+      fill: var(--clr-yellow-300);
+    }
+  }
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 24px;
+}

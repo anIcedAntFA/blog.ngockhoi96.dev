@@ -18,6 +18,8 @@ const author = defineCollection({
   schema: s.object({
     title: s.string().max(99),
     description: s.string().max(199).optional(),
+    avatar: s.string().max(99),
+    github: s.string().max(99),
     slug: s.path(),
   }),
 });
@@ -53,6 +55,7 @@ const articles = defineCollection({
       toc: s.toc(), // table of content,
       body: s.mdx(), // transform mdx to html
       excerpt: s.excerpt(),
+      authors: s.array(s.string()), // array of author slugs
     })
 
     //* more additional fields (computed fields)

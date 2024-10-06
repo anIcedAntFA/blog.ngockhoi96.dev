@@ -1,4 +1,4 @@
-import type { AriaAttributes, ComponentProps } from 'react';
+import type { AriaAttributes, ComponentProps, ElementType } from 'react';
 
 import type { Color, Size } from '@/types/constants';
 
@@ -10,6 +10,7 @@ export type IconButtonStyleProp = {
   color: Color;
   rounded: boolean;
   isActive: boolean;
+  as: ElementType;
 };
 
 export type IconButtonProps = ComponentProps<'button'> &

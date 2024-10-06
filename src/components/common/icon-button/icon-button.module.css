@@ -12,6 +12,14 @@ html[data-theme='light'] {
     --clr-bg-btn-outlined-hover: var(--clr-emerald-100);
     --clr-bg-btn-outlined-active: var(--clr-emerald-200);
   }
+
+  .root[data-color='warning'] {
+    --clr-bg-btn-contained-hover: var(--clr-yellow-100);
+    --clr-bg-btn-contained-active: var(--clr-yellow-200);
+    --clr-bg-btn-outlined-hover: var(--clr-yellow-100);
+    --clr-bg-btn-outlined-active: var(--clr-yellow-200);
+    --clr-bg-btn: var(--clr-yellow-500);
+  }
 }
 
 html[data-theme='dark'] {
@@ -27,6 +35,14 @@ html[data-theme='dark'] {
     --clr-bg-btn-contained-active: alpha(var(--clr-primary), 10%);
     --clr-bg-btn-outlined-hover: alpha(var(--clr-primary), 10%);
     --clr-bg-btn-outlined-active: alpha(var(--clr-primary), 20%);
+  }
+
+  .root[data-color='warning'] {
+    --clr-bg-btn-contained-hover: alpha(var(--clr-warning), 5%);
+    --clr-bg-btn-contained-active: alpha(var(--clr-warning), 10%);
+    --clr-bg-btn-outlined-hover: alpha(var(--clr-warning), 10%);
+    --clr-bg-btn-outlined-active: alpha(var(--clr-warning), 20%);
+    --clr-bg-btn: var(--clr-yellow-300);
   }
 }
 
@@ -71,6 +87,14 @@ html[data-theme='dark'] {
         background-color: alpha(var(--clr-primary), 10%);
       }
 
+      [data-color='warning']& {
+        background-color: alpha(var(--clr-yellow-500), 10%);
+
+        html[data-theme='dark']& {
+          background-color: alpha(var(--clr-yellow-300), 10%);
+        }
+      }
+
       [data-rounded='true']& {
         border-radius: 50%;
       }
@@ -110,14 +134,6 @@ html[data-theme='dark'] {
     &:disabled {
       @mixin disabled;
     }
-
-    &[data-color='base'] {
-      color: var(--clr-base);
-    }
-
-    &[data-color='primary'] {
-      color: var(--clr-primary);
-    }
   }
 
   &[data-size='small'] {
@@ -129,9 +145,9 @@ html[data-theme='dark'] {
   }
 
   &[data-size='medium'] {
-    width: 28px;
-    height: 28px;
-    padding: 4px;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
 
     border-radius: var(--br-medium);
   }
@@ -144,12 +160,20 @@ html[data-theme='dark'] {
     border-radius: var(--br-large);
   }
 
+  &[data-color='base'] {
+    color: var(--clr-base);
+  }
+
   &[data-color='primary'] {
     color: var(--clr-primary);
   }
 
+  &[data-color='warning'] {
+    color: var(--clr-bg-btn);
+  }
+
   &[data-rounded='true'] {
-    border-radius: 50%;
+    border-radius: var(--br-circle);
   }
 
   &[data-active='true'] {
