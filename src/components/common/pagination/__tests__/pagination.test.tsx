@@ -1,11 +1,48 @@
 import { render, screen, within } from '@testing-library/react';
+import { NextIntlClientProvider } from 'next-intl';
+import type { PropsWithChildren } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
 import Pagination from '../components/pagination';
 import type { PaginationProps } from '../pagination.type';
 
 const renderPagination = ({ currentPage, ...props }: PaginationProps) => {
-  render(<Pagination currentPage={currentPage} {...props} />);
+  const Wrapper = ({ children }: PropsWithChildren) => {
+    return (
+      <NextIntlClientProvider
+        locale='en'
+        messages={{
+          components: {
+            common: {
+              pagination: {
+                ariaLabel: 'pagination',
+                previousButton: {
+                  ariaLabel: 'Go to previous page',
+                  label: 'Previous',
+                },
+                nextButton: {
+                  ariaLabel: 'Go to next page',
+                  label: 'Next',
+                },
+                paginationItem: {
+                  ariaLabel: {
+                    page: 'page',
+                    goToPage: 'go to page',
+                  },
+                },
+              },
+            },
+          },
+        }}
+      >
+        {children}
+      </NextIntlClientProvider>
+    );
+  };
+
+  render(<Pagination currentPage={currentPage} {...props} />, {
+    wrapper: Wrapper,
+  });
 
   return {
     currentPage,
@@ -29,12 +66,12 @@ describe('Pagination', () => {
       expect(pagination).toBeVisible();
 
       const previousButton = within(pagination).getByRole('button', {
-        name: 'previous page',
+        name: 'Go to previous page',
       });
       expect(previousButton).toBeVisible();
 
       const nextButton = within(pagination).getByRole('button', {
-        name: 'next page',
+        name: 'Go to next page',
       });
       expect(nextButton).toBeVisible();
 
@@ -90,7 +127,7 @@ describe('Pagination', () => {
       });
 
       const previousButton = screen.getByRole('button', {
-        name: 'previous page',
+        name: 'Go to previous page',
       });
       expect(previousButton).toBeDisabled();
       expect(previousButton).toHaveAttribute('aria-disabled', 'true');
@@ -108,7 +145,7 @@ describe('Pagination', () => {
       });
 
       const nextButton = screen.getByRole('button', {
-        name: 'next page',
+        name: 'Go to next page',
       });
       expect(nextButton).toBeDisabled();
       expect(nextButton).toHaveAttribute('aria-disabled', 'true');
