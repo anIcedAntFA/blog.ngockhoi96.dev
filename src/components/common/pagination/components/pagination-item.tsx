@@ -1,7 +1,8 @@
-import Button from '../button';
+import { useTranslations } from 'next-intl';
 
-import styles from './pagination.module.css';
-import type { PaginationItemProps } from './pagination.type';
+import Button from '../../button';
+import styles from '../pagination.module.css';
+import type { PaginationItemProps } from '../pagination.type';
 
 function PaginationItem({
   color = 'base',
@@ -10,13 +11,19 @@ function PaginationItem({
   isSelected,
   onClick,
 }: PaginationItemProps) {
+  const t = useTranslations(
+    'components.common.pagination.paginationItem.ariaLabel',
+  );
+
   return (
     <li key={pageNumber} aria-setsize={totalPages} aria-posinset={pageNumber}>
       <Button
         variant='text'
         color={color}
         aria-label={
-          isSelected ? `page ${pageNumber}` : `go to page ${pageNumber}`
+          isSelected
+            ? `${t('page')} ${pageNumber}`
+            : `${t('goToPage')} ${pageNumber}`
         }
         aria-current={isSelected ? 'true' : undefined}
         data-active={isSelected || undefined}

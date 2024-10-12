@@ -1,8 +1,9 @@
 import type { ComponentProps } from 'react';
 import { useMemo } from 'react';
 
-import type Pagination from './pagination';
+import type Pagination from './components/pagination';
 import {
+  DEFAULT_SIBLING_COUNT,
   FIRST_PAGE_INDEX,
   LEFT_ELLIPSIS_PAGE_INDEX,
   MAXIMUM_AMOUNT_OF_ELLIPSES,
@@ -42,7 +43,7 @@ type UseGetPageRangeProps = {
 function useGetPageRange({
   totalPages,
   currentPage,
-  siblingCount,
+  siblingCount = DEFAULT_SIBLING_COUNT,
 }: UseGetPageRangeProps): number[] {
   const pageRange = useMemo(() => {
     //* 1 ... 5 6 7 ... 10 => 2 siblings on each side of the current page (6)

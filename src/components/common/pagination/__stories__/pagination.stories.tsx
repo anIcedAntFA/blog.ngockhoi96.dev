@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import Pagination from '../pagination';
+import Pagination from '../components/pagination';
 import { PaginationProps } from '../pagination.type';
 import { useState } from 'react';
 

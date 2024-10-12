@@ -1,7 +1,7 @@
 import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import Pagination from '../pagination';
+import Pagination from '../components/pagination';
 import type { PaginationProps } from '../pagination.type';
 
 const renderPagination = ({ currentPage, ...props }: PaginationProps) => {

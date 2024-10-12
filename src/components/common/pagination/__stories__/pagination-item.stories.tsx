@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import PaginationItem from '../pagination-item';
+import PaginationItem from '../components/pagination-item';
 
 const meta = {
   title: 'Common/Pagination/PaginationItem',

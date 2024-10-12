@@ -1,16 +1,18 @@
+import { useTranslations } from 'next-intl';
+
 import ArrowLeftIcon from '@/components/icons/arrow-left-icon';
 import ArrowRightIcon from '@/components/icons/arrow-right-icon';
 import { colors } from '@/configs/constants';
 import { equal } from '@/utils/equal';
 
-import Button from '../button';
+import Button from '../../button';
+import { DEFAULT_SIBLING_COUNT, FIRST_PAGE_INDEX } from '../pagination.config';
+import useGetPageRange from '../pagination.hook';
+import styles from '../pagination.module.css';
+import type { PaginationProps } from '../pagination.type';
 
 import Ellipsis from './ellipsis';
 import PaginationItem from './pagination-item';
-import { DEFAULT_SIBLING_COUNT, FIRST_PAGE_INDEX } from './pagination.config';
-import useGetPageRange from './pagination.hook';
-import styles from './pagination.module.css';
-import type { PaginationProps } from './pagination.type';
 
 function Pagination({
   totalCount,
@@ -20,6 +22,8 @@ function Pagination({
   color = colors.BASE,
   onPageChange,
 }: PaginationProps) {
+  const t = useTranslations('components.common.pagination');
+
   const totalPages = Math.ceil(totalCount / pageSize);
 
   const pageRange = useGetPageRange({
@@ -33,9 +37,9 @@ function Pagination({
   const lastPage = pageRange[pageRange.length - 1];
 
   return (
-    <nav aria-label='pagination' className={styles.root}>
+    <nav aria-label={t('ariaLabel')} className={styles.root}>
       <Button
-        aria-label='previous page'
+        aria-label={t('previousButton.ariaLabel')}
         color={color}
         variant='text'
         icon={{
@@ -46,7 +50,7 @@ function Pagination({
         disabled={equal(currentPage, FIRST_PAGE_INDEX)}
         onClick={() => onPageChange(currentPage - 1)}
       >
-        Previous
+        {t('previousButton.label')}
       </Button>
 
       <ol className={styles.list}>
@@ -67,7 +71,7 @@ function Pagination({
       </ol>
 
       <Button
-        aria-label='next page'
+        aria-label={t('nextButton.ariaLabel')}
         color={color}
         variant='text'
         icon={{
@@ -78,7 +82,7 @@ function Pagination({
         disabled={equal(currentPage, lastPage)}
         onClick={() => onPageChange(currentPage + 1)}
       >
-        Next
+        {t('nextButton.label')}
       </Button>
     </nav>
   );

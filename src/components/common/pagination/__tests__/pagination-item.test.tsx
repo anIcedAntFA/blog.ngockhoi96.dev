@@ -1,7 +1,7 @@
 import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import PaginationItem from '../pagination-item';
+import PaginationItem from '../components/pagination-item';
 import type { PaginationItemProps } from '../pagination.type';
 
 const renderPaginationItem = (props: PaginationItemProps) => {

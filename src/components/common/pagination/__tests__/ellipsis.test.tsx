@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import Ellipsis from '../ellipsis';
+import Ellipsis from '../components/ellipsis';
 import { ELLIPSIS } from '../pagination.config';
 
 describe('Ellipsis', () => {

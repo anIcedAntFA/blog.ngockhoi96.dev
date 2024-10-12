@@ -60,6 +60,23 @@
           "label": "Sao chép",
           "copiedLabel": "Đã sao chép!"
         }
+      },
+      "pagination": {
+        "ariaLabel": "phân trang",
+        "previousButton": {
+          "ariaLabel": "Trang trước",
+          "label": "Trước"
+        },
+        "nextButton": {
+          "ariaLabel": "Trang tiếp theo",
+          "label": "Tiếp"
+        },
+        "paginationItem": {
+          "ariaLabel": {
+            "page": "trang",
+            "goToPage": "đi đến trang"
+          }
+        }
       }
     },
     "search": {
