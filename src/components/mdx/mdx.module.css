@@ -283,9 +283,3 @@
 .details-summary-title {
   margin-left: var(--space-1);
 }
-
-.details-divider {
-  margin-top: var(--space-2);
-
-  /* border-color: var(--clr-text-content) !important; */
-}
