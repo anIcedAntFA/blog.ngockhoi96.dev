@@ -1,11 +1,37 @@
 import { render, screen, within } from '@testing-library/react';
+import { NextIntlClientProvider } from 'next-intl';
+import type { PropsWithChildren } from 'react';
 import { describe, expect, it } from 'vitest';
 
 import PaginationItem from '../components/pagination-item';
 import type { PaginationItemProps } from '../pagination.type';
 
 const renderPaginationItem = (props: PaginationItemProps) => {
-  render(<PaginationItem {...props} />);
+  const Wrapper = ({ children }: PropsWithChildren) => {
+    return (
+      <NextIntlClientProvider
+        locale='en'
+        messages={{
+          components: {
+            common: {
+              pagination: {
+                paginationItem: {
+                  ariaLabel: {
+                    page: 'page',
+                    goToPage: 'go to page',
+                  },
+                },
+              },
+            },
+          },
+        }}
+      >
+        {children}
+      </NextIntlClientProvider>
+    );
+  };
+
+  render(<PaginationItem {...props} />, { wrapper: Wrapper });
 };
 
 describe('PaginationItem', () => {

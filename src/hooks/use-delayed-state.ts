@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const TIMEOUT_DELAY = 300;
+const TIMEOUT_DELAY = 200;
 
 function useDelayedState(
   condition: boolean,

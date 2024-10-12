@@ -134,5 +134,13 @@
     "commitizen": {
       "path": "node_modules/cz-git"
     }
-  }
+  },
+  "keywords": [
+    "ngockhoi96",
+    "blog.ngockhoi96",
+    "nextjs",
+    "reactjs",
+    "typescript",
+    "mdx"
+  ]
 }
