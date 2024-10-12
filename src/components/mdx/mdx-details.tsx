@@ -2,7 +2,13 @@
 
 import useBoolean from '@/hooks/use-boolean';
 
-import Details from '../common/details';
+import {
+  Details,
+  DetailsContent,
+  DetailsDivider,
+  DetailsSummary,
+  DetailsSummaryIcon,
+} from '../common/details';
 
 import styles from './mdx.module.css';
 
@@ -16,12 +22,16 @@ function MdxDetails({ title, children }: MdxDetailsProps) {
 
   return (
     <Details
-      title={title}
       isOpened={isOpened.value}
       className={styles.details}
       onToggle={isOpened.toggle}
     >
-      {children}
+      <DetailsSummary>
+        <DetailsSummaryIcon />
+        <span className={styles['details-summary-title']}>{title}</span>
+      </DetailsSummary>
+      <DetailsDivider />
+      <DetailsContent>{children}</DetailsContent>
     </Details>
   );
 }
