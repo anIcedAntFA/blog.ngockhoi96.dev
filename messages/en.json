@@ -60,6 +60,23 @@
           "label": "Copy",
           "copiedLabel": "Copied!"
         }
+      },
+      "pagination": {
+        "ariaLabel": "pagination",
+        "previousButton": {
+          "ariaLabel": "Go to previous page",
+          "label": "Previous"
+        },
+        "nextButton": {
+          "ariaLabel": "Go to next page",
+          "label": "Next"
+        },
+        "paginationItem": {
+          "ariaLabel": {
+            "page": "page",
+            "goToPage": "go to page"
+          }
+        }
       }
     },
     "search": {

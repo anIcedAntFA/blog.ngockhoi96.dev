@@ -3,12 +3,12 @@ import type { ComponentProps } from 'react';
 import type { Color } from '@/types/constants';
 
 export type PaginationProps = {
-  color?: Color;
   totalCount: number;
   pageSize: number;
   currentPage: number;
-  siblingCount: number;
   onPageChange: (page: number) => void;
+  siblingCount?: number;
+  color?: Color;
 };
 
 export type PaginationItemProps = ComponentProps<'button'> & {

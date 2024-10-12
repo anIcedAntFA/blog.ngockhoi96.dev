@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import Ellipsis from '../ellipsis';
+import Ellipsis from '../components/ellipsis';
 
 const meta = {
   title: 'Common/Pagination/Ellipsis',
